@@ -1,0 +1,210 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://adi-llm.local/schemas/developmental-graph.schema.json",
+  "title": "Developmental Relation Graph",
+  "type": "object",
+  "required": ["schema_version", "graph_id", "metadata", "layers", "nodes", "relations"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "pattern": "^0\\.1\\.\\d+$"
+    },
+    "graph_id": {
+      "$ref": "#/$defs/id"
+    },
+    "metadata": {
+      "type": "object",
+      "required": ["title", "description"],
+      "additionalProperties": false,
+      "properties": {
+        "title": { "type": "string", "minLength": 1 },
+        "description": { "type": "string" },
+        "agent": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "notes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "layers": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "order", "label"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "$ref": "#/$defs/id" },
+          "order": { "type": "integer" },
+          "label": { "type": "string", "minLength": 1 },
+          "description": { "type": "string" }
+        }
+      }
+    },
+    "nodes": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/node" }
+    },
+    "relations": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/relation" }
+    },
+    "micro_experiences": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/micro_experience" }
+    },
+    "evaluation_questions": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/evaluation_question" }
+    }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*(\\.[a-z0-9_]+)*$"
+    },
+    "age_status": {
+      "type": "string",
+      "enum": ["active", "emerging", "latent", "future"]
+    },
+    "valence": {
+      "type": "string",
+      "enum": ["negative", "neutral", "positive", "mixed", "unknown"]
+    },
+    "strength": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0
+    },
+    "node": {
+      "type": "object",
+      "required": ["id", "label", "layer", "kind", "age_status"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "label": { "type": "string", "minLength": 1 },
+        "layer": { "$ref": "#/$defs/id" },
+        "kind": { "type": "string", "minLength": 1 },
+        "age_status": { "$ref": "#/$defs/age_status" },
+        "summary": { "type": "string" },
+        "aliases": {
+          "type": "array",
+          "items": { "type": "string" },
+          "uniqueItems": true
+        },
+        "configurable": {
+          "type": "boolean",
+          "default": false
+        },
+        "tags": {
+          "type": "array",
+          "items": { "type": "string" },
+          "uniqueItems": true
+        },
+        "attributes": {
+          "type": "object",
+          "additionalProperties": true
+        }
+      }
+    },
+    "relation": {
+      "type": "object",
+      "required": ["source", "type", "target", "strength"],
+      "additionalProperties": false,
+      "properties": {
+        "source": { "$ref": "#/$defs/id" },
+        "type": { "type": "string", "minLength": 1 },
+        "target": { "$ref": "#/$defs/id" },
+        "strength": { "$ref": "#/$defs/strength" },
+        "valence": { "$ref": "#/$defs/valence" },
+        "age_status": { "$ref": "#/$defs/age_status" },
+        "conditions": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "built_from": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/id" },
+          "uniqueItems": true
+        },
+        "evidence_pattern": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "attributes": {
+          "type": "object",
+          "additionalProperties": true
+        }
+      }
+    },
+    "micro_experience": {
+      "type": "object",
+      "required": ["id", "title", "age_status", "events", "relations_observed"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "title": { "type": "string", "minLength": 1 },
+        "age_status": { "$ref": "#/$defs/age_status" },
+        "participants": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/id" },
+          "uniqueItems": true
+        },
+        "events": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string" }
+        },
+        "relations_observed": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["source", "type", "target"],
+            "additionalProperties": false,
+            "properties": {
+              "source": { "$ref": "#/$defs/id" },
+              "type": { "type": "string", "minLength": 1 },
+              "target": { "$ref": "#/$defs/id" },
+              "strength_delta": {
+                "type": "number",
+                "minimum": -1.0,
+                "maximum": 1.0
+              }
+            }
+          }
+        },
+        "language_overlay": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "evaluation_question": {
+      "type": "object",
+      "required": ["id", "question", "expected_relations"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "question": { "type": "string", "minLength": 1 },
+        "expected_answer": { "type": "string" },
+        "expected_relations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["source", "type", "target"],
+            "additionalProperties": false,
+            "properties": {
+              "source": { "$ref": "#/$defs/id" },
+              "type": { "type": "string", "minLength": 1 },
+              "target": { "$ref": "#/$defs/id" }
+            }
+          }
+        }
+      }
+    }
+  }
+}

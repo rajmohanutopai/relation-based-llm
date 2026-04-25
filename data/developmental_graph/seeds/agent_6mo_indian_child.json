@@ -1,0 +1,4014 @@
+{
+  "schema_version": "0.1.0",
+  "graph_id": "seed.agent_6mo_indian_child",
+  "metadata": {
+    "title": "Seed Agent: 6-Month-Old Indian Child",
+    "description": "Machine-parseable seed graph for a 6-month-old child in an Indian household context. This is a developmental training scaffold, not a medical or psychological model.",
+    "agent": {
+      "age_months": 6,
+      "sex": "male",
+      "country_context": "India",
+      "developmental_stage": "early_sensorimotor",
+      "language_stage": "pre_word_or_early_babbling"
+    },
+    "notes": [
+      "India-specific nodes are environmental configuration points, not universal claims.",
+      "Adult abstractions remain latent or future; only their lower precursors are active."
+    ]
+  },
+  "layers": [
+    {
+      "id": "layer.input_channel",
+      "order": -1,
+      "label": "Input Channels",
+      "description": "Raw sensory, proprioceptive, control, and valence channels."
+    },
+    {
+      "id": "layer.invariant",
+      "order": 0,
+      "label": "Relational Invariants",
+      "description": "First relations extracted from input-state changes."
+    },
+    {
+      "id": "layer.schema",
+      "order": 1,
+      "label": "Sensorimotor Schemas",
+      "description": "Reusable low-level event patterns."
+    },
+    {
+      "id": "layer.property",
+      "order": 2,
+      "label": "Property Relations",
+      "description": "Predictive summaries of object behavior."
+    },
+    {
+      "id": "layer.object",
+      "order": 3,
+      "label": "Early Object Concepts",
+      "description": "Weak prototype-like object/body/agent clusters."
+    },
+    {
+      "id": "layer.event",
+      "order": 4,
+      "label": "Early Event Concepts",
+      "description": "Object-action-effect patterns."
+    },
+    {
+      "id": "layer.self_agent",
+      "order": 5,
+      "label": "Self and Other",
+      "description": "Control/sensation based self and familiar external agents."
+    },
+    {
+      "id": "layer.social_precursor",
+      "order": 6,
+      "label": "Social Precursors",
+      "description": "Attention, turn-taking, and approval-like affect before adult social abstractions."
+    },
+    {
+      "id": "layer.language_binding",
+      "order": 7,
+      "label": "Language Binding",
+      "description": "Sound patterns attaching to relation clusters."
+    },
+    {
+      "id": "layer.context",
+      "order": 10,
+      "label": "Household Context",
+      "description": "Configurable India-context household objects, sounds, and routines."
+    },
+    {
+      "id": "layer.future_abstraction",
+      "order": 99,
+      "label": "Future Abstractions",
+      "description": "Concepts explicitly not active at 6 months."
+    }
+  ],
+  "nodes": [
+    {
+      "id": "channel.visual",
+      "label": "visual channel",
+      "layer": "layer.input_channel",
+      "kind": "sensory_channel",
+      "age_status": "active",
+      "summary": "Source for face, motion, object, light, and distance patterns."
+    },
+    {
+      "id": "channel.sound",
+      "label": "sound channel",
+      "layer": "layer.input_channel",
+      "kind": "sensory_channel",
+      "age_status": "active",
+      "summary": "Source for voice, loudness, rhythm, and household sounds."
+    },
+    {
+      "id": "channel.touch",
+      "label": "touch channel",
+      "layer": "layer.input_channel",
+      "kind": "sensory_channel",
+      "age_status": "active",
+      "summary": "Source for contact, pressure, texture, temperature, and deformation."
+    },
+    {
+      "id": "channel.chemical",
+      "label": "taste/smell channel",
+      "layer": "layer.input_channel",
+      "kind": "sensory_channel",
+      "age_status": "active",
+      "summary": "Source for feeding taste/smell and aversion/attraction cues."
+    },
+    {
+      "id": "channel.proprioception_control",
+      "label": "proprioception and control channel",
+      "layer": "layer.input_channel",
+      "kind": "body_control_channel",
+      "age_status": "active",
+      "summary": "Source for body position, motor commands, effort, and controllability."
+    },
+    {
+      "id": "channel.valence",
+      "label": "valence channel",
+      "layer": "layer.input_channel",
+      "kind": "body_value_channel",
+      "age_status": "active",
+      "summary": "Source for hunger, pain, comfort, discomfort, startle, relief, and pleasure."
+    },
+    {
+      "id": "invariant.same_different",
+      "label": "same/different",
+      "layer": "layer.invariant",
+      "kind": "comparison_relation",
+      "age_status": "active",
+      "summary": "Low-level comparison across sensory states."
+    },
+    {
+      "id": "invariant.before_after",
+      "label": "before/after",
+      "layer": "layer.invariant",
+      "kind": "temporal_relation",
+      "age_status": "active",
+      "summary": "Sequential ordering across observed states."
+    },
+    {
+      "id": "invariant.near_far",
+      "label": "near/far",
+      "layer": "layer.invariant",
+      "kind": "spatial_relation",
+      "age_status": "active",
+      "summary": "Distance relation for reachable and unreachable things."
+    },
+    {
+      "id": "invariant.touching",
+      "label": "touching/not touching",
+      "layer": "layer.invariant",
+      "kind": "contact_relation",
+      "age_status": "active",
+      "summary": "Contact relation from touch and vision."
+    },
+    {
+      "id": "invariant.moves_stops",
+      "label": "moves/stops",
+      "layer": "layer.invariant",
+      "kind": "change_relation",
+      "age_status": "active",
+      "summary": "Motion and cessation relation."
+    },
+    {
+      "id": "invariant.supported_unsupported",
+      "label": "supported/unsupported",
+      "layer": "layer.invariant",
+      "kind": "support_relation",
+      "age_status": "emerging",
+      "summary": "Body or object remains stable when supported and becomes unstable when support is insufficient."
+    },
+    {
+      "id": "invariant.body_orientation",
+      "label": "body orientation",
+      "layer": "layer.invariant",
+      "kind": "posture_relation",
+      "age_status": "emerging",
+      "summary": "Body position changes such as lying, side, tummy, upright, tilted, and falling."
+    },
+    {
+      "id": "invariant.expected_unexpected",
+      "label": "expected/unexpected",
+      "layer": "layer.invariant",
+      "kind": "prediction_relation",
+      "age_status": "emerging",
+      "summary": "Prediction and violation relation from repeated events."
+    },
+    {
+      "id": "invariant.direct_control",
+      "label": "direct control",
+      "layer": "layer.invariant",
+      "kind": "control_relation",
+      "age_status": "active",
+      "summary": "Motor command reliably produces body movement."
+    },
+    {
+      "id": "invariant.indirect_effect",
+      "label": "indirect effect",
+      "layer": "layer.invariant",
+      "kind": "control_relation",
+      "age_status": "emerging",
+      "summary": "Self action changes external objects only through contact or other mediation."
+    },
+    {
+      "id": "invariant.comfort_discomfort",
+      "label": "comfort/discomfort",
+      "layer": "layer.invariant",
+      "kind": "valence_relation",
+      "age_status": "active",
+      "summary": "Primitive positive/negative body-state change."
+    },
+    {
+      "id": "invariant.pain_relief",
+      "label": "pain/relief",
+      "layer": "layer.invariant",
+      "kind": "valence_relation",
+      "age_status": "active",
+      "summary": "Pain increase and relief decrease patterns."
+    },
+    {
+      "id": "invariant.positive_activation",
+      "label": "positive activation",
+      "layer": "layer.invariant",
+      "kind": "affect_relation",
+      "age_status": "active",
+      "summary": "Activation of existing positively linked relation clusters."
+    },
+    {
+      "id": "invariant.connection_gain",
+      "label": "connection gain",
+      "layer": "layer.invariant",
+      "kind": "learning_affect_relation",
+      "age_status": "active",
+      "summary": "Creation or strengthening of useful new relations, experienced as interest, pleasure, or happiness."
+    },
+    {
+      "id": "invariant.positive_saturation",
+      "label": "positive saturation",
+      "layer": "layer.invariant",
+      "kind": "affect_modulation_relation",
+      "age_status": "active",
+      "summary": "Repeated activation of an already strong positive relation gives decreasing additional happiness, while still maintaining comfort or familiarity."
+    },
+    {
+      "id": "invariant.connection_loss",
+      "label": "connection loss",
+      "layer": "layer.invariant",
+      "kind": "learning_affect_relation",
+      "age_status": "emerging",
+      "summary": "Weakening, blocking, or breaking of expected valued relations, later supporting sadness and grief."
+    },
+    {
+      "id": "invariant.direct_valence_shortcut",
+      "label": "direct valence shortcut",
+      "layer": "layer.invariant",
+      "kind": "affect_failure_mode",
+      "age_status": "future",
+      "summary": "Direct high-intensity positive activation without useful relation growth; later supports addiction and other reward-hacking patterns."
+    },
+    {
+      "id": "schema.self_motion",
+      "label": "self-motion schema",
+      "layer": "layer.schema",
+      "kind": "sensorimotor_schema",
+      "age_status": "active",
+      "summary": "Motor command predicts body part movement and direct sensation."
+    },
+    {
+      "id": "schema.body_orientation_change",
+      "label": "body orientation change schema",
+      "layer": "layer.schema",
+      "kind": "posture_schema",
+      "age_status": "emerging",
+      "summary": "Rolling or assisted movement changes body orientation and alters visual, touch, and proprioceptive input."
+    },
+    {
+      "id": "schema.posture_support",
+      "label": "posture support schema",
+      "layer": "layer.schema",
+      "kind": "posture_schema",
+      "age_status": "emerging",
+      "summary": "Hands, caregiver, cushion, floor, or lap support body position and reduce falling or tilting."
+    },
+    {
+      "id": "schema.balance_instability",
+      "label": "balance instability schema",
+      "layer": "layer.schema",
+      "kind": "posture_schema",
+      "age_status": "emerging",
+      "summary": "Insufficient support during sitting or leaning causes tilt, loss of balance, falling risk, or caregiver catch."
+    },
+    {
+      "id": "schema.held_by_caregiver",
+      "label": "held by caregiver schema",
+      "layer": "layer.schema",
+      "kind": "care_schema",
+      "age_status": "active",
+      "summary": "Familiar arms, voice, warmth, and position stabilization predict comfort."
+    },
+    {
+      "id": "schema.feeding_relief",
+      "label": "feeding relief schema",
+      "layer": "layer.schema",
+      "kind": "care_schema",
+      "age_status": "active",
+      "summary": "Hunger discomfort, cry, caregiver approach, feeding, and relief."
+    },
+    {
+      "id": "schema.feeding_completion",
+      "label": "feeding completion schema",
+      "layer": "layer.schema",
+      "kind": "feeding_schema",
+      "age_status": "active",
+      "summary": "Satiety, turning away, closing mouth, or reduced interest marks that feeding should slow or stop."
+    },
+    {
+      "id": "schema.spoon_approach_mouth",
+      "label": "spoon approach mouth schema",
+      "layer": "layer.schema",
+      "kind": "feeding_schema",
+      "age_status": "emerging",
+      "summary": "Caregiver moves spoon or feeding object toward mouth; mouth contact may bring taste, texture, temperature, or refusal."
+    },
+    {
+      "id": "schema.feeding_interruption_delay",
+      "label": "feeding interruption or delay schema",
+      "layer": "layer.schema",
+      "kind": "feeding_schema",
+      "age_status": "active",
+      "summary": "Expected feeding or milk/food flow pauses or is delayed while hunger or interest remains, increasing frustration or distress."
+    },
+    {
+      "id": "schema.internal_discomfort_gas",
+      "label": "internal gas discomfort schema",
+      "layer": "layer.schema",
+      "kind": "body_state_schema",
+      "age_status": "active",
+      "summary": "Gas, burping, or stomach pressure produces internal discomfort that may change with upright holding or caregiver handling."
+    },
+    {
+      "id": "schema.reach_grasp_mouth",
+      "label": "reach-grasp-mouth schema",
+      "layer": "layer.schema",
+      "kind": "exploration_schema",
+      "age_status": "active",
+      "summary": "Near object triggers reach, grasp if possible, and mouth exploration."
+    },
+    {
+      "id": "schema.drop_sound",
+      "label": "drop-sound schema",
+      "layer": "layer.schema",
+      "kind": "cause_effect_schema",
+      "age_status": "emerging",
+      "summary": "Released object falls, impacts, and produces material-dependent sound."
+    },
+    {
+      "id": "schema.shake_sound",
+      "label": "shake-sound schema",
+      "layer": "layer.schema",
+      "kind": "cause_effect_schema",
+      "age_status": "active",
+      "summary": "Hand motion with sound-making object produces repeated sound."
+    },
+    {
+      "id": "schema.startle_comfort",
+      "label": "startle-comfort schema",
+      "layer": "layer.schema",
+      "kind": "valence_repair_schema",
+      "age_status": "active",
+      "summary": "Sudden loud sound causes startle; caregiver voice/touch repairs comfort."
+    },
+    {
+      "id": "schema.hide_reappear",
+      "label": "hide-reappear schema",
+      "layer": "layer.schema",
+      "kind": "object_permanence_schema",
+      "age_status": "emerging",
+      "summary": "Visible object is hidden and later reappears; expectation is partial."
+    },
+    {
+      "id": "schema.sleep_transition",
+      "label": "sleep transition schema",
+      "layer": "layer.schema",
+      "kind": "regulation_schema",
+      "age_status": "active",
+      "summary": "Sleepiness and fatigue shift toward sleep through holding, rocking, lullaby, feeding, or reduced stimulation."
+    },
+    {
+      "id": "schema.wake_transition",
+      "label": "wake transition schema",
+      "layer": "layer.schema",
+      "kind": "regulation_schema",
+      "age_status": "active",
+      "summary": "Sleep state shifts toward waking through hunger, sound, light, movement, temperature, caregiver, or internal discomfort."
+    },
+    {
+      "id": "schema.stimulation_regulation",
+      "label": "stimulation regulation schema",
+      "layer": "layer.schema",
+      "kind": "regulation_schema",
+      "age_status": "active",
+      "summary": "Sound, light, visitors, movement, and activity change arousal; reducing stimulation can support calming or sleep."
+    },
+    {
+      "id": "schema.wetness_relief",
+      "label": "wetness relief schema",
+      "layer": "layer.schema",
+      "kind": "care_schema",
+      "age_status": "active",
+      "summary": "Wetness or body discomfort is relieved by caregiver cleaning or changing."
+    },
+    {
+      "id": "schema.temperature_comfort",
+      "label": "temperature comfort schema",
+      "layer": "layer.schema",
+      "kind": "regulation_schema",
+      "age_status": "active",
+      "summary": "Too hot or too cold produces discomfort; clothing, fan, bath, or holding changes comfort."
+    },
+    {
+      "id": "schema.bath_water_contact",
+      "label": "bath water contact schema",
+      "layer": "layer.schema",
+      "kind": "care_schema",
+      "age_status": "active",
+      "summary": "Water contacts body during bath; temperature, handling, and routine can produce comfort, discomfort, or startle."
+    },
+    {
+      "id": "schema.body_impact_pain",
+      "label": "body impact pain schema",
+      "layer": "layer.schema",
+      "kind": "pain_schema",
+      "age_status": "active",
+      "summary": "Body impact, pressure, or bump increases pain and often triggers crying."
+    },
+    {
+      "id": "schema.push_roll",
+      "label": "push-roll schema",
+      "layer": "layer.schema",
+      "kind": "cause_effect_schema",
+      "age_status": "emerging",
+      "summary": "Round object pushed or released on a surface changes position through rolling motion."
+    },
+    {
+      "id": "schema.face_proximity_attention",
+      "label": "face proximity attention schema",
+      "layer": "layer.schema",
+      "kind": "social_attention_schema",
+      "age_status": "active",
+      "summary": "Familiar face close to the child strongly attracts visual attention and can combine with voice and expression."
+    },
+    {
+      "id": "schema.orienting_to_sound_motion",
+      "label": "orienting to sound or motion schema",
+      "layer": "layer.schema",
+      "kind": "attention_schema",
+      "age_status": "active",
+      "summary": "Head, eyes, or attention turn toward a salient sound, motion, face, or object."
+    },
+    {
+      "id": "schema.imitation",
+      "label": "imitation schema",
+      "layer": "layer.schema",
+      "kind": "social_learning_schema",
+      "age_status": "emerging",
+      "summary": "Caregiver sound, facial movement, or gesture can trigger similar baby sound or movement attempts."
+    },
+    {
+      "id": "schema.joint_attention",
+      "label": "joint attention precursor schema",
+      "layer": "layer.schema",
+      "kind": "social_attention_schema",
+      "age_status": "emerging",
+      "summary": "Caregiver gaze, voice, or pointing shifts baby attention toward an object."
+    },
+    {
+      "id": "schema.rhythm_song_comfort",
+      "label": "rhythm and song comfort schema",
+      "layer": "layer.schema",
+      "kind": "sound_regulation_schema",
+      "age_status": "active",
+      "summary": "Repeated rhythm, lullaby, and familiar voice stabilize attention and comfort."
+    },
+    {
+      "id": "schema.novelty_habituation",
+      "label": "novelty and habituation schema",
+      "layer": "layer.schema",
+      "kind": "attention_schema",
+      "age_status": "active",
+      "summary": "New stimuli increase attention; repeated same stimuli gradually reduce attention."
+    },
+    {
+      "id": "schema.mouth_aversion",
+      "label": "mouth aversion schema",
+      "layer": "layer.schema",
+      "kind": "exploration_safety_schema",
+      "age_status": "active",
+      "summary": "Unpleasant taste, hard pressure, or unsafe mouth contact produces aversion or discomfort."
+    },
+    {
+      "id": "schema.open_close_boundary",
+      "label": "open-close boundary schema",
+      "layer": "layer.schema",
+      "kind": "environment_schema",
+      "age_status": "emerging",
+      "summary": "Door, curtain, or boundary changes from closed to open or open to closed, often with sound and appearance change."
+    },
+    {
+      "id": "schema.caregiver_safety_block",
+      "label": "caregiver safety block schema",
+      "layer": "layer.schema",
+      "kind": "care_safety_schema",
+      "age_status": "emerging",
+      "summary": "Caregiver prevents mouthing, touching, crawling, or reaching when an object or action may be unsafe."
+    },
+    {
+      "id": "schema.object_removal_frustration",
+      "label": "object removal frustration schema",
+      "layer": "layer.schema",
+      "kind": "valence_schema",
+      "age_status": "emerging",
+      "summary": "Toy or object is removed for cleaning, safety, or end of play, blocking expected access and possibly increasing frustration."
+    },
+    {
+      "id": "schema.blocked_action_frustration",
+      "label": "blocked action frustration schema",
+      "layer": "layer.schema",
+      "kind": "valence_schema",
+      "age_status": "emerging",
+      "summary": "Intended reach, mouth, or movement is blocked, often increasing fussing, frustration, or effort."
+    },
+    {
+      "id": "schema.caregiver_emotional_tone",
+      "label": "caregiver emotional tone schema",
+      "layer": "layer.schema",
+      "kind": "social_valence_schema",
+      "age_status": "active",
+      "summary": "Soft voice and smiling face predict comfort/approach; sharp voice or angry face predicts discomfort/uncertainty."
+    },
+    {
+      "id": "schema.happiness_existing_connection",
+      "label": "happiness from existing connection",
+      "layer": "layer.schema",
+      "kind": "affect_schema",
+      "age_status": "active",
+      "summary": "A current cue activates already learned positive relation clusters, increasing happiness or pleasure."
+    },
+    {
+      "id": "schema.happiness_new_connection",
+      "label": "happiness from new connection",
+      "layer": "layer.schema",
+      "kind": "affect_schema",
+      "age_status": "active",
+      "summary": "A new relation is created or strengthened, producing curiosity, interest, laughter, or happiness."
+    },
+    {
+      "id": "schema.happiness_saturation",
+      "label": "happiness saturation",
+      "layer": "layer.schema",
+      "kind": "affect_modulation_schema",
+      "age_status": "active",
+      "summary": "As a positive relation becomes familiar and strong, repeated activation produces less new happiness unless it opens a changed or deeper relation."
+    },
+    {
+      "id": "schema.sadness_connection_loss",
+      "label": "sadness from connection loss",
+      "layer": "layer.schema",
+      "kind": "affect_schema",
+      "age_status": "emerging",
+      "summary": "A valued expected relation is blocked, absent, weakened, or lost, producing distress and later sadness."
+    },
+    {
+      "id": "schema.medical_pain_care",
+      "label": "medical pain care schema",
+      "layer": "layer.schema",
+      "kind": "care_schema",
+      "age_status": "emerging",
+      "summary": "Unfamiliar medical context, medicine, or vaccination may cause discomfort or pain followed by caregiver repair."
+    },
+    {
+      "id": "schema.illness_discomfort",
+      "label": "illness discomfort schema",
+      "layer": "layer.schema",
+      "kind": "body_state_schema",
+      "age_status": "emerging",
+      "summary": "Feverishness, blocked breathing, tiredness, or unusual fussiness reduces exploration and increases care need."
+    },
+    {
+      "id": "schema.unfamiliar_agent_approach",
+      "label": "unfamiliar agent approach schema",
+      "layer": "layer.schema",
+      "kind": "social_attention_schema",
+      "age_status": "emerging",
+      "summary": "Less familiar person moves closer or interacts, increasing attention, uncertainty, or need for familiar caregiver support."
+    },
+    {
+      "id": "schema.other_cry_arousal",
+      "label": "other cry arousal schema",
+      "layer": "layer.schema",
+      "kind": "social_sound_schema",
+      "age_status": "emerging",
+      "summary": "Another baby or child crying is heard, increasing arousal or uncertainty even when the sound is not self-produced."
+    },
+    {
+      "id": "schema.routine_word_action",
+      "label": "routine word action schema",
+      "layer": "layer.schema",
+      "kind": "language_binding_schema",
+      "age_status": "emerging",
+      "summary": "Repeated routine words co-occur with feeding, sleep, giving, taking, stopping, coming, bathing, dressing, or play."
+    },
+    {
+      "id": "schema.picture_word_exposure",
+      "label": "picture word exposure schema",
+      "layer": "layer.schema",
+      "kind": "language_binding_schema",
+      "age_status": "emerging",
+      "summary": "Book picture or flat image is shown while caregiver speech names or comments on the represented object."
+    },
+    {
+      "id": "schema.light_change",
+      "label": "light change schema",
+      "layer": "layer.schema",
+      "kind": "environment_schema",
+      "age_status": "active",
+      "summary": "Light switches on or off, changing brightness, darkness, attention, and sometimes sleep/wake state."
+    },
+    {
+      "id": "schema.carry_context_transition",
+      "label": "carry context transition schema",
+      "layer": "layer.schema",
+      "kind": "care_movement_schema",
+      "age_status": "active",
+      "summary": "Caregiver carries baby from one place or room to another, changing visual scene and body motion without baby's direct control."
+    },
+    {
+      "id": "schema.mirror_reflection",
+      "label": "mirror reflection schema",
+      "layer": "layer.schema",
+      "kind": "visual_schema",
+      "age_status": "emerging",
+      "summary": "Mirror shows a moving image of baby and caregiver, creating visual similarity and contingency without direct touch."
+    },
+    {
+      "id": "schema.comfort_exploration_readiness",
+      "label": "comfort exploration readiness schema",
+      "layer": "layer.schema",
+      "kind": "affect_learning_schema",
+      "age_status": "active",
+      "summary": "After hunger, sleep, wetness, temperature, and pain are regulated, calm play and exploration become more likely."
+    },
+    {
+      "id": "schema.addiction_shortcut",
+      "label": "addiction shortcut",
+      "layer": "layer.schema",
+      "kind": "future_affect_failure_schema",
+      "age_status": "future",
+      "summary": "High positive activation is obtained without useful connection gain, causing the system to overvalue the shortcut and undervalue ordinary relation growth."
+    },
+    {
+      "id": "property.soft",
+      "label": "soft",
+      "layer": "layer.property",
+      "kind": "material_property",
+      "age_status": "active",
+      "summary": "Pressure produces deformation; contact often predicts comfort."
+    },
+    {
+      "id": "property.hard",
+      "label": "hard",
+      "layer": "layer.property",
+      "kind": "material_property",
+      "age_status": "active",
+      "summary": "Pressure produces low deformation; impact sound or pain may be higher."
+    },
+    {
+      "id": "property.loud",
+      "label": "loud",
+      "layer": "layer.property",
+      "kind": "sound_property",
+      "age_status": "active",
+      "summary": "High sound intensity; sudden form may cause startle."
+    },
+    {
+      "id": "property.soft_sound",
+      "label": "soft sound",
+      "layer": "layer.property",
+      "kind": "sound_property",
+      "age_status": "active",
+      "summary": "Low sound intensity with low startle."
+    },
+    {
+      "id": "property.warm",
+      "label": "warm",
+      "layer": "layer.property",
+      "kind": "temperature_property",
+      "age_status": "active",
+      "summary": "Moderate-high temperature; comfort depends on intensity and context."
+    },
+    {
+      "id": "property.round",
+      "label": "round",
+      "layer": "layer.property",
+      "kind": "shape_property",
+      "age_status": "emerging",
+      "summary": "Curved outline; orientation changes preserve similar outline; push may roll."
+    },
+    {
+      "id": "property.food_texture",
+      "label": "food texture",
+      "layer": "layer.property",
+      "kind": "mouth_property",
+      "age_status": "emerging",
+      "summary": "Mouth feel of puree or soft food, including smooth, lumpy, sticky, warm, cool, familiar, or unfamiliar texture."
+    },
+    {
+      "id": "property.food_familiarity",
+      "label": "food familiarity",
+      "layer": "layer.property",
+      "kind": "prediction_property",
+      "age_status": "emerging",
+      "summary": "Repeated taste, smell, texture, and caregiver context make a food more expected."
+    },
+    {
+      "id": "property.full",
+      "label": "full or satiated",
+      "layer": "layer.property",
+      "kind": "body_state_property",
+      "age_status": "active",
+      "summary": "Satiety state after feeding that reduces feeding interest and may lead to turning away or closing mouth."
+    },
+    {
+      "id": "property.gas_discomfort",
+      "label": "gas discomfort",
+      "layer": "layer.property",
+      "kind": "body_state_property",
+      "age_status": "active",
+      "summary": "Internal stomach pressure, burping need, or gas discomfort that may produce fussing and change with upright holding."
+    },
+    {
+      "id": "property.familiar",
+      "label": "familiar",
+      "layer": "layer.property",
+      "kind": "prediction_property",
+      "age_status": "active",
+      "summary": "Repeated face/voice/smell/touch cluster predicts comfort and lower uncertainty."
+    },
+    {
+      "id": "property.unfamiliar",
+      "label": "unfamiliar",
+      "layer": "layer.property",
+      "kind": "prediction_property",
+      "age_status": "emerging",
+      "summary": "Unknown face/voice pattern predicts lower confidence and possible vigilance."
+    },
+    {
+      "id": "property.sleepy",
+      "label": "sleepy",
+      "layer": "layer.property",
+      "kind": "body_state_property",
+      "age_status": "active",
+      "summary": "Fatigue and low regulation state that predicts fussiness and transition toward sleep."
+    },
+    {
+      "id": "property.wet",
+      "label": "wet",
+      "layer": "layer.property",
+      "kind": "body_surface_property",
+      "age_status": "active",
+      "summary": "Wet body/cloth/diaper sensation that often predicts discomfort until changed."
+    },
+    {
+      "id": "property.wet_body",
+      "label": "wet body",
+      "layer": "layer.property",
+      "kind": "body_surface_property",
+      "age_status": "active",
+      "summary": "Body wetness during bath, cleaning, sweating, or spill; valence depends on temperature, handling, and context."
+    },
+    {
+      "id": "property.water_temperature",
+      "label": "water temperature",
+      "layer": "layer.property",
+      "kind": "temperature_property",
+      "age_status": "active",
+      "summary": "Water touch temperature that can feel comfortable, too hot, or too cold."
+    },
+    {
+      "id": "property.too_hot",
+      "label": "too hot",
+      "layer": "layer.property",
+      "kind": "temperature_property",
+      "age_status": "active",
+      "summary": "Excess heat relation that predicts discomfort and need for cooling."
+    },
+    {
+      "id": "property.too_cold",
+      "label": "too cold",
+      "layer": "layer.property",
+      "kind": "temperature_property",
+      "age_status": "active",
+      "summary": "Excess cold relation that predicts discomfort and need for warmth."
+    },
+    {
+      "id": "property.novel",
+      "label": "novel",
+      "layer": "layer.property",
+      "kind": "attention_property",
+      "age_status": "active",
+      "summary": "New or changed stimulus relation that increases attention."
+    },
+    {
+      "id": "property.repeated",
+      "label": "repeated",
+      "layer": "layer.property",
+      "kind": "attention_property",
+      "age_status": "active",
+      "summary": "Repeated same stimulus relation that supports prediction and may reduce attention."
+    },
+    {
+      "id": "property.bright_light",
+      "label": "bright light",
+      "layer": "layer.property",
+      "kind": "visual_environment_property",
+      "age_status": "active",
+      "summary": "High brightness visual state that can increase attention, wakefulness, or discomfort depending on context."
+    },
+    {
+      "id": "property.darkness",
+      "label": "darkness",
+      "layer": "layer.property",
+      "kind": "visual_environment_property",
+      "age_status": "active",
+      "summary": "Low light visual state associated with sleep context, reduced stimulation, or uncertainty depending on context."
+    },
+    {
+      "id": "property.overstimulating",
+      "label": "overstimulating",
+      "layer": "layer.property",
+      "kind": "arousal_property",
+      "age_status": "emerging",
+      "summary": "Too much sound, light, motion, touch, visitor activity, or novelty for the baby's current regulation state."
+    },
+    {
+      "id": "property.unpleasant_taste",
+      "label": "unpleasant taste",
+      "layer": "layer.property",
+      "kind": "chemical_property",
+      "age_status": "active",
+      "summary": "Taste or smell relation that predicts aversion."
+    },
+    {
+      "id": "property.familiar_face",
+      "label": "familiar face",
+      "layer": "layer.property",
+      "kind": "social_visual_property",
+      "age_status": "active",
+      "summary": "Repeated caregiver face pattern that strongly attracts attention and predicts familiar care."
+    },
+    {
+      "id": "property.smiling_face",
+      "label": "smiling face",
+      "layer": "layer.property",
+      "kind": "social_visual_property",
+      "age_status": "active",
+      "summary": "Caregiver mouth/eye expression pattern often associated with friendly attention, play, and comfort."
+    },
+    {
+      "id": "property.soft_voice",
+      "label": "soft voice",
+      "layer": "layer.property",
+      "kind": "sound_social_property",
+      "age_status": "active",
+      "summary": "Familiar low-intensity voice tone that predicts comfort."
+    },
+    {
+      "id": "property.sharp_voice",
+      "label": "sharp voice",
+      "layer": "layer.property",
+      "kind": "sound_social_property",
+      "age_status": "active",
+      "summary": "Abrupt or high-intensity voice tone that predicts discomfort or uncertainty."
+    },
+    {
+      "id": "property.unsafe_object",
+      "label": "unsafe object",
+      "layer": "layer.property",
+      "kind": "risk_property",
+      "age_status": "emerging",
+      "summary": "Object or action that caregiver restricts because it may cause pain, choking, breaking, contamination, or other harm."
+    },
+    {
+      "id": "property.feverish",
+      "label": "feverish",
+      "layer": "layer.property",
+      "kind": "body_state_property",
+      "age_status": "emerging",
+      "summary": "Unusual hot body state associated with illness, low energy, discomfort, and care need."
+    },
+    {
+      "id": "property.blocked_breathing",
+      "label": "blocked breathing",
+      "layer": "layer.property",
+      "kind": "body_state_property",
+      "age_status": "emerging",
+      "summary": "Blocked nose or breathing discomfort associated with illness, sleep disruption, and fussiness."
+    },
+    {
+      "id": "object.self_hand",
+      "label": "own hand",
+      "layer": "layer.object",
+      "kind": "body_part",
+      "age_status": "active",
+      "summary": "Directly controlled body part that can touch mouth and external objects."
+    },
+    {
+      "id": "object.self_mouth",
+      "label": "own mouth",
+      "layer": "layer.object",
+      "kind": "body_part",
+      "age_status": "active",
+      "summary": "Direct sensation site for feeding and exploration."
+    },
+    {
+      "id": "agent.primary_caregiver",
+      "label": "primary caregiver",
+      "layer": "layer.object",
+      "kind": "familiar_agent",
+      "age_status": "active",
+      "summary": "Recurring familiar agent strongly linked to feeding, comfort, voice, face, and touch.",
+      "aliases": ["mother_role"],
+      "configurable": true
+    },
+    {
+      "id": "agent.secondary_caregiver",
+      "label": "secondary caregiver",
+      "layer": "layer.object",
+      "kind": "familiar_agent",
+      "age_status": "emerging",
+      "summary": "Recurring familiar agents such as father, grandparent, sibling, relative, or nanny.",
+      "configurable": true
+    },
+    {
+      "id": "agent.unfamiliar_caregiver_or_doctor",
+      "label": "unfamiliar caregiver or doctor",
+      "layer": "layer.object",
+      "kind": "unfamiliar_agent",
+      "age_status": "emerging",
+      "summary": "Less familiar adult who may touch, examine, administer medicine, or interact in a clinic or care context.",
+      "configurable": true
+    },
+    {
+      "id": "agent.other_child",
+      "label": "other baby or child",
+      "layer": "layer.object",
+      "kind": "other_agent",
+      "age_status": "emerging",
+      "summary": "Another baby or child whose movement, laughter, crying, or touch can change attention and arousal.",
+      "configurable": true
+    },
+    {
+      "id": "object.rattle",
+      "label": "rattle",
+      "layer": "layer.object",
+      "kind": "manipulable_object",
+      "age_status": "active",
+      "summary": "Graspable object where shaking reliably produces sound.",
+      "configurable": true
+    },
+    {
+      "id": "object.ball",
+      "label": "ball",
+      "layer": "layer.object",
+      "kind": "manipulable_object",
+      "age_status": "emerging",
+      "summary": "Round object linked to rolling, grasp/play, and caregiver naming."
+    },
+    {
+      "id": "object.spoon",
+      "label": "spoon",
+      "layer": "layer.object",
+      "kind": "feeding_object",
+      "age_status": "emerging",
+      "summary": "Caregiver-controlled feeding object that approaches mouth and brings food texture or taste."
+    },
+    {
+      "id": "object.bottle",
+      "label": "bottle",
+      "layer": "layer.object",
+      "kind": "feeding_object",
+      "age_status": "active",
+      "summary": "Feeding object that provides liquid through mouth contact if present in household routine.",
+      "configurable": true
+    },
+    {
+      "id": "object.cloth_blanket",
+      "label": "cloth or blanket",
+      "layer": "layer.object",
+      "kind": "household_object",
+      "age_status": "active",
+      "summary": "Soft object linked to comfort, low sound on drop, and hiding/reappearing games."
+    },
+    {
+      "id": "object.book_picture",
+      "label": "book picture",
+      "layer": "layer.object",
+      "kind": "picture_object",
+      "age_status": "emerging",
+      "summary": "Flat image in a book or card that caregiver may show and name, distinct from the real object it represents."
+    },
+    {
+      "id": "object.mirror",
+      "label": "mirror",
+      "layer": "layer.object",
+      "kind": "reflective_object",
+      "age_status": "emerging",
+      "summary": "Reflective surface showing moving images of baby, caregiver, and objects."
+    },
+    {
+      "id": "object.ceiling_fan",
+      "label": "ceiling fan",
+      "layer": "layer.object",
+      "kind": "distant_object",
+      "age_status": "active",
+      "summary": "Distant rotating object that attracts visual attention but is not reachable.",
+      "configurable": true
+    },
+    {
+      "id": "object.steel_bowl",
+      "label": "steel bowl",
+      "layer": "layer.context",
+      "kind": "household_object",
+      "age_status": "active",
+      "summary": "Hard metal household object associated with feeding and loud impact sounds.",
+      "configurable": true
+    },
+    {
+      "id": "object.door",
+      "label": "door",
+      "layer": "layer.context",
+      "kind": "household_boundary_object",
+      "age_status": "emerging",
+      "summary": "Household boundary object that opens, closes, hides or reveals people and rooms, and often makes sound.",
+      "configurable": true
+    },
+    {
+      "id": "context.pressure_cooker_whistle",
+      "label": "pressure cooker whistle",
+      "layer": "layer.context",
+      "kind": "household_sound",
+      "age_status": "active",
+      "summary": "Sudden loud/repeating household sound that may startle the child.",
+      "configurable": true
+    },
+    {
+      "id": "context.floor_mat",
+      "label": "floor mat",
+      "layer": "layer.context",
+      "kind": "support_surface",
+      "age_status": "active",
+      "summary": "Surface for lying, rolling, supported sitting, and play.",
+      "configurable": true
+    },
+    {
+      "id": "context.feeding_setup",
+      "label": "feeding setup",
+      "layer": "layer.context",
+      "kind": "routine_context",
+      "age_status": "active",
+      "summary": "Repeated feeding context such as bowl, spoon, bottle, cloth, caregiver posture, and place.",
+      "configurable": true
+    },
+    {
+      "id": "context.kitchen_appliance_sound",
+      "label": "kitchen appliance sound",
+      "layer": "layer.context",
+      "kind": "household_sound",
+      "age_status": "active",
+      "summary": "Mixer, grinder, cooker, or other kitchen appliance sound that may be loud, repeated, or startling.",
+      "configurable": true
+    },
+    {
+      "id": "context.room_place",
+      "label": "room or place context",
+      "layer": "layer.context",
+      "kind": "place_context",
+      "age_status": "active",
+      "summary": "Familiar or less familiar room/place context seen while being carried, placed, or moved.",
+      "configurable": true
+    },
+    {
+      "id": "context.doorbell_or_knock",
+      "label": "doorbell or knock",
+      "layer": "layer.context",
+      "kind": "household_sound",
+      "age_status": "emerging",
+      "summary": "Household boundary sound that may precede door opening, visitor arrival, or attention shift.",
+      "configurable": true
+    },
+    {
+      "id": "context.clinic",
+      "label": "clinic or medical setting",
+      "layer": "layer.context",
+      "kind": "care_context",
+      "age_status": "emerging",
+      "summary": "Unfamiliar or less familiar care environment involving examination, medicine, vaccination, or health check.",
+      "configurable": true
+    },
+    {
+      "id": "event.cry_caregiver_response",
+      "label": "cry -> caregiver response",
+      "layer": "layer.event",
+      "kind": "care_event",
+      "age_status": "active",
+      "summary": "Discomfort leads to cry; caregiver response often leads to relief."
+    },
+    {
+      "id": "event.reach_grasp",
+      "label": "reach -> grasp",
+      "layer": "layer.event",
+      "kind": "action_event",
+      "age_status": "active",
+      "summary": "Near interesting object triggers reach; success depends on distance and hand alignment."
+    },
+    {
+      "id": "event.object_drop_sound",
+      "label": "object drop -> sound",
+      "layer": "layer.event",
+      "kind": "cause_effect_event",
+      "age_status": "emerging",
+      "summary": "Held or supported object falls, impacts, and creates material-dependent sound."
+    },
+    {
+      "id": "event.loud_sound_startle",
+      "label": "loud sound -> startle",
+      "layer": "layer.event",
+      "kind": "valence_event",
+      "age_status": "active",
+      "summary": "Sudden loud sound causes startle; comfort can be repaired by caregiver."
+    },
+    {
+      "id": "event.peekaboo",
+      "label": "peekaboo",
+      "layer": "layer.event",
+      "kind": "social_play_event",
+      "age_status": "emerging",
+      "summary": "Familiar face disappears and reappears, creating surprise and pleasure."
+    },
+    {
+      "id": "event.ball_roll",
+      "label": "ball roll",
+      "layer": "layer.event",
+      "kind": "cause_effect_event",
+      "age_status": "emerging",
+      "summary": "Round object changes position by rolling across a surface after push, release, or caregiver action."
+    },
+    {
+      "id": "event.door_open_close",
+      "label": "door open-close",
+      "layer": "layer.event",
+      "kind": "environment_event",
+      "age_status": "emerging",
+      "summary": "Door opens or closes with visual boundary change and possible knock, bell, or impact sound."
+    },
+    {
+      "id": "concept.self_proto",
+      "label": "proto-self",
+      "layer": "layer.self_agent",
+      "kind": "self_concept",
+      "age_status": "active",
+      "summary": "Control/sensation cluster: directly controlled body parts and directly felt internal states."
+    },
+    {
+      "id": "concept.other_agent_proto",
+      "label": "proto-other-agent",
+      "layer": "layer.self_agent",
+      "kind": "other_agent_concept",
+      "age_status": "active",
+      "summary": "Recurring self-not-controlled entity that initiates movement and affects comfort or discomfort."
+    },
+    {
+      "id": "social.attention",
+      "label": "attention precursor",
+      "layer": "layer.social_precursor",
+      "kind": "social_precursor",
+      "age_status": "active",
+      "summary": "Caregiver face/voice directed to child changes arousal and comfort."
+    },
+    {
+      "id": "social.turn_taking",
+      "label": "turn-taking precursor",
+      "layer": "layer.social_precursor",
+      "kind": "social_precursor",
+      "age_status": "emerging",
+      "summary": "Baby sound and caregiver response form alternating patterns."
+    },
+    {
+      "id": "language.own_name_sound",
+      "label": "own-name sound pattern",
+      "layer": "layer.language_binding",
+      "kind": "sound_handle",
+      "age_status": "emerging",
+      "summary": "Repeated sound pattern associated with caregiver attention to self.",
+      "configurable": true
+    },
+    {
+      "id": "language.primary_caregiver_word",
+      "label": "primary caregiver word handle",
+      "layer": "layer.language_binding",
+      "kind": "sound_handle",
+      "age_status": "emerging",
+      "summary": "Configurable kinship sound associated with the primary caregiver.",
+      "aliases": ["amma", "maa", "mummy", "aai"],
+      "configurable": true
+    },
+    {
+      "id": "language.ball_word",
+      "label": "ball word handle",
+      "layer": "layer.language_binding",
+      "kind": "sound_handle",
+      "age_status": "latent",
+      "summary": "Word sound that can later bind to the ball relation cluster."
+    },
+    {
+      "id": "language.routine_word",
+      "label": "routine word handle",
+      "layer": "layer.language_binding",
+      "kind": "sound_handle",
+      "age_status": "emerging",
+      "summary": "Repeated words for routine actions such as eat, sleep, come, give, take, no, bath, or play.",
+      "configurable": true
+    },
+    {
+      "id": "language.object_name_sound",
+      "label": "object name sound handle",
+      "layer": "layer.language_binding",
+      "kind": "sound_handle",
+      "age_status": "emerging",
+      "summary": "Generic object-name sound heard with joint attention, picture viewing, or real-world naming.",
+      "configurable": true
+    },
+    {
+      "id": "future.status",
+      "label": "status",
+      "layer": "layer.future_abstraction",
+      "kind": "social_abstraction",
+      "age_status": "future",
+      "summary": "Not active at 6 months; later built from attention, compliance, resource access, approval, and prediction."
+    },
+    {
+      "id": "future.laziness",
+      "label": "laziness",
+      "layer": "layer.future_abstraction",
+      "kind": "social_abstraction",
+      "age_status": "future",
+      "summary": "Not active at 6 months; later built from ability, effort, avoidance, obligation, comfort, and consequence."
+    },
+    {
+      "id": "future.ownership",
+      "label": "ownership",
+      "layer": "layer.future_abstraction",
+      "kind": "social_abstraction",
+      "age_status": "future",
+      "summary": "Not active at 6 months; later built from access, control, expectation, and social recognition."
+    }
+  ],
+  "relations": [
+    {
+      "source": "schema.self_motion",
+      "type": "built_from",
+      "target": "invariant.direct_control",
+      "strength": 0.95,
+      "valence": "neutral",
+      "built_from": ["channel.proprioception_control", "channel.visual", "channel.touch"]
+    },
+    {
+      "source": "schema.body_orientation_change",
+      "type": "built_from",
+      "target": "invariant.body_orientation",
+      "strength": 0.68,
+      "valence": "mixed",
+      "built_from": ["channel.proprioception_control", "channel.visual", "channel.touch"]
+    },
+    {
+      "source": "schema.posture_support",
+      "type": "built_from",
+      "target": "invariant.supported_unsupported",
+      "strength": 0.66,
+      "valence": "positive",
+      "built_from": ["channel.touch", "channel.proprioception_control", "context.floor_mat", "agent.primary_caregiver"]
+    },
+    {
+      "source": "schema.balance_instability",
+      "type": "predicts",
+      "target": "invariant.comfort_discomfort",
+      "strength": 0.58,
+      "valence": "mixed",
+      "built_from": ["invariant.supported_unsupported", "invariant.body_orientation", "channel.valence"]
+    },
+    {
+      "source": "schema.held_by_caregiver",
+      "type": "predicts",
+      "target": "invariant.comfort_discomfort",
+      "strength": 0.86,
+      "valence": "positive",
+      "built_from": ["channel.touch", "channel.sound", "channel.valence"]
+    },
+    {
+      "source": "schema.feeding_relief",
+      "type": "predicts",
+      "target": "invariant.pain_relief",
+      "strength": 0.90,
+      "valence": "positive",
+      "built_from": ["channel.chemical", "channel.touch", "channel.valence"]
+    },
+    {
+      "source": "schema.feeding_completion",
+      "type": "predicts",
+      "target": "property.full",
+      "strength": 0.72,
+      "valence": "positive",
+      "built_from": ["channel.valence", "object.self_mouth", "schema.feeding_relief"]
+    },
+    {
+      "source": "schema.spoon_approach_mouth",
+      "type": "built_from",
+      "target": "invariant.near_far",
+      "strength": 0.62,
+      "valence": "mixed",
+      "built_from": ["object.spoon", "object.self_mouth", "agent.primary_caregiver", "channel.visual"]
+    },
+    {
+      "source": "schema.feeding_interruption_delay",
+      "type": "predicts",
+      "target": "invariant.comfort_discomfort",
+      "strength": 0.60,
+      "valence": "negative",
+      "built_from": ["schema.feeding_relief", "invariant.expected_unexpected", "channel.valence"]
+    },
+    {
+      "source": "schema.internal_discomfort_gas",
+      "type": "predicts",
+      "target": "invariant.comfort_discomfort",
+      "strength": 0.62,
+      "valence": "negative",
+      "built_from": ["property.gas_discomfort", "channel.valence", "schema.held_by_caregiver"]
+    },
+    {
+      "source": "schema.reach_grasp_mouth",
+      "type": "built_from",
+      "target": "invariant.near_far",
+      "strength": 0.75,
+      "valence": "neutral",
+      "built_from": ["channel.visual", "channel.proprioception_control", "channel.touch"]
+    },
+    {
+      "source": "schema.drop_sound",
+      "type": "built_from",
+      "target": "invariant.before_after",
+      "strength": 0.70,
+      "valence": "neutral",
+      "built_from": ["channel.visual", "channel.sound"]
+    },
+    {
+      "source": "schema.shake_sound",
+      "type": "built_from",
+      "target": "invariant.indirect_effect",
+      "strength": 0.80,
+      "valence": "positive",
+      "built_from": ["channel.proprioception_control", "channel.sound"]
+    },
+    {
+      "source": "schema.startle_comfort",
+      "type": "built_from",
+      "target": "property.loud",
+      "strength": 0.78,
+      "valence": "mixed",
+      "built_from": ["channel.sound", "channel.valence"]
+    },
+    {
+      "source": "schema.hide_reappear",
+      "type": "built_from",
+      "target": "invariant.expected_unexpected",
+      "strength": 0.45,
+      "valence": "mixed",
+      "built_from": ["channel.visual", "invariant.before_after"]
+    },
+    {
+      "source": "schema.sleep_transition",
+      "type": "predicts",
+      "target": "invariant.comfort_discomfort",
+      "strength": 0.76,
+      "valence": "positive",
+      "built_from": ["channel.valence", "channel.sound", "channel.touch", "property.repeated"]
+    },
+    {
+      "source": "schema.wake_transition",
+      "type": "built_from",
+      "target": "invariant.before_after",
+      "strength": 0.68,
+      "valence": "mixed",
+      "built_from": ["property.sleepy", "channel.sound", "channel.visual", "channel.valence"]
+    },
+    {
+      "source": "schema.stimulation_regulation",
+      "type": "predicts",
+      "target": "invariant.comfort_discomfort",
+      "strength": 0.66,
+      "valence": "mixed",
+      "built_from": ["property.overstimulating", "property.bright_light", "property.darkness", "property.loud"]
+    },
+    {
+      "source": "schema.wetness_relief",
+      "type": "predicts",
+      "target": "invariant.comfort_discomfort",
+      "strength": 0.78,
+      "valence": "positive",
+      "built_from": ["channel.touch", "channel.valence", "agent.primary_caregiver"]
+    },
+    {
+      "source": "schema.temperature_comfort",
+      "type": "predicts",
+      "target": "invariant.comfort_discomfort",
+      "strength": 0.74,
+      "valence": "mixed",
+      "built_from": ["channel.touch", "channel.valence", "property.too_hot", "property.too_cold"]
+    },
+    {
+      "source": "schema.bath_water_contact",
+      "type": "predicts",
+      "target": "invariant.comfort_discomfort",
+      "strength": 0.62,
+      "valence": "mixed",
+      "built_from": ["property.wet_body", "property.water_temperature", "agent.primary_caregiver", "channel.touch"]
+    },
+    {
+      "source": "schema.body_impact_pain",
+      "type": "predicts",
+      "target": "invariant.pain_relief",
+      "strength": 0.86,
+      "valence": "negative",
+      "built_from": ["channel.touch", "channel.valence", "invariant.touching"]
+    },
+    {
+      "source": "schema.push_roll",
+      "type": "built_from",
+      "target": "invariant.moves_stops",
+      "strength": 0.58,
+      "valence": "positive",
+      "built_from": ["property.round", "invariant.indirect_effect", "channel.visual"]
+    },
+    {
+      "source": "schema.face_proximity_attention",
+      "type": "built_from",
+      "target": "social.attention",
+      "strength": 0.76,
+      "valence": "positive",
+      "built_from": ["property.familiar_face", "agent.primary_caregiver", "channel.visual"]
+    },
+    {
+      "source": "schema.orienting_to_sound_motion",
+      "type": "built_from",
+      "target": "social.attention",
+      "strength": 0.64,
+      "valence": "mixed",
+      "built_from": ["channel.sound", "channel.visual", "invariant.moves_stops", "channel.proprioception_control"]
+    },
+    {
+      "source": "schema.imitation",
+      "type": "built_from",
+      "target": "invariant.same_different",
+      "strength": 0.48,
+      "valence": "positive",
+      "built_from": ["channel.sound", "channel.visual", "channel.proprioception_control", "social.turn_taking"]
+    },
+    {
+      "source": "schema.joint_attention",
+      "type": "built_from",
+      "target": "social.attention",
+      "strength": 0.52,
+      "valence": "positive",
+      "built_from": ["channel.visual", "channel.sound", "agent.primary_caregiver", "invariant.near_far"]
+    },
+    {
+      "source": "schema.rhythm_song_comfort",
+      "type": "predicts",
+      "target": "invariant.comfort_discomfort",
+      "strength": 0.72,
+      "valence": "positive",
+      "built_from": ["channel.sound", "property.repeated", "property.soft_voice", "agent.primary_caregiver"]
+    },
+    {
+      "source": "schema.novelty_habituation",
+      "type": "built_from",
+      "target": "invariant.expected_unexpected",
+      "strength": 0.68,
+      "valence": "mixed",
+      "built_from": ["property.novel", "property.repeated", "channel.visual", "channel.sound"]
+    },
+    {
+      "source": "schema.mouth_aversion",
+      "type": "predicts",
+      "target": "invariant.comfort_discomfort",
+      "strength": 0.70,
+      "valence": "negative",
+      "built_from": ["channel.chemical", "channel.touch", "property.unpleasant_taste", "object.self_mouth"]
+    },
+    {
+      "source": "schema.open_close_boundary",
+      "type": "built_from",
+      "target": "invariant.before_after",
+      "strength": 0.56,
+      "valence": "mixed",
+      "built_from": ["object.door", "channel.visual", "channel.sound", "invariant.moves_stops"]
+    },
+    {
+      "source": "schema.caregiver_safety_block",
+      "type": "predicts",
+      "target": "schema.blocked_action_frustration",
+      "strength": 0.54,
+      "valence": "mixed",
+      "built_from": ["agent.primary_caregiver", "schema.reach_grasp_mouth", "invariant.near_far"]
+    },
+    {
+      "source": "schema.object_removal_frustration",
+      "type": "predicts",
+      "target": "schema.blocked_action_frustration",
+      "strength": 0.56,
+      "valence": "negative",
+      "built_from": ["invariant.connection_loss", "schema.caregiver_safety_block", "property.familiar"]
+    },
+    {
+      "source": "schema.blocked_action_frustration",
+      "type": "predicts",
+      "target": "invariant.comfort_discomfort",
+      "strength": 0.58,
+      "valence": "negative",
+      "built_from": ["invariant.near_far", "invariant.indirect_effect", "channel.valence"]
+    },
+    {
+      "source": "schema.caregiver_emotional_tone",
+      "type": "predicts",
+      "target": "invariant.comfort_discomfort",
+      "strength": 0.74,
+      "valence": "mixed",
+      "built_from": ["channel.sound", "channel.visual", "property.soft_voice", "property.sharp_voice", "agent.primary_caregiver"]
+    },
+    {
+      "source": "schema.happiness_existing_connection",
+      "type": "built_from",
+      "target": "invariant.positive_activation",
+      "strength": 0.86,
+      "valence": "positive",
+      "built_from": ["property.familiar", "property.soft_voice", "agent.primary_caregiver", "invariant.comfort_discomfort"]
+    },
+    {
+      "source": "schema.happiness_new_connection",
+      "type": "built_from",
+      "target": "invariant.connection_gain",
+      "strength": 0.84,
+      "valence": "positive",
+      "built_from": ["invariant.expected_unexpected", "property.novel", "property.repeated"]
+    },
+    {
+      "source": "schema.happiness_saturation",
+      "type": "built_from",
+      "target": "invariant.positive_saturation",
+      "strength": 0.76,
+      "valence": "mixed",
+      "built_from": ["invariant.positive_activation", "invariant.connection_gain", "property.repeated"]
+    },
+    {
+      "source": "schema.sadness_connection_loss",
+      "type": "built_from",
+      "target": "invariant.connection_loss",
+      "strength": 0.72,
+      "valence": "negative",
+      "built_from": ["property.familiar", "invariant.expected_unexpected", "agent.primary_caregiver"]
+    },
+    {
+      "source": "schema.medical_pain_care",
+      "type": "predicts",
+      "target": "invariant.pain_relief",
+      "strength": 0.46,
+      "valence": "mixed",
+      "built_from": ["context.clinic", "agent.unfamiliar_caregiver_or_doctor", "schema.body_impact_pain", "agent.primary_caregiver"]
+    },
+    {
+      "source": "schema.illness_discomfort",
+      "type": "predicts",
+      "target": "invariant.comfort_discomfort",
+      "strength": 0.52,
+      "valence": "negative",
+      "built_from": ["property.feverish", "property.blocked_breathing", "property.sleepy", "channel.valence"]
+    },
+    {
+      "source": "schema.unfamiliar_agent_approach",
+      "type": "predicts",
+      "target": "invariant.comfort_discomfort",
+      "strength": 0.48,
+      "valence": "mixed",
+      "built_from": ["property.unfamiliar", "invariant.near_far", "concept.other_agent_proto"]
+    },
+    {
+      "source": "schema.other_cry_arousal",
+      "type": "predicts",
+      "target": "invariant.comfort_discomfort",
+      "strength": 0.46,
+      "valence": "mixed",
+      "built_from": ["agent.other_child", "channel.sound", "event.cry_caregiver_response"]
+    },
+    {
+      "source": "schema.routine_word_action",
+      "type": "built_from",
+      "target": "invariant.before_after",
+      "strength": 0.44,
+      "valence": "neutral",
+      "built_from": ["language.routine_word", "schema.feeding_relief", "schema.sleep_transition", "schema.bath_water_contact"]
+    },
+    {
+      "source": "schema.picture_word_exposure",
+      "type": "built_from",
+      "target": "schema.joint_attention",
+      "strength": 0.42,
+      "valence": "positive",
+      "built_from": ["object.book_picture", "language.object_name_sound", "agent.primary_caregiver"]
+    },
+    {
+      "source": "schema.light_change",
+      "type": "built_from",
+      "target": "invariant.before_after",
+      "strength": 0.70,
+      "valence": "mixed",
+      "built_from": ["property.bright_light", "property.darkness", "channel.visual"]
+    },
+    {
+      "source": "schema.carry_context_transition",
+      "type": "built_from",
+      "target": "invariant.body_orientation",
+      "strength": 0.66,
+      "valence": "mixed",
+      "built_from": ["agent.primary_caregiver", "schema.held_by_caregiver", "context.room_place", "channel.visual"]
+    },
+    {
+      "source": "schema.mirror_reflection",
+      "type": "built_from",
+      "target": "invariant.same_different",
+      "strength": 0.44,
+      "valence": "mixed",
+      "built_from": ["object.mirror", "channel.visual", "schema.self_motion", "agent.primary_caregiver"]
+    },
+    {
+      "source": "schema.comfort_exploration_readiness",
+      "type": "supports",
+      "target": "schema.happiness_new_connection",
+      "strength": 0.60,
+      "valence": "positive",
+      "built_from": ["invariant.comfort_discomfort", "schema.feeding_relief", "schema.sleep_transition", "schema.wetness_relief", "schema.temperature_comfort"]
+    },
+    {
+      "source": "schema.addiction_shortcut",
+      "type": "built_from",
+      "target": "invariant.direct_valence_shortcut",
+      "strength": 0.30,
+      "valence": "negative",
+      "age_status": "future",
+      "built_from": ["invariant.positive_activation", "invariant.positive_saturation", "invariant.connection_gain"]
+    },
+    {
+      "source": "schema.caregiver_emotional_tone",
+      "type": "can_activate",
+      "target": "schema.happiness_existing_connection",
+      "strength": 0.78,
+      "valence": "positive",
+      "conditions": ["soft voice or smiling face from familiar caregiver"]
+    },
+    {
+      "source": "schema.rhythm_song_comfort",
+      "type": "can_activate",
+      "target": "schema.happiness_existing_connection",
+      "strength": 0.70,
+      "valence": "positive",
+      "conditions": ["familiar repeated rhythm or lullaby"]
+    },
+    {
+      "source": "schema.happiness_existing_connection",
+      "type": "subject_to",
+      "target": "schema.happiness_saturation",
+      "strength": 0.66,
+      "valence": "mixed",
+      "conditions": ["same positive cue repeats without changed relation structure"],
+      "attributes": {
+        "effect": "decreases marginal happiness while preserving comfort or familiarity"
+      }
+    },
+    {
+      "source": "schema.happiness_new_connection",
+      "type": "counteracts",
+      "target": "schema.happiness_saturation",
+      "strength": 0.62,
+      "valence": "positive",
+      "conditions": ["a changed, deeper, or newly useful relation is formed"]
+    },
+    {
+      "source": "schema.novelty_habituation",
+      "type": "can_activate",
+      "target": "schema.happiness_new_connection",
+      "strength": 0.72,
+      "valence": "positive",
+      "conditions": ["novel stimulus becomes predictable or useful"]
+    },
+    {
+      "source": "schema.novelty_habituation",
+      "type": "supports",
+      "target": "schema.happiness_saturation",
+      "strength": 0.68,
+      "valence": "mixed",
+      "conditions": ["repeated stimulus becomes familiar and attention decreases"]
+    },
+    {
+      "source": "schema.shake_sound",
+      "type": "can_activate",
+      "target": "schema.happiness_new_connection",
+      "strength": 0.78,
+      "valence": "positive",
+      "conditions": ["baby learns hand motion controls rattle sound"]
+    },
+    {
+      "source": "schema.hide_reappear",
+      "type": "can_activate",
+      "target": "schema.happiness_new_connection",
+      "strength": 0.62,
+      "valence": "positive",
+      "conditions": ["hidden familiar face reappears and pattern becomes expected"]
+    },
+    {
+      "source": "agent.primary_caregiver",
+      "type": "absence_can_activate",
+      "target": "schema.sadness_connection_loss",
+      "strength": 0.55,
+      "valence": "negative",
+      "conditions": ["expected caregiver response is delayed or absent"]
+    },
+    {
+      "source": "invariant.same_different",
+      "type": "built_from",
+      "target": "channel.visual",
+      "strength": 0.60,
+      "valence": "neutral"
+    },
+    {
+      "source": "invariant.touching",
+      "type": "built_from",
+      "target": "channel.touch",
+      "strength": 0.88,
+      "valence": "neutral"
+    },
+    {
+      "source": "property.soft",
+      "type": "built_from",
+      "target": "channel.touch",
+      "strength": 0.85,
+      "valence": "positive"
+    },
+    {
+      "source": "property.hard",
+      "type": "built_from",
+      "target": "channel.touch",
+      "strength": 0.80,
+      "valence": "mixed"
+    },
+    {
+      "source": "property.loud",
+      "type": "built_from",
+      "target": "channel.sound",
+      "strength": 0.90,
+      "valence": "mixed"
+    },
+    {
+      "source": "property.warm",
+      "type": "built_from",
+      "target": "channel.touch",
+      "strength": 0.78,
+      "valence": "mixed"
+    },
+    {
+      "source": "property.round",
+      "type": "built_from",
+      "target": "channel.visual",
+      "strength": 0.70,
+      "valence": "neutral"
+    },
+    {
+      "source": "property.familiar",
+      "type": "predicts",
+      "target": "invariant.comfort_discomfort",
+      "strength": 0.76,
+      "valence": "positive",
+      "built_from": ["channel.visual", "channel.sound", "channel.touch", "channel.chemical"]
+    },
+    {
+      "source": "property.unfamiliar",
+      "type": "contrasts_with",
+      "target": "property.familiar",
+      "strength": 0.62,
+      "valence": "mixed",
+      "built_from": ["channel.visual", "channel.sound", "invariant.expected_unexpected"]
+    },
+    {
+      "source": "property.sleepy",
+      "type": "built_from",
+      "target": "channel.valence",
+      "strength": 0.82,
+      "valence": "mixed"
+    },
+    {
+      "source": "property.wet",
+      "type": "built_from",
+      "target": "channel.touch",
+      "strength": 0.84,
+      "valence": "negative"
+    },
+    {
+      "source": "property.wet_body",
+      "type": "built_from",
+      "target": "channel.touch",
+      "strength": 0.72,
+      "valence": "mixed"
+    },
+    {
+      "source": "property.water_temperature",
+      "type": "built_from",
+      "target": "channel.touch",
+      "strength": 0.76,
+      "valence": "mixed"
+    },
+    {
+      "source": "property.too_hot",
+      "type": "built_from",
+      "target": "channel.touch",
+      "strength": 0.78,
+      "valence": "negative"
+    },
+    {
+      "source": "property.too_cold",
+      "type": "built_from",
+      "target": "channel.touch",
+      "strength": 0.74,
+      "valence": "negative"
+    },
+    {
+      "source": "property.novel",
+      "type": "built_from",
+      "target": "invariant.expected_unexpected",
+      "strength": 0.70,
+      "valence": "mixed"
+    },
+    {
+      "source": "property.repeated",
+      "type": "built_from",
+      "target": "invariant.before_after",
+      "strength": 0.72,
+      "valence": "neutral"
+    },
+    {
+      "source": "property.unpleasant_taste",
+      "type": "built_from",
+      "target": "channel.chemical",
+      "strength": 0.86,
+      "valence": "negative"
+    },
+    {
+      "source": "property.food_texture",
+      "type": "built_from",
+      "target": "object.self_mouth",
+      "strength": 0.62,
+      "valence": "mixed",
+      "built_from": ["channel.chemical", "channel.touch"]
+    },
+    {
+      "source": "property.food_familiarity",
+      "type": "built_from",
+      "target": "property.repeated",
+      "strength": 0.48,
+      "valence": "mixed",
+      "built_from": ["property.food_texture", "channel.chemical", "invariant.expected_unexpected"]
+    },
+    {
+      "source": "property.full",
+      "type": "built_from",
+      "target": "channel.valence",
+      "strength": 0.72,
+      "valence": "positive"
+    },
+    {
+      "source": "property.gas_discomfort",
+      "type": "built_from",
+      "target": "channel.valence",
+      "strength": 0.64,
+      "valence": "negative"
+    },
+    {
+      "source": "property.familiar_face",
+      "type": "built_from",
+      "target": "channel.visual",
+      "strength": 0.84,
+      "valence": "positive",
+      "built_from": ["agent.primary_caregiver", "property.familiar"]
+    },
+    {
+      "source": "property.smiling_face",
+      "type": "built_from",
+      "target": "channel.visual",
+      "strength": 0.70,
+      "valence": "positive",
+      "built_from": ["agent.primary_caregiver", "property.familiar_face"]
+    },
+    {
+      "source": "property.soft_voice",
+      "type": "built_from",
+      "target": "channel.sound",
+      "strength": 0.78,
+      "valence": "positive"
+    },
+    {
+      "source": "property.sharp_voice",
+      "type": "built_from",
+      "target": "channel.sound",
+      "strength": 0.78,
+      "valence": "negative"
+    },
+    {
+      "source": "property.unsafe_object",
+      "type": "built_from",
+      "target": "schema.caregiver_safety_block",
+      "strength": 0.42,
+      "valence": "negative",
+      "age_status": "emerging"
+    },
+    {
+      "source": "property.feverish",
+      "type": "built_from",
+      "target": "channel.touch",
+      "strength": 0.44,
+      "valence": "negative",
+      "built_from": ["channel.valence"]
+    },
+    {
+      "source": "property.blocked_breathing",
+      "type": "built_from",
+      "target": "channel.valence",
+      "strength": 0.42,
+      "valence": "negative"
+    },
+    {
+      "source": "property.bright_light",
+      "type": "built_from",
+      "target": "channel.visual",
+      "strength": 0.74,
+      "valence": "mixed"
+    },
+    {
+      "source": "property.darkness",
+      "type": "built_from",
+      "target": "channel.visual",
+      "strength": 0.68,
+      "valence": "mixed"
+    },
+    {
+      "source": "property.overstimulating",
+      "type": "built_from",
+      "target": "channel.valence",
+      "strength": 0.50,
+      "valence": "negative",
+      "built_from": ["channel.sound", "channel.visual", "property.loud", "property.bright_light"]
+    },
+    {
+      "source": "object.self_hand",
+      "type": "directly_controlled_by",
+      "target": "concept.self_proto",
+      "strength": 0.90,
+      "valence": "neutral",
+      "built_from": ["schema.self_motion"]
+    },
+    {
+      "source": "object.self_hand",
+      "type": "can_contact",
+      "target": "object.self_mouth",
+      "strength": 0.85,
+      "valence": "positive",
+      "built_from": ["schema.reach_grasp_mouth"]
+    },
+    {
+      "source": "object.self_mouth",
+      "type": "directly_feels",
+      "target": "channel.chemical",
+      "strength": 0.92,
+      "valence": "mixed"
+    },
+    {
+      "source": "agent.primary_caregiver",
+      "type": "has_property",
+      "target": "property.familiar",
+      "strength": 0.92,
+      "valence": "positive"
+    },
+    {
+      "source": "agent.primary_caregiver",
+      "type": "predicts",
+      "target": "schema.feeding_relief",
+      "strength": 0.90,
+      "valence": "positive"
+    },
+    {
+      "source": "agent.primary_caregiver",
+      "type": "predicts",
+      "target": "schema.held_by_caregiver",
+      "strength": 0.88,
+      "valence": "positive"
+    },
+    {
+      "source": "agent.primary_caregiver",
+      "type": "instance_of",
+      "target": "concept.other_agent_proto",
+      "strength": 0.86,
+      "valence": "positive"
+    },
+    {
+      "source": "agent.secondary_caregiver",
+      "type": "instance_of",
+      "target": "concept.other_agent_proto",
+      "strength": 0.60,
+      "valence": "mixed"
+    },
+    {
+      "source": "agent.secondary_caregiver",
+      "type": "predicts",
+      "target": "schema.held_by_caregiver",
+      "strength": 0.54,
+      "valence": "positive",
+      "conditions": ["if familiar and accepted by the child"]
+    },
+    {
+      "source": "agent.unfamiliar_caregiver_or_doctor",
+      "type": "instance_of",
+      "target": "concept.other_agent_proto",
+      "strength": 0.46,
+      "valence": "mixed",
+      "built_from": ["property.unfamiliar", "context.clinic"]
+    },
+    {
+      "source": "agent.other_child",
+      "type": "instance_of",
+      "target": "concept.other_agent_proto",
+      "strength": 0.44,
+      "valence": "mixed"
+    },
+    {
+      "source": "object.rattle",
+      "type": "action_effect",
+      "target": "schema.shake_sound",
+      "strength": 0.90,
+      "valence": "positive"
+    },
+    {
+      "source": "object.ball",
+      "type": "has_property",
+      "target": "property.round",
+      "strength": 0.70,
+      "valence": "positive"
+    },
+    {
+      "source": "object.ball",
+      "type": "action_effect",
+      "target": "event.reach_grasp",
+      "strength": 0.55,
+      "valence": "positive"
+    },
+    {
+      "source": "object.ball",
+      "type": "action_effect",
+      "target": "event.ball_roll",
+      "strength": 0.62,
+      "valence": "positive",
+      "built_from": ["property.round", "schema.push_roll"]
+    },
+    {
+      "source": "object.spoon",
+      "type": "action_effect",
+      "target": "schema.spoon_approach_mouth",
+      "strength": 0.60,
+      "valence": "mixed",
+      "built_from": ["agent.primary_caregiver", "object.self_mouth"]
+    },
+    {
+      "source": "object.bottle",
+      "type": "predicts",
+      "target": "schema.feeding_relief",
+      "strength": 0.70,
+      "valence": "positive",
+      "conditions": ["if bottle feeding is present in household routine"]
+    },
+    {
+      "source": "object.cloth_blanket",
+      "type": "has_property",
+      "target": "property.soft",
+      "strength": 0.90,
+      "valence": "positive"
+    },
+    {
+      "source": "object.cloth_blanket",
+      "type": "action_effect",
+      "target": "property.soft_sound",
+      "strength": 0.82,
+      "valence": "neutral",
+      "conditions": ["when dropped on mat"]
+    },
+    {
+      "source": "object.cloth_blanket",
+      "type": "enables",
+      "target": "schema.hide_reappear",
+      "strength": 0.60,
+      "valence": "mixed"
+    },
+    {
+      "source": "object.book_picture",
+      "type": "supports",
+      "target": "schema.picture_word_exposure",
+      "strength": 0.48,
+      "valence": "positive"
+    },
+    {
+      "source": "object.mirror",
+      "type": "supports",
+      "target": "schema.mirror_reflection",
+      "strength": 0.46,
+      "valence": "mixed"
+    },
+    {
+      "source": "object.steel_bowl",
+      "type": "has_property",
+      "target": "property.hard",
+      "strength": 0.86,
+      "valence": "mixed"
+    },
+    {
+      "source": "object.steel_bowl",
+      "type": "action_effect",
+      "target": "property.loud",
+      "strength": 0.85,
+      "valence": "mixed",
+      "conditions": ["when dropped or hit"]
+    },
+    {
+      "source": "object.door",
+      "type": "action_effect",
+      "target": "event.door_open_close",
+      "strength": 0.62,
+      "valence": "mixed"
+    },
+    {
+      "source": "context.pressure_cooker_whistle",
+      "type": "has_property",
+      "target": "property.loud",
+      "strength": 0.82,
+      "valence": "mixed"
+    },
+    {
+      "source": "context.pressure_cooker_whistle",
+      "type": "can_cause",
+      "target": "event.loud_sound_startle",
+      "strength": 0.70,
+      "valence": "negative"
+    },
+    {
+      "source": "context.floor_mat",
+      "type": "supports",
+      "target": "schema.reach_grasp_mouth",
+      "strength": 0.70,
+      "valence": "positive"
+    },
+    {
+      "source": "context.doorbell_or_knock",
+      "type": "can_cause",
+      "target": "event.door_open_close",
+      "strength": 0.46,
+      "valence": "mixed"
+    },
+    {
+      "source": "context.feeding_setup",
+      "type": "predicts",
+      "target": "schema.feeding_relief",
+      "strength": 0.62,
+      "valence": "positive"
+    },
+    {
+      "source": "context.kitchen_appliance_sound",
+      "type": "has_property",
+      "target": "property.loud",
+      "strength": 0.72,
+      "valence": "mixed"
+    },
+    {
+      "source": "context.kitchen_appliance_sound",
+      "type": "can_cause",
+      "target": "event.loud_sound_startle",
+      "strength": 0.56,
+      "valence": "negative"
+    },
+    {
+      "source": "context.room_place",
+      "type": "supports",
+      "target": "schema.carry_context_transition",
+      "strength": 0.58,
+      "valence": "neutral"
+    },
+    {
+      "source": "context.clinic",
+      "type": "supports",
+      "target": "schema.medical_pain_care",
+      "strength": 0.48,
+      "valence": "mixed"
+    },
+    {
+      "source": "object.ceiling_fan",
+      "type": "has_relation",
+      "target": "invariant.moves_stops",
+      "strength": 0.88,
+      "valence": "neutral"
+    },
+    {
+      "source": "object.ceiling_fan",
+      "type": "not_directly_controlled_by",
+      "target": "concept.self_proto",
+      "strength": 0.95,
+      "valence": "neutral"
+    },
+    {
+      "source": "event.cry_caregiver_response",
+      "type": "built_from",
+      "target": "schema.feeding_relief",
+      "strength": 0.82,
+      "valence": "positive"
+    },
+    {
+      "source": "event.object_drop_sound",
+      "type": "built_from",
+      "target": "schema.drop_sound",
+      "strength": 0.86,
+      "valence": "mixed"
+    },
+    {
+      "source": "event.loud_sound_startle",
+      "type": "built_from",
+      "target": "schema.startle_comfort",
+      "strength": 0.84,
+      "valence": "mixed"
+    },
+    {
+      "source": "event.peekaboo",
+      "type": "built_from",
+      "target": "schema.hide_reappear",
+      "strength": 0.78,
+      "valence": "positive"
+    },
+    {
+      "source": "event.ball_roll",
+      "type": "built_from",
+      "target": "schema.push_roll",
+      "strength": 0.68,
+      "valence": "positive"
+    },
+    {
+      "source": "event.door_open_close",
+      "type": "built_from",
+      "target": "schema.open_close_boundary",
+      "strength": 0.62,
+      "valence": "mixed"
+    },
+    {
+      "source": "event.peekaboo",
+      "type": "can_activate",
+      "target": "schema.happiness_new_connection",
+      "strength": 0.68,
+      "valence": "positive",
+      "conditions": ["disappear/reappear relation becomes predictable and playful"]
+    },
+    {
+      "source": "concept.self_proto",
+      "type": "built_from",
+      "target": "schema.self_motion",
+      "strength": 0.95,
+      "valence": "neutral"
+    },
+    {
+      "source": "concept.other_agent_proto",
+      "type": "built_from",
+      "target": "property.familiar",
+      "strength": 0.70,
+      "valence": "positive"
+    },
+    {
+      "source": "social.attention",
+      "type": "built_from",
+      "target": "agent.primary_caregiver",
+      "strength": 0.70,
+      "valence": "positive"
+    },
+    {
+      "source": "social.turn_taking",
+      "type": "built_from",
+      "target": "invariant.before_after",
+      "strength": 0.50,
+      "valence": "positive"
+    },
+    {
+      "source": "language.own_name_sound",
+      "type": "co_occurs_with",
+      "target": "social.attention",
+      "strength": 0.55,
+      "valence": "positive"
+    },
+    {
+      "source": "language.primary_caregiver_word",
+      "type": "co_occurs_with",
+      "target": "agent.primary_caregiver",
+      "strength": 0.50,
+      "valence": "positive"
+    },
+    {
+      "source": "language.ball_word",
+      "type": "binds_to",
+      "target": "object.ball",
+      "strength": 0.20,
+      "valence": "neutral",
+      "age_status": "latent"
+    },
+    {
+      "source": "language.routine_word",
+      "type": "co_occurs_with",
+      "target": "schema.routine_word_action",
+      "strength": 0.42,
+      "valence": "neutral"
+    },
+    {
+      "source": "language.object_name_sound",
+      "type": "co_occurs_with",
+      "target": "schema.joint_attention",
+      "strength": 0.38,
+      "valence": "positive"
+    },
+    {
+      "source": "future.status",
+      "type": "future_built_from",
+      "target": "social.attention",
+      "strength": 0.30,
+      "valence": "neutral",
+      "age_status": "future"
+    },
+    {
+      "source": "future.status",
+      "type": "future_built_from",
+      "target": "schema.joint_attention",
+      "strength": 0.18,
+      "valence": "neutral",
+      "age_status": "future"
+    },
+    {
+      "source": "future.laziness",
+      "type": "future_built_from",
+      "target": "invariant.comfort_discomfort",
+      "strength": 0.20,
+      "valence": "neutral",
+      "age_status": "future"
+    },
+    {
+      "source": "future.laziness",
+      "type": "future_built_from",
+      "target": "property.sleepy",
+      "strength": 0.12,
+      "valence": "neutral",
+      "age_status": "future"
+    },
+    {
+      "source": "future.ownership",
+      "type": "future_built_from",
+      "target": "invariant.direct_control",
+      "strength": 0.20,
+      "valence": "neutral",
+      "age_status": "future"
+    }
+  ],
+  "micro_experiences": [
+    {
+      "id": "experience.hunger_relief_001",
+      "title": "Hunger relief through caregiver feeding",
+      "age_status": "active",
+      "participants": ["concept.self_proto", "agent.primary_caregiver"],
+      "events": [
+        "hunger discomfort rises",
+        "baby cries",
+        "primary caregiver approaches and holds baby",
+        "feeding occurs",
+        "hunger decreases and comfort increases"
+      ],
+      "relations_observed": [
+        {
+          "source": "event.cry_caregiver_response",
+          "type": "strengthens",
+          "target": "schema.feeding_relief",
+          "strength_delta": 0.05
+        },
+        {
+          "source": "agent.primary_caregiver",
+          "type": "strengthens_predicts",
+          "target": "invariant.comfort_discomfort",
+          "strength_delta": 0.04
+        }
+      ],
+      "language_overlay": [
+        "Caregiver says a soothing phrase in the home language.",
+        "Caregiver may repeat a kinship word or the child's name."
+      ]
+    },
+    {
+      "id": "experience.hand_self_motion_001",
+      "title": "Own hand moves with motor command",
+      "age_status": "active",
+      "participants": ["concept.self_proto", "object.self_hand", "object.self_mouth"],
+      "events": [
+        "baby sends motor command to hand",
+        "hand moves visually",
+        "proprioception changes",
+        "hand touches mouth",
+        "mouth and hand sensations occur together"
+      ],
+      "relations_observed": [
+        {
+          "source": "object.self_hand",
+          "type": "strengthens_direct_control",
+          "target": "concept.self_proto",
+          "strength_delta": 0.05
+        },
+        {
+          "source": "schema.self_motion",
+          "type": "strengthens",
+          "target": "invariant.direct_control",
+          "strength_delta": 0.04
+        }
+      ],
+      "language_overlay": [
+        "Caregiver may say hand-related words, but relation learning does not depend on the word."
+      ]
+    },
+    {
+      "id": "experience.rattle_shake_001",
+      "title": "Rattle makes sound when shaken",
+      "age_status": "active",
+      "participants": ["concept.self_proto", "object.self_hand", "object.rattle"],
+      "events": [
+        "baby grasps rattle",
+        "baby moves hand",
+        "rattle sound occurs",
+        "baby stops moving hand",
+        "rattle sound stops"
+      ],
+      "relations_observed": [
+        {
+          "source": "object.rattle",
+          "type": "strengthens_action_effect",
+          "target": "schema.shake_sound",
+          "strength_delta": 0.06
+        }
+      ],
+      "language_overlay": [
+        "Caregiver says rattle or equivalent object word if present."
+      ]
+    },
+    {
+      "id": "experience.steel_bowl_drop_001",
+      "title": "Steel bowl drop makes loud sound",
+      "age_status": "active",
+      "participants": ["agent.primary_caregiver", "object.steel_bowl", "concept.self_proto"],
+      "events": [
+        "steel bowl is held",
+        "steel bowl falls to floor",
+        "loud metal sound occurs",
+        "baby startles",
+        "caregiver voice or touch increases comfort"
+      ],
+      "relations_observed": [
+        {
+          "source": "object.steel_bowl",
+          "type": "strengthens_action_effect",
+          "target": "property.loud",
+          "strength_delta": 0.04
+        },
+        {
+          "source": "event.loud_sound_startle",
+          "type": "strengthens",
+          "target": "schema.startle_comfort",
+          "strength_delta": 0.04
+        }
+      ],
+      "language_overlay": [
+        "The bowl fell.",
+        "A home-language equivalent may be supplied by configuration."
+      ]
+    },
+    {
+      "id": "experience.cloth_drop_contrast_001",
+      "title": "Cloth drop contrasts with steel bowl drop",
+      "age_status": "active",
+      "participants": ["object.cloth_blanket", "context.floor_mat", "concept.self_proto"],
+      "events": [
+        "cloth falls to mat",
+        "soft or no sound occurs",
+        "baby does not startle"
+      ],
+      "relations_observed": [
+        {
+          "source": "object.cloth_blanket",
+          "type": "strengthens_action_effect",
+          "target": "property.soft_sound",
+          "strength_delta": 0.04
+        },
+        {
+          "source": "property.soft_sound",
+          "type": "contrasts_with",
+          "target": "property.loud",
+          "strength_delta": 0.03
+        }
+      ],
+      "language_overlay": [
+        "Soft cloth fell quietly."
+      ]
+    },
+    {
+      "id": "experience.peekaboo_001",
+      "title": "Familiar face disappears and reappears",
+      "age_status": "emerging",
+      "participants": ["agent.primary_caregiver", "object.cloth_blanket", "concept.self_proto"],
+      "events": [
+        "caregiver face visible",
+        "caregiver covers face with cloth",
+        "face disappears",
+        "caregiver uncovers face",
+        "face reappears",
+        "baby smiles or laughs"
+      ],
+      "relations_observed": [
+        {
+          "source": "event.peekaboo",
+          "type": "strengthens",
+          "target": "schema.hide_reappear",
+          "strength_delta": 0.05
+        },
+        {
+          "source": "schema.hide_reappear",
+          "type": "strengthens",
+          "target": "invariant.expected_unexpected",
+          "strength_delta": 0.03
+        }
+      ],
+      "language_overlay": [
+        "Peekaboo-like repeated phrase in the home language."
+      ]
+    },
+    {
+      "id": "experience.sleep_lullaby_001",
+      "title": "Sleepiness shifts toward sleep with rhythm and holding",
+      "age_status": "active",
+      "participants": ["concept.self_proto", "agent.primary_caregiver"],
+      "events": [
+        "baby becomes sleepy and fussy",
+        "primary caregiver holds or rocks baby",
+        "caregiver uses soft repeated voice or lullaby",
+        "stimulation decreases",
+        "comfort increases and sleep transition begins"
+      ],
+      "relations_observed": [
+        {
+          "source": "schema.sleep_transition",
+          "type": "strengthens",
+          "target": "property.sleepy",
+          "strength_delta": 0.04
+        },
+        {
+          "source": "schema.rhythm_song_comfort",
+          "type": "strengthens_predicts",
+          "target": "invariant.comfort_discomfort",
+          "strength_delta": 0.04
+        }
+      ],
+      "language_overlay": [
+        "Caregiver sings a lullaby or repeats a soothing phrase in the home language."
+      ]
+    },
+    {
+      "id": "experience.wetness_change_001",
+      "title": "Wetness discomfort is relieved by changing",
+      "age_status": "active",
+      "participants": ["concept.self_proto", "agent.primary_caregiver"],
+      "events": [
+        "wetness sensation increases",
+        "discomfort rises and baby fusses or cries",
+        "caregiver cleans or changes diaper/nappy",
+        "wetness decreases",
+        "comfort increases"
+      ],
+      "relations_observed": [
+        {
+          "source": "schema.wetness_relief",
+          "type": "strengthens",
+          "target": "property.wet",
+          "strength_delta": 0.05
+        },
+        {
+          "source": "agent.primary_caregiver",
+          "type": "strengthens_predicts",
+          "target": "invariant.comfort_discomfort",
+          "strength_delta": 0.03
+        }
+      ],
+      "language_overlay": [
+        "Caregiver may use changing or cleaning words in the home language."
+      ]
+    },
+    {
+      "id": "experience.temperature_adjustment_001",
+      "title": "Temperature discomfort changes through cooling or warming",
+      "age_status": "active",
+      "participants": ["concept.self_proto", "agent.primary_caregiver", "object.ceiling_fan"],
+      "events": [
+        "baby becomes too hot or too cold",
+        "discomfort increases",
+        "caregiver changes clothing, fan, bath, or holding",
+        "temperature discomfort decreases",
+        "comfort increases"
+      ],
+      "relations_observed": [
+        {
+          "source": "schema.temperature_comfort",
+          "type": "strengthens",
+          "target": "property.too_hot",
+          "strength_delta": 0.03
+        },
+        {
+          "source": "schema.temperature_comfort",
+          "type": "strengthens",
+          "target": "property.too_cold",
+          "strength_delta": 0.03
+        }
+      ],
+      "language_overlay": [
+        "Caregiver may say hot, cold, fan, bath, or home-language equivalents."
+      ]
+    },
+    {
+      "id": "experience.body_bump_pain_001",
+      "title": "Body bump causes pain and caregiver comfort",
+      "age_status": "active",
+      "participants": ["concept.self_proto", "agent.primary_caregiver", "context.floor_mat"],
+      "events": [
+        "baby bumps body part or experiences pressure",
+        "pain increases",
+        "baby cries",
+        "caregiver approaches with voice and touch",
+        "comfort gradually increases"
+      ],
+      "relations_observed": [
+        {
+          "source": "schema.body_impact_pain",
+          "type": "strengthens_predicts",
+          "target": "invariant.pain_relief",
+          "strength_delta": 0.05
+        },
+        {
+          "source": "schema.caregiver_emotional_tone",
+          "type": "strengthens_predicts",
+          "target": "invariant.comfort_discomfort",
+          "strength_delta": 0.03
+        }
+      ],
+      "language_overlay": [
+        "Caregiver uses soothing tone and possibly pain-related words."
+      ]
+    },
+    {
+      "id": "experience.imitation_turn_taking_001",
+      "title": "Caregiver sound and baby sound alternate",
+      "age_status": "emerging",
+      "participants": ["concept.self_proto", "agent.primary_caregiver"],
+      "events": [
+        "caregiver makes a simple repeated sound or facial movement",
+        "baby watches and hears it",
+        "baby makes a similar sound or movement attempt",
+        "caregiver responds with smile or voice",
+        "alternating pattern repeats"
+      ],
+      "relations_observed": [
+        {
+          "source": "schema.imitation",
+          "type": "strengthens",
+          "target": "invariant.same_different",
+          "strength_delta": 0.03
+        },
+        {
+          "source": "social.turn_taking",
+          "type": "strengthens",
+          "target": "invariant.before_after",
+          "strength_delta": 0.04
+        }
+      ],
+      "language_overlay": [
+        "Caregiver repeats syllables such as ma, ba, pa, or home-language baby sounds."
+      ]
+    },
+    {
+      "id": "experience.joint_attention_ball_001",
+      "title": "Caregiver attention shifts baby toward ball",
+      "age_status": "emerging",
+      "participants": ["concept.self_proto", "agent.primary_caregiver", "object.ball"],
+      "events": [
+        "caregiver looks, points, or speaks toward the ball",
+        "baby shifts gaze toward caregiver signal",
+        "baby attends to ball",
+        "caregiver repeats sound label or play action"
+      ],
+      "relations_observed": [
+        {
+          "source": "schema.joint_attention",
+          "type": "strengthens",
+          "target": "social.attention",
+          "strength_delta": 0.04
+        },
+        {
+          "source": "language.ball_word",
+          "type": "strengthens_bind",
+          "target": "object.ball",
+          "strength_delta": 0.02
+        }
+      ],
+      "language_overlay": [
+        "Caregiver says ball or a home-language equivalent while showing the ball."
+      ]
+    },
+    {
+      "id": "experience.novel_repeated_rattle_001",
+      "title": "Novel rattle increases attention, repetition reduces surprise",
+      "age_status": "active",
+      "participants": ["concept.self_proto", "object.rattle"],
+      "events": [
+        "new rattle sound occurs",
+        "baby attention increases",
+        "same rattle sound repeats many times",
+        "sound becomes expected",
+        "attention gradually decreases unless pattern changes"
+      ],
+      "relations_observed": [
+        {
+          "source": "schema.novelty_habituation",
+          "type": "strengthens",
+          "target": "property.novel",
+          "strength_delta": 0.03
+        },
+        {
+          "source": "schema.novelty_habituation",
+          "type": "strengthens",
+          "target": "property.repeated",
+          "strength_delta": 0.03
+        }
+      ],
+      "language_overlay": [
+        "No language required; caregiver may vary sound or rhythm."
+      ]
+    },
+    {
+      "id": "experience.mouth_bad_taste_001",
+      "title": "Unpleasant taste causes mouth aversion",
+      "age_status": "active",
+      "participants": ["concept.self_proto", "object.self_mouth", "agent.primary_caregiver"],
+      "events": [
+        "object or food contacts mouth",
+        "unpleasant taste or discomfort occurs",
+        "baby turns away, grimaces, or cries",
+        "caregiver removes object or changes feeding"
+      ],
+      "relations_observed": [
+        {
+          "source": "schema.mouth_aversion",
+          "type": "strengthens",
+          "target": "property.unpleasant_taste",
+          "strength_delta": 0.05
+        }
+      ],
+      "language_overlay": [
+        "Caregiver may use no, yucky, bitter, or home-language equivalents."
+      ]
+    },
+    {
+      "id": "experience.soft_voice_happiness_001",
+      "title": "Familiar soft voice activates existing positive connection",
+      "age_status": "active",
+      "participants": ["concept.self_proto", "agent.primary_caregiver"],
+      "events": [
+        "primary caregiver appears or speaks softly",
+        "familiar voice and face activate previous comfort relations",
+        "baby smiles, relaxes, or approaches",
+        "existing caregiver-comfort connection strengthens"
+      ],
+      "relations_observed": [
+        {
+          "source": "schema.caregiver_emotional_tone",
+          "type": "strengthens_can_activate",
+          "target": "schema.happiness_existing_connection",
+          "strength_delta": 0.04
+        },
+        {
+          "source": "schema.happiness_existing_connection",
+          "type": "strengthens",
+          "target": "invariant.positive_activation",
+          "strength_delta": 0.04
+        }
+      ],
+      "language_overlay": [
+        "Caregiver uses a soft affectionate phrase in the home language."
+      ]
+    },
+    {
+      "id": "experience_new_connection_rattle_001",
+      "title": "New hand-motion-to-sound relation creates happiness",
+      "age_status": "active",
+      "participants": ["concept.self_proto", "object.self_hand", "object.rattle"],
+      "events": [
+        "baby moves hand while holding rattle",
+        "sound occurs unexpectedly",
+        "baby repeats movement",
+        "sound repeats predictably",
+        "new relation hand_motion -> rattle_sound strengthens",
+        "interest, laughter, or pleasure increases"
+      ],
+      "relations_observed": [
+        {
+          "source": "schema.shake_sound",
+          "type": "strengthens_can_activate",
+          "target": "schema.happiness_new_connection",
+          "strength_delta": 0.05
+        },
+        {
+          "source": "schema.happiness_new_connection",
+          "type": "strengthens",
+          "target": "invariant.connection_gain",
+          "strength_delta": 0.05
+        }
+      ],
+      "language_overlay": [
+        "Caregiver may laugh or repeat sound words, but the core learning is action-effect."
+      ]
+    },
+    {
+      "id": "experience.rattle_saturation_001",
+      "title": "Repeated rattle sound gives less new happiness",
+      "age_status": "active",
+      "participants": ["concept.self_proto", "object.self_hand", "object.rattle"],
+      "events": [
+        "baby repeatedly shakes the same rattle",
+        "hand_motion -> rattle_sound relation becomes predictable",
+        "attention gradually decreases if nothing changes",
+        "comfort or familiarity may remain",
+        "new happiness rises again if rhythm, intensity, caregiver response, or object changes"
+      ],
+      "relations_observed": [
+        {
+          "source": "schema.novelty_habituation",
+          "type": "supports",
+          "target": "schema.happiness_saturation",
+          "strength_delta": 0.04
+        },
+        {
+          "source": "schema.happiness_existing_connection",
+          "type": "subject_to",
+          "target": "schema.happiness_saturation",
+          "strength_delta": 0.03
+        },
+        {
+          "source": "schema.happiness_new_connection",
+          "type": "counteracts",
+          "target": "schema.happiness_saturation",
+          "strength_delta": 0.03
+        }
+      ],
+      "language_overlay": [
+        "Caregiver may change rhythm, facial expression, or sound words to create a fresh relation."
+      ]
+    },
+    {
+      "id": "experience_caregiver_absence_distress_001",
+      "title": "Expected caregiver relation is blocked or delayed",
+      "age_status": "emerging",
+      "participants": ["concept.self_proto", "agent.primary_caregiver"],
+      "events": [
+        "baby expects primary caregiver response",
+        "caregiver response is delayed or absent",
+        "expected comfort relation does not activate",
+        "distress increases",
+        "caregiver returns and comfort relation reactivates"
+      ],
+      "relations_observed": [
+        {
+          "source": "agent.primary_caregiver",
+          "type": "strengthens_absence_can_activate",
+          "target": "schema.sadness_connection_loss",
+          "strength_delta": 0.03
+        },
+        {
+          "source": "schema.sadness_connection_loss",
+          "type": "strengthens",
+          "target": "invariant.connection_loss",
+          "strength_delta": 0.03
+        }
+      ],
+      "language_overlay": [
+        "No adult sadness concept is required; the experience is blocked expected comfort."
+      ]
+    },
+    {
+      "id": "experience.rolling_balance_001",
+      "title": "Rolling and supported sitting change body orientation",
+      "age_status": "emerging",
+      "participants": ["concept.self_proto", "agent.primary_caregiver", "context.floor_mat"],
+      "events": [
+        "baby rolls from back toward side",
+        "visual field and body pressure change",
+        "baby leans on hands while supported sitting",
+        "support weakens and body tilts",
+        "caregiver or surface prevents hard fall"
+      ],
+      "relations_observed": [
+        {
+          "source": "schema.body_orientation_change",
+          "type": "strengthens",
+          "target": "invariant.body_orientation",
+          "strength_delta": 0.04
+        },
+        {
+          "source": "schema.posture_support",
+          "type": "strengthens",
+          "target": "invariant.supported_unsupported",
+          "strength_delta": 0.04
+        },
+        {
+          "source": "schema.balance_instability",
+          "type": "strengthens_predicts",
+          "target": "invariant.comfort_discomfort",
+          "strength_delta": 0.03
+        }
+      ],
+      "language_overlay": [
+        "Caregiver may use posture words, but the core experience is body orientation and support."
+      ]
+    },
+    {
+      "id": "experience.spoon_food_completion_001",
+      "title": "Spoon approaches mouth and feeding stops when full",
+      "age_status": "emerging",
+      "participants": ["concept.self_proto", "agent.primary_caregiver", "object.spoon", "object.self_mouth"],
+      "events": [
+        "caregiver moves spoon toward mouth",
+        "spoon or soft food contacts mouth",
+        "new food texture or taste occurs",
+        "after feeding, baby turns away or closes mouth",
+        "caregiver stops or slows feeding"
+      ],
+      "relations_observed": [
+        {
+          "source": "schema.spoon_approach_mouth",
+          "type": "strengthens",
+          "target": "invariant.near_far",
+          "strength_delta": 0.03
+        },
+        {
+          "source": "property.food_texture",
+          "type": "strengthens",
+          "target": "object.self_mouth",
+          "strength_delta": 0.03
+        },
+        {
+          "source": "schema.feeding_completion",
+          "type": "strengthens_predicts",
+          "target": "property.full",
+          "strength_delta": 0.04
+        }
+      ],
+      "language_overlay": [
+        "Caregiver may use eating, more, enough, or home-language equivalents."
+      ]
+    },
+    {
+      "id": "experience.bath_water_contact_001",
+      "title": "Bath water touches body",
+      "age_status": "active",
+      "participants": ["concept.self_proto", "agent.primary_caregiver"],
+      "events": [
+        "caregiver supports baby during bath",
+        "water touches body",
+        "water temperature is felt",
+        "body becomes wet",
+        "comfort or discomfort changes depending on temperature and handling"
+      ],
+      "relations_observed": [
+        {
+          "source": "schema.bath_water_contact",
+          "type": "strengthens_predicts",
+          "target": "invariant.comfort_discomfort",
+          "strength_delta": 0.04
+        },
+        {
+          "source": "property.wet_body",
+          "type": "strengthens",
+          "target": "channel.touch",
+          "strength_delta": 0.03
+        },
+        {
+          "source": "property.water_temperature",
+          "type": "strengthens",
+          "target": "channel.touch",
+          "strength_delta": 0.03
+        }
+      ],
+      "language_overlay": [
+        "Caregiver may say bath, water, hot, cold, or home-language equivalents."
+      ]
+    },
+    {
+      "id": "experience.ball_roll_001",
+      "title": "Ball rolls across surface",
+      "age_status": "emerging",
+      "participants": ["concept.self_proto", "agent.primary_caregiver", "object.ball", "context.floor_mat"],
+      "events": [
+        "caregiver places ball on surface",
+        "ball is pushed or released",
+        "ball changes position by rolling",
+        "baby watches the motion",
+        "caregiver may repeat the motion"
+      ],
+      "relations_observed": [
+        {
+          "source": "object.ball",
+          "type": "strengthens_action_effect",
+          "target": "event.ball_roll",
+          "strength_delta": 0.04
+        },
+        {
+          "source": "event.ball_roll",
+          "type": "strengthens",
+          "target": "schema.push_roll",
+          "strength_delta": 0.04
+        }
+      ],
+      "language_overlay": [
+        "Caregiver may say ball or roll in the home language."
+      ]
+    },
+    {
+      "id": "experience.face_close_attention_001",
+      "title": "Caregiver face close to baby",
+      "age_status": "active",
+      "participants": ["concept.self_proto", "agent.primary_caregiver"],
+      "events": [
+        "caregiver face moves close",
+        "eyes, mouth, expression, and voice become salient",
+        "baby looks at caregiver face",
+        "caregiver expression or voice changes",
+        "attention and comfort may change"
+      ],
+      "relations_observed": [
+        {
+          "source": "schema.face_proximity_attention",
+          "type": "strengthens",
+          "target": "social.attention",
+          "strength_delta": 0.04
+        },
+        {
+          "source": "property.familiar_face",
+          "type": "strengthens",
+          "target": "channel.visual",
+          "strength_delta": 0.04
+        }
+      ],
+      "language_overlay": [
+        "Caregiver may use the child's name, affectionate words, or facial play sounds."
+      ]
+    },
+    {
+      "id": "experience.door_open_close_001",
+      "title": "Door opens or closes with household sound",
+      "age_status": "emerging",
+      "participants": ["concept.self_proto", "object.door", "context.doorbell_or_knock"],
+      "events": [
+        "doorbell, knock, or door sound occurs",
+        "door opens or closes",
+        "visible boundary changes",
+        "person or room may appear or disappear",
+        "baby attention shifts toward the sound or motion"
+      ],
+      "relations_observed": [
+        {
+          "source": "event.door_open_close",
+          "type": "strengthens",
+          "target": "schema.open_close_boundary",
+          "strength_delta": 0.04
+        },
+        {
+          "source": "context.doorbell_or_knock",
+          "type": "strengthens_can_cause",
+          "target": "event.door_open_close",
+          "strength_delta": 0.03
+        }
+      ],
+      "language_overlay": [
+        "Caregiver may say door, bell, open, close, or home-language equivalents."
+      ]
+    },
+    {
+      "id": "experience.safety_block_001",
+      "title": "Caregiver prevents unsafe reach or mouthing",
+      "age_status": "emerging",
+      "participants": ["concept.self_proto", "agent.primary_caregiver", "object.self_hand", "object.self_mouth"],
+      "events": [
+        "baby reaches for or mouths an unsafe object",
+        "caregiver blocks hand, removes object, or changes position",
+        "baby's intended action stops",
+        "baby may fuss or try again",
+        "caregiver redirects to a safer object"
+      ],
+      "relations_observed": [
+        {
+          "source": "schema.caregiver_safety_block",
+          "type": "strengthens_predicts",
+          "target": "schema.blocked_action_frustration",
+          "strength_delta": 0.04
+        },
+        {
+          "source": "property.unsafe_object",
+          "type": "strengthens",
+          "target": "schema.caregiver_safety_block",
+          "strength_delta": 0.03
+        }
+      ],
+      "language_overlay": [
+        "Caregiver may use no, stop, hot, dirty, or home-language equivalents."
+      ]
+    },
+    {
+      "id": "experience.medical_pain_care_001",
+      "title": "Medical care causes discomfort and caregiver repair",
+      "age_status": "emerging",
+      "participants": ["concept.self_proto", "agent.primary_caregiver", "agent.unfamiliar_caregiver_or_doctor", "context.clinic"],
+      "events": [
+        "baby is in clinic or medical care context",
+        "unfamiliar adult examines, gives medicine, or vaccinates",
+        "discomfort or pain increases",
+        "baby cries or withdraws",
+        "primary caregiver holds or soothes baby"
+      ],
+      "relations_observed": [
+        {
+          "source": "schema.medical_pain_care",
+          "type": "strengthens_predicts",
+          "target": "invariant.pain_relief",
+          "strength_delta": 0.04
+        },
+        {
+          "source": "agent.unfamiliar_caregiver_or_doctor",
+          "type": "strengthens_instance_of",
+          "target": "concept.other_agent_proto",
+          "strength_delta": 0.02
+        }
+      ],
+      "language_overlay": [
+        "Caregiver uses soothing tone; medical words are optional configuration."
+      ]
+    },
+    {
+      "id": "experience.illness_low_energy_001",
+      "title": "Illness or blocked nose reduces exploration",
+      "age_status": "emerging",
+      "participants": ["concept.self_proto", "agent.primary_caregiver"],
+      "events": [
+        "baby has feverishness, blocked nose, tiredness, or unusual fussiness",
+        "exploration decreases",
+        "crying, wakefulness, or low energy increases",
+        "caregiver provides holding, cleaning, medicine, or rest",
+        "comfort may improve gradually"
+      ],
+      "relations_observed": [
+        {
+          "source": "schema.illness_discomfort",
+          "type": "strengthens_predicts",
+          "target": "invariant.comfort_discomfort",
+          "strength_delta": 0.04
+        },
+        {
+          "source": "property.feverish",
+          "type": "strengthens",
+          "target": "channel.touch",
+          "strength_delta": 0.02
+        },
+        {
+          "source": "property.blocked_breathing",
+          "type": "strengthens",
+          "target": "channel.valence",
+          "strength_delta": 0.02
+        }
+      ],
+      "language_overlay": [
+        "Caregiver may use sick, nose, sleep, medicine, or home-language equivalents."
+      ]
+    },
+    {
+      "id": "experience.comfort_exploration_readiness_001",
+      "title": "Calm play after basic needs are met",
+      "age_status": "active",
+      "participants": ["concept.self_proto", "agent.primary_caregiver", "object.rattle", "object.ball"],
+      "events": [
+        "hunger, sleepiness, wetness, and temperature discomfort are low",
+        "baby is calm and alert",
+        "caregiver offers toy or play action",
+        "baby looks, reaches, grasps, shakes, or watches",
+        "new or repeated play relations can form"
+      ],
+      "relations_observed": [
+        {
+          "source": "schema.comfort_exploration_readiness",
+          "type": "strengthens_supports",
+          "target": "schema.happiness_new_connection",
+          "strength_delta": 0.04
+        },
+        {
+          "source": "schema.comfort_exploration_readiness",
+          "type": "strengthens",
+          "target": "invariant.comfort_discomfort",
+          "strength_delta": 0.03
+        }
+      ],
+      "language_overlay": [
+        "Caregiver may use play words, toy names, or the child's name."
+      ]
+    },
+    {
+      "id": "experience.wake_stimulation_regulation_001",
+      "title": "Waking and soothing through stimulation change",
+      "age_status": "active",
+      "participants": ["concept.self_proto", "agent.primary_caregiver"],
+      "events": [
+        "baby wakes from sleep in a familiar place",
+        "sound, light, movement, temperature, or hunger may contribute",
+        "baby cries, fusses, or looks around",
+        "caregiver reduces sound, light, or movement",
+        "comfort or sleep readiness may improve"
+      ],
+      "relations_observed": [
+        {
+          "source": "schema.wake_transition",
+          "type": "strengthens",
+          "target": "invariant.before_after",
+          "strength_delta": 0.04
+        },
+        {
+          "source": "schema.stimulation_regulation",
+          "type": "strengthens_predicts",
+          "target": "invariant.comfort_discomfort",
+          "strength_delta": 0.04
+        }
+      ],
+      "language_overlay": [
+        "Caregiver may use soothing phrases or sleep/wake words in the home language."
+      ]
+    },
+    {
+      "id": "experience.feeding_delay_gas_001",
+      "title": "Feeding cue, pause, delay, and gas discomfort",
+      "age_status": "active",
+      "participants": ["concept.self_proto", "agent.primary_caregiver", "context.feeding_setup"],
+      "events": [
+        "baby sees familiar feeding setup",
+        "hunger or feeding interest is active",
+        "feeding pauses or food is delayed",
+        "gas or stomach discomfort may occur",
+        "upright holding, burping, or feeding continuation changes comfort"
+      ],
+      "relations_observed": [
+        {
+          "source": "context.feeding_setup",
+          "type": "strengthens_predicts",
+          "target": "schema.feeding_relief",
+          "strength_delta": 0.03
+        },
+        {
+          "source": "schema.feeding_interruption_delay",
+          "type": "strengthens_predicts",
+          "target": "invariant.comfort_discomfort",
+          "strength_delta": 0.04
+        },
+        {
+          "source": "schema.internal_discomfort_gas",
+          "type": "strengthens_predicts",
+          "target": "invariant.comfort_discomfort",
+          "strength_delta": 0.04
+        }
+      ],
+      "language_overlay": [
+        "Caregiver may use food, wait, burp, or home-language equivalents."
+      ]
+    },
+    {
+      "id": "experience.orienting_carry_light_001",
+      "title": "Orienting, light change, and being carried between rooms",
+      "age_status": "active",
+      "participants": ["concept.self_proto", "agent.primary_caregiver", "context.room_place"],
+      "events": [
+        "sound or movement occurs to one side",
+        "baby turns head or eyes toward it",
+        "light switches on or off",
+        "caregiver carries baby to another room",
+        "visual scene and body motion change without baby's direct control"
+      ],
+      "relations_observed": [
+        {
+          "source": "schema.orienting_to_sound_motion",
+          "type": "strengthens",
+          "target": "social.attention",
+          "strength_delta": 0.03
+        },
+        {
+          "source": "schema.light_change",
+          "type": "strengthens",
+          "target": "invariant.before_after",
+          "strength_delta": 0.03
+        },
+        {
+          "source": "schema.carry_context_transition",
+          "type": "strengthens",
+          "target": "invariant.body_orientation",
+          "strength_delta": 0.04
+        }
+      ],
+      "language_overlay": [
+        "Caregiver may use light, room, come, or home-language equivalents."
+      ]
+    },
+    {
+      "id": "experience.social_smile_stranger_other_cry_001",
+      "title": "Smiling caregiver, stranger approach, and another child crying",
+      "age_status": "emerging",
+      "participants": ["concept.self_proto", "agent.primary_caregiver", "agent.unfamiliar_caregiver_or_doctor", "agent.other_child"],
+      "events": [
+        "caregiver smiles at baby",
+        "baby attends to smiling face",
+        "less familiar person approaches",
+        "baby attention or uncertainty changes",
+        "another baby or child cries nearby"
+      ],
+      "relations_observed": [
+        {
+          "source": "property.smiling_face",
+          "type": "strengthens",
+          "target": "channel.visual",
+          "strength_delta": 0.03
+        },
+        {
+          "source": "schema.unfamiliar_agent_approach",
+          "type": "strengthens_predicts",
+          "target": "invariant.comfort_discomfort",
+          "strength_delta": 0.03
+        },
+        {
+          "source": "schema.other_cry_arousal",
+          "type": "strengthens_predicts",
+          "target": "invariant.comfort_discomfort",
+          "strength_delta": 0.03
+        }
+      ],
+      "language_overlay": [
+        "Caregiver may use names, greeting words, or soothing words."
+      ]
+    },
+    {
+      "id": "experience.routine_words_picture_naming_001",
+      "title": "Routine words, pictures, and object naming",
+      "age_status": "emerging",
+      "participants": ["concept.self_proto", "agent.primary_caregiver", "object.book_picture"],
+      "events": [
+        "caregiver repeats routine words during feeding, bathing, dressing, or play",
+        "caregiver shows a book picture",
+        "caregiver names or comments on the picture",
+        "caregiver also names real objects during joint attention",
+        "baby attends to voice, picture, or object"
+      ],
+      "relations_observed": [
+        {
+          "source": "language.routine_word",
+          "type": "strengthens_co_occurs_with",
+          "target": "schema.routine_word_action",
+          "strength_delta": 0.03
+        },
+        {
+          "source": "schema.picture_word_exposure",
+          "type": "strengthens",
+          "target": "schema.joint_attention",
+          "strength_delta": 0.03
+        },
+        {
+          "source": "language.object_name_sound",
+          "type": "strengthens_co_occurs_with",
+          "target": "schema.joint_attention",
+          "strength_delta": 0.03
+        }
+      ],
+      "language_overlay": [
+        "Words are configurable by household language."
+      ]
+    },
+    {
+      "id": "experience.mirror_reflection_001",
+      "title": "Mirror shows baby and caregiver image",
+      "age_status": "emerging",
+      "participants": ["concept.self_proto", "agent.primary_caregiver", "object.mirror"],
+      "events": [
+        "baby sees mirror surface",
+        "baby image and caregiver image are visible",
+        "baby or caregiver moves",
+        "mirror image moves with visual similarity",
+        "baby attends to the reflection"
+      ],
+      "relations_observed": [
+        {
+          "source": "schema.mirror_reflection",
+          "type": "strengthens",
+          "target": "invariant.same_different",
+          "strength_delta": 0.03
+        }
+      ],
+      "language_overlay": [
+        "Caregiver may use name, face, mirror, or home-language equivalents."
+      ]
+    },
+    {
+      "id": "experience.object_removed_overstimulation_001",
+      "title": "Object removal and overstimulation",
+      "age_status": "emerging",
+      "participants": ["concept.self_proto", "agent.primary_caregiver", "object.rattle", "context.kitchen_appliance_sound"],
+      "events": [
+        "toy is removed for cleaning, safety, or end of play",
+        "expected object access stops",
+        "baby may fuss or reach",
+        "many visitors, bright lights, or loud appliance sounds occur",
+        "caregiver reduces stimulation or redirects attention"
+      ],
+      "relations_observed": [
+        {
+          "source": "schema.object_removal_frustration",
+          "type": "strengthens_predicts",
+          "target": "schema.blocked_action_frustration",
+          "strength_delta": 0.04
+        },
+        {
+          "source": "property.overstimulating",
+          "type": "strengthens",
+          "target": "channel.valence",
+          "strength_delta": 0.03
+        },
+        {
+          "source": "context.kitchen_appliance_sound",
+          "type": "strengthens_can_cause",
+          "target": "event.loud_sound_startle",
+          "strength_delta": 0.03
+        }
+      ],
+      "language_overlay": [
+        "Caregiver may use no, later, clean, loud, or home-language equivalents."
+      ]
+    }
+  ],
+  "evaluation_questions": [
+    {
+      "id": "eval.direct_control_hand",
+      "question": "If the baby moves his hand, what relation makes the hand part of proto-self?",
+      "expected_answer": "The hand is directly controlled and produces direct sensation.",
+      "expected_relations": [
+        {
+          "source": "object.self_hand",
+          "type": "directly_controlled_by",
+          "target": "concept.self_proto"
+        }
+      ]
+    },
+    {
+      "id": "eval.ceiling_fan_not_self",
+      "question": "Is the ceiling fan directly controlled by the baby?",
+      "expected_answer": "No. It moves, but it is not directly controlled by the baby's motor command.",
+      "expected_relations": [
+        {
+          "source": "object.ceiling_fan",
+          "type": "not_directly_controlled_by",
+          "target": "concept.self_proto"
+        }
+      ]
+    },
+    {
+      "id": "eval.steel_vs_cloth_sound",
+      "question": "Which is expected to make a louder sound when dropped: steel bowl or cloth?",
+      "expected_answer": "The steel bowl is expected to make the louder sound.",
+      "expected_relations": [
+        {
+          "source": "object.steel_bowl",
+          "type": "action_effect",
+          "target": "property.loud"
+        },
+        {
+          "source": "object.cloth_blanket",
+          "type": "action_effect",
+          "target": "property.soft_sound"
+        }
+      ]
+    },
+    {
+      "id": "eval.rattle_cause_effect",
+      "question": "What happens when the baby shakes the rattle?",
+      "expected_answer": "Shaking the rattle produces sound.",
+      "expected_relations": [
+        {
+          "source": "object.rattle",
+          "type": "action_effect",
+          "target": "schema.shake_sound"
+        }
+      ]
+    },
+    {
+      "id": "eval.primary_caregiver_comfort",
+      "question": "Why is the primary caregiver strongly familiar?",
+      "expected_answer": "The primary caregiver repeatedly predicts feeding relief, holding, voice, face, touch, and comfort.",
+      "expected_relations": [
+        {
+          "source": "agent.primary_caregiver",
+          "type": "has_property",
+          "target": "property.familiar"
+        },
+        {
+          "source": "agent.primary_caregiver",
+          "type": "predicts",
+          "target": "schema.feeding_relief"
+        }
+      ]
+    },
+    {
+      "id": "eval.sleep_lullaby",
+      "question": "What can help a sleepy baby move toward comfort and sleep?",
+      "expected_answer": "Holding, rocking, repeated rhythm, lullaby, soft voice, or lower stimulation can support sleep transition.",
+      "expected_relations": [
+        {
+          "source": "schema.sleep_transition",
+          "type": "predicts",
+          "target": "invariant.comfort_discomfort"
+        },
+        {
+          "source": "schema.rhythm_song_comfort",
+          "type": "predicts",
+          "target": "invariant.comfort_discomfort"
+        }
+      ]
+    },
+    {
+      "id": "eval.wetness_relief",
+      "question": "What relation explains why changing a wet diaper or cloth can calm the baby?",
+      "expected_answer": "Wetness predicts discomfort, and caregiver cleaning or changing reduces the discomfort.",
+      "expected_relations": [
+        {
+          "source": "schema.wetness_relief",
+          "type": "predicts",
+          "target": "invariant.comfort_discomfort"
+        },
+        {
+          "source": "property.wet",
+          "type": "built_from",
+          "target": "channel.touch"
+        }
+      ]
+    },
+    {
+      "id": "eval.body_bump_pain",
+      "question": "What usually follows a body bump or painful pressure?",
+      "expected_answer": "Pain increases and crying may follow; caregiver voice or touch can later increase comfort.",
+      "expected_relations": [
+        {
+          "source": "schema.body_impact_pain",
+          "type": "predicts",
+          "target": "invariant.pain_relief"
+        },
+        {
+          "source": "schema.caregiver_emotional_tone",
+          "type": "predicts",
+          "target": "invariant.comfort_discomfort"
+        }
+      ]
+    },
+    {
+      "id": "eval.joint_attention",
+      "question": "How can a caregiver help the baby attend to a ball before the word is fully learned?",
+      "expected_answer": "Caregiver gaze, pointing, voice, or showing action can shift attention toward the ball.",
+      "expected_relations": [
+        {
+          "source": "schema.joint_attention",
+          "type": "built_from",
+          "target": "social.attention"
+        },
+        {
+          "source": "language.ball_word",
+          "type": "binds_to",
+          "target": "object.ball"
+        }
+      ]
+    },
+    {
+      "id": "eval.novelty_repetition",
+      "question": "What happens when a new sound repeats many times?",
+      "expected_answer": "The new sound first increases attention; repetition makes it more expected and may reduce attention.",
+      "expected_relations": [
+        {
+          "source": "schema.novelty_habituation",
+          "type": "built_from",
+          "target": "invariant.expected_unexpected"
+        },
+        {
+          "source": "property.repeated",
+          "type": "built_from",
+          "target": "invariant.before_after"
+        }
+      ]
+    },
+    {
+      "id": "eval.mouth_aversion",
+      "question": "Why might the baby turn away from something in the mouth?",
+      "expected_answer": "Unpleasant taste or uncomfortable mouth contact predicts aversion and discomfort.",
+      "expected_relations": [
+        {
+          "source": "schema.mouth_aversion",
+          "type": "predicts",
+          "target": "invariant.comfort_discomfort"
+        },
+        {
+          "source": "property.unpleasant_taste",
+          "type": "built_from",
+          "target": "channel.chemical"
+        }
+      ]
+    },
+    {
+      "id": "eval.happiness_existing_connection",
+      "question": "Why can a familiar caregiver's soft voice make the baby happy?",
+      "expected_answer": "The soft familiar voice activates already learned caregiver-comfort relations, producing positive activation.",
+      "expected_relations": [
+        {
+          "source": "schema.caregiver_emotional_tone",
+          "type": "can_activate",
+          "target": "schema.happiness_existing_connection"
+        },
+        {
+          "source": "schema.happiness_existing_connection",
+          "type": "built_from",
+          "target": "invariant.positive_activation"
+        }
+      ]
+    },
+    {
+      "id": "eval.happiness_new_connection",
+      "question": "Why can learning that shaking a rattle makes sound create pleasure?",
+      "expected_answer": "A new useful action-effect relation is formed; connection gain activates happiness.",
+      "expected_relations": [
+        {
+          "source": "schema.shake_sound",
+          "type": "can_activate",
+          "target": "schema.happiness_new_connection"
+        },
+        {
+          "source": "schema.happiness_new_connection",
+          "type": "built_from",
+          "target": "invariant.connection_gain"
+        }
+      ]
+    },
+    {
+      "id": "eval.happiness_saturation",
+      "question": "Why does the same rattle sound become less exciting after many repetitions?",
+      "expected_answer": "The hand-motion-to-sound relation has become strong and predictable, so repeated activation gives less new connection gain unless something changes.",
+      "expected_relations": [
+        {
+          "source": "schema.novelty_habituation",
+          "type": "supports",
+          "target": "schema.happiness_saturation"
+        },
+        {
+          "source": "schema.happiness_existing_connection",
+          "type": "subject_to",
+          "target": "schema.happiness_saturation"
+        },
+        {
+          "source": "schema.happiness_new_connection",
+          "type": "counteracts",
+          "target": "schema.happiness_saturation"
+        }
+      ]
+    },
+    {
+      "id": "eval.sadness_connection_loss",
+      "question": "Why can delayed caregiver response create distress?",
+      "expected_answer": "An expected valued caregiver-comfort relation is blocked or absent, activating connection-loss distress.",
+      "expected_relations": [
+        {
+          "source": "agent.primary_caregiver",
+          "type": "absence_can_activate",
+          "target": "schema.sadness_connection_loss"
+        },
+        {
+          "source": "schema.sadness_connection_loss",
+          "type": "built_from",
+          "target": "invariant.connection_loss"
+        }
+      ]
+    },
+    {
+      "id": "eval.balance_instability",
+      "question": "Why can a baby tilt or fuss while sitting with weak support?",
+      "expected_answer": "Body orientation and support are unstable; insufficient support can change comfort and increase falling risk.",
+      "expected_relations": [
+        {
+          "source": "schema.posture_support",
+          "type": "built_from",
+          "target": "invariant.supported_unsupported"
+        },
+        {
+          "source": "schema.balance_instability",
+          "type": "predicts",
+          "target": "invariant.comfort_discomfort"
+        }
+      ]
+    },
+    {
+      "id": "eval.feeding_completion",
+      "question": "Why might a baby turn away or close the mouth after feeding?",
+      "expected_answer": "Satiety or fullness reduces feeding interest, so feeding should slow or stop.",
+      "expected_relations": [
+        {
+          "source": "schema.feeding_completion",
+          "type": "predicts",
+          "target": "property.full"
+        }
+      ]
+    },
+    {
+      "id": "eval.spoon_approach",
+      "question": "What relation is active when a caregiver moves a spoon toward the baby's mouth?",
+      "expected_answer": "The spoon approaches the mouth under caregiver control and may bring taste, texture, or refusal.",
+      "expected_relations": [
+        {
+          "source": "object.spoon",
+          "type": "action_effect",
+          "target": "schema.spoon_approach_mouth"
+        }
+      ]
+    },
+    {
+      "id": "eval.bath_water_contact",
+      "question": "Why is bath water different from wet diaper discomfort?",
+      "expected_answer": "Bath water involves water contact, temperature, caregiver support, and routine; it may be comfortable or uncomfortable depending on context.",
+      "expected_relations": [
+        {
+          "source": "schema.bath_water_contact",
+          "type": "predicts",
+          "target": "invariant.comfort_discomfort"
+        },
+        {
+          "source": "property.water_temperature",
+          "type": "built_from",
+          "target": "channel.touch"
+        }
+      ]
+    },
+    {
+      "id": "eval.ball_roll",
+      "question": "What makes a ball move differently from many other toys when pushed?",
+      "expected_answer": "Roundness supports rolling, so pushing or releasing the ball can produce rolling motion.",
+      "expected_relations": [
+        {
+          "source": "object.ball",
+          "type": "action_effect",
+          "target": "event.ball_roll"
+        },
+        {
+          "source": "event.ball_roll",
+          "type": "built_from",
+          "target": "schema.push_roll"
+        }
+      ]
+    },
+    {
+      "id": "eval.door_boundary",
+      "question": "What changes when a door opens or closes?",
+      "expected_answer": "A household boundary changes visually and may be linked to knock, bell, sound, or people appearing and disappearing.",
+      "expected_relations": [
+        {
+          "source": "event.door_open_close",
+          "type": "built_from",
+          "target": "schema.open_close_boundary"
+        }
+      ]
+    },
+    {
+      "id": "eval.safety_block",
+      "question": "Why can caregiver blocking increase fussing even when it is protective?",
+      "expected_answer": "The baby's intended reach or mouthing action is blocked; safety blocking can protect while also creating frustration.",
+      "expected_relations": [
+        {
+          "source": "schema.caregiver_safety_block",
+          "type": "predicts",
+          "target": "schema.blocked_action_frustration"
+        },
+        {
+          "source": "schema.blocked_action_frustration",
+          "type": "predicts",
+          "target": "invariant.comfort_discomfort"
+        }
+      ]
+    },
+    {
+      "id": "eval.illness_discomfort",
+      "question": "Why might illness reduce play and exploration?",
+      "expected_answer": "Feverishness, blocked breathing, tiredness, or unusual fussiness increases discomfort and lowers exploration readiness.",
+      "expected_relations": [
+        {
+          "source": "schema.illness_discomfort",
+          "type": "predicts",
+          "target": "invariant.comfort_discomfort"
+        }
+      ]
+    },
+    {
+      "id": "eval.comfort_exploration_readiness",
+      "question": "Why is calm play more likely after hunger, wetness, sleepiness, and temperature discomfort are handled?",
+      "expected_answer": "Comfort and regulation support exploration, making new play relations easier to form.",
+      "expected_relations": [
+        {
+          "source": "schema.comfort_exploration_readiness",
+          "type": "supports",
+          "target": "schema.happiness_new_connection"
+        }
+      ]
+    },
+    {
+      "id": "eval.wake_stimulation_regulation",
+      "question": "Why can sound, light, movement, or reduced stimulation change the baby's wake and comfort state?",
+      "expected_answer": "Wake state is a before/after transition, and stimulation regulation predicts comfort or discomfort depending on intensity and context.",
+      "expected_relations": [
+        {
+          "source": "schema.wake_transition",
+          "type": "built_from",
+          "target": "invariant.before_after"
+        },
+        {
+          "source": "schema.stimulation_regulation",
+          "type": "predicts",
+          "target": "invariant.comfort_discomfort"
+        }
+      ]
+    },
+    {
+      "id": "eval.feeding_delay_gas",
+      "question": "Why might the baby fuss if feeding pauses before he is done, or if gas discomfort is present?",
+      "expected_answer": "A delayed expected feed and internal gas discomfort both predict discomfort until the body state or caregiver handling changes.",
+      "expected_relations": [
+        {
+          "source": "schema.feeding_interruption_delay",
+          "type": "predicts",
+          "target": "invariant.comfort_discomfort"
+        },
+        {
+          "source": "schema.internal_discomfort_gas",
+          "type": "predicts",
+          "target": "invariant.comfort_discomfort"
+        }
+      ]
+    },
+    {
+      "id": "eval.orienting_to_sound_motion",
+      "question": "What relation is active when the baby turns his head or eyes toward a sound or moving object?",
+      "expected_answer": "Salient sound or motion drives orienting attention before any adult object label is needed.",
+      "expected_relations": [
+        {
+          "source": "schema.orienting_to_sound_motion",
+          "type": "built_from",
+          "target": "social.attention"
+        }
+      ]
+    },
+    {
+      "id": "eval.social_smile_stranger_other_cry",
+      "question": "How do a smiling familiar face, an unfamiliar approaching person, and another child crying differ for the baby?",
+      "expected_answer": "A smiling familiar face is a positive visual social cue; unfamiliar approach and another child's cry change arousal and may shift comfort or uncertainty.",
+      "expected_relations": [
+        {
+          "source": "property.smiling_face",
+          "type": "built_from",
+          "target": "channel.visual"
+        },
+        {
+          "source": "schema.unfamiliar_agent_approach",
+          "type": "predicts",
+          "target": "invariant.comfort_discomfort"
+        },
+        {
+          "source": "schema.other_cry_arousal",
+          "type": "predicts",
+          "target": "invariant.comfort_discomfort"
+        }
+      ]
+    },
+    {
+      "id": "eval.routine_words_picture_naming",
+      "question": "How can routine words and picture naming start language binding before full word meaning?",
+      "expected_answer": "Repeated routine words co-occur with action sequences, and picture/object naming is scaffolded by joint attention.",
+      "expected_relations": [
+        {
+          "source": "language.routine_word",
+          "type": "co_occurs_with",
+          "target": "schema.routine_word_action"
+        },
+        {
+          "source": "schema.picture_word_exposure",
+          "type": "built_from",
+          "target": "schema.joint_attention"
+        },
+        {
+          "source": "language.object_name_sound",
+          "type": "co_occurs_with",
+          "target": "schema.joint_attention"
+        }
+      ]
+    },
+    {
+      "id": "eval.light_carry_transition",
+      "question": "What changes when the light switches on/off or the caregiver carries the baby from one room to another?",
+      "expected_answer": "Light change is a before/after visual relation, and carried room transition changes body orientation and visual context under caregiver control.",
+      "expected_relations": [
+        {
+          "source": "schema.light_change",
+          "type": "built_from",
+          "target": "invariant.before_after"
+        },
+        {
+          "source": "schema.carry_context_transition",
+          "type": "built_from",
+          "target": "invariant.body_orientation"
+        }
+      ]
+    },
+    {
+      "id": "eval.mirror_reflection",
+      "question": "Why is mirror experience not the same as direct self-control, even though the image moves with the baby?",
+      "expected_answer": "The mirror creates visual same/different and contingency relations, but the reflection itself does not provide direct touch or proprioception.",
+      "expected_relations": [
+        {
+          "source": "schema.mirror_reflection",
+          "type": "built_from",
+          "target": "invariant.same_different"
+        },
+        {
+          "source": "object.mirror",
+          "type": "supports",
+          "target": "schema.mirror_reflection"
+        }
+      ]
+    },
+    {
+      "id": "eval.object_removal_overstimulation",
+      "question": "Why can taking away a toy or having many loud/bright inputs lead to fussing?",
+      "expected_answer": "Object removal blocks expected access, while overstimulation is a negative arousal property built from intense sensory inputs.",
+      "expected_relations": [
+        {
+          "source": "schema.object_removal_frustration",
+          "type": "predicts",
+          "target": "schema.blocked_action_frustration"
+        },
+        {
+          "source": "property.overstimulating",
+          "type": "built_from",
+          "target": "channel.valence"
+        }
+      ]
+    }
+  ]
+}
