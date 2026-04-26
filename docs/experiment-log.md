@@ -3,6 +3,93 @@
 This is the running chronological log for experiments. New entries go at the
 top so the latest result is always visible first.
 
+## 2026-04-26: Physical V0.3 Binary Candidate Scoring
+
+Experiment ID:
+
+```text
+physical_v0_3
+```
+
+Purpose:
+
+```text
+Test whether independent YES/NO candidate judgments reduce the over-selection
+seen in physical_v0_2.
+```
+
+Data:
+
+```text
+train: 2376
+dev: 283
+curriculum_test: 343
+held-out binary prompts: 794
+```
+
+Model/run:
+
+```text
+model: HuggingFaceTB/SmolLM2-135M
+run: binary_candidate_scoring_s300
+max_seq_length: 512
+max_steps: 300
+epoch: 1.01
+```
+
+Training result:
+
+```text
+train loss: 0.218
+dev loss:   0.101
+```
+
+Held-out result, task-matched greedy generation:
+
+```text
+case pass:          0.000
+family precision:   0.750
+family recall:      0.066
+anchor precision:   0.400
+anchor recall:      0.038
+gap precision:      0.287
+gap recall:         0.868
+```
+
+Held-out diagnostic, YES/NO logit top-k:
+
+```text
+case pass:          0.000
+family precision:   0.407
+family recall:      0.407
+anchor precision:   0.288
+anchor recall:      0.288
+gap precision:      0.289
+gap recall:         0.289
+```
+
+Interpretation:
+
+```text
+Binary scoring fixed the over-selection shape only by creating an
+under-selection/calibration problem. The logits contain weak relation-ranking
+signal, but held-out graph transfer is still not good enough.
+```
+
+Decision:
+
+```text
+Do not expand domains yet. Next step should add held-out-style transfer bridge
+prompts and/or pairwise/listwise ranking, then evaluate ranking before returning
+to set selection.
+```
+
+Detailed report:
+
+```text
+docs/physical-v0-3-binary-candidate-scoring.md
+```
+
 ## 2026-04-26: Physical V0.2 Closed-Vocabulary Candidate Selection
 
 Experiment ID:

@@ -81,6 +81,23 @@ the preliminary run over-selected options. Recall improved, precision stayed
 poor, and exact held-out case pass remained zero.
 ```
 
+Current `physical_v0_3` status:
+
+```text
+Binary candidate scoring was generated, trained, and scored. It reduced the
+over-selection shape but under-selected relation families and graph anchors.
+YES/NO logit top-k showed weak ranking signal, but exact held-out case pass
+remained zero.
+```
+
+Current next action:
+
+```text
+Do not expand domains yet.
+Add held-out-style transfer bridge prompts and/or pairwise/listwise candidate
+ranking before returning to exact set selection.
+```
+
 ## Phase 0: Repository And Data Discipline
 
 Goal: make every artifact reproducible and parseable.
