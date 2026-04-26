@@ -70,7 +70,15 @@ Current next action:
 
 ```text
 Do not expand domains yet.
-Create physical_v0_2 as a closed-vocabulary candidate-selection experiment.
+Revise physical_v0_2 candidate selection to reduce over-selection.
+```
+
+Current `physical_v0_2` status:
+
+```text
+Closed-vocabulary candidate selection removed invented non-candidate IDs, but
+the preliminary run over-selected options. Recall improved, precision stayed
+poor, and exact held-out case pass remained zero.
 ```
 
 ## Phase 0: Repository And Data Discipline

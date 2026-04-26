@@ -127,8 +127,15 @@ def make_dataset_class(dataset_base: Any) -> type:
 
             prompt_ids = self.tokenizer(prompt, add_special_tokens=False)["input_ids"]
             target_ids = self.tokenizer(target + eos, add_special_tokens=False)["input_ids"]
-            input_ids = (prompt_ids + target_ids)[: self.max_seq_length]
-            labels = ([-100] * len(prompt_ids) + target_ids)[: self.max_seq_length]
+
+            if len(target_ids) >= self.max_seq_length:
+                prompt_ids = []
+                target_ids = target_ids[: self.max_seq_length]
+            else:
+                prompt_ids = prompt_ids[: self.max_seq_length - len(target_ids)]
+
+            input_ids = prompt_ids + target_ids
+            labels = [-100] * len(prompt_ids) + target_ids
             attention_mask = [1] * len(input_ids)
             return {
                 "input_ids": input_ids,
@@ -231,7 +238,7 @@ def train(config: dict[str, Any], variant: str, output_dir: Path | None, overfit
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--config", type=Path, required=True, help="Training config JSON")
-    parser.add_argument("--variant", choices=("plain_text", "flat_triples", "relation_scaffolded"), required=True)
+    parser.add_argument("--variant", required=True, help="Dataset variant name from the dataset manifest")
     parser.add_argument("--output-dir", type=Path, help="Override run output directory")
     parser.add_argument("--overfit-limit", type=int, help="Train/dev/test on the first N training examples")
     parser.add_argument("--max-steps", type=int, help="Override max training steps")

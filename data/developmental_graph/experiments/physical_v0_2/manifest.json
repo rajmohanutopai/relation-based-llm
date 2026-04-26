@@ -1,0 +1,89 @@
+{
+  "candidate_count": 10,
+  "experiment_id": "physical_v0_2",
+  "heldout_prompt_count": 33,
+  "notes": [
+    "physical_v0_2 changes the task from free-form graph ID generation to closed-vocabulary candidate selection.",
+    "Hard negatives come from same or nearby graph layers, node kinds, relation types, or related family IDs.",
+    "No broad domain expansion is included."
+  ],
+  "outputs": {
+    "curriculum_test": {
+      "path": "data/developmental_graph/experiments/physical_v0_2/curriculum_test.jsonl",
+      "sha256": "39e385d82fd1899cb0895b8b7603bfb81869a1b165670cf648f1912cd21fc823"
+    },
+    "dataset_manifest": {
+      "path": "data/developmental_graph/experiments/physical_v0_2/datasets/manifest.json",
+      "sha256": "a0643d0679cf7c60abcc6fe4d884574095cff5db27ce5fa79c1c8424f279b377"
+    },
+    "datasets.candidate_selection.curriculum_test": {
+      "path": "data/developmental_graph/experiments/physical_v0_2/datasets/candidate_selection/curriculum_test.jsonl",
+      "sha256": "39e385d82fd1899cb0895b8b7603bfb81869a1b165670cf648f1912cd21fc823"
+    },
+    "datasets.candidate_selection.dev": {
+      "path": "data/developmental_graph/experiments/physical_v0_2/datasets/candidate_selection/dev.jsonl",
+      "sha256": "3604858c6703e176c63264ba5a213200ed02c18c77504b8e769f93c9a2cb7551"
+    },
+    "datasets.candidate_selection.train": {
+      "path": "data/developmental_graph/experiments/physical_v0_2/datasets/candidate_selection/train.jsonl",
+      "sha256": "d8c5022196ea1cc215e6bba40dec37b49fd2c546f9bb779b99b1e9ed01cd0c54"
+    },
+    "dev": {
+      "path": "data/developmental_graph/experiments/physical_v0_2/dev.jsonl",
+      "sha256": "3604858c6703e176c63264ba5a213200ed02c18c77504b8e769f93c9a2cb7551"
+    },
+    "heldout": {
+      "path": "data/developmental_graph/experiments/physical_v0_2/heldout.json",
+      "sha256": "b85bd8267c766515803d0f6fda871e9dc9184ade64a66bd1ba6bf568ee618c5d"
+    },
+    "heldout_prompts": {
+      "path": "data/developmental_graph/experiments/physical_v0_2/heldout_prompts.jsonl",
+      "sha256": "f1f909ed4e3281e0ffd5c4111c98677cf3bd0d1ed4f4bcb80fad993a7a3f81d8"
+    },
+    "train": {
+      "path": "data/developmental_graph/experiments/physical_v0_2/train.jsonl",
+      "sha256": "d8c5022196ea1cc215e6bba40dec37b49fd2c546f9bb779b99b1e9ed01cd0c54"
+    },
+    "training_config": {
+      "path": "data/developmental_graph/experiments/physical_v0_2/training_config.json",
+      "sha256": "afc89b4a8136ea3782652c5ec7fd7b67593688471df6f77b7491f01fc2068bce"
+    }
+  },
+  "schema_version": "0.1.0",
+  "seed": 1729,
+  "source_experiment_dir": "data/developmental_graph/experiments/physical_v0_1",
+  "source_experiment_id": "physical_v0_1",
+  "source_graph": "data/developmental_graph/seeds/everyday_physical_world.json",
+  "source_heldout": "data/developmental_graph/evaluations/everyday_physical_world_heldout.json",
+  "split_strategy": "derived_from_physical_v0_1_splits",
+  "splits": {
+    "curriculum_test": {
+      "task_type_counts": {
+        "graph_anchor_candidate_selection": 32,
+        "node_candidate_selection": 43,
+        "relation_and_anchor_candidate_selection": 32,
+        "relation_family_candidate_selection": 35
+      },
+      "total": 142
+    },
+    "dev": {
+      "task_type_counts": {
+        "graph_anchor_candidate_selection": 27,
+        "node_candidate_selection": 40,
+        "relation_and_anchor_candidate_selection": 27,
+        "relation_family_candidate_selection": 29
+      },
+      "total": 123
+    },
+    "train": {
+      "task_type_counts": {
+        "graph_anchor_candidate_selection": 231,
+        "node_candidate_selection": 329,
+        "relation_and_anchor_candidate_selection": 231,
+        "relation_family_candidate_selection": 250
+      },
+      "total": 1041
+    }
+  },
+  "variant": "candidate_selection"
+}

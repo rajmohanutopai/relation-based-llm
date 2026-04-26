@@ -3,6 +3,83 @@
 This is the running chronological log for experiments. New entries go at the
 top so the latest result is always visible first.
 
+## 2026-04-26: Physical V0.2 Closed-Vocabulary Candidate Selection
+
+Experiment ID:
+
+```text
+physical_v0_2
+```
+
+Purpose:
+
+```text
+Test whether held-out graph transfer improves when the valid relation IDs and
+graph anchors are shown as candidates instead of generated from memory.
+```
+
+Data:
+
+```text
+train: 1041
+dev: 123
+curriculum_test: 142
+held-out: 33
+```
+
+Model/run:
+
+```text
+model: HuggingFaceTB/SmolLM2-135M
+run: candidate_selection_options_outputmarker_512_s160
+max_seq_length: 512
+max_steps: 160
+```
+
+Training result:
+
+```text
+train loss: 0.610
+dev loss:   0.337
+```
+
+Held-out result:
+
+```text
+case pass:          0.000
+family precision:   0.247
+family recall:      0.407
+anchor precision:   0.168
+anchor recall:      0.596
+gap precision:      0.200
+gap recall:         0.026
+non-candidate IDs:  0
+```
+
+Interpretation:
+
+```text
+The closed-vocabulary setup solved the invented-ID problem, but not exact
+selection. The model often over-selected candidates, especially all anchor
+options, so recall improved while precision stayed poor and exact case pass
+remained zero.
+```
+
+Decision:
+
+```text
+The direction is useful, but the next run should make selection less generative:
+separate relation-family and anchor prompts, include expected count or binary
+yes/no candidate scoring, and train/evaluate a full stable run only after the
+selection head stops over-selecting.
+```
+
+Detailed report:
+
+```text
+docs/physical-v0-2-candidate-selection.md
+```
+
 ## 2026-04-26: Physical V0.1 Held-Out Comparison
 
 Experiment ID:
