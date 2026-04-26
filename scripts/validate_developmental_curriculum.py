@@ -23,6 +23,10 @@ TASK_TYPES = {
     "state_action_effect",
     "counterfactual_contrast",
     "explanation_path",
+    "node_id_from_paraphrase",
+    "relation_family_from_prompt",
+    "graph_anchor_from_prompt",
+    "explanation_with_relations",
 }
 REQUIRED_EXAMPLE_KEYS = {"id", "graph_id", "task_type", "input", "target", "text_target", "metadata"}
 
@@ -218,6 +222,95 @@ def validate_explanation_path(
             )
 
 
+def validate_node_id_from_paraphrase(
+    example: dict[str, Any],
+    prefix: str,
+    node_ids: set[str],
+    errors: list[str],
+) -> None:
+    target = example.get("target")
+    require(isinstance(target, dict), f"{prefix}.target must be an object", errors)
+    if not isinstance(target, dict):
+        return
+    validate_node_ref(target.get("node_id"), "node_id", f"{prefix}.target", node_ids, errors)
+    require(isinstance(target.get("node_label"), str) and target.get("node_label"), f"{prefix}.target missing node_label", errors)
+    require(valid_id(target.get("layer")), f"{prefix}.target invalid layer", errors)
+    require(isinstance(target.get("kind"), str) and target.get("kind"), f"{prefix}.target missing kind", errors)
+
+
+def validate_relation_family_from_prompt(
+    example: dict[str, Any],
+    prefix: str,
+    node_ids: set[str],
+    errors: list[str],
+) -> None:
+    target = example.get("target")
+    require(isinstance(target, dict), f"{prefix}.target must be an object", errors)
+    if not isinstance(target, dict):
+        return
+    family_ids = target.get("relation_family_ids")
+    require(isinstance(family_ids, list) and bool(family_ids), f"{prefix}.target relation_family_ids must be a non-empty list", errors)
+    if isinstance(family_ids, list):
+        for idx, node_id in enumerate(family_ids):
+            validate_node_ref(node_id, f"relation_family_ids[{idx}]", f"{prefix}.target", node_ids, errors)
+    if "graph_anchor_count" in target:
+        require(isinstance(target["graph_anchor_count"], int) and target["graph_anchor_count"] >= 0, f"{prefix}.target graph_anchor_count must be a non-negative integer", errors)
+
+
+def validate_graph_anchor_from_prompt(
+    example: dict[str, Any],
+    prefix: str,
+    node_ids: set[str],
+    edges: set[tuple[str, str, str]],
+    errors: list[str],
+) -> None:
+    target = example.get("target")
+    require(isinstance(target, dict), f"{prefix}.target must be an object", errors)
+    if not isinstance(target, dict):
+        return
+    anchors = target.get("graph_anchors")
+    require(isinstance(anchors, list) and bool(anchors), f"{prefix}.target graph_anchors must be a non-empty list", errors)
+    if isinstance(anchors, list):
+        for idx, relation in enumerate(anchors):
+            validate_relation_object(
+                relation,
+                f"{prefix}.target.graph_anchors[{idx}]",
+                node_ids,
+                edges,
+                errors,
+                require_edge=True,
+            )
+    if "relation_family_ids" in target:
+        validate_relation_family_from_prompt(example, prefix, node_ids, errors)
+
+
+def validate_explanation_with_relations(
+    example: dict[str, Any],
+    prefix: str,
+    node_ids: set[str],
+    edges: set[tuple[str, str, str]],
+    errors: list[str],
+) -> None:
+    target = example.get("target")
+    require(isinstance(target, dict), f"{prefix}.target must be an object", errors)
+    if not isinstance(target, dict):
+        return
+    require(isinstance(target.get("answer"), str) and target.get("answer").strip(), f"{prefix}.target answer must be non-empty", errors)
+    validate_relation_family_from_prompt(example, prefix, node_ids, errors)
+    anchors = target.get("graph_anchors")
+    require(isinstance(anchors, list) and bool(anchors), f"{prefix}.target graph_anchors must be a non-empty list", errors)
+    if isinstance(anchors, list):
+        for idx, relation in enumerate(anchors):
+            validate_relation_object(
+                relation,
+                f"{prefix}.target.graph_anchors[{idx}]",
+                node_ids,
+                edges,
+                errors,
+                require_edge=True,
+            )
+
+
 def validate_examples(
     examples: list[dict[str, Any]],
     manifest: dict[str, Any] | None,
@@ -269,6 +362,14 @@ def validate_examples(
             validate_counterfactual_contrast(example, prefix, node_ids, edges, errors)
         elif task_type == "explanation_path":
             validate_explanation_path(example, prefix, node_ids, edges, errors)
+        elif task_type == "node_id_from_paraphrase":
+            validate_node_id_from_paraphrase(example, prefix, node_ids, errors)
+        elif task_type == "relation_family_from_prompt":
+            validate_relation_family_from_prompt(example, prefix, node_ids, errors)
+        elif task_type == "graph_anchor_from_prompt":
+            validate_graph_anchor_from_prompt(example, prefix, node_ids, edges, errors)
+        elif task_type == "explanation_with_relations":
+            validate_explanation_with_relations(example, prefix, node_ids, edges, errors)
 
     for example_id, count in Counter(ids).items():
         require(count == 1, f"duplicate example id: {example_id}", errors)

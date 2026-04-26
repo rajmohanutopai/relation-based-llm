@@ -31,6 +31,8 @@ Already present:
 - Held-out physical-world evaluation set from maybe rows.
 - Deterministic curriculum generator.
 - First generated physical-world curriculum.
+- First full physical-v0 held-out comparison and failure report.
+- Physical-v0.1 bridge curriculum, split, dataset variants, and training config.
 
 Current physical-world curriculum:
 
@@ -44,6 +46,32 @@ total: 148
 
 The immediate problem is not lack of domains. The immediate problem is proving
 that this structure gives a smaller model useful transfer.
+
+Latest result:
+
+```text
+physical_v0 relation scaffolding fit train/dev best, but did not beat the
+baselines on held-out graph-transfer scoring.
+```
+
+Therefore the next action is not domain expansion. The next action is a
+`physical_v0.1` bridge curriculum that teaches natural-language prompts to
+recover explicit relation families and graph anchors.
+
+Current bridge status:
+
+```text
+physical_v0_1 data is generated, trained, and scored.
+The bridge curriculum improved local fit but did not improve held-out graph
+transfer.
+```
+
+Current next action:
+
+```text
+Do not expand domains yet.
+Create physical_v0_2 as a closed-vocabulary candidate-selection experiment.
+```
 
 ## Phase 0: Repository And Data Discipline
 

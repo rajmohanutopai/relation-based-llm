@@ -126,6 +126,31 @@ not genuine long-horizon relational growth.
   completed, loss decreased, and artifacts loaded, but it is not a model-quality
   result.
 
+- `docs/physical-v0-heldout-comparison.md`
+  Records the first full physical-v0 comparison across plain text, flat triples,
+  and relation-scaffolded variants. The relation-scaffolded variant fit train/dev
+  best, but no variant passed held-out graph-transfer scoring.
+
+- `docs/physical-v0-1-bridge-curriculum.md`
+  Records the `physical_v0_1` bridge curriculum added after the first failure.
+  It teaches natural-language prompts to recover graph node IDs, relation
+  families, anchors, and explanations with explicit relation names.
+
+- `docs/physical-v0-1-heldout-comparison.md`
+  Records the second comparison. The bridge curriculum improved train/dev loss,
+  but free-form held-out generation still invented IDs and failed graph-transfer
+  scoring.
+
+- `docs/physical-experiment-report.md`
+  Single running report for the physical-world experiment sequence. It records
+  the `physical_v0` and `physical_v0_1` goals, results, decisions, and current
+  next step.
+
+- `docs/experiment-log.md`
+  Concise reverse-chronological experiment ledger. Each entry records the date,
+  experiment ID, purpose, data, result, interpretation, decision, and detailed
+  report link.
+
 - `docs/6mo-child-top44-relation-audit.md`
   Derived relation audit for the 44 encounters currently marked as first-core
   candidates. This is where relation interpretation belongs, not in the raw
@@ -166,6 +191,14 @@ not genuine long-horizon relational growth.
   Frozen baseline config using `HuggingFaceTB/SmolLM2-135M` with identical
   commands for the three dataset variants.
 
+- `data/developmental_graph/experiments/physical_v0_1/`
+  Bridge-curriculum experiment split with 488 train, 58 dev, 66 curriculum-test,
+  and the same 33 held-out prompts as `physical_v0`.
+
+- `data/developmental_graph/experiments/physical_v0_1/training_config.json`
+  Frozen config for rerunning the same tiny transformer comparison after adding
+  bridge tasks.
+
 - `data/developmental_graph/schemas/graph.schema.json`
   JSON schema for graph data.
 
@@ -184,9 +217,18 @@ not genuine long-horizon relational growth.
   Deterministic curriculum generator for relation completion, event trace,
   counterfactual contrast, and explanation-path examples.
 
+- `scripts/generate_developmental_bridge_curriculum.py`
+  Deterministic bridge generator for prompt-to-graph transfer tasks. It can
+  prepend an existing base curriculum and writes the combined `physical_v0_1`
+  curriculum.
+
 - `scripts/run_heldout_evaluation.py`
   First held-out evaluation runner. It scores model-output JSONL against
   expected relation families, graph anchors, and gap indicators.
+
+- `scripts/generate_heldout_outputs.py`
+  Loads a trained causal-LM checkpoint, runs the shared held-out prompts, and
+  writes model-output JSONL for the evaluator.
 
 - `scripts/create_developmental_experiment_splits.py`
   Deterministic train/dev/curriculum-test split generator for generated

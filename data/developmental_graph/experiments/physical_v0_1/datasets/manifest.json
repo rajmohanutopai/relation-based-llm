@@ -1,0 +1,175 @@
+{
+  "experiment_id": "physical_v0_1",
+  "notes": [
+    "All variants preserve source_example_id, split, and task_type.",
+    "Only input and target representation differ by variant.",
+    "Held-out transfer prompts remain shared and are not included in these training variants."
+  ],
+  "output_dir": "data/developmental_graph/experiments/physical_v0_1/datasets",
+  "outputs": {
+    "flat_triples.curriculum_test": {
+      "path": "data/developmental_graph/experiments/physical_v0_1/datasets/flat_triples/curriculum_test.jsonl",
+      "sha256": "787d782d884b16f39d7daa6f7330c9b9eb08029aab4e2f80d587a42f5eded9ce"
+    },
+    "flat_triples.dev": {
+      "path": "data/developmental_graph/experiments/physical_v0_1/datasets/flat_triples/dev.jsonl",
+      "sha256": "897e683a460a504a9b065bb59e0253bba697348cdf3fc162c8393cf28645526d"
+    },
+    "flat_triples.train": {
+      "path": "data/developmental_graph/experiments/physical_v0_1/datasets/flat_triples/train.jsonl",
+      "sha256": "2ddb56d94c84efaa05e7820721120bcaab5bf6a1c5015327c83521eed4030f78"
+    },
+    "plain_text.curriculum_test": {
+      "path": "data/developmental_graph/experiments/physical_v0_1/datasets/plain_text/curriculum_test.jsonl",
+      "sha256": "a07610215f51700355afe6feb423f0d0460dcc5a4b9e01a55d3e160ca070e56f"
+    },
+    "plain_text.dev": {
+      "path": "data/developmental_graph/experiments/physical_v0_1/datasets/plain_text/dev.jsonl",
+      "sha256": "7790a96d2db6ad0b2c445c4e4b30e2785e200f10ae1762d2500302f2a01e8a7b"
+    },
+    "plain_text.train": {
+      "path": "data/developmental_graph/experiments/physical_v0_1/datasets/plain_text/train.jsonl",
+      "sha256": "e4ec3350e6b4c9923fac9a03b90d18cc1e9bc6c819dfa380e71eecbb57b31860"
+    },
+    "relation_scaffolded.curriculum_test": {
+      "path": "data/developmental_graph/experiments/physical_v0_1/datasets/relation_scaffolded/curriculum_test.jsonl",
+      "sha256": "00db84f83cb9705294e8b897fc7dd9c13f0f4f4a0b0bc2343ae775064de6367e"
+    },
+    "relation_scaffolded.dev": {
+      "path": "data/developmental_graph/experiments/physical_v0_1/datasets/relation_scaffolded/dev.jsonl",
+      "sha256": "6b0f3acdfb9bd61d9355e80b7ab60ce3d1f68fd3c15632d6a02fdf8f64a0bd5a"
+    },
+    "relation_scaffolded.train": {
+      "path": "data/developmental_graph/experiments/physical_v0_1/datasets/relation_scaffolded/train.jsonl",
+      "sha256": "068683897875132e0378e7a1dd0677403aea0de06fc72db73114f945788379e4"
+    }
+  },
+  "schema_version": "0.1.0",
+  "source_experiment_dir": "data/developmental_graph/experiments/physical_v0_1",
+  "source_graph": "data/developmental_graph/seeds/everyday_physical_world.json",
+  "variants": {
+    "flat_triples": {
+      "curriculum_test": {
+        "task_type_counts": {
+          "counterfactual_contrast": 1,
+          "explanation_path": 2,
+          "explanation_with_relations": 2,
+          "graph_anchor_from_prompt": 14,
+          "node_id_from_paraphrase": 31,
+          "relation_completion": 12,
+          "relation_family_from_prompt": 3,
+          "state_action_effect": 1
+        },
+        "total": 66
+      },
+      "dev": {
+        "task_type_counts": {
+          "counterfactual_contrast": 1,
+          "explanation_path": 1,
+          "explanation_with_relations": 1,
+          "graph_anchor_from_prompt": 12,
+          "node_id_from_paraphrase": 29,
+          "relation_completion": 11,
+          "relation_family_from_prompt": 2,
+          "state_action_effect": 1
+        },
+        "total": 58
+      },
+      "train": {
+        "task_type_counts": {
+          "counterfactual_contrast": 8,
+          "explanation_path": 11,
+          "explanation_with_relations": 11,
+          "graph_anchor_from_prompt": 102,
+          "node_id_from_paraphrase": 238,
+          "relation_completion": 91,
+          "relation_family_from_prompt": 19,
+          "state_action_effect": 8
+        },
+        "total": 488
+      }
+    },
+    "plain_text": {
+      "curriculum_test": {
+        "task_type_counts": {
+          "counterfactual_contrast": 1,
+          "explanation_path": 2,
+          "explanation_with_relations": 2,
+          "graph_anchor_from_prompt": 14,
+          "node_id_from_paraphrase": 31,
+          "relation_completion": 12,
+          "relation_family_from_prompt": 3,
+          "state_action_effect": 1
+        },
+        "total": 66
+      },
+      "dev": {
+        "task_type_counts": {
+          "counterfactual_contrast": 1,
+          "explanation_path": 1,
+          "explanation_with_relations": 1,
+          "graph_anchor_from_prompt": 12,
+          "node_id_from_paraphrase": 29,
+          "relation_completion": 11,
+          "relation_family_from_prompt": 2,
+          "state_action_effect": 1
+        },
+        "total": 58
+      },
+      "train": {
+        "task_type_counts": {
+          "counterfactual_contrast": 8,
+          "explanation_path": 11,
+          "explanation_with_relations": 11,
+          "graph_anchor_from_prompt": 102,
+          "node_id_from_paraphrase": 238,
+          "relation_completion": 91,
+          "relation_family_from_prompt": 19,
+          "state_action_effect": 8
+        },
+        "total": 488
+      }
+    },
+    "relation_scaffolded": {
+      "curriculum_test": {
+        "task_type_counts": {
+          "counterfactual_contrast": 1,
+          "explanation_path": 2,
+          "explanation_with_relations": 2,
+          "graph_anchor_from_prompt": 14,
+          "node_id_from_paraphrase": 31,
+          "relation_completion": 12,
+          "relation_family_from_prompt": 3,
+          "state_action_effect": 1
+        },
+        "total": 66
+      },
+      "dev": {
+        "task_type_counts": {
+          "counterfactual_contrast": 1,
+          "explanation_path": 1,
+          "explanation_with_relations": 1,
+          "graph_anchor_from_prompt": 12,
+          "node_id_from_paraphrase": 29,
+          "relation_completion": 11,
+          "relation_family_from_prompt": 2,
+          "state_action_effect": 1
+        },
+        "total": 58
+      },
+      "train": {
+        "task_type_counts": {
+          "counterfactual_contrast": 8,
+          "explanation_path": 11,
+          "explanation_with_relations": 11,
+          "graph_anchor_from_prompt": 102,
+          "node_id_from_paraphrase": 238,
+          "relation_completion": 91,
+          "relation_family_from_prompt": 19,
+          "state_action_effect": 8
+        },
+        "total": 488
+      }
+    }
+  }
+}

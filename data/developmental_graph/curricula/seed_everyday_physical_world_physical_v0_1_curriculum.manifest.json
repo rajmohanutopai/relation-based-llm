@@ -1,0 +1,40 @@
+{
+  "base_curriculum": "data/developmental_graph/curricula/seed_everyday_physical_world_curriculum.jsonl",
+  "base_example_count": 148,
+  "bridge_counts": {
+    "explanation_with_relations": 14,
+    "graph_anchor_from_prompt": 128,
+    "node_id_from_paraphrase": 298,
+    "relation_family_from_prompt": 24
+  },
+  "bridge_example_count": 464,
+  "counts": {
+    "counterfactual_contrast": 10,
+    "explanation_path": 14,
+    "explanation_with_relations": 14,
+    "graph_anchor_from_prompt": 128,
+    "node_id_from_paraphrase": 298,
+    "relation_completion": 114,
+    "relation_family_from_prompt": 24,
+    "state_action_effect": 10
+  },
+  "graph_id": "seed.everyday_physical_world",
+  "notes": [
+    "Bridge examples bind natural-language prompts to graph node IDs, relation families, and anchors.",
+    "Held-out evaluation prompts are not used as bridge training examples."
+  ],
+  "output": "data/developmental_graph/curricula/seed_everyday_physical_world_physical_v0_1_curriculum.jsonl",
+  "schema_version": "0.1.0",
+  "source_graph": "data/developmental_graph/seeds/everyday_physical_world.json",
+  "task_types": [
+    "relation_completion",
+    "state_action_effect",
+    "counterfactual_contrast",
+    "explanation_path",
+    "node_id_from_paraphrase",
+    "relation_family_from_prompt",
+    "graph_anchor_from_prompt",
+    "explanation_with_relations"
+  ],
+  "total_examples": 612
+}

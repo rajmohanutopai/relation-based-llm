@@ -1,0 +1,38 @@
+{
+  "schema_version": "0.1.0",
+  "experiment_id": "physical_v0_1",
+  "baseline_model": {
+    "name": "HuggingFaceTB/SmolLM2-135M",
+    "role": "first tiny causal-transformer bridge-curriculum baseline",
+    "reason": "Keep the same model as physical_v0 so the comparison isolates the new bridge curriculum."
+  },
+  "dataset_manifest": "data/developmental_graph/experiments/physical_v0_1/datasets/manifest.json",
+  "output_root": "runs/physical_v0_1/smollm2_135m",
+  "format": {
+    "prompt_template": "### Input:\n{input}\n\n### Response:\n",
+    "target_template": "{target}"
+  },
+  "training": {
+    "max_seq_length": 512,
+    "num_train_epochs": 10,
+    "learning_rate": 5e-5,
+    "per_device_train_batch_size": 1,
+    "per_device_eval_batch_size": 1,
+    "gradient_accumulation_steps": 8,
+    "warmup_ratio": 0.03,
+    "weight_decay": 0.0,
+    "logging_steps": 10,
+    "save_total_limit": 2,
+    "seed": 1729
+  },
+  "frozen_commands": {
+    "plain_text": "python3 scripts/train_tiny_causal_lm.py --config data/developmental_graph/experiments/physical_v0_1/training_config.json --variant plain_text",
+    "flat_triples": "python3 scripts/train_tiny_causal_lm.py --config data/developmental_graph/experiments/physical_v0_1/training_config.json --variant flat_triples",
+    "relation_scaffolded": "python3 scripts/train_tiny_causal_lm.py --config data/developmental_graph/experiments/physical_v0_1/training_config.json --variant relation_scaffolded"
+  },
+  "notes": [
+    "Use the same model and core hyperparameters as physical_v0.",
+    "The only experiment change is the added bridge curriculum.",
+    "Held-out transfer prompts remain outside training."
+  ]
+}

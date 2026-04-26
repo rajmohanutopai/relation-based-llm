@@ -257,6 +257,86 @@ def explanation_flat(example: Example, _nodes: dict[str, dict[str, Any]]) -> tup
     return input_text, output_text
 
 
+def relation_family_labels(nodes: dict[str, dict[str, Any]], family_ids: list[str]) -> str:
+    return ", ".join(node_label(nodes, family_id) for family_id in family_ids)
+
+
+def relation_family_id_lines(family_ids: list[str]) -> str:
+    return "\n".join(family_ids)
+
+
+def node_bridge_plain(example: Example, nodes: dict[str, dict[str, Any]]) -> tuple[str, str]:
+    input_text = replace_ids_with_labels(example["input"], nodes).replace("NODE_ID:", "CONCEPT:")
+    target = example["target"]
+    output_text = node_label(nodes, target.get("node_id"))
+    return input_text, output_text
+
+
+def node_bridge_flat(example: Example, _nodes: dict[str, dict[str, Any]]) -> tuple[str, str]:
+    input_text = example["input"]
+    output_text = str(example["target"].get("node_id", ""))
+    return input_text, output_text
+
+
+def relation_family_bridge_plain(example: Example, nodes: dict[str, dict[str, Any]]) -> tuple[str, str]:
+    input_text = (
+        replace_ids_with_labels(example["input"], nodes)
+        .replace("relation family IDs", "relation families")
+        .replace("RELATION_FAMILY_IDS:", "RELATION_FAMILIES:")
+    )
+    output_text = relation_family_labels(nodes, example["target"].get("relation_family_ids", []))
+    return input_text, output_text
+
+
+def relation_family_bridge_flat(example: Example, _nodes: dict[str, dict[str, Any]]) -> tuple[str, str]:
+    input_text = example["input"]
+    output_text = relation_family_id_lines(example["target"].get("relation_family_ids", []))
+    return input_text, output_text
+
+
+def graph_anchor_bridge_plain(example: Example, nodes: dict[str, dict[str, Any]]) -> tuple[str, str]:
+    input_text = (
+        replace_ids_with_labels(example["input"], nodes)
+        .replace("graph anchor IDs", "physical relations")
+        .replace("GRAPH_ANCHORS:", "RELATIONS:")
+    )
+    anchors = example["target"].get("graph_anchors", [])
+    output_text = "\n".join(f"- {plain_relation(nodes, relation)}." for relation in anchors)
+    return input_text, output_text
+
+
+def graph_anchor_bridge_flat(example: Example, _nodes: dict[str, dict[str, Any]]) -> tuple[str, str]:
+    input_text = example["input"]
+    anchors = example["target"].get("graph_anchors", [])
+    output_text = "\n".join(flat_relation(relation) for relation in anchors)
+    return input_text, output_text
+
+
+def explanation_with_relations_plain(example: Example, nodes: dict[str, dict[str, Any]]) -> tuple[str, str]:
+    input_text = (
+        replace_ids_with_labels(example["input"], nodes)
+        .replace("relation families used", "relation families used")
+        .replace("ANSWER_WITH_RELATIONS:", "ANSWER:")
+    )
+    target = example["target"]
+    families = relation_family_labels(nodes, target.get("relation_family_ids", []))
+    output_text = f"{target.get('answer', '')} Relation families: {families}.".strip()
+    return input_text, output_text
+
+
+def explanation_with_relations_flat(example: Example, _nodes: dict[str, dict[str, Any]]) -> tuple[str, str]:
+    target = example["target"]
+    family_lines = relation_family_id_lines(target.get("relation_family_ids", []))
+    anchor_lines = "\n".join(flat_relation(relation) for relation in target.get("graph_anchors", []))
+    input_text = example["input"]
+    output_text = (
+        f"relation_family_ids:\n{family_lines}\n"
+        f"graph_anchors:\n{anchor_lines}\n"
+        f"answer: {target.get('answer', '')}"
+    ).strip()
+    return input_text, output_text
+
+
 def relation_scaffolded(example: Example, _nodes: dict[str, dict[str, Any]]) -> tuple[str, str]:
     return example["input"], compact_json(example["target"])
 
@@ -274,6 +354,14 @@ def variant_pair(variant: str, example: Example, nodes: dict[str, dict[str, Any]
             return counterfactual_plain(example, nodes)
         if task_type == "explanation_path":
             return explanation_plain(example, nodes)
+        if task_type == "node_id_from_paraphrase":
+            return node_bridge_plain(example, nodes)
+        if task_type == "relation_family_from_prompt":
+            return relation_family_bridge_plain(example, nodes)
+        if task_type == "graph_anchor_from_prompt":
+            return graph_anchor_bridge_plain(example, nodes)
+        if task_type == "explanation_with_relations":
+            return explanation_with_relations_plain(example, nodes)
     if variant == "flat_triples":
         if task_type == "relation_completion":
             return relation_completion_flat(example, nodes)
@@ -283,6 +371,14 @@ def variant_pair(variant: str, example: Example, nodes: dict[str, dict[str, Any]
             return counterfactual_flat(example, nodes)
         if task_type == "explanation_path":
             return explanation_flat(example, nodes)
+        if task_type == "node_id_from_paraphrase":
+            return node_bridge_flat(example, nodes)
+        if task_type == "relation_family_from_prompt":
+            return relation_family_bridge_flat(example, nodes)
+        if task_type == "graph_anchor_from_prompt":
+            return graph_anchor_bridge_flat(example, nodes)
+        if task_type == "explanation_with_relations":
+            return explanation_with_relations_flat(example, nodes)
     raise ValueError(f"unsupported variant/task pair: {variant}/{task_type}")
 
 
