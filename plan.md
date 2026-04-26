@@ -84,12 +84,38 @@ not genuine long-horizon relational growth.
   Defines the layered graph structure and the intended transformer-training
   role.
 
+- `docs/execution-roadmap.md`
+  Detailed execution order for the project: first physical-world vertical slice,
+  then social world and math, then composite domains like geography and history.
+
 - `docs/seed-agent-6mo-indian-child.md`
   Human-readable seed graph for a 6-month-old boy child in an Indian context.
 
 - `docs/6mo-child-200-encounters.md`
   Raw, non-annotated inventory of 200 encounter families for a 6-month-old
   child. This should stay separate from later relation annotations.
+
+- `docs/physical-world-domain-map.md`
+  Broad scaffold for the full physical-world domain: everyday grounding,
+  material behavior, mechanics, flow, heat, waves, tools, environment, scale,
+  and scientific formalization.
+
+- `docs/everyday-physical-world-200-situations.md`
+  Raw, non-annotated inventory of 200 everyday physical-world situation
+  families. This starts the grounded entry layer without adding relation
+  interpretation yet.
+
+- `docs/everyday-physical-world-top50-relation-audit.md`
+  Derived relation audit for the 50 everyday physical situations marked as the
+  first physical set. This identifies compact physical relation families rather
+  than one graph node per situation.
+
+- `docs/everyday-physical-world-heldout-evaluation.md`
+  Human-readable summary of held-out physical evaluation cases from the `maybe`
+  rows.
+
+- `docs/curriculum-generation.md`
+  Explains how graph seeds become supervised JSONL training examples.
 
 - `docs/6mo-child-top44-relation-audit.md`
   Derived relation audit for the 44 encounters currently marked as first-core
@@ -103,11 +129,29 @@ not genuine long-horizon relational growth.
 - `data/developmental_graph/seeds/agent_6mo_indian_child.json`
   Parseable seed graph.
 
+- `data/developmental_graph/seeds/everyday_physical_world.json`
+  Parseable physical-domain seed graph with compact external-world relation
+  motifs from the everyday physical audit.
+
+- `data/developmental_graph/evaluations/everyday_physical_world_heldout.json`
+  Parseable held-out evaluation set for testing physical transfer and identifying
+  physical relation gaps.
+
+- `data/developmental_graph/curricula/seed_everyday_physical_world_curriculum.jsonl`
+  Generated supervised curriculum from the physical seed graph.
+
+- `data/developmental_graph/curricula/seed_everyday_physical_world_curriculum.manifest.json`
+  Manifest for the physical curriculum. Current count: 148 examples.
+
 - `data/developmental_graph/schemas/graph.schema.json`
   JSON schema for graph data.
 
 - `scripts/validate_developmental_graph.py`
   Dependency-free graph validator.
+
+- `scripts/generate_developmental_curriculum.py`
+  Deterministic curriculum generator for relation completion, event trace,
+  counterfactual contrast, and explanation-path examples.
 
 ## Layer Structure
 
@@ -239,6 +283,34 @@ Useful early tests:
 - category boundary: ball versus sponge/slime, knife versus spoon/razor
 - social precursor: caregiver tone, absence, attention, imitation
 
+## Execution Order
+
+The detailed sequencing lives in `docs/execution-roadmap.md`.
+
+The short version:
+
+```text
+1. Finish the physical-world vertical slice.
+2. Add validators for curriculum and held-out evaluation files.
+3. Build the evaluation runner and train/dev/test split generator.
+4. Compare plain text, flat triples, and relation-scaffolded curriculum.
+5. Revise from failures before expanding domains.
+6. Add social world.
+7. Add math and abstraction.
+8. Add body/health and language binding.
+9. Add geography.
+10. Add history.
+11. Add economics, law, politics, and formal science later.
+```
+
+The project should not create 200-item inventories for every domain immediately.
+Each domain should pass through the same pipeline:
+
+```text
+raw inventory -> relation audit -> seed graph -> curriculum -> held-out eval
+-> model comparison -> failure-driven revision
+```
+
 ## Milestones
 
 ### Milestone 1: Stabilize Theory and Graph
@@ -355,13 +427,19 @@ definitions alone.
 
 ## Near-Term Tasks
 
-1. Refine the 6-month seed graph.
-2. Prioritise the 200 raw encounter families and select the first top 30.
-3. Add missing early relation motifs only when they serve training or testing.
-4. Create a curriculum generator from the JSON graph.
-5. Create a small held-out evaluation set.
-6. Train a tiny baseline and relation-scaffolded model.
-7. Compare results and revise the graph.
+1. Checkpoint the current physical-world artifacts.
+2. Add a validator for held-out evaluation JSON.
+3. Add a validator for curriculum JSONL.
+4. Build an evaluation runner for the held-out physical cases.
+5. Generate model-ready train/dev/test splits.
+6. Create three matched datasets: plain text, flat triples, and
+   relation-scaffolded.
+7. Pick one tiny transformer baseline and freeze the training command.
+8. Run a tiny overfit sanity check.
+9. Run the first held-out comparison.
+10. Write the first physical-world experiment report.
+11. Revise the graph and generator based on failures.
+12. Only then start the social-world domain or math-abstraction domain.
 
 ## Working Definition of Success
 

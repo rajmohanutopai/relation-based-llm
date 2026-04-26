@@ -1,0 +1,2775 @@
+{
+  "schema_version": "0.1.0",
+  "graph_id": "seed.everyday_physical_world",
+  "metadata": {
+    "title": "Seed Domain: Everyday Physical World",
+    "description": "Machine-parseable seed graph for everyday physical-world relation motifs. This is an external-world domain scaffold, not a full physics model.",
+    "agent": {
+      "domain": "everyday_physical_world",
+      "perspective": "external_world_scaffold",
+      "source_inventory": "docs/everyday-physical-world-200-situations.md",
+      "source_audit": "docs/everyday-physical-world-top50-relation-audit.md"
+    },
+    "notes": [
+      "This graph is separate from the six-month child seed but uses the same relation grammar.",
+      "The first version emphasizes contrast pairs and counterfactual-friendly physical motifs."
+    ]
+  },
+  "layers": [
+    {
+      "id": "layer.input_channel",
+      "order": -1,
+      "label": "Physical Observation Channels",
+      "description": "Observable physical inputs such as contact, motion, sound, temperature, and material state."
+    },
+    {
+      "id": "layer.invariant",
+      "order": 0,
+      "label": "Physical Relational Invariants",
+      "description": "Reusable comparison, support, path, threshold, and state-change relations."
+    },
+    {
+      "id": "layer.schema",
+      "order": 1,
+      "label": "Physical Schemas",
+      "description": "Reusable object-action-effect and material-behavior patterns."
+    },
+    {
+      "id": "layer.property",
+      "order": 2,
+      "label": "Physical Properties",
+      "description": "Predictive summaries of material, surface, shape, flow, thermal, and force behavior."
+    },
+    {
+      "id": "layer.object",
+      "order": 3,
+      "label": "Everyday Object Handles",
+      "description": "Concrete handles used for physical-world contrast examples."
+    },
+    {
+      "id": "layer.event",
+      "order": 4,
+      "label": "Physical Event Outcomes",
+      "description": "Reusable event outcomes such as roll, slide, overflow, leak, cut, mark, and slip."
+    }
+  ],
+  "nodes": [
+    {
+      "id": "channel.visual",
+      "label": "visual observation",
+      "layer": "layer.input_channel",
+      "kind": "observation_channel",
+      "age_status": "active",
+      "summary": "Source for shape, position, motion, light, shadow, containment, and visible state change."
+    },
+    {
+      "id": "channel.sound",
+      "label": "sound observation",
+      "layer": "layer.input_channel",
+      "kind": "observation_channel",
+      "age_status": "active",
+      "summary": "Source for impact sound, vibration, loudness, resonance, and damping."
+    },
+    {
+      "id": "channel.contact_pressure",
+      "label": "contact and pressure observation",
+      "layer": "layer.input_channel",
+      "kind": "observation_channel",
+      "age_status": "active",
+      "summary": "Source for contact, pressure, deformation, support, friction, and cutting."
+    },
+    {
+      "id": "channel.temperature",
+      "label": "temperature observation",
+      "layer": "layer.input_channel",
+      "kind": "observation_channel",
+      "age_status": "active",
+      "summary": "Source for heating, cooling, melting, boiling, conduction, and burning."
+    },
+    {
+      "id": "channel.motion",
+      "label": "motion observation",
+      "layer": "layer.input_channel",
+      "kind": "observation_channel",
+      "age_status": "active",
+      "summary": "Source for falling, rolling, sliding, spinning, stopping, flowing, and rising."
+    },
+    {
+      "id": "channel.material_state",
+      "label": "material state observation",
+      "layer": "layer.input_channel",
+      "kind": "observation_channel",
+      "age_status": "active",
+      "summary": "Source for solid, liquid, gas, granular, porous, elastic, brittle, and plastic behavior."
+    },
+    {
+      "id": "invariant.same_different",
+      "label": "same/different",
+      "layer": "layer.invariant",
+      "kind": "comparison_relation",
+      "age_status": "active",
+      "summary": "Compares whether objects, states, or outcomes match or differ."
+    },
+    {
+      "id": "invariant.before_after",
+      "label": "before/after",
+      "layer": "layer.invariant",
+      "kind": "temporal_relation",
+      "age_status": "active",
+      "summary": "Orders physical states and events in time."
+    },
+    {
+      "id": "invariant.more_less",
+      "label": "more/less",
+      "layer": "layer.invariant",
+      "kind": "quantity_relation",
+      "age_status": "active",
+      "summary": "Compares amount, force, load, speed, heat, sound, and resistance."
+    },
+    {
+      "id": "invariant.touching",
+      "label": "touching/not touching",
+      "layer": "layer.invariant",
+      "kind": "contact_relation",
+      "age_status": "active",
+      "summary": "Tracks whether objects or materials are in contact."
+    },
+    {
+      "id": "invariant.moves_stops",
+      "label": "moves/stops",
+      "layer": "layer.invariant",
+      "kind": "motion_relation",
+      "age_status": "active",
+      "summary": "Tracks change in motion, rest, slowing, stopping, and starting."
+    },
+    {
+      "id": "invariant.supported_unsupported",
+      "label": "supported/unsupported",
+      "layer": "layer.invariant",
+      "kind": "support_relation",
+      "age_status": "active",
+      "summary": "Tracks whether an object has sufficient support or becomes unstable."
+    },
+    {
+      "id": "invariant.support_base",
+      "label": "support base",
+      "layer": "layer.invariant",
+      "kind": "stability_relation",
+      "age_status": "active",
+      "summary": "Represents the area or geometry that supports an object or stack."
+    },
+    {
+      "id": "invariant.center_of_support",
+      "label": "center of support",
+      "layer": "layer.invariant",
+      "kind": "stability_relation",
+      "age_status": "active",
+      "summary": "Represents whether weight or mass is positioned within the support base."
+    },
+    {
+      "id": "invariant.inside_outside",
+      "label": "inside/outside",
+      "layer": "layer.invariant",
+      "kind": "containment_relation",
+      "age_status": "active",
+      "summary": "Tracks whether material or object content is within a boundary."
+    },
+    {
+      "id": "invariant.open_closed",
+      "label": "open/closed",
+      "layer": "layer.invariant",
+      "kind": "boundary_relation",
+      "age_status": "active",
+      "summary": "Tracks whether a path, container, circuit, or boundary permits transfer."
+    },
+    {
+      "id": "invariant.path_blocked",
+      "label": "path blocked/unblocked",
+      "layer": "layer.invariant",
+      "kind": "path_relation",
+      "age_status": "active",
+      "summary": "Tracks whether flow, motion, or transfer is blocked by an obstacle."
+    },
+    {
+      "id": "invariant.state_change",
+      "label": "state change",
+      "layer": "layer.invariant",
+      "kind": "change_relation",
+      "age_status": "active",
+      "summary": "Tracks transformation of material, shape, phase, mark, burn, break, or deformation."
+    },
+    {
+      "id": "invariant.threshold",
+      "label": "threshold",
+      "layer": "layer.invariant",
+      "kind": "threshold_relation",
+      "age_status": "active",
+      "summary": "Represents enough force, heat, stretch, capacity, or sharpness to change outcome."
+    },
+    {
+      "id": "invariant.energy_transfer",
+      "label": "energy transfer",
+      "layer": "layer.invariant",
+      "kind": "physical_transfer_relation",
+      "age_status": "active",
+      "summary": "Tracks transfer through impact, heat, vibration, elastic storage, electric circuit, or motion."
+    },
+    {
+      "id": "schema.object_fall_impact",
+      "label": "object fall and impact",
+      "layer": "layer.schema",
+      "kind": "mechanics_schema",
+      "age_status": "active",
+      "summary": "Unsupported object moves downward, impacts a surface, and produces outcome depending on material and surface."
+    },
+    {
+      "id": "schema.material_impact_outcome",
+      "label": "material impact outcome",
+      "layer": "layer.schema",
+      "kind": "material_schema",
+      "age_status": "active",
+      "summary": "Same impact frame produces different sound, bounce, deformation, or break outcomes based on material properties."
+    },
+    {
+      "id": "schema.surface_friction_motion",
+      "label": "surface friction and motion",
+      "layer": "layer.schema",
+      "kind": "mechanics_schema",
+      "age_status": "active",
+      "summary": "Surface friction modifies rolling, sliding, resistance, traction, and stopping."
+    },
+    {
+      "id": "schema.push_slide_resistance",
+      "label": "push-slide resistance",
+      "layer": "layer.schema",
+      "kind": "mechanics_schema",
+      "age_status": "active",
+      "summary": "Pushing an object causes more or less sliding depending on load and surface resistance."
+    },
+    {
+      "id": "schema.slippery_surface_traction",
+      "label": "slippery surface traction",
+      "layer": "layer.schema",
+      "kind": "risk_schema",
+      "age_status": "active",
+      "summary": "Wet or low-friction surface reduces traction and increases slipping risk."
+    },
+    {
+      "id": "schema.object_stack_stability",
+      "label": "object stack stability",
+      "layer": "layer.schema",
+      "kind": "stability_schema",
+      "age_status": "active",
+      "summary": "Stack height, width, support base, and nudge determine whether a stack stays stable or tips."
+    },
+    {
+      "id": "schema.partial_support_tipping",
+      "label": "partial support tipping",
+      "layer": "layer.schema",
+      "kind": "stability_schema",
+      "age_status": "active",
+      "summary": "Object partly outside support can tip or fall when its weight relation crosses support boundary."
+    },
+    {
+      "id": "schema.uneven_support_wobble",
+      "label": "uneven support wobble",
+      "layer": "layer.schema",
+      "kind": "stability_schema",
+      "age_status": "active",
+      "summary": "Unequal support points create wobble, rocking, or instability."
+    },
+    {
+      "id": "schema.pour_fill_container",
+      "label": "pour-fill container",
+      "layer": "layer.schema",
+      "kind": "flow_schema",
+      "age_status": "active",
+      "summary": "Liquid moves through an opening into a container and changes fill level."
+    },
+    {
+      "id": "schema.capacity_overflow",
+      "label": "capacity and overflow",
+      "layer": "layer.schema",
+      "kind": "flow_schema",
+      "age_status": "active",
+      "summary": "If incoming liquid exceeds container capacity, liquid leaves the container."
+    },
+    {
+      "id": "schema.constrained_flow_path",
+      "label": "constrained flow path",
+      "layer": "layer.schema",
+      "kind": "flow_schema",
+      "age_status": "active",
+      "summary": "Liquid or material follows a constrained path such as pipe, channel, or opening."
+    },
+    {
+      "id": "schema.blocked_flow",
+      "label": "blocked flow",
+      "layer": "layer.schema",
+      "kind": "flow_schema",
+      "age_status": "active",
+      "summary": "A plug or blockage interrupts a flow path."
+    },
+    {
+      "id": "schema.leak_through_opening",
+      "label": "leak through opening",
+      "layer": "layer.schema",
+      "kind": "flow_schema",
+      "age_status": "active",
+      "summary": "Liquid leaves a container through an unintended opening."
+    },
+    {
+      "id": "schema.absorption_porosity",
+      "label": "absorption and porosity",
+      "layer": "layer.schema",
+      "kind": "material_schema",
+      "age_status": "active",
+      "summary": "Porous or absorbent material takes in liquid and changes wetness or state."
+    },
+    {
+      "id": "schema.squeeze_release_liquid",
+      "label": "squeeze release liquid",
+      "layer": "layer.schema",
+      "kind": "material_schema",
+      "age_status": "active",
+      "summary": "Pressure on wet porous material releases stored liquid and deforms the material."
+    },
+    {
+      "id": "schema.immiscible_separation",
+      "label": "immiscible separation",
+      "layer": "layer.schema",
+      "kind": "mixture_schema",
+      "age_status": "active",
+      "summary": "Two liquids contact but remain separated rather than uniformly mixed."
+    },
+    {
+      "id": "schema.dissolution_mixing",
+      "label": "dissolution and mixing",
+      "layer": "layer.schema",
+      "kind": "mixture_schema",
+      "age_status": "active",
+      "summary": "A soluble solid disperses into liquid and becomes less visible as separate particles."
+    },
+    {
+      "id": "schema.heat_transfer",
+      "label": "heat transfer",
+      "layer": "layer.schema",
+      "kind": "thermal_schema",
+      "age_status": "active",
+      "summary": "Heat moves between materials or regions with different temperatures."
+    },
+    {
+      "id": "schema.phase_change_melting",
+      "label": "phase change melting",
+      "layer": "layer.schema",
+      "kind": "thermal_schema",
+      "age_status": "active",
+      "summary": "Solid material becomes liquid when heat transfer passes a phase-change threshold."
+    },
+    {
+      "id": "schema.boiling_vapor_rise",
+      "label": "boiling vapor rise",
+      "layer": "layer.schema",
+      "kind": "thermal_schema",
+      "age_status": "active",
+      "summary": "Heating liquid to boiling produces vapor that rises from the liquid."
+    },
+    {
+      "id": "schema.thermal_conduction_material",
+      "label": "thermal conduction by material",
+      "layer": "layer.schema",
+      "kind": "thermal_schema",
+      "age_status": "active",
+      "summary": "Material type changes how quickly heat moves through an object."
+    },
+    {
+      "id": "schema.combustion_flammable_material",
+      "label": "combustion of flammable material",
+      "layer": "layer.schema",
+      "kind": "thermal_transformation_schema",
+      "age_status": "active",
+      "summary": "Flame contact with flammable material can produce burning and irreversible state change."
+    },
+    {
+      "id": "schema.edge_pressure_cut",
+      "label": "edge-pressure cut",
+      "layer": "layer.schema",
+      "kind": "tool_schema",
+      "age_status": "active",
+      "summary": "Sharp edge plus pressure on a soft target can separate material."
+    },
+    {
+      "id": "schema.blunt_pressure_deform",
+      "label": "blunt pressure deformation",
+      "layer": "layer.schema",
+      "kind": "tool_schema",
+      "age_status": "active",
+      "summary": "Blunt object plus pressure deforms a soft target without clean separation."
+    },
+    {
+      "id": "schema.point_pressure_mark",
+      "label": "point pressure mark",
+      "layer": "layer.schema",
+      "kind": "marking_schema",
+      "age_status": "active",
+      "summary": "Pointed tip plus pressure on a marking surface creates a visible trace."
+    },
+    {
+      "id": "schema.elastic_stretch_return",
+      "label": "elastic stretch and return",
+      "layer": "layer.schema",
+      "kind": "material_schema",
+      "age_status": "active",
+      "summary": "Elastic material changes shape under force and tends to return when force is removed."
+    },
+    {
+      "id": "schema.elastic_limit_failure",
+      "label": "elastic limit failure",
+      "layer": "layer.schema",
+      "kind": "material_schema",
+      "age_status": "active",
+      "summary": "Too much stretch or force crosses a material threshold and causes break or permanent change."
+    },
+    {
+      "id": "schema.spring_compress_release",
+      "label": "spring compress and release",
+      "layer": "layer.schema",
+      "kind": "mechanics_schema",
+      "age_status": "active",
+      "summary": "Spring compression stores elastic energy and release produces motion."
+    },
+    {
+      "id": "schema.plastic_deformation_retains_shape",
+      "label": "plastic deformation retains shape",
+      "layer": "layer.schema",
+      "kind": "material_schema",
+      "age_status": "active",
+      "summary": "Plastic material changes shape under force and retains much of the new shape."
+    },
+    {
+      "id": "schema.wheel_axle_rotation",
+      "label": "wheel-axle rotation",
+      "layer": "layer.schema",
+      "kind": "machine_schema",
+      "age_status": "active",
+      "summary": "Wheel rotates around axle and supports rolling motion."
+    },
+    {
+      "id": "schema.brake_friction_slow_stop",
+      "label": "brake friction slows or stops",
+      "layer": "layer.schema",
+      "kind": "machine_schema",
+      "age_status": "active",
+      "summary": "Brake contact increases friction on a moving wheel and reduces motion."
+    },
+    {
+      "id": "schema.load_inertia_effort",
+      "label": "load inertia and effort",
+      "layer": "layer.schema",
+      "kind": "mechanics_schema",
+      "age_status": "active",
+      "summary": "Heavier load requires greater effort to start or change motion."
+    },
+    {
+      "id": "schema.lever_pivot_balance",
+      "label": "lever-pivot balance",
+      "layer": "layer.schema",
+      "kind": "machine_schema",
+      "age_status": "active",
+      "summary": "Unequal weight around a pivot causes tilt or rotation."
+    },
+    {
+      "id": "schema.air_resistance_fall",
+      "label": "air resistance during fall",
+      "layer": "layer.schema",
+      "kind": "mechanics_schema",
+      "age_status": "active",
+      "summary": "Air resistance modifies falling speed depending on mass, shape, and surface area."
+    },
+    {
+      "id": "schema.magnet_material_selectivity",
+      "label": "magnet material selectivity",
+      "layer": "layer.schema",
+      "kind": "field_schema",
+      "age_status": "active",
+      "summary": "Magnet attracts some materials and not others."
+    },
+    {
+      "id": "schema.switch_circuit_activation",
+      "label": "switch circuit activation",
+      "layer": "layer.schema",
+      "kind": "electric_schema",
+      "age_status": "active",
+      "summary": "Changing switch state can close a circuit and activate a device such as a light."
+    },
+    {
+      "id": "schema.impact_force_sound_amplitude",
+      "label": "impact force and sound amplitude",
+      "layer": "layer.schema",
+      "kind": "sound_schema",
+      "age_status": "active",
+      "summary": "Stronger impact or vibration generally produces higher sound amplitude."
+    },
+    {
+      "id": "property.fragile",
+      "label": "fragile",
+      "layer": "layer.property",
+      "kind": "material_property",
+      "age_status": "active",
+      "summary": "Likely to break under impact or excess force."
+    },
+    {
+      "id": "property.brittle",
+      "label": "brittle",
+      "layer": "layer.property",
+      "kind": "material_property",
+      "age_status": "active",
+      "summary": "Breaks rather than bending substantially when stressed."
+    },
+    {
+      "id": "property.metallic_resonance",
+      "label": "metallic resonance",
+      "layer": "layer.property",
+      "kind": "sound_material_property",
+      "age_status": "active",
+      "summary": "Metal impact often produces ringing or loud resonant sound."
+    },
+    {
+      "id": "property.plastic_deformable",
+      "label": "plastic deformable",
+      "layer": "layer.property",
+      "kind": "material_property",
+      "age_status": "active",
+      "summary": "Can deform without immediately shattering."
+    },
+    {
+      "id": "property.elastic",
+      "label": "elastic",
+      "layer": "layer.property",
+      "kind": "material_property",
+      "age_status": "active",
+      "summary": "Changes shape under force and tends to return when force is removed."
+    },
+    {
+      "id": "property.elastic_limit",
+      "label": "elastic limit",
+      "layer": "layer.property",
+      "kind": "threshold_property",
+      "age_status": "active",
+      "summary": "Stretch or force limit beyond which material breaks or changes permanently."
+    },
+    {
+      "id": "property.hard",
+      "label": "hard",
+      "layer": "layer.property",
+      "kind": "material_property",
+      "age_status": "active",
+      "summary": "Resists deformation and can produce stronger impact sound."
+    },
+    {
+      "id": "property.soft",
+      "label": "soft",
+      "layer": "layer.property",
+      "kind": "material_property",
+      "age_status": "active",
+      "summary": "Deforms under pressure and often reduces impact force or sound."
+    },
+    {
+      "id": "property.round",
+      "label": "round",
+      "layer": "layer.property",
+      "kind": "shape_property",
+      "age_status": "active",
+      "summary": "Curved shape that supports rolling under push or slope."
+    },
+    {
+      "id": "property.smooth_surface",
+      "label": "smooth surface",
+      "layer": "layer.property",
+      "kind": "surface_property",
+      "age_status": "active",
+      "summary": "Low texture variation, often lower sliding or rolling resistance."
+    },
+    {
+      "id": "property.rough_surface",
+      "label": "rough surface",
+      "layer": "layer.property",
+      "kind": "surface_property",
+      "age_status": "active",
+      "summary": "High texture variation, often higher friction or resistance."
+    },
+    {
+      "id": "property.high_friction",
+      "label": "high friction",
+      "layer": "layer.property",
+      "kind": "surface_relation_property",
+      "age_status": "active",
+      "summary": "Contact relation that resists sliding or rolling motion strongly."
+    },
+    {
+      "id": "property.low_friction",
+      "label": "low friction",
+      "layer": "layer.property",
+      "kind": "surface_relation_property",
+      "age_status": "active",
+      "summary": "Contact relation that resists sliding or rolling motion weakly."
+    },
+    {
+      "id": "property.slippery_wet_surface",
+      "label": "slippery wet surface",
+      "layer": "layer.property",
+      "kind": "surface_risk_property",
+      "age_status": "active",
+      "summary": "Wet surface relation that can reduce traction for feet or wheels."
+    },
+    {
+      "id": "property.tall_narrow",
+      "label": "tall narrow",
+      "layer": "layer.property",
+      "kind": "shape_stability_property",
+      "age_status": "active",
+      "summary": "Shape relation with higher tipping risk under side force."
+    },
+    {
+      "id": "property.wide_stable",
+      "label": "wide stable",
+      "layer": "layer.property",
+      "kind": "shape_stability_property",
+      "age_status": "active",
+      "summary": "Shape relation with broader support base and lower tipping risk."
+    },
+    {
+      "id": "property.container_capacity",
+      "label": "container capacity",
+      "layer": "layer.property",
+      "kind": "containment_property",
+      "age_status": "active",
+      "summary": "Amount a container can hold before overflow."
+    },
+    {
+      "id": "property.opening",
+      "label": "opening",
+      "layer": "layer.property",
+      "kind": "path_property",
+      "age_status": "active",
+      "summary": "Gap or path through which material can pass."
+    },
+    {
+      "id": "property.blockage",
+      "label": "blockage",
+      "layer": "layer.property",
+      "kind": "path_property",
+      "age_status": "active",
+      "summary": "Obstacle that prevents or reduces motion or flow along a path."
+    },
+    {
+      "id": "property.porous",
+      "label": "porous",
+      "layer": "layer.property",
+      "kind": "material_property",
+      "age_status": "active",
+      "summary": "Has spaces that allow liquid or air to enter."
+    },
+    {
+      "id": "property.absorbent",
+      "label": "absorbent",
+      "layer": "layer.property",
+      "kind": "material_property",
+      "age_status": "active",
+      "summary": "Takes in liquid rather than simply shedding it."
+    },
+    {
+      "id": "property.immiscible",
+      "label": "immiscible",
+      "layer": "layer.property",
+      "kind": "mixture_property",
+      "age_status": "active",
+      "summary": "Does not mix uniformly with another liquid under ordinary conditions."
+    },
+    {
+      "id": "property.soluble",
+      "label": "soluble",
+      "layer": "layer.property",
+      "kind": "mixture_property",
+      "age_status": "active",
+      "summary": "Can dissolve into a liquid."
+    },
+    {
+      "id": "property.thermal_conductor",
+      "label": "thermal conductor",
+      "layer": "layer.property",
+      "kind": "thermal_property",
+      "age_status": "active",
+      "summary": "Transfers heat relatively quickly."
+    },
+    {
+      "id": "property.thermal_insulator",
+      "label": "thermal insulator",
+      "layer": "layer.property",
+      "kind": "thermal_property",
+      "age_status": "active",
+      "summary": "Transfers heat relatively slowly."
+    },
+    {
+      "id": "property.flammable",
+      "label": "flammable",
+      "layer": "layer.property",
+      "kind": "thermal_transformation_property",
+      "age_status": "active",
+      "summary": "Can burn when exposed to flame and sufficient conditions."
+    },
+    {
+      "id": "property.sharp_edge",
+      "label": "sharp edge",
+      "layer": "layer.property",
+      "kind": "geometry_property",
+      "age_status": "active",
+      "summary": "Small edge contact area that concentrates pressure."
+    },
+    {
+      "id": "property.blunt_edge",
+      "label": "blunt edge",
+      "layer": "layer.property",
+      "kind": "geometry_property",
+      "age_status": "active",
+      "summary": "Broad edge or surface that spreads pressure."
+    },
+    {
+      "id": "property.pointed_tip",
+      "label": "pointed tip",
+      "layer": "layer.property",
+      "kind": "geometry_property",
+      "age_status": "active",
+      "summary": "Small tip contact area that concentrates pressure or leaves marks."
+    },
+    {
+      "id": "property.soft_target",
+      "label": "soft target",
+      "layer": "layer.property",
+      "kind": "target_property",
+      "age_status": "active",
+      "summary": "Target material that deforms or separates under lower force."
+    },
+    {
+      "id": "property.heavy_load",
+      "label": "heavy load",
+      "layer": "layer.property",
+      "kind": "load_property",
+      "age_status": "active",
+      "summary": "Greater load that usually requires greater effort to move."
+    },
+    {
+      "id": "property.light_load",
+      "label": "light load",
+      "layer": "layer.property",
+      "kind": "load_property",
+      "age_status": "active",
+      "summary": "Smaller load that usually requires less effort to move."
+    },
+    {
+      "id": "property.pivot",
+      "label": "pivot",
+      "layer": "layer.property",
+      "kind": "machine_property",
+      "age_status": "active",
+      "summary": "Point around which lever or seesaw rotation occurs."
+    },
+    {
+      "id": "property.magnetic_material",
+      "label": "magnetic material",
+      "layer": "layer.property",
+      "kind": "field_response_property",
+      "age_status": "active",
+      "summary": "Material that is attracted by a magnet under ordinary conditions."
+    },
+    {
+      "id": "property.non_magnetic_material",
+      "label": "non-magnetic material",
+      "layer": "layer.property",
+      "kind": "field_response_property",
+      "age_status": "active",
+      "summary": "Material that is not attracted by a magnet under ordinary conditions."
+    },
+    {
+      "id": "property.low_sound_amplitude",
+      "label": "low sound amplitude",
+      "layer": "layer.property",
+      "kind": "sound_property",
+      "age_status": "active",
+      "summary": "Lower sound intensity from weaker vibration or impact."
+    },
+    {
+      "id": "property.high_sound_amplitude",
+      "label": "high sound amplitude",
+      "layer": "layer.property",
+      "kind": "sound_property",
+      "age_status": "active",
+      "summary": "Higher sound intensity from stronger vibration or impact."
+    },
+    {
+      "id": "object.glass_cup",
+      "label": "glass cup",
+      "layer": "layer.object",
+      "kind": "everyday_object",
+      "age_status": "active",
+      "summary": "Glass container object used for fall, fill, and break contrasts."
+    },
+    {
+      "id": "object.plastic_cup",
+      "label": "plastic cup",
+      "layer": "layer.object",
+      "kind": "everyday_object",
+      "age_status": "active",
+      "summary": "Plastic container object used for impact contrast."
+    },
+    {
+      "id": "object.steel_tumbler",
+      "label": "steel tumbler",
+      "layer": "layer.object",
+      "kind": "everyday_object",
+      "age_status": "active",
+      "summary": "Metal container object used for impact and sound contrast."
+    },
+    {
+      "id": "object.rubber_ball",
+      "label": "rubber ball",
+      "layer": "layer.object",
+      "kind": "everyday_object",
+      "age_status": "active",
+      "summary": "Round elastic object used for rolling and surface-friction examples."
+    },
+    {
+      "id": "object.sponge_ball",
+      "label": "sponge ball",
+      "layer": "layer.object",
+      "kind": "everyday_object",
+      "age_status": "active",
+      "summary": "Soft porous ball used for pressure and absorption behavior."
+    },
+    {
+      "id": "object.block_stack_tall",
+      "label": "tall block stack",
+      "layer": "layer.object",
+      "kind": "object_arrangement",
+      "age_status": "active",
+      "summary": "Tall narrow stack used for tipping contrast."
+    },
+    {
+      "id": "object.block_stack_wide",
+      "label": "wide block stack",
+      "layer": "layer.object",
+      "kind": "object_arrangement",
+      "age_status": "active",
+      "summary": "Wide stack used for stability contrast."
+    },
+    {
+      "id": "object.book",
+      "label": "book",
+      "layer": "layer.object",
+      "kind": "everyday_object",
+      "age_status": "active",
+      "summary": "Flat object used for partial support and tipping examples."
+    },
+    {
+      "id": "object.cardboard_box",
+      "label": "cardboard box",
+      "layer": "layer.object",
+      "kind": "everyday_object",
+      "age_status": "active",
+      "summary": "Box object used for push-slide examples."
+    },
+    {
+      "id": "object.chair",
+      "label": "chair",
+      "layer": "layer.object",
+      "kind": "everyday_object",
+      "age_status": "active",
+      "summary": "Furniture object used for surface-dependent sliding."
+    },
+    {
+      "id": "object.table_uneven",
+      "label": "uneven table",
+      "layer": "layer.object",
+      "kind": "everyday_object",
+      "age_status": "active",
+      "summary": "Table with unequal leg support used for wobble relation."
+    },
+    {
+      "id": "object.water",
+      "label": "water",
+      "layer": "layer.object",
+      "kind": "material_substance",
+      "age_status": "active",
+      "summary": "Liquid used for flow, filling, absorption, phase change, and mixing."
+    },
+    {
+      "id": "object.pipe",
+      "label": "pipe",
+      "layer": "layer.object",
+      "kind": "flow_path_object",
+      "age_status": "active",
+      "summary": "Constrained path for liquid flow."
+    },
+    {
+      "id": "object.bucket_with_hole",
+      "label": "bucket with hole",
+      "layer": "layer.object",
+      "kind": "container_object",
+      "age_status": "active",
+      "summary": "Container with unintended opening used for leak examples."
+    },
+    {
+      "id": "object.cloth",
+      "label": "cloth",
+      "layer": "layer.object",
+      "kind": "material_object",
+      "age_status": "active",
+      "summary": "Absorbent flexible material used for water-contact examples."
+    },
+    {
+      "id": "object.soil",
+      "label": "dry soil",
+      "layer": "layer.object",
+      "kind": "granular_material",
+      "age_status": "active",
+      "summary": "Granular material used for absorption and mud-state examples."
+    },
+    {
+      "id": "object.oil",
+      "label": "oil",
+      "layer": "layer.object",
+      "kind": "liquid_material",
+      "age_status": "active",
+      "summary": "Liquid used for immiscible contrast with water."
+    },
+    {
+      "id": "object.salt",
+      "label": "salt",
+      "layer": "layer.object",
+      "kind": "solid_material",
+      "age_status": "active",
+      "summary": "Soluble solid used for dissolving examples."
+    },
+    {
+      "id": "object.sponge",
+      "label": "sponge",
+      "layer": "layer.object",
+      "kind": "porous_object",
+      "age_status": "active",
+      "summary": "Porous object used for absorption and squeeze-release examples."
+    },
+    {
+      "id": "object.ice",
+      "label": "ice",
+      "layer": "layer.object",
+      "kind": "solid_phase_material",
+      "age_status": "active",
+      "summary": "Solid water used for melting examples."
+    },
+    {
+      "id": "object.steam",
+      "label": "steam",
+      "layer": "layer.object",
+      "kind": "gas_phase_material",
+      "age_status": "active",
+      "summary": "Visible vapor associated with boiling water."
+    },
+    {
+      "id": "object.metal_spoon",
+      "label": "metal spoon",
+      "layer": "layer.object",
+      "kind": "tool_object",
+      "age_status": "active",
+      "summary": "Metal object used for thermal conduction examples."
+    },
+    {
+      "id": "object.wooden_spoon",
+      "label": "wooden spoon",
+      "layer": "layer.object",
+      "kind": "tool_object",
+      "age_status": "active",
+      "summary": "Wood object used for thermal insulation contrast."
+    },
+    {
+      "id": "object.paper",
+      "label": "paper",
+      "layer": "layer.object",
+      "kind": "material_object",
+      "age_status": "active",
+      "summary": "Flammable material and marking surface."
+    },
+    {
+      "id": "object.knife",
+      "label": "knife",
+      "layer": "layer.object",
+      "kind": "tool_object",
+      "age_status": "active",
+      "summary": "Sharp edge tool used for cutting examples."
+    },
+    {
+      "id": "object.spoon",
+      "label": "spoon",
+      "layer": "layer.object",
+      "kind": "tool_object",
+      "age_status": "active",
+      "summary": "Blunt tool used for pressure contrast."
+    },
+    {
+      "id": "object.blunt_knife",
+      "label": "blunt knife",
+      "layer": "layer.object",
+      "kind": "tool_object",
+      "age_status": "active",
+      "summary": "Weak-edge knife used for cutting threshold contrast."
+    },
+    {
+      "id": "object.tomato",
+      "label": "tomato",
+      "layer": "layer.object",
+      "kind": "soft_target_object",
+      "age_status": "active",
+      "summary": "Soft target used for cutting and deformation examples."
+    },
+    {
+      "id": "object.rubber_band",
+      "label": "rubber band",
+      "layer": "layer.object",
+      "kind": "elastic_object",
+      "age_status": "active",
+      "summary": "Elastic object used for stretch and elastic-limit examples."
+    },
+    {
+      "id": "object.spring",
+      "label": "spring",
+      "layer": "layer.object",
+      "kind": "elastic_object",
+      "age_status": "active",
+      "summary": "Elastic machine element used for compression and release."
+    },
+    {
+      "id": "object.clay",
+      "label": "clay",
+      "layer": "layer.object",
+      "kind": "plastic_material_object",
+      "age_status": "active",
+      "summary": "Material that retains new shape after pressure."
+    },
+    {
+      "id": "object.pencil",
+      "label": "pencil",
+      "layer": "layer.object",
+      "kind": "marking_tool",
+      "age_status": "active",
+      "summary": "Pointed marking tool used for trace creation."
+    },
+    {
+      "id": "object.wheel_axle",
+      "label": "wheel and axle",
+      "layer": "layer.object",
+      "kind": "machine_part",
+      "age_status": "active",
+      "summary": "Wheel constrained to rotate around axle."
+    },
+    {
+      "id": "object.bicycle_brake",
+      "label": "bicycle brake",
+      "layer": "layer.object",
+      "kind": "machine_part",
+      "age_status": "active",
+      "summary": "Brake used for friction-based slowing of a wheel."
+    },
+    {
+      "id": "object.loaded_cart",
+      "label": "loaded cart",
+      "layer": "layer.object",
+      "kind": "wheeled_object",
+      "age_status": "active",
+      "summary": "Cart with heavy contents."
+    },
+    {
+      "id": "object.empty_cart",
+      "label": "empty cart",
+      "layer": "layer.object",
+      "kind": "wheeled_object",
+      "age_status": "active",
+      "summary": "Cart with light load."
+    },
+    {
+      "id": "object.seesaw",
+      "label": "seesaw",
+      "layer": "layer.object",
+      "kind": "lever_object",
+      "age_status": "active",
+      "summary": "Lever-like object with pivot and unequal load outcomes."
+    },
+    {
+      "id": "object.feather",
+      "label": "feather",
+      "layer": "layer.object",
+      "kind": "falling_object",
+      "age_status": "active",
+      "summary": "Low-mass, high-drag object used for air-resistance contrast."
+    },
+    {
+      "id": "object.stone",
+      "label": "stone",
+      "layer": "layer.object",
+      "kind": "falling_object",
+      "age_status": "active",
+      "summary": "Dense falling object used for air-resistance contrast."
+    },
+    {
+      "id": "object.magnet",
+      "label": "magnet",
+      "layer": "layer.object",
+      "kind": "field_object",
+      "age_status": "active",
+      "summary": "Object producing material-selective magnetic attraction."
+    },
+    {
+      "id": "object.iron_pin",
+      "label": "iron pin",
+      "layer": "layer.object",
+      "kind": "small_object",
+      "age_status": "active",
+      "summary": "Magnetic material object used for attraction example."
+    },
+    {
+      "id": "object.wooden_pencil",
+      "label": "wooden pencil",
+      "layer": "layer.object",
+      "kind": "small_object",
+      "age_status": "active",
+      "summary": "Non-magnetic object used for magnetism contrast."
+    },
+    {
+      "id": "object.switch",
+      "label": "switch",
+      "layer": "layer.object",
+      "kind": "electric_control_object",
+      "age_status": "active",
+      "summary": "Object that changes a circuit state."
+    },
+    {
+      "id": "object.light",
+      "label": "light",
+      "layer": "layer.object",
+      "kind": "electric_device",
+      "age_status": "active",
+      "summary": "Device producing light when circuit is active."
+    },
+    {
+      "id": "object.drum",
+      "label": "drum",
+      "layer": "layer.object",
+      "kind": "sound_object",
+      "age_status": "active",
+      "summary": "Object producing sound through impact and vibration."
+    },
+    {
+      "id": "object.wet_floor_tile",
+      "label": "wet floor tile",
+      "layer": "layer.object",
+      "kind": "surface_object",
+      "age_status": "active",
+      "summary": "Wet surface used for traction and slipping examples."
+    },
+    {
+      "id": "event.break_fragment",
+      "label": "break into fragments",
+      "layer": "layer.event",
+      "kind": "damage_event",
+      "age_status": "active",
+      "summary": "Object continuity fails and fragments appear."
+    },
+    {
+      "id": "event.roll_motion",
+      "label": "rolling motion",
+      "layer": "layer.event",
+      "kind": "motion_event",
+      "age_status": "active",
+      "summary": "Object changes position through rotation against a surface."
+    },
+    {
+      "id": "event.slide_motion",
+      "label": "sliding motion",
+      "layer": "layer.event",
+      "kind": "motion_event",
+      "age_status": "active",
+      "summary": "Object moves across surface without rolling as primary motion."
+    },
+    {
+      "id": "event.overflow_spill",
+      "label": "overflow and spill",
+      "layer": "layer.event",
+      "kind": "flow_event",
+      "age_status": "active",
+      "summary": "Material exceeds container capacity and leaves the container."
+    },
+    {
+      "id": "event.leak_flow",
+      "label": "leak flow",
+      "layer": "layer.event",
+      "kind": "flow_event",
+      "age_status": "active",
+      "summary": "Liquid exits through an unintended opening."
+    },
+    {
+      "id": "event.cut_separation",
+      "label": "cut separation",
+      "layer": "layer.event",
+      "kind": "separation_event",
+      "age_status": "active",
+      "summary": "Target material separates along a pressure path."
+    },
+    {
+      "id": "event.mark_trace",
+      "label": "mark trace",
+      "layer": "layer.event",
+      "kind": "marking_event",
+      "age_status": "active",
+      "summary": "Visible mark remains on a surface after pointed pressure or deposited material."
+    },
+    {
+      "id": "event.light_on",
+      "label": "light turns on",
+      "layer": "layer.event",
+      "kind": "device_event",
+      "age_status": "active",
+      "summary": "Device changes from not emitting visible light to emitting visible light."
+    },
+    {
+      "id": "event.slip",
+      "label": "slip",
+      "layer": "layer.event",
+      "kind": "traction_failure_event",
+      "age_status": "active",
+      "summary": "Contact loses traction and motion becomes unstable."
+    }
+  ],
+  "relations": [
+    {
+      "source": "schema.object_fall_impact",
+      "type": "built_from",
+      "target": "invariant.supported_unsupported",
+      "strength": 0.86,
+      "valence": "neutral",
+      "built_from": ["channel.motion", "channel.contact_pressure", "invariant.before_after"]
+    },
+    {
+      "source": "schema.material_impact_outcome",
+      "type": "built_from",
+      "target": "schema.object_fall_impact",
+      "strength": 0.78,
+      "valence": "neutral",
+      "built_from": ["property.fragile", "property.plastic_deformable", "property.metallic_resonance"]
+    },
+    {
+      "source": "schema.material_impact_outcome",
+      "type": "can_cause",
+      "target": "event.break_fragment",
+      "strength": 0.62,
+      "valence": "negative",
+      "conditions": ["impact force crosses material failure threshold"]
+    },
+    {
+      "source": "schema.surface_friction_motion",
+      "type": "built_from",
+      "target": "invariant.touching",
+      "strength": 0.78,
+      "valence": "neutral",
+      "built_from": ["property.high_friction", "property.low_friction", "channel.motion"]
+    },
+    {
+      "source": "schema.surface_friction_motion",
+      "type": "modifies",
+      "target": "event.roll_motion",
+      "strength": 0.66,
+      "valence": "mixed"
+    },
+    {
+      "source": "schema.push_slide_resistance",
+      "type": "predicts",
+      "target": "event.slide_motion",
+      "strength": 0.70,
+      "valence": "neutral",
+      "built_from": ["schema.surface_friction_motion", "invariant.more_less"]
+    },
+    {
+      "source": "schema.slippery_surface_traction",
+      "type": "can_cause",
+      "target": "event.slip",
+      "strength": 0.74,
+      "valence": "negative",
+      "built_from": ["property.slippery_wet_surface", "property.low_friction"]
+    },
+    {
+      "source": "schema.object_stack_stability",
+      "type": "built_from",
+      "target": "invariant.support_base",
+      "strength": 0.78,
+      "valence": "neutral",
+      "built_from": ["property.tall_narrow", "property.wide_stable", "invariant.center_of_support"]
+    },
+    {
+      "source": "schema.partial_support_tipping",
+      "type": "built_from",
+      "target": "invariant.center_of_support",
+      "strength": 0.72,
+      "valence": "mixed",
+      "built_from": ["invariant.supported_unsupported", "invariant.support_base"]
+    },
+    {
+      "source": "schema.uneven_support_wobble",
+      "type": "built_from",
+      "target": "invariant.supported_unsupported",
+      "strength": 0.66,
+      "valence": "mixed",
+      "built_from": ["invariant.same_different", "invariant.moves_stops"]
+    },
+    {
+      "source": "schema.pour_fill_container",
+      "type": "built_from",
+      "target": "invariant.inside_outside",
+      "strength": 0.78,
+      "valence": "neutral",
+      "built_from": ["property.container_capacity", "property.opening", "channel.motion"]
+    },
+    {
+      "source": "schema.capacity_overflow",
+      "type": "can_cause",
+      "target": "event.overflow_spill",
+      "strength": 0.82,
+      "valence": "mixed",
+      "built_from": ["property.container_capacity", "invariant.threshold"]
+    },
+    {
+      "source": "schema.constrained_flow_path",
+      "type": "built_from",
+      "target": "invariant.open_closed",
+      "strength": 0.72,
+      "valence": "neutral",
+      "built_from": ["property.opening", "channel.motion"]
+    },
+    {
+      "source": "schema.blocked_flow",
+      "type": "built_from",
+      "target": "invariant.path_blocked",
+      "strength": 0.80,
+      "valence": "mixed",
+      "built_from": ["property.blockage", "schema.constrained_flow_path"]
+    },
+    {
+      "source": "schema.leak_through_opening",
+      "type": "can_cause",
+      "target": "event.leak_flow",
+      "strength": 0.82,
+      "valence": "mixed",
+      "built_from": ["property.opening", "schema.pour_fill_container"]
+    },
+    {
+      "source": "schema.absorption_porosity",
+      "type": "built_from",
+      "target": "invariant.inside_outside",
+      "strength": 0.70,
+      "valence": "mixed",
+      "built_from": ["property.porous", "property.absorbent", "channel.material_state"]
+    },
+    {
+      "source": "schema.squeeze_release_liquid",
+      "type": "built_from",
+      "target": "schema.absorption_porosity",
+      "strength": 0.68,
+      "valence": "mixed",
+      "built_from": ["channel.contact_pressure", "property.absorbent"]
+    },
+    {
+      "source": "schema.immiscible_separation",
+      "type": "built_from",
+      "target": "invariant.same_different",
+      "strength": 0.62,
+      "valence": "neutral",
+      "built_from": ["property.immiscible", "channel.material_state"]
+    },
+    {
+      "source": "schema.dissolution_mixing",
+      "type": "built_from",
+      "target": "invariant.state_change",
+      "strength": 0.64,
+      "valence": "neutral",
+      "built_from": ["property.soluble", "channel.material_state"]
+    },
+    {
+      "source": "schema.heat_transfer",
+      "type": "built_from",
+      "target": "invariant.energy_transfer",
+      "strength": 0.80,
+      "valence": "mixed",
+      "built_from": ["channel.temperature", "invariant.more_less"]
+    },
+    {
+      "source": "schema.phase_change_melting",
+      "type": "built_from",
+      "target": "invariant.state_change",
+      "strength": 0.70,
+      "valence": "neutral",
+      "built_from": ["schema.heat_transfer", "invariant.threshold"]
+    },
+    {
+      "source": "schema.boiling_vapor_rise",
+      "type": "built_from",
+      "target": "invariant.state_change",
+      "strength": 0.72,
+      "valence": "neutral",
+      "built_from": ["schema.heat_transfer", "channel.motion"]
+    },
+    {
+      "source": "schema.thermal_conduction_material",
+      "type": "built_from",
+      "target": "schema.heat_transfer",
+      "strength": 0.72,
+      "valence": "mixed",
+      "built_from": ["property.thermal_conductor", "property.thermal_insulator"]
+    },
+    {
+      "source": "schema.combustion_flammable_material",
+      "type": "built_from",
+      "target": "invariant.state_change",
+      "strength": 0.64,
+      "valence": "negative",
+      "built_from": ["property.flammable", "schema.heat_transfer", "invariant.threshold"]
+    },
+    {
+      "source": "schema.edge_pressure_cut",
+      "type": "can_cause",
+      "target": "event.cut_separation",
+      "strength": 0.78,
+      "valence": "mixed",
+      "built_from": ["property.sharp_edge", "property.soft_target", "channel.contact_pressure"]
+    },
+    {
+      "source": "schema.blunt_pressure_deform",
+      "type": "built_from",
+      "target": "invariant.state_change",
+      "strength": 0.62,
+      "valence": "mixed",
+      "built_from": ["property.blunt_edge", "property.soft_target", "channel.contact_pressure"]
+    },
+    {
+      "source": "schema.point_pressure_mark",
+      "type": "can_cause",
+      "target": "event.mark_trace",
+      "strength": 0.70,
+      "valence": "neutral",
+      "built_from": ["property.pointed_tip", "channel.contact_pressure"]
+    },
+    {
+      "source": "schema.elastic_stretch_return",
+      "type": "built_from",
+      "target": "invariant.energy_transfer",
+      "strength": 0.68,
+      "valence": "mixed",
+      "built_from": ["property.elastic", "channel.contact_pressure", "invariant.before_after"]
+    },
+    {
+      "source": "schema.elastic_limit_failure",
+      "type": "built_from",
+      "target": "invariant.threshold",
+      "strength": 0.70,
+      "valence": "negative",
+      "built_from": ["property.elastic_limit", "property.elastic"]
+    },
+    {
+      "source": "schema.spring_compress_release",
+      "type": "built_from",
+      "target": "invariant.energy_transfer",
+      "strength": 0.72,
+      "valence": "mixed",
+      "built_from": ["property.elastic", "channel.motion", "channel.contact_pressure"]
+    },
+    {
+      "source": "schema.plastic_deformation_retains_shape",
+      "type": "built_from",
+      "target": "invariant.state_change",
+      "strength": 0.70,
+      "valence": "mixed",
+      "built_from": ["property.plastic_deformable", "channel.contact_pressure"]
+    },
+    {
+      "source": "schema.wheel_axle_rotation",
+      "type": "predicts",
+      "target": "event.roll_motion",
+      "strength": 0.70,
+      "valence": "positive",
+      "built_from": ["property.round", "invariant.moves_stops"]
+    },
+    {
+      "source": "schema.brake_friction_slow_stop",
+      "type": "built_from",
+      "target": "schema.surface_friction_motion",
+      "strength": 0.70,
+      "valence": "mixed",
+      "built_from": ["invariant.moves_stops", "property.high_friction"]
+    },
+    {
+      "source": "schema.load_inertia_effort",
+      "type": "built_from",
+      "target": "invariant.more_less",
+      "strength": 0.72,
+      "valence": "mixed",
+      "built_from": ["property.heavy_load", "property.light_load", "channel.motion"]
+    },
+    {
+      "source": "schema.lever_pivot_balance",
+      "type": "built_from",
+      "target": "invariant.center_of_support",
+      "strength": 0.68,
+      "valence": "mixed",
+      "built_from": ["property.pivot", "invariant.more_less"]
+    },
+    {
+      "source": "schema.air_resistance_fall",
+      "type": "built_from",
+      "target": "schema.object_fall_impact",
+      "strength": 0.62,
+      "valence": "neutral",
+      "built_from": ["channel.motion", "invariant.more_less"]
+    },
+    {
+      "source": "schema.magnet_material_selectivity",
+      "type": "built_from",
+      "target": "invariant.same_different",
+      "strength": 0.70,
+      "valence": "neutral",
+      "built_from": ["property.magnetic_material", "property.non_magnetic_material"]
+    },
+    {
+      "source": "schema.switch_circuit_activation",
+      "type": "can_cause",
+      "target": "event.light_on",
+      "strength": 0.74,
+      "valence": "positive",
+      "built_from": ["invariant.open_closed", "channel.visual"]
+    },
+    {
+      "source": "schema.impact_force_sound_amplitude",
+      "type": "built_from",
+      "target": "invariant.energy_transfer",
+      "strength": 0.68,
+      "valence": "mixed",
+      "built_from": ["channel.sound", "channel.contact_pressure", "invariant.more_less"]
+    },
+    {
+      "source": "property.fragile",
+      "type": "built_from",
+      "target": "invariant.threshold",
+      "strength": 0.60,
+      "valence": "negative",
+      "built_from": ["channel.material_state"]
+    },
+    {
+      "source": "property.brittle",
+      "type": "built_from",
+      "target": "channel.material_state",
+      "strength": 0.62,
+      "valence": "negative"
+    },
+    {
+      "source": "property.metallic_resonance",
+      "type": "built_from",
+      "target": "channel.sound",
+      "strength": 0.70,
+      "valence": "mixed",
+      "built_from": ["channel.material_state"]
+    },
+    {
+      "source": "property.plastic_deformable",
+      "type": "built_from",
+      "target": "invariant.state_change",
+      "strength": 0.66,
+      "valence": "mixed",
+      "built_from": ["channel.material_state", "channel.contact_pressure"]
+    },
+    {
+      "source": "property.elastic",
+      "type": "built_from",
+      "target": "invariant.before_after",
+      "strength": 0.66,
+      "valence": "mixed",
+      "built_from": ["channel.contact_pressure", "channel.material_state"]
+    },
+    {
+      "source": "property.elastic_limit",
+      "type": "built_from",
+      "target": "invariant.threshold",
+      "strength": 0.64,
+      "valence": "negative"
+    },
+    {
+      "source": "property.hard",
+      "type": "built_from",
+      "target": "channel.contact_pressure",
+      "strength": 0.72,
+      "valence": "mixed"
+    },
+    {
+      "source": "property.soft",
+      "type": "built_from",
+      "target": "channel.contact_pressure",
+      "strength": 0.72,
+      "valence": "mixed"
+    },
+    {
+      "source": "property.round",
+      "type": "built_from",
+      "target": "channel.visual",
+      "strength": 0.70,
+      "valence": "neutral"
+    },
+    {
+      "source": "property.smooth_surface",
+      "type": "supports",
+      "target": "property.low_friction",
+      "strength": 0.58,
+      "valence": "neutral"
+    },
+    {
+      "source": "property.rough_surface",
+      "type": "supports",
+      "target": "property.high_friction",
+      "strength": 0.60,
+      "valence": "neutral"
+    },
+    {
+      "source": "property.slippery_wet_surface",
+      "type": "supports",
+      "target": "property.low_friction",
+      "strength": 0.62,
+      "valence": "negative"
+    },
+    {
+      "source": "property.tall_narrow",
+      "type": "contrasts_with",
+      "target": "property.wide_stable",
+      "strength": 0.68,
+      "valence": "mixed"
+    },
+    {
+      "source": "property.container_capacity",
+      "type": "built_from",
+      "target": "invariant.inside_outside",
+      "strength": 0.70,
+      "valence": "neutral"
+    },
+    {
+      "source": "property.opening",
+      "type": "built_from",
+      "target": "invariant.open_closed",
+      "strength": 0.72,
+      "valence": "neutral"
+    },
+    {
+      "source": "property.blockage",
+      "type": "built_from",
+      "target": "invariant.path_blocked",
+      "strength": 0.72,
+      "valence": "mixed"
+    },
+    {
+      "source": "property.porous",
+      "type": "supports",
+      "target": "property.absorbent",
+      "strength": 0.64,
+      "valence": "neutral"
+    },
+    {
+      "source": "property.thermal_conductor",
+      "type": "contrasts_with",
+      "target": "property.thermal_insulator",
+      "strength": 0.72,
+      "valence": "neutral"
+    },
+    {
+      "source": "property.sharp_edge",
+      "type": "contrasts_with",
+      "target": "property.blunt_edge",
+      "strength": 0.72,
+      "valence": "neutral"
+    },
+    {
+      "source": "property.magnetic_material",
+      "type": "contrasts_with",
+      "target": "property.non_magnetic_material",
+      "strength": 0.76,
+      "valence": "neutral"
+    },
+    {
+      "source": "property.low_sound_amplitude",
+      "type": "contrasts_with",
+      "target": "property.high_sound_amplitude",
+      "strength": 0.68,
+      "valence": "neutral"
+    },
+    {
+      "source": "object.glass_cup",
+      "type": "has_property",
+      "target": "property.fragile",
+      "strength": 0.76,
+      "valence": "mixed"
+    },
+    {
+      "source": "object.glass_cup",
+      "type": "has_property",
+      "target": "property.brittle",
+      "strength": 0.72,
+      "valence": "mixed"
+    },
+    {
+      "source": "object.glass_cup",
+      "type": "supports",
+      "target": "schema.pour_fill_container",
+      "strength": 0.70,
+      "valence": "neutral"
+    },
+    {
+      "source": "object.plastic_cup",
+      "type": "has_property",
+      "target": "property.plastic_deformable",
+      "strength": 0.70,
+      "valence": "mixed"
+    },
+    {
+      "source": "object.steel_tumbler",
+      "type": "has_property",
+      "target": "property.metallic_resonance",
+      "strength": 0.74,
+      "valence": "mixed"
+    },
+    {
+      "source": "object.rubber_ball",
+      "type": "has_property",
+      "target": "property.round",
+      "strength": 0.84,
+      "valence": "neutral"
+    },
+    {
+      "source": "object.rubber_ball",
+      "type": "has_property",
+      "target": "property.elastic",
+      "strength": 0.72,
+      "valence": "mixed"
+    },
+    {
+      "source": "object.rubber_ball",
+      "type": "action_effect",
+      "target": "event.roll_motion",
+      "strength": 0.74,
+      "valence": "positive"
+    },
+    {
+      "source": "object.sponge_ball",
+      "type": "has_property",
+      "target": "property.soft",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "object.sponge_ball",
+      "type": "has_property",
+      "target": "property.porous",
+      "strength": 0.66,
+      "valence": "neutral"
+    },
+    {
+      "source": "object.block_stack_tall",
+      "type": "has_property",
+      "target": "property.tall_narrow",
+      "strength": 0.72,
+      "valence": "mixed"
+    },
+    {
+      "source": "object.block_stack_wide",
+      "type": "has_property",
+      "target": "property.wide_stable",
+      "strength": 0.72,
+      "valence": "positive"
+    },
+    {
+      "source": "object.book",
+      "type": "can_activate",
+      "target": "schema.partial_support_tipping",
+      "strength": 0.58,
+      "valence": "mixed"
+    },
+    {
+      "source": "object.cardboard_box",
+      "type": "can_activate",
+      "target": "schema.push_slide_resistance",
+      "strength": 0.56,
+      "valence": "neutral"
+    },
+    {
+      "source": "object.chair",
+      "type": "can_activate",
+      "target": "schema.push_slide_resistance",
+      "strength": 0.58,
+      "valence": "neutral"
+    },
+    {
+      "source": "object.table_uneven",
+      "type": "can_activate",
+      "target": "schema.uneven_support_wobble",
+      "strength": 0.62,
+      "valence": "mixed"
+    },
+    {
+      "source": "object.water",
+      "type": "can_activate",
+      "target": "schema.pour_fill_container",
+      "strength": 0.82,
+      "valence": "neutral"
+    },
+    {
+      "source": "object.pipe",
+      "type": "supports",
+      "target": "schema.constrained_flow_path",
+      "strength": 0.76,
+      "valence": "neutral"
+    },
+    {
+      "source": "object.bucket_with_hole",
+      "type": "can_activate",
+      "target": "schema.leak_through_opening",
+      "strength": 0.76,
+      "valence": "mixed"
+    },
+    {
+      "source": "object.cloth",
+      "type": "has_property",
+      "target": "property.absorbent",
+      "strength": 0.70,
+      "valence": "neutral"
+    },
+    {
+      "source": "object.soil",
+      "type": "has_property",
+      "target": "property.porous",
+      "strength": 0.60,
+      "valence": "neutral"
+    },
+    {
+      "source": "object.oil",
+      "type": "has_property",
+      "target": "property.immiscible",
+      "strength": 0.72,
+      "valence": "neutral"
+    },
+    {
+      "source": "object.salt",
+      "type": "has_property",
+      "target": "property.soluble",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "object.sponge",
+      "type": "has_property",
+      "target": "property.absorbent",
+      "strength": 0.84,
+      "valence": "neutral"
+    },
+    {
+      "source": "object.ice",
+      "type": "can_activate",
+      "target": "schema.phase_change_melting",
+      "strength": 0.74,
+      "valence": "neutral"
+    },
+    {
+      "source": "object.steam",
+      "type": "can_activate",
+      "target": "schema.boiling_vapor_rise",
+      "strength": 0.74,
+      "valence": "neutral"
+    },
+    {
+      "source": "object.metal_spoon",
+      "type": "has_property",
+      "target": "property.thermal_conductor",
+      "strength": 0.78,
+      "valence": "mixed"
+    },
+    {
+      "source": "object.wooden_spoon",
+      "type": "has_property",
+      "target": "property.thermal_insulator",
+      "strength": 0.72,
+      "valence": "mixed"
+    },
+    {
+      "source": "object.paper",
+      "type": "has_property",
+      "target": "property.flammable",
+      "strength": 0.68,
+      "valence": "negative"
+    },
+    {
+      "source": "object.knife",
+      "type": "has_property",
+      "target": "property.sharp_edge",
+      "strength": 0.82,
+      "valence": "mixed"
+    },
+    {
+      "source": "object.knife",
+      "type": "action_effect",
+      "target": "event.cut_separation",
+      "strength": 0.78,
+      "valence": "mixed"
+    },
+    {
+      "source": "object.spoon",
+      "type": "has_property",
+      "target": "property.blunt_edge",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "object.blunt_knife",
+      "type": "has_property",
+      "target": "property.blunt_edge",
+      "strength": 0.62,
+      "valence": "mixed"
+    },
+    {
+      "source": "object.tomato",
+      "type": "has_property",
+      "target": "property.soft_target",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "object.rubber_band",
+      "type": "has_property",
+      "target": "property.elastic",
+      "strength": 0.82,
+      "valence": "mixed"
+    },
+    {
+      "source": "object.rubber_band",
+      "type": "has_property",
+      "target": "property.elastic_limit",
+      "strength": 0.58,
+      "valence": "negative"
+    },
+    {
+      "source": "object.spring",
+      "type": "has_property",
+      "target": "property.elastic",
+      "strength": 0.78,
+      "valence": "mixed"
+    },
+    {
+      "source": "object.clay",
+      "type": "has_property",
+      "target": "property.plastic_deformable",
+      "strength": 0.82,
+      "valence": "neutral"
+    },
+    {
+      "source": "object.pencil",
+      "type": "has_property",
+      "target": "property.pointed_tip",
+      "strength": 0.70,
+      "valence": "neutral"
+    },
+    {
+      "source": "object.pencil",
+      "type": "action_effect",
+      "target": "event.mark_trace",
+      "strength": 0.72,
+      "valence": "neutral"
+    },
+    {
+      "source": "object.wheel_axle",
+      "type": "supports",
+      "target": "schema.wheel_axle_rotation",
+      "strength": 0.78,
+      "valence": "positive"
+    },
+    {
+      "source": "object.bicycle_brake",
+      "type": "supports",
+      "target": "schema.brake_friction_slow_stop",
+      "strength": 0.78,
+      "valence": "mixed"
+    },
+    {
+      "source": "object.loaded_cart",
+      "type": "has_property",
+      "target": "property.heavy_load",
+      "strength": 0.82,
+      "valence": "mixed"
+    },
+    {
+      "source": "object.empty_cart",
+      "type": "has_property",
+      "target": "property.light_load",
+      "strength": 0.82,
+      "valence": "positive"
+    },
+    {
+      "source": "object.seesaw",
+      "type": "has_property",
+      "target": "property.pivot",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "object.feather",
+      "type": "can_activate",
+      "target": "schema.air_resistance_fall",
+      "strength": 0.70,
+      "valence": "neutral"
+    },
+    {
+      "source": "object.stone",
+      "type": "can_activate",
+      "target": "schema.air_resistance_fall",
+      "strength": 0.58,
+      "valence": "neutral"
+    },
+    {
+      "source": "object.iron_pin",
+      "type": "has_property",
+      "target": "property.magnetic_material",
+      "strength": 0.82,
+      "valence": "neutral"
+    },
+    {
+      "source": "object.wooden_pencil",
+      "type": "has_property",
+      "target": "property.non_magnetic_material",
+      "strength": 0.76,
+      "valence": "neutral"
+    },
+    {
+      "source": "object.magnet",
+      "type": "can_activate",
+      "target": "schema.magnet_material_selectivity",
+      "strength": 0.86,
+      "valence": "neutral"
+    },
+    {
+      "source": "object.switch",
+      "type": "can_activate",
+      "target": "schema.switch_circuit_activation",
+      "strength": 0.78,
+      "valence": "positive"
+    },
+    {
+      "source": "schema.switch_circuit_activation",
+      "type": "predicts",
+      "target": "object.light",
+      "strength": 0.70,
+      "valence": "positive",
+      "conditions": ["device and circuit are functional"]
+    },
+    {
+      "source": "object.drum",
+      "type": "supports",
+      "target": "schema.impact_force_sound_amplitude",
+      "strength": 0.76,
+      "valence": "neutral"
+    },
+    {
+      "source": "object.wet_floor_tile",
+      "type": "has_property",
+      "target": "property.slippery_wet_surface",
+      "strength": 0.76,
+      "valence": "negative"
+    }
+  ],
+  "micro_experiences": [
+    {
+      "id": "experience.material_fall_contrast_001",
+      "title": "Glass, plastic, and steel fall onto hard floor",
+      "age_status": "active",
+      "participants": ["object.glass_cup", "object.plastic_cup", "object.steel_tumbler"],
+      "events": [
+        "glass cup falls from table and impacts hard floor",
+        "plastic cup falls from same height and impacts hard floor",
+        "steel tumbler falls from same height and impacts hard floor",
+        "outcomes differ by material"
+      ],
+      "relations_observed": [
+        {
+          "source": "schema.material_impact_outcome",
+          "type": "strengthens",
+          "target": "schema.object_fall_impact",
+          "strength_delta": 0.05
+        },
+        {
+          "source": "object.glass_cup",
+          "type": "strengthens_has_property",
+          "target": "property.fragile",
+          "strength_delta": 0.04
+        },
+        {
+          "source": "object.steel_tumbler",
+          "type": "strengthens_has_property",
+          "target": "property.metallic_resonance",
+          "strength_delta": 0.04
+        }
+      ],
+      "language_overlay": [
+        "Same fall frame, different material outcome."
+      ]
+    },
+    {
+      "id": "experience.friction_surface_contrast_001",
+      "title": "Rubber ball and chair across different surfaces",
+      "age_status": "active",
+      "participants": ["object.rubber_ball", "object.chair"],
+      "events": [
+        "rubber ball is pushed across smooth floor",
+        "rubber ball is pushed across rough mat",
+        "chair is pushed on tiled floor",
+        "chair is pushed on carpet"
+      ],
+      "relations_observed": [
+        {
+          "source": "schema.surface_friction_motion",
+          "type": "strengthens_modifies",
+          "target": "event.roll_motion",
+          "strength_delta": 0.04
+        },
+        {
+          "source": "schema.push_slide_resistance",
+          "type": "strengthens_predicts",
+          "target": "event.slide_motion",
+          "strength_delta": 0.04
+        }
+      ],
+      "language_overlay": [
+        "Smooth, rough, tiled, and carpeted surfaces are configurable labels over friction relations."
+      ]
+    },
+    {
+      "id": "experience.stability_support_contrast_001",
+      "title": "Tall stack, wide stack, overhanging book, and uneven table",
+      "age_status": "active",
+      "participants": ["object.block_stack_tall", "object.block_stack_wide", "object.book", "object.table_uneven"],
+      "events": [
+        "tall stack is nudged sideways",
+        "wide stack is nudged sideways",
+        "book is balanced halfway over table edge",
+        "table with one short leg wobbles"
+      ],
+      "relations_observed": [
+        {
+          "source": "schema.object_stack_stability",
+          "type": "strengthens",
+          "target": "invariant.support_base",
+          "strength_delta": 0.04
+        },
+        {
+          "source": "schema.partial_support_tipping",
+          "type": "strengthens",
+          "target": "invariant.center_of_support",
+          "strength_delta": 0.04
+        },
+        {
+          "source": "schema.uneven_support_wobble",
+          "type": "strengthens",
+          "target": "invariant.supported_unsupported",
+          "strength_delta": 0.03
+        }
+      ],
+      "language_overlay": [
+        "Stable, unstable, wobble, edge, and balance are later language handles over support relations."
+      ]
+    },
+    {
+      "id": "experience.container_flow_001",
+      "title": "Filling, overflow, pipe flow, blockage, and leak",
+      "age_status": "active",
+      "participants": ["object.glass_cup", "object.water", "object.pipe", "object.bucket_with_hole"],
+      "events": [
+        "water is poured into empty glass",
+        "water is poured into already full glass",
+        "water flows through pipe",
+        "pipe is blocked by plug",
+        "bucket with hole leaks water"
+      ],
+      "relations_observed": [
+        {
+          "source": "schema.pour_fill_container",
+          "type": "strengthens",
+          "target": "invariant.inside_outside",
+          "strength_delta": 0.04
+        },
+        {
+          "source": "schema.capacity_overflow",
+          "type": "strengthens_can_cause",
+          "target": "event.overflow_spill",
+          "strength_delta": 0.04
+        },
+        {
+          "source": "schema.blocked_flow",
+          "type": "strengthens",
+          "target": "invariant.path_blocked",
+          "strength_delta": 0.04
+        },
+        {
+          "source": "schema.leak_through_opening",
+          "type": "strengthens_can_cause",
+          "target": "event.leak_flow",
+          "strength_delta": 0.04
+        }
+      ],
+      "language_overlay": [
+        "Fill, full, overflow, block, pipe, and leak are word handles over flow relations."
+      ]
+    },
+    {
+      "id": "experience_absorption_mixing_001",
+      "title": "Water with cloth, soil, sponge, oil, and salt",
+      "age_status": "active",
+      "participants": ["object.water", "object.cloth", "object.soil", "object.sponge", "object.oil", "object.salt"],
+      "events": [
+        "water is poured onto cloth",
+        "water is poured onto dry soil",
+        "dry sponge is placed in water",
+        "wet sponge is squeezed",
+        "oil is poured into water",
+        "salt is stirred into water"
+      ],
+      "relations_observed": [
+        {
+          "source": "schema.absorption_porosity",
+          "type": "strengthens",
+          "target": "invariant.inside_outside",
+          "strength_delta": 0.04
+        },
+        {
+          "source": "schema.squeeze_release_liquid",
+          "type": "strengthens",
+          "target": "schema.absorption_porosity",
+          "strength_delta": 0.04
+        },
+        {
+          "source": "schema.immiscible_separation",
+          "type": "strengthens",
+          "target": "invariant.same_different",
+          "strength_delta": 0.03
+        },
+        {
+          "source": "schema.dissolution_mixing",
+          "type": "strengthens",
+          "target": "invariant.state_change",
+          "strength_delta": 0.03
+        }
+      ],
+      "language_overlay": [
+        "Absorb, squeeze, dissolve, mix, and separate are later labels over material-state change."
+      ]
+    },
+    {
+      "id": "experience.heat_phase_conduction_combustion_001",
+      "title": "Heat, melting, boiling, conduction, and burning",
+      "age_status": "active",
+      "participants": ["object.ice", "object.water", "object.steam", "object.metal_spoon", "object.wooden_spoon", "object.paper"],
+      "events": [
+        "ice is placed in water",
+        "steam rises from boiling water",
+        "metal spoon is placed in hot tea",
+        "wooden spoon is placed in hot tea",
+        "candle flame touches paper"
+      ],
+      "relations_observed": [
+        {
+          "source": "schema.phase_change_melting",
+          "type": "strengthens",
+          "target": "invariant.state_change",
+          "strength_delta": 0.04
+        },
+        {
+          "source": "schema.boiling_vapor_rise",
+          "type": "strengthens",
+          "target": "invariant.state_change",
+          "strength_delta": 0.04
+        },
+        {
+          "source": "schema.thermal_conduction_material",
+          "type": "strengthens",
+          "target": "schema.heat_transfer",
+          "strength_delta": 0.04
+        },
+        {
+          "source": "schema.combustion_flammable_material",
+          "type": "strengthens",
+          "target": "invariant.state_change",
+          "strength_delta": 0.03
+        }
+      ],
+      "language_overlay": [
+        "Hot, cold, melt, boil, conduct, insulate, burn, and steam attach to thermal relation paths."
+      ]
+    },
+    {
+      "id": "experience.cutting_pressure_marking_001",
+      "title": "Knife, spoon, blunt knife, and pencil pressure",
+      "age_status": "active",
+      "participants": ["object.knife", "object.spoon", "object.blunt_knife", "object.tomato", "object.pencil", "object.paper"],
+      "events": [
+        "knife presses into tomato",
+        "spoon presses into tomato",
+        "blunt knife presses into tomato",
+        "pencil tip presses against paper"
+      ],
+      "relations_observed": [
+        {
+          "source": "schema.edge_pressure_cut",
+          "type": "strengthens_can_cause",
+          "target": "event.cut_separation",
+          "strength_delta": 0.05
+        },
+        {
+          "source": "schema.blunt_pressure_deform",
+          "type": "strengthens",
+          "target": "invariant.state_change",
+          "strength_delta": 0.04
+        },
+        {
+          "source": "schema.point_pressure_mark",
+          "type": "strengthens_can_cause",
+          "target": "event.mark_trace",
+          "strength_delta": 0.04
+        }
+      ],
+      "language_overlay": [
+        "Cut, press, sharp, blunt, point, mark, and trace bind to geometry-pressure outcomes."
+      ]
+    },
+    {
+      "id": "experience.elastic_plastic_001",
+      "title": "Rubber band, spring, and clay under force",
+      "age_status": "active",
+      "participants": ["object.rubber_band", "object.spring", "object.clay"],
+      "events": [
+        "rubber band is stretched",
+        "rubber band is stretched too far",
+        "spring is compressed",
+        "spring is released",
+        "clay is pressed into a new shape"
+      ],
+      "relations_observed": [
+        {
+          "source": "schema.elastic_stretch_return",
+          "type": "strengthens",
+          "target": "invariant.energy_transfer",
+          "strength_delta": 0.04
+        },
+        {
+          "source": "schema.elastic_limit_failure",
+          "type": "strengthens",
+          "target": "invariant.threshold",
+          "strength_delta": 0.04
+        },
+        {
+          "source": "schema.spring_compress_release",
+          "type": "strengthens",
+          "target": "invariant.energy_transfer",
+          "strength_delta": 0.04
+        },
+        {
+          "source": "schema.plastic_deformation_retains_shape",
+          "type": "strengthens",
+          "target": "invariant.state_change",
+          "strength_delta": 0.04
+        }
+      ],
+      "language_overlay": [
+        "Stretch, compress, release, break, return, and retain shape attach to force-material paths."
+      ]
+    },
+    {
+      "id": "experience.wheel_load_brake_lever_001",
+      "title": "Wheel, brake, loaded cart, empty cart, and seesaw",
+      "age_status": "active",
+      "participants": ["object.wheel_axle", "object.bicycle_brake", "object.loaded_cart", "object.empty_cart", "object.seesaw"],
+      "events": [
+        "wheel rolls on axle",
+        "brake is pressed on moving bicycle wheel",
+        "loaded cart is pushed",
+        "empty cart is pushed",
+        "seesaw has more weight on one side"
+      ],
+      "relations_observed": [
+        {
+          "source": "schema.wheel_axle_rotation",
+          "type": "strengthens_predicts",
+          "target": "event.roll_motion",
+          "strength_delta": 0.04
+        },
+        {
+          "source": "schema.brake_friction_slow_stop",
+          "type": "strengthens",
+          "target": "schema.surface_friction_motion",
+          "strength_delta": 0.04
+        },
+        {
+          "source": "schema.load_inertia_effort",
+          "type": "strengthens",
+          "target": "invariant.more_less",
+          "strength_delta": 0.04
+        },
+        {
+          "source": "schema.lever_pivot_balance",
+          "type": "strengthens",
+          "target": "invariant.center_of_support",
+          "strength_delta": 0.04
+        }
+      ],
+      "language_overlay": [
+        "Wheel, axle, brake, load, heavy, light, pivot, and balance are later handles over machine relations."
+      ]
+    },
+    {
+      "id": "experience.air_magnet_switch_sound_slip_001",
+      "title": "Air resistance, magnetism, switch, sound amplitude, and wet slip",
+      "age_status": "active",
+      "participants": ["object.feather", "object.stone", "object.magnet", "object.iron_pin", "object.wooden_pencil", "object.switch", "object.light", "object.drum", "object.wet_floor_tile"],
+      "events": [
+        "feather falls through still air",
+        "stone falls through still air",
+        "magnet is brought near iron pins",
+        "magnet is brought near wooden pencil",
+        "switch is turned on for a light",
+        "drum is hit softly",
+        "person walks on wet floor tiles"
+      ],
+      "relations_observed": [
+        {
+          "source": "schema.air_resistance_fall",
+          "type": "strengthens",
+          "target": "schema.object_fall_impact",
+          "strength_delta": 0.03
+        },
+        {
+          "source": "schema.magnet_material_selectivity",
+          "type": "strengthens",
+          "target": "invariant.same_different",
+          "strength_delta": 0.04
+        },
+        {
+          "source": "schema.switch_circuit_activation",
+          "type": "strengthens_can_cause",
+          "target": "event.light_on",
+          "strength_delta": 0.04
+        },
+        {
+          "source": "schema.impact_force_sound_amplitude",
+          "type": "strengthens",
+          "target": "invariant.energy_transfer",
+          "strength_delta": 0.03
+        },
+        {
+          "source": "schema.slippery_surface_traction",
+          "type": "strengthens_can_cause",
+          "target": "event.slip",
+          "strength_delta": 0.03
+        }
+      ],
+      "language_overlay": [
+        "Fall slowly, attract, switch on, soft sound, and slip are labels over distinct physical relations."
+      ]
+    }
+  ],
+  "evaluation_questions": [
+    {
+      "id": "eval.material_fall_outcome",
+      "question": "Why might a glass cup and a steel tumbler produce different outcomes when dropped from the same height?",
+      "expected_answer": "The fall-impact frame is the same, but material properties such as fragility, brittleness, and metallic resonance change the outcome.",
+      "expected_relations": [
+        {
+          "source": "schema.material_impact_outcome",
+          "type": "built_from",
+          "target": "schema.object_fall_impact"
+        },
+        {
+          "source": "object.glass_cup",
+          "type": "has_property",
+          "target": "property.fragile"
+        },
+        {
+          "source": "object.steel_tumbler",
+          "type": "has_property",
+          "target": "property.metallic_resonance"
+        }
+      ]
+    },
+    {
+      "id": "eval.surface_friction_roll",
+      "question": "Why does the same rubber ball roll differently on a smooth floor and a rough mat?",
+      "expected_answer": "Surface friction modifies rolling motion; smooth surfaces tend toward lower friction while rough surfaces tend toward higher friction.",
+      "expected_relations": [
+        {
+          "source": "schema.surface_friction_motion",
+          "type": "modifies",
+          "target": "event.roll_motion"
+        },
+        {
+          "source": "property.smooth_surface",
+          "type": "supports",
+          "target": "property.low_friction"
+        },
+        {
+          "source": "property.rough_surface",
+          "type": "supports",
+          "target": "property.high_friction"
+        }
+      ]
+    },
+    {
+      "id": "eval.stability_tall_wide",
+      "question": "Why is a tall narrow stack easier to tip than a wide stack when nudged?",
+      "expected_answer": "Stack stability depends on support base and center of support; tall-narrow and wide-stable shapes contrast in tipping risk.",
+      "expected_relations": [
+        {
+          "source": "schema.object_stack_stability",
+          "type": "built_from",
+          "target": "invariant.support_base"
+        },
+        {
+          "source": "property.tall_narrow",
+          "type": "contrasts_with",
+          "target": "property.wide_stable"
+        }
+      ]
+    },
+    {
+      "id": "eval.container_overflow_leak",
+      "question": "What changes when water is poured into a full glass or into a bucket with a hole?",
+      "expected_answer": "A full container can overflow when capacity is exceeded, while a hole creates a leak path through an opening.",
+      "expected_relations": [
+        {
+          "source": "schema.capacity_overflow",
+          "type": "can_cause",
+          "target": "event.overflow_spill"
+        },
+        {
+          "source": "schema.leak_through_opening",
+          "type": "can_cause",
+          "target": "event.leak_flow"
+        }
+      ]
+    },
+    {
+      "id": "eval.absorb_dissolve_separate",
+      "question": "Why are cloth in water, salt in water, and oil in water different?",
+      "expected_answer": "Cloth absorbs through porosity, salt dissolves, and oil remains separated because it is immiscible with water.",
+      "expected_relations": [
+        {
+          "source": "schema.absorption_porosity",
+          "type": "built_from",
+          "target": "invariant.inside_outside"
+        },
+        {
+          "source": "schema.dissolution_mixing",
+          "type": "built_from",
+          "target": "invariant.state_change"
+        },
+        {
+          "source": "schema.immiscible_separation",
+          "type": "built_from",
+          "target": "invariant.same_different"
+        }
+      ]
+    },
+    {
+      "id": "eval.heat_material_contrast",
+      "question": "Why does a metal spoon in hot tea behave differently from a wooden spoon?",
+      "expected_answer": "Both receive heat, but metal is treated as a stronger thermal conductor while wood is treated as a stronger thermal insulator.",
+      "expected_relations": [
+        {
+          "source": "schema.thermal_conduction_material",
+          "type": "built_from",
+          "target": "schema.heat_transfer"
+        },
+        {
+          "source": "object.metal_spoon",
+          "type": "has_property",
+          "target": "property.thermal_conductor"
+        },
+        {
+          "source": "object.wooden_spoon",
+          "type": "has_property",
+          "target": "property.thermal_insulator"
+        }
+      ]
+    },
+    {
+      "id": "eval.phase_and_combustion",
+      "question": "What relation links melting ice, boiling water, and paper burning?",
+      "expected_answer": "All involve state change driven by heat transfer and thresholds, but burning also depends on flammable material.",
+      "expected_relations": [
+        {
+          "source": "schema.phase_change_melting",
+          "type": "built_from",
+          "target": "invariant.state_change"
+        },
+        {
+          "source": "schema.boiling_vapor_rise",
+          "type": "built_from",
+          "target": "invariant.state_change"
+        },
+        {
+          "source": "schema.combustion_flammable_material",
+          "type": "built_from",
+          "target": "invariant.state_change"
+        }
+      ]
+    },
+    {
+      "id": "eval.sharp_blunt_cutting",
+      "question": "Why does a knife cut tomato more easily than a spoon or blunt knife?",
+      "expected_answer": "A sharp edge concentrates pressure on a soft target and can cause cut separation; blunt pressure tends to deform instead.",
+      "expected_relations": [
+        {
+          "source": "schema.edge_pressure_cut",
+          "type": "can_cause",
+          "target": "event.cut_separation"
+        },
+        {
+          "source": "schema.blunt_pressure_deform",
+          "type": "built_from",
+          "target": "invariant.state_change"
+        },
+        {
+          "source": "property.sharp_edge",
+          "type": "contrasts_with",
+          "target": "property.blunt_edge"
+        }
+      ]
+    },
+    {
+      "id": "eval.elastic_plastic",
+      "question": "Why do a rubber band, a spring, and clay differ after force is applied?",
+      "expected_answer": "Elastic objects tend to return or release stored energy, too much stretch can exceed a limit, and plastic material can retain the new shape.",
+      "expected_relations": [
+        {
+          "source": "schema.elastic_stretch_return",
+          "type": "built_from",
+          "target": "invariant.energy_transfer"
+        },
+        {
+          "source": "schema.elastic_limit_failure",
+          "type": "built_from",
+          "target": "invariant.threshold"
+        },
+        {
+          "source": "schema.plastic_deformation_retains_shape",
+          "type": "built_from",
+          "target": "invariant.state_change"
+        }
+      ]
+    },
+    {
+      "id": "eval.cart_load_effort",
+      "question": "Why is a loaded cart harder to push than an empty cart?",
+      "expected_answer": "The load relation changes inertia and effort; heavy load contrasts with light load.",
+      "expected_relations": [
+        {
+          "source": "schema.load_inertia_effort",
+          "type": "built_from",
+          "target": "invariant.more_less"
+        },
+        {
+          "source": "object.loaded_cart",
+          "type": "has_property",
+          "target": "property.heavy_load"
+        },
+        {
+          "source": "object.empty_cart",
+          "type": "has_property",
+          "target": "property.light_load"
+        }
+      ]
+    },
+    {
+      "id": "eval.air_resistance_fall",
+      "question": "Why does a feather fall differently from a stone in still air?",
+      "expected_answer": "Air resistance modifies the fall relation differently depending on object properties such as mass, shape, and surface area.",
+      "expected_relations": [
+        {
+          "source": "schema.air_resistance_fall",
+          "type": "built_from",
+          "target": "schema.object_fall_impact"
+        },
+        {
+          "source": "object.feather",
+          "type": "can_activate",
+          "target": "schema.air_resistance_fall"
+        }
+      ]
+    },
+    {
+      "id": "eval.magnet_material_selectivity",
+      "question": "Why does a magnet pull iron pins but not a wooden pencil?",
+      "expected_answer": "Magnetic attraction is material selective; iron has the magnetic-material relation while wood is treated as non-magnetic.",
+      "expected_relations": [
+        {
+          "source": "schema.magnet_material_selectivity",
+          "type": "built_from",
+          "target": "invariant.same_different"
+        },
+        {
+          "source": "object.iron_pin",
+          "type": "has_property",
+          "target": "property.magnetic_material"
+        },
+        {
+          "source": "object.wooden_pencil",
+          "type": "has_property",
+          "target": "property.non_magnetic_material"
+        }
+      ]
+    },
+    {
+      "id": "eval.switch_light",
+      "question": "What relation is active when a switch is turned on and the light comes on?",
+      "expected_answer": "The switch changes an open/closed circuit relation and can cause the light-on event if the device and circuit work.",
+      "expected_relations": [
+        {
+          "source": "schema.switch_circuit_activation",
+          "type": "can_cause",
+          "target": "event.light_on"
+        },
+        {
+          "source": "schema.switch_circuit_activation",
+          "type": "predicts",
+          "target": "object.light"
+        }
+      ]
+    },
+    {
+      "id": "eval.wet_floor_slip",
+      "question": "Why is walking on wet floor tiles riskier than dry floor tiles?",
+      "expected_answer": "Wet slippery surface supports low friction, reducing traction and increasing slip risk.",
+      "expected_relations": [
+        {
+          "source": "schema.slippery_surface_traction",
+          "type": "can_cause",
+          "target": "event.slip"
+        },
+        {
+          "source": "object.wet_floor_tile",
+          "type": "has_property",
+          "target": "property.slippery_wet_surface"
+        }
+      ]
+    }
+  ]
+}
