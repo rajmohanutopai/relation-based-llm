@@ -534,8 +534,9 @@ training data. The held-out set is evidence.
 
 The next work should be done in this order:
 
-1. Commit or otherwise checkpoint the current physical-world artifacts.
-2. Add a validator for held-out evaluation JSON.
+1. Commit or otherwise checkpoint the current physical-world artifacts. Done in
+   commit `c82eeab`.
+2. Add a validator for held-out evaluation JSON. Done.
 3. Add a validator for curriculum JSONL.
 4. Build the held-out evaluation runner.
 5. Add model-ready train/dev/test split generation.

@@ -149,6 +149,10 @@ not genuine long-horizon relational growth.
 - `scripts/validate_developmental_graph.py`
   Dependency-free graph validator.
 
+- `scripts/validate_developmental_evaluation.py`
+  Dependency-free held-out evaluation validator. It checks case structure,
+  expected relation families, graph anchors, and gap indicators.
+
 - `scripts/generate_developmental_curriculum.py`
   Deterministic curriculum generator for relation completion, event trace,
   counterfactual contrast, and explanation-path examples.
@@ -427,8 +431,8 @@ definitions alone.
 
 ## Near-Term Tasks
 
-1. Checkpoint the current physical-world artifacts.
-2. Add a validator for held-out evaluation JSON.
+1. Checkpoint the current physical-world artifacts. Done in commit `c82eeab`.
+2. Add a validator for held-out evaluation JSON. Done.
 3. Add a validator for curriculum JSONL.
 4. Build an evaluation runner for the held-out physical cases.
 5. Generate model-ready train/dev/test splits.

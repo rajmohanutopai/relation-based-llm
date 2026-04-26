@@ -38,6 +38,10 @@ python3 scripts/validate_developmental_graph.py \
 python3 scripts/validate_developmental_graph.py \
   data/developmental_graph/seeds/everyday_physical_world.json \
   --stats
+
+python3 scripts/validate_developmental_evaluation.py \
+  data/developmental_graph/evaluations/everyday_physical_world_heldout.json \
+  --stats
 ```
 
 ## Generate Curriculum
