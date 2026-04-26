@@ -537,13 +537,13 @@ The next work should be done in this order:
 1. Commit or otherwise checkpoint the current physical-world artifacts. Done in
    commit `c82eeab`.
 2. Add a validator for held-out evaluation JSON. Done.
-3. Add a validator for curriculum JSONL.
-4. Build the held-out evaluation runner.
-5. Add model-ready train/dev/test split generation.
+3. Add a validator for curriculum JSONL. Done.
+4. Build the held-out evaluation runner. Done.
+5. Add model-ready train/dev/test split generation. Done.
 6. Create three datasets from the same examples: plain text, flat triples, and
-   relation-scaffolded.
-7. Pick one tiny transformer baseline and freeze the training command.
-8. Run a tiny overfit sanity check on a few examples.
+   relation-scaffolded. Done.
+7. Pick one tiny transformer baseline and freeze the training command. Done.
+8. Run a tiny overfit sanity check on a few examples. Done.
 9. Run the first held-out comparison.
 10. Write `docs/physical-world-v0-experiment-report.md`.
 

@@ -117,6 +117,15 @@ not genuine long-horizon relational growth.
 - `docs/curriculum-generation.md`
   Explains how graph seeds become supervised JSONL training examples.
 
+- `docs/physical-v0-training.md`
+  Freezes the first tiny transformer baseline, dependency install command,
+  training commands, and overfit sanity-check command.
+
+- `docs/physical-v0-overfit-sanity.md`
+  Records the first local relation-scaffolded overfit sanity run. The run
+  completed, loss decreased, and artifacts loaded, but it is not a model-quality
+  result.
+
 - `docs/6mo-child-top44-relation-audit.md`
   Derived relation audit for the 44 encounters currently marked as first-core
   candidates. This is where relation interpretation belongs, not in the raw
@@ -143,6 +152,20 @@ not genuine long-horizon relational growth.
 - `data/developmental_graph/curricula/seed_everyday_physical_world_curriculum.manifest.json`
   Manifest for the physical curriculum. Current count: 148 examples.
 
+- `data/developmental_graph/experiments/physical_v0/`
+  First model-ready physical-world experiment split. It contains 118 training
+  examples, 14 dev examples, 16 curriculum-test examples, 33 held-out prompts,
+  and a manifest.
+
+- `data/developmental_graph/experiments/physical_v0/datasets/`
+  Matched dataset variants for the first comparison: plain text, flat triples,
+  and relation-scaffolded. Each variant has the same 118 train, 14 dev, and 16
+  curriculum-test examples.
+
+- `data/developmental_graph/experiments/physical_v0/training_config.json`
+  Frozen baseline config using `HuggingFaceTB/SmolLM2-135M` with identical
+  commands for the three dataset variants.
+
 - `data/developmental_graph/schemas/graph.schema.json`
   JSON schema for graph data.
 
@@ -153,9 +176,29 @@ not genuine long-horizon relational growth.
   Dependency-free held-out evaluation validator. It checks case structure,
   expected relation families, graph anchors, and gap indicators.
 
+- `scripts/validate_developmental_curriculum.py`
+  Dependency-free generated curriculum validator. It checks JSONL structure,
+  manifest counts, task contracts, and graph references.
+
 - `scripts/generate_developmental_curriculum.py`
   Deterministic curriculum generator for relation completion, event trace,
   counterfactual contrast, and explanation-path examples.
+
+- `scripts/run_heldout_evaluation.py`
+  First held-out evaluation runner. It scores model-output JSONL against
+  expected relation families, graph anchors, and gap indicators.
+
+- `scripts/create_developmental_experiment_splits.py`
+  Deterministic train/dev/curriculum-test split generator for generated
+  curriculum files, with held-out prompt export.
+
+- `scripts/create_developmental_dataset_variants.py`
+  Generates matched plain-text, flat-triple, and relation-scaffolded dataset
+  variants from an experiment split.
+
+- `scripts/train_tiny_causal_lm.py`
+  Minimal Hugging Face causal-LM fine-tuning script for one dataset variant.
+  Supports `--dry-run` without training dependencies.
 
 ## Layer Structure
 
@@ -433,13 +476,13 @@ definitions alone.
 
 1. Checkpoint the current physical-world artifacts. Done in commit `c82eeab`.
 2. Add a validator for held-out evaluation JSON. Done.
-3. Add a validator for curriculum JSONL.
-4. Build an evaluation runner for the held-out physical cases.
-5. Generate model-ready train/dev/test splits.
+3. Add a validator for curriculum JSONL. Done.
+4. Build an evaluation runner for the held-out physical cases. Done.
+5. Generate model-ready train/dev/test splits. Done for `physical_v0`.
 6. Create three matched datasets: plain text, flat triples, and
-   relation-scaffolded.
-7. Pick one tiny transformer baseline and freeze the training command.
-8. Run a tiny overfit sanity check.
+   relation-scaffolded. Done for `physical_v0`.
+7. Pick one tiny transformer baseline and freeze the training command. Done.
+8. Run a tiny overfit sanity check. Done for `relation_scaffolded`.
 9. Run the first held-out comparison.
 10. Write the first physical-world experiment report.
 11. Revise the graph and generator based on failures.

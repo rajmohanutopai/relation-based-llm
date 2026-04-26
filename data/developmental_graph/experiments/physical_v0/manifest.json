@@ -1,0 +1,71 @@
+{
+  "experiment_id": "physical_v0",
+  "heldout_prompt_count": 33,
+  "outputs": {
+    "curriculum_test": {
+      "path": "data/developmental_graph/experiments/physical_v0/curriculum_test.jsonl",
+      "sha256": "6dff3b36c00af012968eea183884da5566b6b2a3fd4109a30882bfce9291de98"
+    },
+    "dev": {
+      "path": "data/developmental_graph/experiments/physical_v0/dev.jsonl",
+      "sha256": "62f7ad44df31e43cff53522a805663f41788d122259196790481952b75141223"
+    },
+    "heldout": {
+      "path": "data/developmental_graph/experiments/physical_v0/heldout.json",
+      "sha256": "b85bd8267c766515803d0f6fda871e9dc9184ade64a66bd1ba6bf568ee618c5d"
+    },
+    "heldout_prompts": {
+      "path": "data/developmental_graph/experiments/physical_v0/heldout_prompts.jsonl",
+      "sha256": "7754c073663b60b492501002efadc71676266c15118a294df4e211161dfd1c21"
+    },
+    "train": {
+      "path": "data/developmental_graph/experiments/physical_v0/train.jsonl",
+      "sha256": "3d050be17ff35a1859ce1a019d2f49c1717c52b69841f21b95d4184900f42a65"
+    }
+  },
+  "ratios": {
+    "curriculum_test": 0.1,
+    "dev": 0.1,
+    "train": 0.8
+  },
+  "schema_version": "0.1.0",
+  "seed": 1729,
+  "sources": {
+    "curriculum_jsonl": "data/developmental_graph/curricula/seed_everyday_physical_world_curriculum.jsonl",
+    "curriculum_manifest": "data/developmental_graph/curricula/seed_everyday_physical_world_curriculum.manifest.json",
+    "curriculum_manifest_sha256": "7f068e5434d1e4fce0aa625af2c833579808892ed59c7c028c496ef9b0f1e281",
+    "curriculum_sha256": "cc95ddc1a8cad7efc8275f1313971d6b6732869746d8bd6c6a39b7a225147381",
+    "heldout_json": "data/developmental_graph/evaluations/everyday_physical_world_heldout.json",
+    "heldout_sha256": "b85bd8267c766515803d0f6fda871e9dc9184ade64a66bd1ba6bf568ee618c5d"
+  },
+  "split_strategy": "deterministic_stratified_by_task_type",
+  "splits": {
+    "curriculum_test": {
+      "task_type_counts": {
+        "counterfactual_contrast": 1,
+        "explanation_path": 2,
+        "relation_completion": 12,
+        "state_action_effect": 1
+      },
+      "total": 16
+    },
+    "dev": {
+      "task_type_counts": {
+        "counterfactual_contrast": 1,
+        "explanation_path": 1,
+        "relation_completion": 11,
+        "state_action_effect": 1
+      },
+      "total": 14
+    },
+    "train": {
+      "task_type_counts": {
+        "counterfactual_contrast": 8,
+        "explanation_path": 11,
+        "relation_completion": 91,
+        "state_action_effect": 8
+      },
+      "total": 118
+    }
+  }
+}

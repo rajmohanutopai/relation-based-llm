@@ -1,0 +1,5 @@
+# Training-only dependencies.
+# The graph/curriculum validators and generators do not require these packages.
+torch==2.11.0
+transformers==5.6.2
+accelerate==1.13.0

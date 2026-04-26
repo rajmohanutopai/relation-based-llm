@@ -60,3 +60,69 @@ small transformer trained with these relation-scaffolded examples.
 Later generators can add paraphrases, difficulty levels, language-binding
 examples, valence examples, and teacher-model expansion, but only after the
 first controlled baseline exists.
+
+## Physical V0 Split
+
+The first experiment split is generated from the physical-world curriculum:
+
+```bash
+python3 scripts/create_developmental_experiment_splits.py \
+  data/developmental_graph/curricula/seed_everyday_physical_world_curriculum.jsonl \
+  --heldout data/developmental_graph/evaluations/everyday_physical_world_heldout.json \
+  --experiment-id physical_v0 \
+  --overwrite
+```
+
+Current split counts:
+
+```text
+train: 118
+dev: 14
+curriculum_test: 16
+heldout_prompts: 33
+```
+
+The split is deterministic and stratified by task type. The held-out prompts
+come from the separate evaluation file and remain outside training.
+
+## Physical V0 Dataset Variants
+
+The first matched dataset variants are generated from the `physical_v0` split:
+
+```bash
+python3 scripts/create_developmental_dataset_variants.py \
+  data/developmental_graph/experiments/physical_v0 \
+  --overwrite
+```
+
+Current variants:
+
+```text
+plain_text
+flat_triples
+relation_scaffolded
+```
+
+Each variant has the same split counts:
+
+```text
+train: 118
+dev: 14
+curriculum_test: 16
+```
+
+The variants differ only in representation:
+
+```text
+plain_text:
+  ordinary language, no relation IDs
+
+flat_triples:
+  source --relation_type--> target triples
+
+relation_scaffolded:
+  scaffolded input plus structured JSON target
+```
+
+All records include `input`, `target`, and a two-message `messages` field for
+later supervised fine-tuning scripts.

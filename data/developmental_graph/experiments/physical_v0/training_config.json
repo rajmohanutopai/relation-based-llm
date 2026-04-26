@@ -1,0 +1,39 @@
+{
+  "schema_version": "0.1.0",
+  "experiment_id": "physical_v0",
+  "baseline_model": {
+    "name": "HuggingFaceTB/SmolLM2-135M",
+    "role": "first tiny causal-transformer baseline",
+    "reason": "Small enough for local experiment plumbing, but large enough to be a real pretrained language model rather than a toy unit-test model."
+  },
+  "dataset_manifest": "data/developmental_graph/experiments/physical_v0/datasets/manifest.json",
+  "output_root": "runs/physical_v0/smollm2_135m",
+  "format": {
+    "prompt_template": "### Input:\n{input}\n\n### Response:\n",
+    "target_template": "{target}"
+  },
+  "training": {
+    "max_seq_length": 512,
+    "num_train_epochs": 10,
+    "learning_rate": 5e-5,
+    "per_device_train_batch_size": 1,
+    "per_device_eval_batch_size": 1,
+    "gradient_accumulation_steps": 8,
+    "warmup_ratio": 0.03,
+    "weight_decay": 0.0,
+    "logging_steps": 5,
+    "save_total_limit": 2,
+    "seed": 1729
+  },
+  "frozen_commands": {
+    "plain_text": "python3 scripts/train_tiny_causal_lm.py --config data/developmental_graph/experiments/physical_v0/training_config.json --variant plain_text",
+    "flat_triples": "python3 scripts/train_tiny_causal_lm.py --config data/developmental_graph/experiments/physical_v0/training_config.json --variant flat_triples",
+    "relation_scaffolded": "python3 scripts/train_tiny_causal_lm.py --config data/developmental_graph/experiments/physical_v0/training_config.json --variant relation_scaffolded"
+  },
+  "overfit_sanity_command": "python3 scripts/train_tiny_causal_lm.py --config data/developmental_graph/experiments/physical_v0/training_config.json --variant relation_scaffolded --overfit-limit 8 --max-steps 30 --output-dir runs/physical_v0/overfit_relation_scaffolded",
+  "notes": [
+    "Use the same model, hyperparameters, and training script for all three variants.",
+    "Only the dataset variant changes.",
+    "This is not a final SLM result; it is the first controlled experiment scaffold."
+  ]
+}
