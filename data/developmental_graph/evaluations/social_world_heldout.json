@@ -1,0 +1,405 @@
+{
+  "schema_version": "0.1.0",
+  "evaluation_id": "heldout.social_world.maybe",
+  "title": "Held-Out Evaluation: Simple Social World Maybe Rows",
+  "status": "heldout",
+  "source_seed": "data/developmental_graph/seeds/social_world.json",
+  "source_inventory": "docs/social-world-200-situations.md",
+  "source_audit": "docs/social-world-firstset-relation-audit.md",
+  "purpose": "Test whether the social-world seed generalizes from the first-set social situations to second-pass maybe situations and exposes missing social relation families.",
+  "scoring_notes": [
+    "These cases should not be used as seed micro-experiences in the first social-world training curriculum.",
+    "Cases marked transfer_probe should be answerable from existing social seed motifs.",
+    "Cases marked gap_probe intentionally reveal relation families that may need later expansion."
+  ],
+  "cases": [
+    {
+      "id": "heldout.social.delayed_caregiver_response",
+      "source_ids": ["S012", "S013"],
+      "split": "maybe",
+      "case_type": "transfer_probe",
+      "prompt": "A child cries, the caregiver does not respond immediately, and later rocks or pats the child to calm them. Which relation families should explain the sequence?",
+      "expected_answer": "The sequence combines distress response and non-response. The delay weakens immediate response prediction, while rocking or patting later becomes a care response that can reduce distress.",
+      "expected_relation_families": ["schema.distress_signal_response", "schema.distress_signal_nonresponse", "invariant.response_nonresponse"],
+      "graph_anchors": [
+        {"source": "schema.distress_signal_response", "type": "built_from", "target": "invariant.response_nonresponse"},
+        {"source": "schema.distress_signal_nonresponse", "type": "built_from", "target": "invariant.response_nonresponse"}
+      ],
+      "transfer_focus": "Apply response/non-response to a delayed care sequence rather than a single immediate cry event."
+    },
+    {
+      "id": "heldout.social.stranger_loud_vs_smile",
+      "source_ids": ["S026", "S027"],
+      "split": "maybe",
+      "case_type": "transfer_probe",
+      "prompt": "An unfamiliar visitor first speaks loudly near the child, but another stranger smiles and waits before approaching. What social relations should separate these cases?",
+      "expected_answer": "Both involve unfamiliarity, but tone, face, waiting, and caregiver referencing change the safety prediction. Loud approach should activate more uncertainty than a smile-and-wait approach.",
+      "expected_relation_families": ["schema.social_affect_signal", "schema.social_referencing_safety_base", "invariant.familiar_unfamiliar"],
+      "graph_anchors": [
+        {"source": "schema.social_affect_signal", "type": "built_from", "target": "invariant.expected_unexpected"},
+        {"source": "schema.social_referencing_safety_base", "type": "built_from", "target": "schema.familiar_agent_presence"},
+        {"source": "agent.unfamiliar_visitor", "type": "can_activate", "target": "invariant.familiar_unfamiliar"}
+      ],
+      "transfer_focus": "Use familiar/unfamiliar and affect-signal relations for stranger approach style."
+    },
+    {
+      "id": "heldout.social.adults_argue_laugh",
+      "source_ids": ["S034", "S035", "S036"],
+      "split": "maybe",
+      "case_type": "gap_probe",
+      "prompt": "A child watches two adults talk, then hears adults argue nearby, and later hears adults laugh together. What should the current graph capture, and what may be missing?",
+      "expected_answer": "The current graph can capture face, voice, and affect signals as expected or unexpected social cues. A later graph may need a third-party emotional-climate relation for observing social tension or warmth between other people.",
+      "expected_relation_families": ["schema.social_affect_signal", "invariant.expected_unexpected"],
+      "gap_indicators": ["schema.third_party_emotional_climate", "schema.vicarious_social_safety_prediction"],
+      "graph_anchors": [
+        {"source": "schema.social_affect_signal", "type": "built_from", "target": "invariant.expected_unexpected"}
+      ],
+      "transfer_focus": "Test social affect perception when the signal is between other agents, not directly addressed to the child."
+    },
+    {
+      "id": "heldout.social.name_and_attention",
+      "source_ids": ["S004", "S043", "S044"],
+      "split": "maybe",
+      "case_type": "gap_probe",
+      "prompt": "A caregiver calls the child by name while the child looks between the adult and a toy. The adult then names the toy. Which relations are available, and what later relation may be needed?",
+      "expected_answer": "The graph already has joint attention and object naming: adult, child, and toy share attention before a word is bound to the object. Own-name recognition may need a later self-reference name-binding relation.",
+      "expected_relation_families": ["schema.joint_attention_reference", "schema.object_naming_event", "invariant.attention_absence"],
+      "gap_indicators": ["schema.name_self_reference", "schema.self_label_binding"],
+      "graph_anchors": [
+        {"source": "schema.joint_attention_reference", "type": "built_from", "target": "invariant.attention_absence"},
+        {"source": "schema.object_naming_event", "type": "built_from", "target": "schema.joint_attention_reference"}
+      ],
+      "transfer_focus": "Separate object-name binding from later own-name/self-reference binding."
+    },
+    {
+      "id": "heldout.social.object_removed_and_substituted",
+      "source_ids": ["S056", "S057", "S058"],
+      "split": "maybe",
+      "case_type": "gap_probe",
+      "prompt": "A child cries when an object is removed, then receives a different object or is distracted from the forbidden object. What should be represented?",
+      "expected_answer": "Object removal can cause distress, and restoration can reduce distress. Substitution or distraction is similar to repair but may need a separate replacement/diversion relation.",
+      "expected_relation_families": ["schema.object_removal_distress", "schema.distress_signal_response", "schema.return_or_restoration"],
+      "gap_indicators": ["schema.substitution_repair", "schema.attention_diversion_from_blocked_goal"],
+      "graph_anchors": [
+        {"source": "schema.object_removal_distress", "type": "built_from", "target": "invariant.expected_unexpected"},
+        {"source": "schema.return_or_restoration", "type": "can_cause", "target": "event.distress_reduction"},
+        {"source": "schema.distress_signal_response", "type": "built_from", "target": "invariant.response_nonresponse"}
+      ],
+      "transfer_focus": "Test whether removal distress and repair relations cover replacement and distraction."
+    },
+    {
+      "id": "heldout.social.warn_before_touch",
+      "source_ids": ["S054", "S059"],
+      "split": "maybe",
+      "case_type": "transfer_probe",
+      "prompt": "An adult warns the child before touching a hot or sharp item and moves the dangerous object away. What relation families should explain this?",
+      "expected_answer": "The adult is denying or blocking access in order to prevent harm. This is a safety intervention, not merely punishment or arbitrary denial.",
+      "expected_relation_families": ["schema.safety_prevention", "schema.permission_denied", "schema.gentle_intervention", "invariant.harm_relief"],
+      "graph_anchors": [
+        {"source": "schema.safety_prevention", "type": "built_from", "target": "invariant.harm_relief"},
+        {"source": "schema.gentle_intervention", "type": "built_from", "target": "invariant.allowed_blocked"},
+        {"source": "schema.permission_denied", "type": "can_activate", "target": "concept.permission"}
+      ],
+      "transfer_focus": "Apply permission and safety-prevention relations to warning-before-contact cases."
+    },
+    {
+      "id": "heldout.social.equal_toys_vs_bigger_share",
+      "source_ids": ["S067", "S068"],
+      "split": "maybe",
+      "case_type": "gap_probe",
+      "prompt": "An adult gives each child a similar toy, but later gives one child a bigger share than another. What relation families should compare these cases?",
+      "expected_answer": "The graph can compare allocation using more/less/equal and unequal allocation. Equal allocation is only implicit, so a later graph may need a specific equal-allocation relation.",
+      "expected_relation_families": ["schema.resource_allocation", "schema.unequal_allocation", "schema.fairness_precursor", "invariant.more_less_equal"],
+      "gap_indicators": ["schema.equal_allocation", "schema.similar_resource_matching"],
+      "graph_anchors": [
+        {"source": "schema.resource_allocation", "type": "built_from", "target": "invariant.more_less_equal"},
+        {"source": "schema.unequal_allocation", "type": "built_from", "target": "schema.resource_allocation"},
+        {"source": "schema.fairness_precursor", "type": "built_from", "target": "schema.unequal_allocation"}
+      ],
+      "transfer_focus": "Test whether fairness precursor handles both equality and inequality even though equality is not explicit yet."
+    },
+    {
+      "id": "heldout.social.child_waits_for_object",
+      "source_ids": ["S069", "S070", "S071"],
+      "split": "maybe",
+      "case_type": "transfer_probe",
+      "prompt": "One child waits while another child uses an object, but another child pushes ahead before their turn. Which social timing relation is active?",
+      "expected_answer": "The situation is about turn order. Waiting preserves social turn-taking; pushing ahead violates the expected turn sequence.",
+      "expected_relation_families": ["schema.social_turn_taking", "schema.turn_violation", "invariant.turn_order"],
+      "graph_anchors": [
+        {"source": "schema.social_turn_taking", "type": "built_from", "target": "invariant.turn_order"},
+        {"source": "schema.turn_violation", "type": "contrasts_with", "target": "schema.social_turn_taking"}
+      ],
+      "transfer_focus": "Generalize turn-taking from adult instruction to child-object access."
+    },
+    {
+      "id": "heldout.social.knock_down_and_rebuild",
+      "source_ids": ["S075", "S076"],
+      "split": "maybe",
+      "case_type": "gap_probe",
+      "prompt": "One child knocks down another child's stack and then helps rebuild it. What relation should the model preserve, and what later relation may be needed?",
+      "expected_answer": "The current graph can use help, comfort, and restoration: damage or loss is followed by an action that restores the prior state. A more specific repair-after-harm relation may be useful later.",
+      "expected_relation_families": ["schema.return_or_restoration", "schema.help_request_response", "schema.other_distress_comfort", "concept.help"],
+      "gap_indicators": ["schema.repair_after_harm", "schema.damage_responsibility_repair"],
+      "graph_anchors": [
+        {"source": "schema.return_or_restoration", "type": "can_cause", "target": "event.distress_reduction"},
+        {"source": "schema.help_request_response", "type": "can_activate", "target": "concept.help"},
+        {"source": "schema.other_distress_comfort", "type": "built_from", "target": "invariant.harm_relief"}
+      ],
+      "transfer_focus": "Extend restoration and help to social repair after disrupting another person's object."
+    },
+    {
+      "id": "heldout.social.lead_game_conflict",
+      "source_ids": ["S086", "S087"],
+      "split": "maybe",
+      "case_type": "gap_probe",
+      "prompt": "One child leads a game and others follow, but later two children want to lead the same game. What should the current graph capture, and what is missing?",
+      "expected_answer": "The current graph can represent group membership, inclusion, and exclusion, but leadership and role conflict are not yet explicit.",
+      "expected_relation_families": ["schema.group_entry_bid", "schema.group_invitation", "schema.group_exclusion", "concept.group_belonging"],
+      "gap_indicators": ["schema.leadership_role", "schema.role_conflict_in_group"],
+      "graph_anchors": [
+        {"source": "schema.group_entry_bid", "type": "built_from", "target": "invariant.group_member"},
+        {"source": "schema.group_invitation", "type": "can_activate", "target": "concept.group_belonging"},
+        {"source": "schema.group_exclusion", "type": "contrasts_with", "target": "schema.group_invitation"}
+      ],
+      "transfer_focus": "Expose the gap between basic group belonging and role/leadership structure."
+    },
+    {
+      "id": "heldout.social.struggle_explain_demonstrate",
+      "source_ids": ["S095", "S096", "S097", "S098"],
+      "split": "maybe",
+      "case_type": "gap_probe",
+      "prompt": "A person struggles with a task while another watches. The watcher explains, demonstrates, or takes over the task. What relation families are involved?",
+      "expected_answer": "The graph can represent help and responsive communication, including help without being asked. Teaching by explanation or demonstration is a later specialization of help and communication.",
+      "expected_relation_families": ["schema.help_request_response", "schema.spontaneous_help", "schema.responsive_communication", "concept.help"],
+      "gap_indicators": ["schema.teaching_explanation", "schema.demonstration_learning", "schema.takeover_help_boundary"],
+      "graph_anchors": [
+        {"source": "schema.help_request_response", "type": "can_activate", "target": "concept.help"},
+        {"source": "schema.spontaneous_help", "type": "can_activate", "target": "concept.help"},
+        {"source": "schema.responsive_communication", "type": "built_from", "target": "invariant.response_nonresponse"}
+      ],
+      "transfer_focus": "Test whether help and response relations transfer to teaching-like interactions."
+    },
+    {
+      "id": "heldout.social.thanks_no_thanks",
+      "source_ids": ["S099", "S100"],
+      "split": "maybe",
+      "case_type": "gap_probe",
+      "prompt": "A person thanks someone for help, but another person does not thank someone after help. What can the current graph express?",
+      "expected_answer": "The current graph can express help and positive social affect after help. A later graph may need an explicit gratitude or acknowledgement relation.",
+      "expected_relation_families": ["schema.help_request_response", "schema.approval_feedback", "schema.social_affect_signal", "concept.help"],
+      "gap_indicators": ["schema.gratitude_signal", "schema.acknowledgement_after_help"],
+      "graph_anchors": [
+        {"source": "schema.help_request_response", "type": "can_activate", "target": "concept.help"},
+        {"source": "schema.approval_feedback", "type": "built_from", "target": "schema.social_affect_signal"},
+        {"source": "schema.social_affect_signal", "type": "built_from", "target": "invariant.expected_unexpected"}
+      ],
+      "transfer_focus": "Expose gratitude as a possible social-feedback specialization over help."
+    },
+    {
+      "id": "heldout.social.borrow_return_not_return",
+      "source_ids": ["S103", "S104", "S127"],
+      "split": "maybe",
+      "case_type": "gap_probe",
+      "prompt": "A person lends an object because they expect it back. In one case the object is returned; in another it is not. Which relation families should be used?",
+      "expected_answer": "Possession and object transfer are central. Returning restores the expected access relation; not returning can weaken trust. Borrowing/lending expectation may need an explicit later relation.",
+      "expected_relation_families": ["schema.possession_and_access", "schema.object_transfer_between_agents", "schema.return_or_restoration", "schema.trust_update"],
+      "gap_indicators": ["schema.borrow_lend_expectation", "schema.return_deadline_expectation"],
+      "graph_anchors": [
+        {"source": "schema.object_transfer_between_agents", "type": "built_from", "target": "schema.possession_and_access"},
+        {"source": "schema.return_or_restoration", "type": "can_cause", "target": "event.distress_reduction"},
+        {"source": "schema.trust_update", "type": "can_activate", "target": "concept.trust"}
+      ],
+      "transfer_focus": "Transfer possession, restoration, and trust update to borrowing/lending."
+    },
+    {
+      "id": "heldout.social.admit_deny_believed_doubted",
+      "source_ids": ["S115", "S116", "S117", "S118"],
+      "split": "maybe",
+      "case_type": "gap_probe",
+      "prompt": "A person admits or denies causing a problem, and the explanation is either believed or doubted. What can be represented now?",
+      "expected_answer": "The graph can represent trust update, expected/unexpected behavior, and responsive communication. It does not yet have testimony, evidence, or belief-specific relations.",
+      "expected_relation_families": ["schema.trust_update", "schema.responsive_communication", "concept.trust", "invariant.expected_unexpected"],
+      "gap_indicators": ["schema.testimony_belief", "schema.evidence_accountability", "schema.denial_vs_admission"],
+      "graph_anchors": [
+        {"source": "schema.trust_update", "type": "can_activate", "target": "concept.trust"},
+        {"source": "schema.responsive_communication", "type": "built_from", "target": "invariant.response_nonresponse"},
+        {"source": "schema.social_affect_signal", "type": "built_from", "target": "invariant.expected_unexpected"}
+      ],
+      "transfer_focus": "Expose accountability and testimony gaps while preserving trust-prediction structure."
+    },
+    {
+      "id": "heldout.social.promise_explanation_late",
+      "source_ids": ["S124", "S125", "S126"],
+      "split": "maybe",
+      "case_type": "gap_probe",
+      "prompt": "A person explains why they could not keep a promise. Another person waits because they expect someone to return, then stops waiting after they are late. What relation families apply?",
+      "expected_answer": "Promise commitment creates future expectation; violation or lateness can lower trust. Explanation and lateness context are not yet separately modeled.",
+      "expected_relation_families": ["schema.promise_commitment", "schema.promise_violated", "schema.trust_update", "concept.promise"],
+      "gap_indicators": ["schema.excuse_context", "schema.lateness_expectation_window", "schema.waiting_expectation_timeout"],
+      "graph_anchors": [
+        {"source": "schema.promise_commitment", "type": "can_activate", "target": "concept.promise"},
+        {"source": "schema.promise_violated", "type": "can_cause", "target": "event.trust_decrease"},
+        {"source": "schema.trust_update", "type": "can_activate", "target": "concept.trust"}
+      ],
+      "transfer_focus": "Use promise and trust relations for late-return cases while identifying missing excuse/timing structure."
+    },
+    {
+      "id": "heldout.social.trust_regained_vs_lost",
+      "source_ids": ["S134", "S135"],
+      "split": "maybe",
+      "case_type": "transfer_probe",
+      "prompt": "A person regains trust after repeated reliable behavior, while another loses trust after repeated unreliable behavior. Which relation families should move in opposite directions?",
+      "expected_answer": "Both are trust updates from repeated evidence. Reliable behavior increases expected future reliability; unreliable behavior decreases it.",
+      "expected_relation_families": ["schema.trust_update", "event.trust_increase", "event.trust_decrease", "concept.trust"],
+      "graph_anchors": [
+        {"source": "schema.trust_update", "type": "can_activate", "target": "concept.trust"},
+        {"source": "event.trust_increase", "type": "updates", "target": "concept.trust"},
+        {"source": "event.trust_decrease", "type": "updates", "target": "concept.trust"}
+      ],
+      "transfer_focus": "Apply trust-update directionality to repeated evidence rather than single promise events."
+    },
+    {
+      "id": "heldout.social.rule_when_unwatched",
+      "source_ids": ["S142", "S143"],
+      "split": "maybe",
+      "case_type": "gap_probe",
+      "prompt": "One person follows a rule only while watched, while another follows a rule when no one is watching. What can the current graph express, and what may be missing?",
+      "expected_answer": "The graph can represent rule compliance and violation. It may need a later internalized-rule or surveillance-dependence relation to distinguish watched from unwatched behavior.",
+      "expected_relation_families": ["schema.rule_compliance", "schema.rule_violation", "concept.rule", "invariant.expected_unexpected"],
+      "gap_indicators": ["schema.internalized_rule", "schema.watched_unwatched_compliance"],
+      "graph_anchors": [
+        {"source": "schema.rule_compliance", "type": "can_activate", "target": "concept.rule"},
+        {"source": "schema.rule_violation", "type": "contrasts_with", "target": "schema.rule_compliance"},
+        {"source": "schema.rule_violation", "type": "can_cause", "target": "event.rule_broken"}
+      ],
+      "transfer_focus": "Expose whether rule following is represented as mere external compliance or stable expectation."
+    },
+    {
+      "id": "heldout.social.public_vs_private_correction",
+      "source_ids": ["S151", "S152", "S153"],
+      "split": "maybe",
+      "case_type": "gap_probe",
+      "prompt": "A person receives praise in front of others, criticism in front of others, or quiet correction away from others. Which current relations apply?",
+      "expected_answer": "Approval and disapproval signals can be represented. Public versus private audience context is not explicit yet and may matter for shame, encouragement, and social status later.",
+      "expected_relation_families": ["schema.approval_feedback", "schema.disapproval_or_approval_loss", "schema.social_affect_signal"],
+      "gap_indicators": ["schema.public_private_evaluation_context", "schema.social_audience_amplification"],
+      "graph_anchors": [
+        {"source": "schema.approval_feedback", "type": "built_from", "target": "schema.social_affect_signal"},
+        {"source": "schema.disapproval_or_approval_loss", "type": "built_from", "target": "schema.social_affect_signal"},
+        {"source": "schema.social_affect_signal", "type": "built_from", "target": "invariant.expected_unexpected"}
+      ],
+      "transfer_focus": "Test feedback transfer while identifying audience-context gaps."
+    },
+    {
+      "id": "heldout.social.apology_accept_repair",
+      "source_ids": ["S161", "S162", "S163"],
+      "split": "maybe",
+      "case_type": "gap_probe",
+      "prompt": "A person asks forgiveness after hurting someone. The hurt person may accept the apology or not accept it immediately. What relation families should be involved?",
+      "expected_answer": "The graph can represent comfort, restoration, and trust update. Apology, forgiveness, and incomplete repair are likely later social repair relations.",
+      "expected_relation_families": ["schema.other_distress_comfort", "schema.return_or_restoration", "schema.trust_update", "concept.empathy_precursor"],
+      "gap_indicators": ["schema.apology_repair", "schema.forgiveness_response", "schema.incomplete_social_repair"],
+      "graph_anchors": [
+        {"source": "schema.other_distress_comfort", "type": "can_activate", "target": "concept.empathy_precursor"},
+        {"source": "schema.return_or_restoration", "type": "can_cause", "target": "event.distress_reduction"},
+        {"source": "schema.trust_update", "type": "can_activate", "target": "concept.trust"}
+      ],
+      "transfer_focus": "Extend comfort, restoration, and trust to apology/forgiveness cases."
+    },
+    {
+      "id": "heldout.social.interrupt_wait_speak",
+      "source_ids": ["S168", "S169", "S170", "S171"],
+      "split": "maybe",
+      "case_type": "transfer_probe",
+      "prompt": "A person becomes angry when interrupted, another waits for someone to finish speaking, two people speak over each other, and one listens before responding. Which relations matter?",
+      "expected_answer": "Speech turn waiting preserves turn order and supports responsive communication. Speaking over another person violates the turn relation and can cause negative social affect.",
+      "expected_relation_families": ["schema.speech_turn_waiting", "schema.responsive_communication", "schema.turn_violation", "concept.respect_precursor"],
+      "graph_anchors": [
+        {"source": "schema.speech_turn_waiting", "type": "built_from", "target": "schema.social_turn_taking"},
+        {"source": "schema.responsive_communication", "type": "built_from", "target": "invariant.response_nonresponse"},
+        {"source": "schema.speech_turn_waiting", "type": "can_activate", "target": "concept.respect_precursor"}
+      ],
+      "transfer_focus": "Generalize turn-taking from object/action turns to speech and listening."
+    },
+    {
+      "id": "heldout.social.misunderstand_clarify",
+      "source_ids": ["S175", "S176", "S177", "S179"],
+      "split": "maybe",
+      "case_type": "gap_probe",
+      "prompt": "A person asks another to repeat something, misunderstands an instruction, receives clarification, and follows a clear step-by-step instruction. What relation families apply?",
+      "expected_answer": "The graph can represent responsive communication and response/non-response. Clarification, instruction structure, and step order are not explicit enough yet.",
+      "expected_relation_families": ["schema.responsive_communication", "schema.speech_turn_waiting", "invariant.response_nonresponse"],
+      "gap_indicators": ["schema.clarification_repair", "schema.instruction_step_order", "schema.misunderstanding_detection"],
+      "graph_anchors": [
+        {"source": "schema.responsive_communication", "type": "built_from", "target": "invariant.response_nonresponse"},
+        {"source": "schema.speech_turn_waiting", "type": "built_from", "target": "schema.social_turn_taking"}
+      ],
+      "transfer_focus": "Expose instruction and clarification gaps while preserving response structure."
+    },
+    {
+      "id": "heldout.social.guest_polite_refusal",
+      "source_ids": ["S181", "S183", "S184", "S185"],
+      "split": "maybe",
+      "case_type": "gap_probe",
+      "prompt": "A guest arrives, is welcomed, is offered water, tea, or food, and either politely refuses or accepts. What does the current graph cover?",
+      "expected_answer": "The graph can represent social affect, permission/allowance, and response. Host/guest role, hospitality, and polite refusal are not yet explicit.",
+      "expected_relation_families": ["schema.social_affect_signal", "schema.permission_request", "schema.permission_granted", "invariant.response_nonresponse"],
+      "gap_indicators": ["schema.hospitality_guest_role", "schema.polite_refusal", "schema.offer_acceptance"],
+      "graph_anchors": [
+        {"source": "schema.social_affect_signal", "type": "built_from", "target": "invariant.expected_unexpected"},
+        {"source": "schema.permission_request", "type": "built_from", "target": "invariant.allowed_blocked"},
+        {"source": "schema.permission_granted", "type": "can_activate", "target": "concept.permission"}
+      ],
+      "transfer_focus": "Identify role/hospitality gaps over basic social affect and allowance relations."
+    },
+    {
+      "id": "heldout.social.elder_advice_disagreement",
+      "source_ids": ["S188", "S189", "S190"],
+      "split": "maybe",
+      "case_type": "gap_probe",
+      "prompt": "A younger person greets an elder respectfully, receives advice, and disagrees. Which relations are present, and what may be missing?",
+      "expected_answer": "The graph can represent waiting, listening, response, and respect precursor. Elder role, advice authority, and respectful disagreement need later specialization.",
+      "expected_relation_families": ["schema.speech_turn_waiting", "schema.responsive_communication", "concept.respect_precursor"],
+      "gap_indicators": ["schema.role_respect_hierarchy", "schema.advice_authority", "schema.respectful_disagreement"],
+      "graph_anchors": [
+        {"source": "schema.speech_turn_waiting", "type": "can_activate", "target": "concept.respect_precursor"},
+        {"source": "schema.responsive_communication", "type": "built_from", "target": "invariant.response_nonresponse"}
+      ],
+      "transfer_focus": "Connect respect precursor to later cultural role and authority relations without making those primitive yet."
+    },
+    {
+      "id": "heldout.social.shared_work_unequal",
+      "source_ids": ["S191", "S192", "S193", "S194"],
+      "split": "maybe",
+      "case_type": "gap_probe",
+      "prompt": "Family members decide who will do a task. One person does more work, another notices and offers help, and another leaves work for others. What relation families apply?",
+      "expected_answer": "Allocation, fairness precursor, help, and response are relevant. Shared work responsibility and effort burden are not yet explicit.",
+      "expected_relation_families": ["schema.resource_allocation", "schema.fairness_precursor", "schema.help_request_response", "concept.help"],
+      "gap_indicators": ["schema.shared_work_responsibility", "schema.effort_burden_allocation", "schema.free_riding_on_others_work"],
+      "graph_anchors": [
+        {"source": "schema.resource_allocation", "type": "built_from", "target": "invariant.more_less_equal"},
+        {"source": "schema.fairness_precursor", "type": "built_from", "target": "schema.unequal_allocation"},
+        {"source": "schema.help_request_response", "type": "can_activate", "target": "concept.help"}
+      ],
+      "transfer_focus": "Transfer allocation and help to household task responsibility."
+    },
+    {
+      "id": "heldout.social.group_decision_accept_leave_return",
+      "source_ids": ["S197", "S198", "S199", "S200"],
+      "split": "maybe",
+      "case_type": "gap_probe",
+      "prompt": "A group chooses an activity, a person accepts a decision they did not prefer, another leaves after feeling excluded, and later returns after invitation. What relation families apply?",
+      "expected_answer": "The current graph can represent group entry, invitation, exclusion, inclusion, and belonging. Preference conflict and accepting a group decision are later extensions.",
+      "expected_relation_families": ["schema.group_entry_bid", "schema.group_invitation", "schema.group_exclusion", "concept.group_belonging"],
+      "gap_indicators": ["schema.group_decision_preference_conflict", "schema.accepting_group_decision", "schema.reentry_after_exclusion"],
+      "graph_anchors": [
+        {"source": "schema.group_entry_bid", "type": "built_from", "target": "invariant.group_member"},
+        {"source": "schema.group_invitation", "type": "can_cause", "target": "event.inclusion"},
+        {"source": "schema.group_exclusion", "type": "can_cause", "target": "event.exclusion"},
+        {"source": "schema.group_invitation", "type": "can_activate", "target": "concept.group_belonging"}
+      ],
+      "transfer_focus": "Use group belonging primitives while exposing preference, decision, and re-entry gaps."
+    }
+  ]
+}

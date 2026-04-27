@@ -1,0 +1,204 @@
+{
+  "schema_version": "0.1.0",
+  "plan_id": "core5_relation_curriculum_v0",
+  "created": "2026-04-27",
+  "purpose": "Plan the first multi-domain relation curriculum for nanochat from-scratch experiments.",
+  "principle": "Use the same underlying content across plain_text, relation_scaffolded, and relation_first_then_text. Keep tokenizer, model, token budget, and evaluation fixed.",
+  "representation_variants": [
+    {
+      "id": "plain_text",
+      "description": "Ordinary natural-language documents with no explicit relation packet."
+    },
+    {
+      "id": "relation_scaffolded",
+      "description": "Natural language plus explicit relation structure."
+    },
+    {
+      "id": "relation_first_then_text",
+      "description": "Relation packet first, then natural language binding text."
+    }
+  ],
+  "root_relations": [
+    "same_different",
+    "similar_dissimilar",
+    "more_less_equal",
+    "before_after",
+    "during",
+    "starts_stops",
+    "repeats",
+    "persists_changes",
+    "near_far",
+    "inside_outside",
+    "touching_separate",
+    "supported_unsupported",
+    "open_closed",
+    "path_blocked_unblocked",
+    "direct_control",
+    "indirect_effect",
+    "cause_effect",
+    "expected_unexpected",
+    "threshold",
+    "part_whole",
+    "group_member",
+    "attention_absence",
+    "comfort_discomfort",
+    "pain_relief",
+    "approach_avoid"
+  ],
+  "domains": [
+    {
+      "id": "agent_6mo_indian_child",
+      "label": "6mo root world",
+      "status": "partially_ready",
+      "priority": 1,
+      "role": "Root grammar of meaning: input channels, body control, self/non-self, comfort, caregiver familiarity, object/action-effect learning.",
+      "existing_sources": [
+        "docs/6mo-child-200-encounters.md",
+        "docs/6mo-child-top44-relation-audit.md",
+        "docs/6mo-child-maybe42-relation-audit.md",
+        "data/developmental_graph/seeds/agent_6mo_indian_child.json"
+      ],
+      "required_outputs": [
+        "data/developmental_graph/evaluations/agent_6mo_indian_child_heldout.json",
+        "data/developmental_graph/curricula/seed_agent_6mo_indian_child_curriculum.jsonl"
+      ],
+      "core_relation_focus": [
+        "input_channel",
+        "direct_control",
+        "body_boundary",
+        "self_other",
+        "comfort_discomfort",
+        "action_effect_prediction",
+        "caregiver_familiarity"
+      ]
+    },
+    {
+      "id": "everyday_physical_world",
+      "label": "everyday physical world",
+      "status": "ready_for_reuse",
+      "priority": 2,
+      "role": "Concrete external-world relation training: objects, material properties, cause/effect, counterfactual shifts, thresholds.",
+      "existing_sources": [
+        "docs/everyday-physical-world-200-situations.md",
+        "docs/everyday-physical-world-top50-relation-audit.md",
+        "data/developmental_graph/seeds/everyday_physical_world.json",
+        "data/developmental_graph/evaluations/everyday_physical_world_heldout.json",
+        "data/developmental_graph/experiments/physical_v0"
+      ],
+      "required_outputs": [],
+      "core_relation_focus": [
+        "support",
+        "containment",
+        "motion",
+        "pressure",
+        "material_property",
+        "threshold",
+        "state_change",
+        "counterfactual"
+      ]
+    },
+    {
+      "id": "social_world",
+      "label": "simple social world",
+      "status": "evaluation_ready",
+      "priority": 3,
+      "role": "Other agents, attention, approval/disapproval, help/harm, trust, turn-taking, rule precursors.",
+      "existing_sources": [
+        "docs/social-world-200-situations.md",
+        "docs/social-world-firstset-relation-audit.md",
+        "data/developmental_graph/seeds/social_world.json",
+        "data/developmental_graph/evaluations/social_world_heldout.json"
+      ],
+      "required_outputs": [],
+      "core_relation_focus": [
+        "self_other",
+        "attention_absence",
+        "intention_outcome",
+        "help_harm",
+        "approval_disapproval",
+        "turn_taking",
+        "trust_prediction_violation",
+        "group_member"
+      ]
+    },
+    {
+      "id": "math_abstraction",
+      "label": "math and abstraction roots",
+      "status": "evaluation_ready",
+      "priority": 4,
+      "role": "Test abstraction as compressed relation structure: matching, grouping, order, mapping, invariance, if/then.",
+      "existing_sources": [
+        "docs/math-abstraction-200-situations.md",
+        "docs/math-abstraction-firstset-relation-audit.md",
+        "data/developmental_graph/seeds/math_abstraction.json",
+        "data/developmental_graph/evaluations/math_abstraction_heldout.json"
+      ],
+      "required_outputs": [],
+      "core_relation_focus": [
+        "same_different",
+        "one_many",
+        "more_less_equal",
+        "order_sequence",
+        "matching",
+        "mapping",
+        "grouping",
+        "part_whole",
+        "repetition",
+        "invariance",
+        "composition",
+        "if_then",
+        "negation"
+      ]
+    },
+    {
+      "id": "language_binding",
+      "label": "language binding",
+      "status": "evaluation_ready",
+      "priority": 5,
+      "role": "Attach words, symbols, phrases, and sentences to relation structures without treating language as the first source of meaning.",
+      "existing_sources": [
+        "docs/language-binding-400-situations.md",
+        "docs/language-binding-firstset-relation-audit.md",
+        "data/developmental_graph/seeds/language_binding.json",
+        "data/developmental_graph/evaluations/language_binding_heldout.json"
+      ],
+      "required_outputs": [],
+      "core_relation_focus": [
+        "sound_to_word",
+        "symbol_to_word",
+        "word_to_relation_cluster",
+        "modifier_property",
+        "sentence_event",
+        "story_temporal_chain",
+        "metaphor_relation_transfer"
+      ]
+    }
+  ],
+  "gates": [
+    {
+      "id": "raw_before_relation",
+      "description": "Raw situation inventories must be written before relation audits to avoid polluting observation with interpretation."
+    },
+    {
+      "id": "seed_before_curriculum",
+      "description": "Each domain needs a parseable seed graph before model-ready curriculum is generated."
+    },
+    {
+      "id": "evaluation_before_training",
+      "description": "Held-out evaluation must exist before serious model training."
+    },
+    {
+      "id": "shared_tokenizer",
+      "description": "All nanochat variants must use the same tokenizer before comparison."
+    },
+    {
+      "id": "same_content",
+      "description": "plain_text, relation_scaffolded, and relation_first_then_text must render the same underlying content."
+    }
+  ],
+  "next_steps": [
+    "Generate core5 curriculum variants",
+    "Create shared tokenizer for nanochat variants",
+    "Run Level 1 core5 local sanity"
+  ]
+}

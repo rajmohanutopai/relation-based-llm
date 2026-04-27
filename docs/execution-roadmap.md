@@ -349,7 +349,7 @@ Outputs:
 
 ```text
 docs/math-abstraction-200-situations.md
-docs/math-abstraction-top50-relation-audit.md
+docs/math-abstraction-firstset-relation-audit.md
 data/developmental_graph/seeds/math_abstraction.json
 data/developmental_graph/evaluations/math_abstraction_heldout.json
 data/developmental_graph/curricula/seed_math_abstraction_curriculum.jsonl

@@ -1,0 +1,3479 @@
+{
+  "schema_version": "0.1.0",
+  "graph_id": "seed.language_binding",
+  "metadata": {
+    "title": "Seed Domain: Language Binding",
+    "description": "Machine-parseable seed graph for binding words, gestures, symbols, sentences, questions, stories, tone, and context to relation clusters.",
+    "agent": {
+      "domain": "language_binding",
+      "perspective": "relation_cluster_language_scaffold",
+      "source_inventory": "docs/language-binding-400-situations.md",
+      "source_audit": "docs/language-binding-firstset-relation-audit.md"
+    },
+    "notes": [
+      "This graph uses the 179 first-set language-binding situations, not all 254 high-priority rows.",
+      "Language is represented as surface forms attached to relation clusters, not as the first source of meaning.",
+      "The seed is intentionally compact and excludes a full grammar ontology or dictionary."
+    ]
+  },
+  "layers": [
+    {
+      "id": "layer.language_input",
+      "order": -1,
+      "label": "Language Observation Channels",
+      "description": "Observable channels for speech, gesture, writing, prosody, context, social interaction, and story sequence."
+    },
+    {
+      "id": "layer.language_invariant",
+      "order": 0,
+      "label": "Language Relational Invariants",
+      "description": "Reusable reference, context, role, property, quantity, spatial, temporal, causal, polarity, and discourse relations."
+    },
+    {
+      "id": "layer.language_schema",
+      "order": 1,
+      "label": "Language Binding Schemas",
+      "description": "Reusable mechanisms for binding surface forms to relation clusters and sentence structures."
+    },
+    {
+      "id": "layer.surface_form",
+      "order": 2,
+      "label": "Surface Forms",
+      "description": "Spoken, gestural, written, tonal, and language-variant surfaces."
+    },
+    {
+      "id": "layer.participant",
+      "order": 3,
+      "label": "Participants",
+      "description": "Speaker, listener, referent, and shared-attention participant handles."
+    },
+    {
+      "id": "layer.language_referent",
+      "order": 4,
+      "label": "Referents And Events",
+      "description": "Objects, properties, sets, actions, stories, promises, and contexts that language can refer to."
+    },
+    {
+      "id": "layer.language_abstraction",
+      "order": 5,
+      "label": "Language Abstractions",
+      "description": "Higher-level abstractions created by relation-cluster binding, contextual meaning, symbolic reference, and story understanding."
+    }
+  ],
+  "nodes": [
+    {
+      "id": "channel.speech_sound",
+      "label": "speech sound observation",
+      "layer": "layer.language_input",
+      "kind": "language_observation_channel",
+      "age_status": "active",
+      "summary": "Source for spoken words, syllables, phoneme contrasts, and partial pronunciations."
+    },
+    {
+      "id": "channel.gesture_visual",
+      "label": "gesture observation",
+      "layer": "layer.language_input",
+      "kind": "language_observation_channel",
+      "age_status": "active",
+      "summary": "Source for pointing, waving, nodding, shaking head, blocking, and permission gestures."
+    },
+    {
+      "id": "channel.written_mark",
+      "label": "written mark observation",
+      "layer": "layer.language_input",
+      "kind": "symbol_observation_channel",
+      "age_status": "active",
+      "summary": "Source for signs, letters, written words, numerals, and public symbols."
+    },
+    {
+      "id": "channel.prosody",
+      "label": "prosody and tone observation",
+      "layer": "layer.language_input",
+      "kind": "affective_language_channel",
+      "age_status": "active",
+      "summary": "Source for happy, angry, joking, serious, gentle, and sharp tone differences."
+    },
+    {
+      "id": "channel.context",
+      "label": "context observation",
+      "layer": "layer.language_input",
+      "kind": "context_channel",
+      "age_status": "active",
+      "summary": "Source for selecting which relation cluster a surface form should activate."
+    },
+    {
+      "id": "channel.social_interaction",
+      "label": "social interaction observation",
+      "layer": "layer.language_input",
+      "kind": "social_language_channel",
+      "age_status": "active",
+      "summary": "Source for speaker, listener, permission, promise, question, and answer structure."
+    },
+    {
+      "id": "channel.story_sequence",
+      "label": "story sequence observation",
+      "layer": "layer.language_input",
+      "kind": "discourse_channel",
+      "age_status": "active",
+      "summary": "Source for ordered story events, retelling, prediction, problem, and solution."
+    },
+    {
+      "id": "invariant.reference",
+      "label": "reference",
+      "layer": "layer.language_invariant",
+      "kind": "reference_relation",
+      "age_status": "active",
+      "summary": "Links a surface form to a referent, action, property, event, or relation cluster."
+    },
+    {
+      "id": "invariant.context_selection",
+      "label": "context selection",
+      "layer": "layer.language_invariant",
+      "kind": "context_relation",
+      "age_status": "active",
+      "summary": "Selects which relation subset should be active for a surface form."
+    },
+    {
+      "id": "invariant.surface_meaning_separation",
+      "label": "surface/meaning separation",
+      "layer": "layer.language_invariant",
+      "kind": "representation_relation",
+      "age_status": "active",
+      "summary": "Separates word shape or sound from the relation cluster it can activate."
+    },
+    {
+      "id": "invariant.same_different",
+      "label": "same/different",
+      "layer": "layer.language_invariant",
+      "kind": "comparison_relation",
+      "age_status": "active",
+      "summary": "Compares whether forms, objects, labels, or meanings match or differ."
+    },
+    {
+      "id": "invariant.agent_role",
+      "label": "agent role",
+      "layer": "layer.language_invariant",
+      "kind": "role_relation",
+      "age_status": "active",
+      "summary": "Tracks speaker, listener, giver, receiver, doer, undergoer, owner, and referent roles."
+    },
+    {
+      "id": "invariant.property_relation",
+      "label": "property relation",
+      "layer": "layer.language_invariant",
+      "kind": "attribute_relation",
+      "age_status": "active",
+      "summary": "Tracks color, size, shape, weight, state, and selected attributes."
+    },
+    {
+      "id": "invariant.quantity_relation",
+      "label": "quantity relation",
+      "layer": "layer.language_invariant",
+      "kind": "quantity_relation",
+      "age_status": "active",
+      "summary": "Tracks counts, sets, all, none, some, more, less, and comparison."
+    },
+    {
+      "id": "invariant.spatial_relation",
+      "label": "spatial relation",
+      "layer": "layer.language_invariant",
+      "kind": "spatial_relation",
+      "age_status": "active",
+      "summary": "Tracks here, there, inside, outside, on, under, and location relations."
+    },
+    {
+      "id": "invariant.temporal_order",
+      "label": "temporal order",
+      "layer": "layer.language_invariant",
+      "kind": "temporal_relation",
+      "age_status": "active",
+      "summary": "Tracks before, after, when, past, present, future, and event order."
+    },
+    {
+      "id": "invariant.action_effect",
+      "label": "action/effect",
+      "layer": "layer.language_invariant",
+      "kind": "event_relation",
+      "age_status": "active",
+      "summary": "Tracks action words, event transitions, and result states."
+    },
+    {
+      "id": "invariant.permission_blocking",
+      "label": "permission/blocking",
+      "layer": "layer.language_invariant",
+      "kind": "permission_relation",
+      "age_status": "active",
+      "summary": "Tracks allowed, blocked, prohibited, delayed, and conditionally permitted actions."
+    },
+    {
+      "id": "invariant.cause_effect",
+      "label": "cause/effect",
+      "layer": "layer.language_invariant",
+      "kind": "causal_relation",
+      "age_status": "active",
+      "summary": "Tracks because links, event causes, and explanatory connections."
+    },
+    {
+      "id": "invariant.condition_rule",
+      "label": "condition/rule",
+      "layer": "layer.language_invariant",
+      "kind": "logical_relation",
+      "age_status": "active",
+      "summary": "Tracks if, when, and conditionally selected action or permission."
+    },
+    {
+      "id": "invariant.negation_polarity",
+      "label": "negation/polarity",
+      "layer": "layer.language_invariant",
+      "kind": "polarity_relation",
+      "age_status": "active",
+      "summary": "Tracks not, nothing, absence, non-event, and prohibited action."
+    },
+    {
+      "id": "invariant.uncertainty_strength",
+      "label": "uncertainty strength",
+      "layer": "layer.language_invariant",
+      "kind": "epistemic_relation",
+      "age_status": "active",
+      "summary": "Tracks think, know, maybe, believe, want, and expected."
+    },
+    {
+      "id": "invariant.sequence_discourse",
+      "label": "sequence/discourse",
+      "layer": "layer.language_invariant",
+      "kind": "discourse_relation",
+      "age_status": "active",
+      "summary": "Tracks story order, explanation, problem, solution, promise, and prediction."
+    },
+    {
+      "id": "invariant.sound_form_contrast",
+      "label": "sound-form contrast",
+      "layer": "layer.language_invariant",
+      "kind": "surface_form_relation",
+      "age_status": "active",
+      "summary": "Tracks phoneme contrast, syllable structure, mispronunciation, and approximate word recognition."
+    },
+    {
+      "id": "schema.word_handle",
+      "label": "word handle",
+      "layer": "layer.language_schema",
+      "kind": "core_binding_schema",
+      "age_status": "active",
+      "summary": "A surface word acts as a handle into a relation cluster."
+    },
+    {
+      "id": "schema.relation_cluster_binding",
+      "label": "relation cluster binding",
+      "layer": "layer.language_schema",
+      "kind": "core_binding_schema",
+      "age_status": "active",
+      "summary": "A meaning is represented as strong and weak relations activated together."
+    },
+    {
+      "id": "schema.contextual_relation_activation",
+      "label": "contextual relation activation",
+      "layer": "layer.language_schema",
+      "kind": "core_binding_schema",
+      "age_status": "active",
+      "summary": "Context selects the relevant subset of a relation cluster."
+    },
+    {
+      "id": "schema.name_binding",
+      "label": "name binding",
+      "layer": "layer.language_schema",
+      "kind": "name_binding_schema",
+      "age_status": "active",
+      "summary": "A name or role word refers to an agent or familiar social handle."
+    },
+    {
+      "id": "schema.social_role_word_binding",
+      "label": "social role word binding",
+      "layer": "layer.language_schema",
+      "kind": "name_binding_schema",
+      "age_status": "active",
+      "summary": "Words such as mama and papa bind to familiar social roles."
+    },
+    {
+      "id": "schema.gesture_word_pairing",
+      "label": "gesture-word pairing",
+      "layer": "layer.language_schema",
+      "kind": "gesture_binding_schema",
+      "age_status": "active",
+      "summary": "A gesture and spoken form support the same permission, direction, or social signal."
+    },
+    {
+      "id": "schema.permission_word_binding",
+      "label": "permission word binding",
+      "layer": "layer.language_schema",
+      "kind": "permission_schema",
+      "age_status": "active",
+      "summary": "Words such as yes and okay mark allowed action."
+    },
+    {
+      "id": "schema.prohibition_word_binding",
+      "label": "prohibition word binding",
+      "layer": "layer.language_schema",
+      "kind": "permission_schema",
+      "age_status": "active",
+      "summary": "Words such as no and stop mark blocked or unsafe action."
+    },
+    {
+      "id": "schema.delay_word_binding",
+      "label": "delay word binding",
+      "layer": "layer.language_schema",
+      "kind": "temporal_schema",
+      "age_status": "active",
+      "summary": "Words such as wait mark delayed access or delayed action."
+    },
+    {
+      "id": "schema.object_label_binding",
+      "label": "object label binding",
+      "layer": "layer.language_schema",
+      "kind": "label_schema",
+      "age_status": "active",
+      "summary": "An object word labels an object instance or category cluster."
+    },
+    {
+      "id": "schema.category_extension",
+      "label": "category extension",
+      "layer": "layer.language_schema",
+      "kind": "label_schema",
+      "age_status": "active",
+      "summary": "The same word extends across object sizes, colors, pictures, and instances."
+    },
+    {
+      "id": "schema.picture_object_reference",
+      "label": "picture-object reference",
+      "layer": "layer.language_schema",
+      "kind": "symbol_reference_schema",
+      "age_status": "active",
+      "summary": "A picture can stand for an object or category."
+    },
+    {
+      "id": "schema.property_label_binding",
+      "label": "property label binding",
+      "layer": "layer.language_schema",
+      "kind": "property_schema",
+      "age_status": "active",
+      "summary": "A property word labels color, size, shape, temperature, texture, weight, or state."
+    },
+    {
+      "id": "schema.modifier_property_binding",
+      "label": "modifier-property binding",
+      "layer": "layer.language_schema",
+      "kind": "property_schema",
+      "age_status": "active",
+      "summary": "A modifier selects a property dimension of an object or event."
+    },
+    {
+      "id": "schema.predicate_property_sentence",
+      "label": "predicate property sentence",
+      "layer": "layer.language_schema",
+      "kind": "sentence_schema",
+      "age_status": "active",
+      "summary": "A sentence assigns a property or state to a subject."
+    },
+    {
+      "id": "schema.quantity_word_binding",
+      "label": "quantity word binding",
+      "layer": "layer.language_schema",
+      "kind": "quantity_schema",
+      "age_status": "active",
+      "summary": "Words such as more, less, all, none, and some bind to quantity relations."
+    },
+    {
+      "id": "schema.count_word_binding",
+      "label": "count word binding",
+      "layer": "layer.language_schema",
+      "kind": "quantity_schema",
+      "age_status": "active",
+      "summary": "Number words bind to distinct item counts and counting correspondence."
+    },
+    {
+      "id": "schema.set_quantifier_binding",
+      "label": "set quantifier binding",
+      "layer": "layer.language_schema",
+      "kind": "quantity_schema",
+      "age_status": "active",
+      "summary": "Every, some, only, all, and none select set scope."
+    },
+    {
+      "id": "schema.comparison_question_binding",
+      "label": "comparison question binding",
+      "layer": "layer.language_schema",
+      "kind": "question_schema",
+      "age_status": "active",
+      "summary": "Questions such as how many and which is bigger query quantity or comparison slots."
+    },
+    {
+      "id": "schema.logical_connector_binding",
+      "label": "logical connector binding",
+      "layer": "layer.language_schema",
+      "kind": "logical_schema",
+      "age_status": "active",
+      "summary": "And, or, either, and both bind to filters over relation sets."
+    },
+    {
+      "id": "schema.spatial_word_binding",
+      "label": "spatial word binding",
+      "layer": "layer.language_schema",
+      "kind": "spatial_schema",
+      "age_status": "active",
+      "summary": "Words such as here, there, inside, outside, on, and under bind to spatial relations."
+    },
+    {
+      "id": "schema.temporal_word_binding",
+      "label": "temporal word binding",
+      "layer": "layer.language_schema",
+      "kind": "temporal_schema",
+      "age_status": "active",
+      "summary": "Words such as before, after, and when bind to event order."
+    },
+    {
+      "id": "schema.state_word_binding",
+      "label": "state word binding",
+      "layer": "layer.language_schema",
+      "kind": "state_schema",
+      "age_status": "active",
+      "summary": "Words such as open, closed, empty, gone, hot, and wet bind to state relations."
+    },
+    {
+      "id": "schema.ordered_instruction_binding",
+      "label": "ordered instruction binding",
+      "layer": "layer.language_schema",
+      "kind": "instruction_schema",
+      "age_status": "active",
+      "summary": "Instruction language orders action steps."
+    },
+    {
+      "id": "schema.action_word_binding",
+      "label": "action word binding",
+      "layer": "layer.language_schema",
+      "kind": "verb_schema",
+      "age_status": "active",
+      "summary": "A verb binds to an action relation."
+    },
+    {
+      "id": "schema.event_transition_binding",
+      "label": "event transition binding",
+      "layer": "layer.language_schema",
+      "kind": "event_schema",
+      "age_status": "active",
+      "summary": "Words such as fall, break, and spill bind to state-changing events."
+    },
+    {
+      "id": "schema.result_state_binding",
+      "label": "result state binding",
+      "layer": "layer.language_schema",
+      "kind": "event_schema",
+      "age_status": "active",
+      "summary": "Language connects an event to the resulting state."
+    },
+    {
+      "id": "schema.social_action_word_binding",
+      "label": "social action word binding",
+      "layer": "layer.language_schema",
+      "kind": "social_verb_schema",
+      "age_status": "active",
+      "summary": "Words such as give, take, share, help, and hurt bind to social action relations."
+    },
+    {
+      "id": "schema.speaker_addressee_binding",
+      "label": "speaker-addressee binding",
+      "layer": "layer.language_schema",
+      "kind": "perspective_schema",
+      "age_status": "active",
+      "summary": "I and you resolve by speaker and listener position."
+    },
+    {
+      "id": "schema.pronoun_perspective_binding",
+      "label": "pronoun perspective binding",
+      "layer": "layer.language_schema",
+      "kind": "perspective_schema",
+      "age_status": "active",
+      "summary": "Pronoun meaning changes with speaker, listener, and referent."
+    },
+    {
+      "id": "schema.possessive_relation_binding",
+      "label": "possessive relation binding",
+      "layer": "layer.language_schema",
+      "kind": "perspective_schema",
+      "age_status": "active",
+      "summary": "Mine and yours bind to ownership or possession from a perspective."
+    },
+    {
+      "id": "schema.transfer_role_binding",
+      "label": "transfer role binding",
+      "layer": "layer.language_schema",
+      "kind": "role_schema",
+      "age_status": "active",
+      "summary": "Gave and took mark giver, receiver, source, and object roles."
+    },
+    {
+      "id": "schema.sentence_event_binding",
+      "label": "sentence-event binding",
+      "layer": "layer.language_schema",
+      "kind": "sentence_schema",
+      "age_status": "active",
+      "summary": "A sentence binds words and order to an event relation."
+    },
+    {
+      "id": "schema.agent_patient_role_binding",
+      "label": "agent-patient role binding",
+      "layer": "layer.language_schema",
+      "kind": "sentence_schema",
+      "age_status": "active",
+      "summary": "Word order marks who acted and who was acted on."
+    },
+    {
+      "id": "schema.preposition_phrase_binding",
+      "label": "preposition phrase binding",
+      "layer": "layer.language_schema",
+      "kind": "sentence_schema",
+      "age_status": "active",
+      "summary": "A preposition phrase attaches location or relation to an entity or event."
+    },
+    {
+      "id": "schema.modifier_scope_binding",
+      "label": "modifier scope binding",
+      "layer": "layer.language_schema",
+      "kind": "sentence_schema",
+      "age_status": "active",
+      "summary": "Modifier position selects which entity or event gets the property."
+    },
+    {
+      "id": "schema.relative_clause_binding",
+      "label": "relative clause binding",
+      "layer": "layer.language_schema",
+      "kind": "sentence_schema",
+      "age_status": "active",
+      "summary": "A relative clause constrains or describes a referent."
+    },
+    {
+      "id": "schema.attachment_ambiguity_binding",
+      "label": "attachment ambiguity binding",
+      "layer": "layer.language_schema",
+      "kind": "sentence_schema",
+      "age_status": "active",
+      "summary": "Context resolves whether a phrase modifies one relation or another."
+    },
+    {
+      "id": "schema.question_relation_query",
+      "label": "question relation query",
+      "layer": "layer.language_schema",
+      "kind": "question_schema",
+      "age_status": "active",
+      "summary": "A question asks for a missing relation slot such as who, where, what, why, or how many."
+    },
+    {
+      "id": "schema.answer_slot_binding",
+      "label": "answer slot binding",
+      "layer": "layer.language_schema",
+      "kind": "question_schema",
+      "age_status": "active",
+      "summary": "An answer fills the relation slot requested by a question."
+    },
+    {
+      "id": "schema.word_correction_repair",
+      "label": "word correction repair",
+      "layer": "layer.language_schema",
+      "kind": "repair_schema",
+      "age_status": "active",
+      "summary": "A wrong word is corrected and the relation cluster is adjusted."
+    },
+    {
+      "id": "schema.partial_utterance_resolution",
+      "label": "partial utterance resolution",
+      "layer": "layer.language_schema",
+      "kind": "repair_schema",
+      "age_status": "active",
+      "summary": "Context resolves a partial child utterance into a likely word handle."
+    },
+    {
+      "id": "schema.unfamiliar_word_negotiation",
+      "label": "unfamiliar word negotiation",
+      "layer": "layer.language_schema",
+      "kind": "repair_schema",
+      "age_status": "active",
+      "summary": "A speaker asks what a word means and seeks its relation cluster."
+    },
+    {
+      "id": "schema.public_sign_binding",
+      "label": "public sign binding",
+      "layer": "layer.language_schema",
+      "kind": "symbol_schema",
+      "age_status": "active",
+      "summary": "A public sign links a written or visual symbol to an action rule."
+    },
+    {
+      "id": "schema.written_symbol_binding",
+      "label": "written symbol binding",
+      "layer": "layer.language_schema",
+      "kind": "symbol_schema",
+      "age_status": "active",
+      "summary": "Written marks bind to word, quantity, or action relation clusters."
+    },
+    {
+      "id": "schema.symbol_to_action_binding",
+      "label": "symbol-to-action binding",
+      "layer": "layer.language_schema",
+      "kind": "symbol_schema",
+      "age_status": "active",
+      "summary": "A symbol such as stop activates a behavior rule."
+    },
+    {
+      "id": "schema.symbol_to_quantity_binding",
+      "label": "symbol-to-quantity binding",
+      "layer": "layer.language_schema",
+      "kind": "symbol_schema",
+      "age_status": "active",
+      "summary": "A written numeral binds to a quantity relation."
+    },
+    {
+      "id": "schema.story_event_chain",
+      "label": "story event chain",
+      "layer": "layer.language_schema",
+      "kind": "discourse_schema",
+      "age_status": "active",
+      "summary": "A story is a sequence of relation events."
+    },
+    {
+      "id": "schema.narrative_order_binding",
+      "label": "narrative order binding",
+      "layer": "layer.language_schema",
+      "kind": "discourse_schema",
+      "age_status": "active",
+      "summary": "Beginning, middle, and end bind to story order."
+    },
+    {
+      "id": "schema.promise_language_binding",
+      "label": "promise language binding",
+      "layer": "layer.language_schema",
+      "kind": "discourse_schema",
+      "age_status": "active",
+      "summary": "Promise language creates an expected future action."
+    },
+    {
+      "id": "schema.rule_story_binding",
+      "label": "rule story binding",
+      "layer": "layer.language_schema",
+      "kind": "discourse_schema",
+      "age_status": "active",
+      "summary": "Story language can represent rule following or violation."
+    },
+    {
+      "id": "schema.problem_solution_discourse",
+      "label": "problem-solution discourse",
+      "layer": "layer.language_schema",
+      "kind": "discourse_schema",
+      "age_status": "active",
+      "summary": "A story can contain a problem state and a solution state."
+    },
+    {
+      "id": "schema.prediction_from_story_state",
+      "label": "prediction from story state",
+      "layer": "layer.language_schema",
+      "kind": "discourse_schema",
+      "age_status": "active",
+      "summary": "Current story state supports prediction of what may happen next."
+    },
+    {
+      "id": "schema.conditional_clause_binding",
+      "label": "conditional clause binding",
+      "layer": "layer.language_schema",
+      "kind": "logical_sentence_schema",
+      "age_status": "active",
+      "summary": "An if clause sets a condition for action or outcome."
+    },
+    {
+      "id": "schema.causal_clause_binding",
+      "label": "causal clause binding",
+      "layer": "layer.language_schema",
+      "kind": "logical_sentence_schema",
+      "age_status": "active",
+      "summary": "A because clause links a cause to an effect."
+    },
+    {
+      "id": "schema.prohibition_clause_binding",
+      "label": "prohibition clause binding",
+      "layer": "layer.language_schema",
+      "kind": "logical_sentence_schema",
+      "age_status": "active",
+      "summary": "A do-not clause blocks an action relation."
+    },
+    {
+      "id": "schema.and_or_filter_binding",
+      "label": "and/or filter binding",
+      "layer": "layer.language_schema",
+      "kind": "logical_sentence_schema",
+      "age_status": "active",
+      "summary": "And and or select required or alternative relation filters."
+    },
+    {
+      "id": "schema.when_trigger_binding",
+      "label": "when trigger binding",
+      "layer": "layer.language_schema",
+      "kind": "logical_sentence_schema",
+      "age_status": "active",
+      "summary": "A when clause marks an event trigger."
+    },
+    {
+      "id": "schema.polysemy_context_selection",
+      "label": "polysemy context selection",
+      "layer": "layer.language_schema",
+      "kind": "context_schema",
+      "age_status": "active",
+      "summary": "The same surface word selects different relation clusters in different contexts."
+    },
+    {
+      "id": "schema.word_sense_split",
+      "label": "word sense split",
+      "layer": "layer.language_schema",
+      "kind": "context_schema",
+      "age_status": "active",
+      "summary": "A word form can split into separate sense clusters."
+    },
+    {
+      "id": "schema.pragmatic_force_binding",
+      "label": "pragmatic force binding",
+      "layer": "layer.language_schema",
+      "kind": "pragmatics_schema",
+      "age_status": "active",
+      "summary": "A sentence form can act as question, command, joke, serious statement, or request."
+    },
+    {
+      "id": "schema.indirect_request_binding",
+      "label": "indirect request binding",
+      "layer": "layer.language_schema",
+      "kind": "pragmatics_schema",
+      "age_status": "active",
+      "summary": "An apparent ability question can function as a request."
+    },
+    {
+      "id": "schema.prosody_affect_binding",
+      "label": "prosody-affect binding",
+      "layer": "layer.language_schema",
+      "kind": "prosody_schema",
+      "age_status": "active",
+      "summary": "Tone changes affective prediction while the word form stays the same."
+    },
+    {
+      "id": "schema.cross_language_label_equivalence",
+      "label": "cross-language label equivalence",
+      "layer": "layer.language_schema",
+      "kind": "multilingual_schema",
+      "age_status": "active",
+      "summary": "Two language forms can point to the same relation cluster."
+    },
+    {
+      "id": "schema.phoneme_contrast_binding",
+      "label": "phoneme contrast binding",
+      "layer": "layer.language_schema",
+      "kind": "sound_form_schema",
+      "age_status": "active",
+      "summary": "A small sound difference can change the word candidate."
+    },
+    {
+      "id": "schema.syllable_structure_binding",
+      "label": "syllable structure binding",
+      "layer": "layer.language_schema",
+      "kind": "sound_form_schema",
+      "age_status": "active",
+      "summary": "A word can be segmented into syllables or smaller sound units."
+    },
+    {
+      "id": "schema.approximate_word_recognition",
+      "label": "approximate word recognition",
+      "layer": "layer.language_schema",
+      "kind": "sound_form_schema",
+      "age_status": "active",
+      "summary": "A partial or mispronounced form can still activate a likely relation cluster through context."
+    },
+    {
+      "id": "schema.negation_operator_binding",
+      "label": "negation operator binding",
+      "layer": "layer.language_schema",
+      "kind": "polarity_schema",
+      "age_status": "active",
+      "summary": "Not negates a property, location, action, or event relation."
+    },
+    {
+      "id": "schema.absence_word_binding",
+      "label": "absence word binding",
+      "layer": "layer.language_schema",
+      "kind": "polarity_schema",
+      "age_status": "active",
+      "summary": "Nothing, none, and gone bind to absence relations."
+    },
+    {
+      "id": "schema.tense_event_time_binding",
+      "label": "tense event time binding",
+      "layer": "layer.language_schema",
+      "kind": "temporal_schema",
+      "age_status": "active",
+      "summary": "Tense words and verb forms mark event time."
+    },
+    {
+      "id": "schema.epistemic_strength_binding",
+      "label": "epistemic strength binding",
+      "layer": "layer.language_schema",
+      "kind": "mental_state_schema",
+      "age_status": "active",
+      "summary": "Think, know, maybe, and believe mark confidence or belief strength."
+    },
+    {
+      "id": "schema.desire_belief_expectation_binding",
+      "label": "desire belief expectation binding",
+      "layer": "layer.language_schema",
+      "kind": "mental_state_schema",
+      "age_status": "active",
+      "summary": "Want, believe, and expected bind to internal-state and future-expectation relations."
+    },
+    {
+      "id": "surface.spoken_word",
+      "label": "spoken word",
+      "layer": "layer.surface_form",
+      "kind": "surface_form",
+      "age_status": "active",
+      "summary": "A spoken word form."
+    },
+    {
+      "id": "surface.gesture",
+      "label": "gesture",
+      "layer": "layer.surface_form",
+      "kind": "surface_form",
+      "age_status": "active",
+      "summary": "A visible gesture form paired with speech or action."
+    },
+    {
+      "id": "surface.written_mark",
+      "label": "written mark",
+      "layer": "layer.surface_form",
+      "kind": "surface_form",
+      "age_status": "active",
+      "summary": "A written or printed mark."
+    },
+    {
+      "id": "surface.tone",
+      "label": "tone",
+      "layer": "layer.surface_form",
+      "kind": "surface_form",
+      "age_status": "active",
+      "summary": "The affective or pragmatic tone over speech."
+    },
+    {
+      "id": "surface.home_language_word",
+      "label": "home-language word",
+      "layer": "layer.surface_form",
+      "kind": "surface_form",
+      "age_status": "active",
+      "summary": "A word form from the child's home language."
+    },
+    {
+      "id": "agent.speaker",
+      "label": "speaker",
+      "layer": "layer.participant",
+      "kind": "language_participant",
+      "age_status": "active",
+      "summary": "The person producing the utterance."
+    },
+    {
+      "id": "agent.listener",
+      "label": "listener",
+      "layer": "layer.participant",
+      "kind": "language_participant",
+      "age_status": "active",
+      "summary": "The person receiving or interpreting the utterance."
+    },
+    {
+      "id": "agent.referent_person",
+      "label": "referent person",
+      "layer": "layer.participant",
+      "kind": "language_participant",
+      "age_status": "active",
+      "summary": "A person referred to by a name, role, pronoun, or description."
+    },
+    {
+      "id": "agent.shared_attention_partner",
+      "label": "shared attention partner",
+      "layer": "layer.participant",
+      "kind": "language_participant",
+      "age_status": "active",
+      "summary": "A partner attending to the same object or event."
+    },
+    {
+      "id": "referent.object",
+      "label": "object referent",
+      "layer": "layer.language_referent",
+      "kind": "language_referent",
+      "age_status": "active",
+      "summary": "An object named, described, located, moved, or acted on."
+    },
+    {
+      "id": "referent.picture",
+      "label": "picture referent",
+      "layer": "layer.language_referent",
+      "kind": "symbolic_referent",
+      "age_status": "active",
+      "summary": "A picture that stands for an object or category."
+    },
+    {
+      "id": "referent.property",
+      "label": "property referent",
+      "layer": "layer.language_referent",
+      "kind": "language_referent",
+      "age_status": "active",
+      "summary": "A property such as red, soft, round, hot, wet, empty, or heavy."
+    },
+    {
+      "id": "referent.quantity_set",
+      "label": "quantity set referent",
+      "layer": "layer.language_referent",
+      "kind": "language_referent",
+      "age_status": "active",
+      "summary": "A set or count described by all, none, some, one, two, every, or only."
+    },
+    {
+      "id": "referent.location",
+      "label": "location referent",
+      "layer": "layer.language_referent",
+      "kind": "language_referent",
+      "age_status": "active",
+      "summary": "A location relation such as here, there, inside, outside, on, or under."
+    },
+    {
+      "id": "referent.action_event",
+      "label": "action event referent",
+      "layer": "layer.language_referent",
+      "kind": "language_referent",
+      "age_status": "active",
+      "summary": "An action or event such as push, fall, break, spill, eat, give, or take."
+    },
+    {
+      "id": "referent.sentence",
+      "label": "sentence referent",
+      "layer": "layer.language_referent",
+      "kind": "language_structure",
+      "age_status": "active",
+      "summary": "A sentence that binds words into an event or relation."
+    },
+    {
+      "id": "referent.question",
+      "label": "question referent",
+      "layer": "layer.language_referent",
+      "kind": "language_structure",
+      "age_status": "active",
+      "summary": "A question form that asks for a missing relation slot."
+    },
+    {
+      "id": "referent.story_event",
+      "label": "story event referent",
+      "layer": "layer.language_referent",
+      "kind": "language_structure",
+      "age_status": "active",
+      "summary": "A story event or chain of events."
+    },
+    {
+      "id": "referent.promise_outcome",
+      "label": "promise outcome referent",
+      "layer": "layer.language_referent",
+      "kind": "language_structure",
+      "age_status": "active",
+      "summary": "A promise and its later fulfilled or violated outcome."
+    },
+    {
+      "id": "referent.context",
+      "label": "context referent",
+      "layer": "layer.language_referent",
+      "kind": "language_referent",
+      "age_status": "active",
+      "summary": "The situation that selects meaning."
+    },
+    {
+      "id": "concept.meaning_as_relation_cluster",
+      "label": "meaning as relation cluster",
+      "layer": "layer.language_abstraction",
+      "kind": "language_abstraction",
+      "age_status": "active",
+      "summary": "A meaning is a relation cluster with strong and weak links."
+    },
+    {
+      "id": "concept.language_binding",
+      "label": "language binding",
+      "layer": "layer.language_abstraction",
+      "kind": "language_abstraction",
+      "age_status": "active",
+      "summary": "Surface forms bind to relation structures learned elsewhere."
+    },
+    {
+      "id": "concept.contextual_meaning",
+      "label": "contextual meaning",
+      "layer": "layer.language_abstraction",
+      "kind": "language_abstraction",
+      "age_status": "active",
+      "summary": "Context changes which relation cluster is selected."
+    },
+    {
+      "id": "concept.symbolic_reference",
+      "label": "symbolic reference",
+      "layer": "layer.language_abstraction",
+      "kind": "language_abstraction",
+      "age_status": "active",
+      "summary": "A mark, sign, word, or picture can stand for another relation structure."
+    },
+    {
+      "id": "concept.story_understanding",
+      "label": "story understanding",
+      "layer": "layer.language_abstraction",
+      "kind": "language_abstraction",
+      "age_status": "active",
+      "summary": "Story comprehension is ordered relation-chain understanding."
+    }
+  ],
+  "relations": [
+    {
+      "source": "schema.word_handle",
+      "type": "built_from",
+      "target": "invariant.surface_meaning_separation",
+      "strength": 0.92,
+      "valence": "neutral",
+      "built_from": [
+        "channel.speech_sound",
+        "surface.spoken_word"
+      ]
+    },
+    {
+      "source": "schema.relation_cluster_binding",
+      "type": "built_from",
+      "target": "invariant.reference",
+      "strength": 0.94,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "referent.context"
+      ]
+    },
+    {
+      "source": "schema.contextual_relation_activation",
+      "type": "built_from",
+      "target": "invariant.context_selection",
+      "strength": 0.92,
+      "valence": "neutral",
+      "built_from": [
+        "channel.context",
+        "schema.relation_cluster_binding"
+      ]
+    },
+    {
+      "source": "schema.word_handle",
+      "type": "can_activate",
+      "target": "concept.language_binding",
+      "strength": 0.9,
+      "valence": "positive"
+    },
+    {
+      "source": "schema.relation_cluster_binding",
+      "type": "can_activate",
+      "target": "concept.meaning_as_relation_cluster",
+      "strength": 0.94,
+      "valence": "positive"
+    },
+    {
+      "source": "schema.contextual_relation_activation",
+      "type": "can_activate",
+      "target": "concept.contextual_meaning",
+      "strength": 0.9,
+      "valence": "positive"
+    },
+    {
+      "source": "concept.meaning_as_relation_cluster",
+      "type": "built_from",
+      "target": "invariant.reference",
+      "strength": 0.86,
+      "valence": "positive"
+    },
+    {
+      "source": "concept.contextual_meaning",
+      "type": "built_from",
+      "target": "invariant.context_selection",
+      "strength": 0.86,
+      "valence": "positive"
+    },
+    {
+      "source": "concept.language_binding",
+      "type": "built_from",
+      "target": "invariant.surface_meaning_separation",
+      "strength": 0.86,
+      "valence": "positive"
+    },
+    {
+      "source": "schema.name_binding",
+      "type": "built_from",
+      "target": "invariant.reference",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.reference"
+      ]
+    },
+    {
+      "source": "schema.name_binding",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.social_role_word_binding",
+      "type": "built_from",
+      "target": "invariant.agent_role",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.agent_role"
+      ]
+    },
+    {
+      "source": "schema.social_role_word_binding",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.gesture_word_pairing",
+      "type": "built_from",
+      "target": "invariant.same_different",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.same_different"
+      ]
+    },
+    {
+      "source": "schema.gesture_word_pairing",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.permission_word_binding",
+      "type": "built_from",
+      "target": "invariant.permission_blocking",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.permission_blocking"
+      ]
+    },
+    {
+      "source": "schema.permission_word_binding",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.prohibition_word_binding",
+      "type": "built_from",
+      "target": "invariant.permission_blocking",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.permission_blocking"
+      ]
+    },
+    {
+      "source": "schema.prohibition_word_binding",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.delay_word_binding",
+      "type": "built_from",
+      "target": "invariant.temporal_order",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.temporal_order"
+      ]
+    },
+    {
+      "source": "schema.delay_word_binding",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.object_label_binding",
+      "type": "built_from",
+      "target": "invariant.reference",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.reference"
+      ]
+    },
+    {
+      "source": "schema.object_label_binding",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.category_extension",
+      "type": "built_from",
+      "target": "invariant.same_different",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.same_different"
+      ]
+    },
+    {
+      "source": "schema.category_extension",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.picture_object_reference",
+      "type": "built_from",
+      "target": "invariant.reference",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.reference"
+      ]
+    },
+    {
+      "source": "schema.picture_object_reference",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.property_label_binding",
+      "type": "built_from",
+      "target": "invariant.property_relation",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.property_relation"
+      ]
+    },
+    {
+      "source": "schema.property_label_binding",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.modifier_property_binding",
+      "type": "built_from",
+      "target": "invariant.property_relation",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.property_relation"
+      ]
+    },
+    {
+      "source": "schema.modifier_property_binding",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.predicate_property_sentence",
+      "type": "built_from",
+      "target": "invariant.property_relation",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.property_relation"
+      ]
+    },
+    {
+      "source": "schema.predicate_property_sentence",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.quantity_word_binding",
+      "type": "built_from",
+      "target": "invariant.quantity_relation",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.quantity_relation"
+      ]
+    },
+    {
+      "source": "schema.quantity_word_binding",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.count_word_binding",
+      "type": "built_from",
+      "target": "invariant.quantity_relation",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.quantity_relation"
+      ]
+    },
+    {
+      "source": "schema.count_word_binding",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.set_quantifier_binding",
+      "type": "built_from",
+      "target": "invariant.quantity_relation",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.quantity_relation"
+      ]
+    },
+    {
+      "source": "schema.set_quantifier_binding",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.comparison_question_binding",
+      "type": "built_from",
+      "target": "invariant.quantity_relation",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.quantity_relation"
+      ]
+    },
+    {
+      "source": "schema.comparison_question_binding",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.logical_connector_binding",
+      "type": "built_from",
+      "target": "invariant.condition_rule",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.condition_rule"
+      ]
+    },
+    {
+      "source": "schema.logical_connector_binding",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.spatial_word_binding",
+      "type": "built_from",
+      "target": "invariant.spatial_relation",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.spatial_relation"
+      ]
+    },
+    {
+      "source": "schema.spatial_word_binding",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.temporal_word_binding",
+      "type": "built_from",
+      "target": "invariant.temporal_order",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.temporal_order"
+      ]
+    },
+    {
+      "source": "schema.temporal_word_binding",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.state_word_binding",
+      "type": "built_from",
+      "target": "invariant.property_relation",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.property_relation"
+      ]
+    },
+    {
+      "source": "schema.state_word_binding",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.ordered_instruction_binding",
+      "type": "built_from",
+      "target": "invariant.temporal_order",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.temporal_order"
+      ]
+    },
+    {
+      "source": "schema.ordered_instruction_binding",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.action_word_binding",
+      "type": "built_from",
+      "target": "invariant.action_effect",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.action_effect"
+      ]
+    },
+    {
+      "source": "schema.action_word_binding",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.event_transition_binding",
+      "type": "built_from",
+      "target": "invariant.action_effect",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.action_effect"
+      ]
+    },
+    {
+      "source": "schema.event_transition_binding",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.result_state_binding",
+      "type": "built_from",
+      "target": "invariant.action_effect",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.action_effect"
+      ]
+    },
+    {
+      "source": "schema.result_state_binding",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.social_action_word_binding",
+      "type": "built_from",
+      "target": "invariant.agent_role",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.agent_role"
+      ]
+    },
+    {
+      "source": "schema.social_action_word_binding",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.speaker_addressee_binding",
+      "type": "built_from",
+      "target": "invariant.agent_role",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.agent_role"
+      ]
+    },
+    {
+      "source": "schema.speaker_addressee_binding",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.pronoun_perspective_binding",
+      "type": "built_from",
+      "target": "invariant.agent_role",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.agent_role"
+      ]
+    },
+    {
+      "source": "schema.pronoun_perspective_binding",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.possessive_relation_binding",
+      "type": "built_from",
+      "target": "invariant.agent_role",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.agent_role"
+      ]
+    },
+    {
+      "source": "schema.possessive_relation_binding",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.transfer_role_binding",
+      "type": "built_from",
+      "target": "invariant.agent_role",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.agent_role"
+      ]
+    },
+    {
+      "source": "schema.transfer_role_binding",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.sentence_event_binding",
+      "type": "built_from",
+      "target": "invariant.action_effect",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.action_effect"
+      ]
+    },
+    {
+      "source": "schema.sentence_event_binding",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.agent_patient_role_binding",
+      "type": "built_from",
+      "target": "invariant.agent_role",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.agent_role"
+      ]
+    },
+    {
+      "source": "schema.agent_patient_role_binding",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.preposition_phrase_binding",
+      "type": "built_from",
+      "target": "invariant.spatial_relation",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.spatial_relation"
+      ]
+    },
+    {
+      "source": "schema.preposition_phrase_binding",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.modifier_scope_binding",
+      "type": "built_from",
+      "target": "invariant.property_relation",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.property_relation"
+      ]
+    },
+    {
+      "source": "schema.modifier_scope_binding",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.relative_clause_binding",
+      "type": "built_from",
+      "target": "invariant.reference",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.reference"
+      ]
+    },
+    {
+      "source": "schema.relative_clause_binding",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.attachment_ambiguity_binding",
+      "type": "built_from",
+      "target": "invariant.context_selection",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.context_selection"
+      ]
+    },
+    {
+      "source": "schema.attachment_ambiguity_binding",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.question_relation_query",
+      "type": "built_from",
+      "target": "invariant.reference",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.reference"
+      ]
+    },
+    {
+      "source": "schema.question_relation_query",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.answer_slot_binding",
+      "type": "built_from",
+      "target": "invariant.reference",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.reference"
+      ]
+    },
+    {
+      "source": "schema.answer_slot_binding",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.word_correction_repair",
+      "type": "built_from",
+      "target": "invariant.same_different",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.same_different"
+      ]
+    },
+    {
+      "source": "schema.word_correction_repair",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.partial_utterance_resolution",
+      "type": "built_from",
+      "target": "invariant.sound_form_contrast",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.sound_form_contrast"
+      ]
+    },
+    {
+      "source": "schema.partial_utterance_resolution",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.unfamiliar_word_negotiation",
+      "type": "built_from",
+      "target": "invariant.reference",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.reference"
+      ]
+    },
+    {
+      "source": "schema.unfamiliar_word_negotiation",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.public_sign_binding",
+      "type": "built_from",
+      "target": "invariant.condition_rule",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.condition_rule"
+      ]
+    },
+    {
+      "source": "schema.public_sign_binding",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.written_symbol_binding",
+      "type": "built_from",
+      "target": "invariant.surface_meaning_separation",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.surface_meaning_separation"
+      ]
+    },
+    {
+      "source": "schema.written_symbol_binding",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.symbol_to_action_binding",
+      "type": "built_from",
+      "target": "invariant.condition_rule",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.condition_rule"
+      ]
+    },
+    {
+      "source": "schema.symbol_to_action_binding",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.symbol_to_quantity_binding",
+      "type": "built_from",
+      "target": "invariant.quantity_relation",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.quantity_relation"
+      ]
+    },
+    {
+      "source": "schema.symbol_to_quantity_binding",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.story_event_chain",
+      "type": "built_from",
+      "target": "invariant.sequence_discourse",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.sequence_discourse"
+      ]
+    },
+    {
+      "source": "schema.story_event_chain",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.narrative_order_binding",
+      "type": "built_from",
+      "target": "invariant.sequence_discourse",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.sequence_discourse"
+      ]
+    },
+    {
+      "source": "schema.narrative_order_binding",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.promise_language_binding",
+      "type": "built_from",
+      "target": "invariant.sequence_discourse",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.sequence_discourse"
+      ]
+    },
+    {
+      "source": "schema.promise_language_binding",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.rule_story_binding",
+      "type": "built_from",
+      "target": "invariant.condition_rule",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.condition_rule"
+      ]
+    },
+    {
+      "source": "schema.rule_story_binding",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.problem_solution_discourse",
+      "type": "built_from",
+      "target": "invariant.sequence_discourse",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.sequence_discourse"
+      ]
+    },
+    {
+      "source": "schema.problem_solution_discourse",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.prediction_from_story_state",
+      "type": "built_from",
+      "target": "invariant.sequence_discourse",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.sequence_discourse"
+      ]
+    },
+    {
+      "source": "schema.prediction_from_story_state",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.conditional_clause_binding",
+      "type": "built_from",
+      "target": "invariant.condition_rule",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.condition_rule"
+      ]
+    },
+    {
+      "source": "schema.conditional_clause_binding",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.causal_clause_binding",
+      "type": "built_from",
+      "target": "invariant.cause_effect",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.cause_effect"
+      ]
+    },
+    {
+      "source": "schema.causal_clause_binding",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.prohibition_clause_binding",
+      "type": "built_from",
+      "target": "invariant.permission_blocking",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.permission_blocking"
+      ]
+    },
+    {
+      "source": "schema.prohibition_clause_binding",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.and_or_filter_binding",
+      "type": "built_from",
+      "target": "invariant.condition_rule",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.condition_rule"
+      ]
+    },
+    {
+      "source": "schema.and_or_filter_binding",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.when_trigger_binding",
+      "type": "built_from",
+      "target": "invariant.temporal_order",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.temporal_order"
+      ]
+    },
+    {
+      "source": "schema.when_trigger_binding",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.polysemy_context_selection",
+      "type": "built_from",
+      "target": "invariant.context_selection",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.context_selection"
+      ]
+    },
+    {
+      "source": "schema.polysemy_context_selection",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.word_sense_split",
+      "type": "built_from",
+      "target": "invariant.surface_meaning_separation",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.surface_meaning_separation"
+      ]
+    },
+    {
+      "source": "schema.word_sense_split",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.pragmatic_force_binding",
+      "type": "built_from",
+      "target": "invariant.context_selection",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.context_selection"
+      ]
+    },
+    {
+      "source": "schema.pragmatic_force_binding",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.indirect_request_binding",
+      "type": "built_from",
+      "target": "invariant.permission_blocking",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.permission_blocking"
+      ]
+    },
+    {
+      "source": "schema.indirect_request_binding",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.prosody_affect_binding",
+      "type": "built_from",
+      "target": "invariant.context_selection",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.context_selection"
+      ]
+    },
+    {
+      "source": "schema.prosody_affect_binding",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.cross_language_label_equivalence",
+      "type": "built_from",
+      "target": "invariant.same_different",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.same_different"
+      ]
+    },
+    {
+      "source": "schema.cross_language_label_equivalence",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.phoneme_contrast_binding",
+      "type": "built_from",
+      "target": "invariant.sound_form_contrast",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.sound_form_contrast"
+      ]
+    },
+    {
+      "source": "schema.phoneme_contrast_binding",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.syllable_structure_binding",
+      "type": "built_from",
+      "target": "invariant.sound_form_contrast",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.sound_form_contrast"
+      ]
+    },
+    {
+      "source": "schema.syllable_structure_binding",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.approximate_word_recognition",
+      "type": "built_from",
+      "target": "invariant.sound_form_contrast",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.sound_form_contrast"
+      ]
+    },
+    {
+      "source": "schema.approximate_word_recognition",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.negation_operator_binding",
+      "type": "built_from",
+      "target": "invariant.negation_polarity",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.negation_polarity"
+      ]
+    },
+    {
+      "source": "schema.negation_operator_binding",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.absence_word_binding",
+      "type": "built_from",
+      "target": "invariant.negation_polarity",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.negation_polarity"
+      ]
+    },
+    {
+      "source": "schema.absence_word_binding",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.tense_event_time_binding",
+      "type": "built_from",
+      "target": "invariant.temporal_order",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.temporal_order"
+      ]
+    },
+    {
+      "source": "schema.tense_event_time_binding",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.epistemic_strength_binding",
+      "type": "built_from",
+      "target": "invariant.uncertainty_strength",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.uncertainty_strength"
+      ]
+    },
+    {
+      "source": "schema.epistemic_strength_binding",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.desire_belief_expectation_binding",
+      "type": "built_from",
+      "target": "invariant.uncertainty_strength",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": [
+        "schema.word_handle",
+        "invariant.uncertainty_strength"
+      ]
+    },
+    {
+      "source": "schema.desire_belief_expectation_binding",
+      "type": "uses",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "surface.spoken_word",
+      "type": "can_activate",
+      "target": "schema.word_handle",
+      "strength": 0.76,
+      "valence": "neutral"
+    },
+    {
+      "source": "surface.gesture",
+      "type": "can_activate",
+      "target": "schema.gesture_word_pairing",
+      "strength": 0.76,
+      "valence": "neutral"
+    },
+    {
+      "source": "surface.written_mark",
+      "type": "can_activate",
+      "target": "schema.written_symbol_binding",
+      "strength": 0.76,
+      "valence": "neutral"
+    },
+    {
+      "source": "surface.tone",
+      "type": "can_activate",
+      "target": "schema.prosody_affect_binding",
+      "strength": 0.76,
+      "valence": "neutral"
+    },
+    {
+      "source": "surface.home_language_word",
+      "type": "can_activate",
+      "target": "schema.cross_language_label_equivalence",
+      "strength": 0.76,
+      "valence": "neutral"
+    },
+    {
+      "source": "channel.gesture_visual",
+      "type": "can_activate",
+      "target": "schema.gesture_word_pairing",
+      "strength": 0.76,
+      "valence": "neutral"
+    },
+    {
+      "source": "channel.written_mark",
+      "type": "can_activate",
+      "target": "schema.written_symbol_binding",
+      "strength": 0.76,
+      "valence": "neutral"
+    },
+    {
+      "source": "channel.prosody",
+      "type": "can_activate",
+      "target": "schema.prosody_affect_binding",
+      "strength": 0.76,
+      "valence": "neutral"
+    },
+    {
+      "source": "channel.social_interaction",
+      "type": "can_activate",
+      "target": "schema.speaker_addressee_binding",
+      "strength": 0.76,
+      "valence": "neutral"
+    },
+    {
+      "source": "channel.story_sequence",
+      "type": "can_activate",
+      "target": "schema.story_event_chain",
+      "strength": 0.76,
+      "valence": "neutral"
+    },
+    {
+      "source": "agent.speaker",
+      "type": "can_activate",
+      "target": "schema.speaker_addressee_binding",
+      "strength": 0.76,
+      "valence": "neutral"
+    },
+    {
+      "source": "agent.listener",
+      "type": "can_activate",
+      "target": "schema.speaker_addressee_binding",
+      "strength": 0.76,
+      "valence": "neutral"
+    },
+    {
+      "source": "agent.referent_person",
+      "type": "can_activate",
+      "target": "schema.name_binding",
+      "strength": 0.76,
+      "valence": "neutral"
+    },
+    {
+      "source": "agent.shared_attention_partner",
+      "type": "can_activate",
+      "target": "schema.object_label_binding",
+      "strength": 0.76,
+      "valence": "neutral"
+    },
+    {
+      "source": "referent.object",
+      "type": "can_activate",
+      "target": "schema.object_label_binding",
+      "strength": 0.76,
+      "valence": "neutral"
+    },
+    {
+      "source": "referent.picture",
+      "type": "can_activate",
+      "target": "schema.picture_object_reference",
+      "strength": 0.76,
+      "valence": "neutral"
+    },
+    {
+      "source": "referent.property",
+      "type": "can_activate",
+      "target": "schema.property_label_binding",
+      "strength": 0.76,
+      "valence": "neutral"
+    },
+    {
+      "source": "referent.quantity_set",
+      "type": "can_activate",
+      "target": "schema.quantity_word_binding",
+      "strength": 0.76,
+      "valence": "neutral"
+    },
+    {
+      "source": "referent.location",
+      "type": "can_activate",
+      "target": "schema.spatial_word_binding",
+      "strength": 0.76,
+      "valence": "neutral"
+    },
+    {
+      "source": "referent.action_event",
+      "type": "can_activate",
+      "target": "schema.action_word_binding",
+      "strength": 0.76,
+      "valence": "neutral"
+    },
+    {
+      "source": "referent.sentence",
+      "type": "can_activate",
+      "target": "schema.sentence_event_binding",
+      "strength": 0.76,
+      "valence": "neutral"
+    },
+    {
+      "source": "referent.question",
+      "type": "can_activate",
+      "target": "schema.question_relation_query",
+      "strength": 0.76,
+      "valence": "neutral"
+    },
+    {
+      "source": "referent.story_event",
+      "type": "can_activate",
+      "target": "schema.story_event_chain",
+      "strength": 0.76,
+      "valence": "neutral"
+    },
+    {
+      "source": "referent.promise_outcome",
+      "type": "can_activate",
+      "target": "schema.promise_language_binding",
+      "strength": 0.76,
+      "valence": "neutral"
+    },
+    {
+      "source": "referent.context",
+      "type": "can_activate",
+      "target": "schema.contextual_relation_activation",
+      "strength": 0.76,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.public_sign_binding",
+      "type": "can_activate",
+      "target": "concept.symbolic_reference",
+      "strength": 0.76,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.written_symbol_binding",
+      "type": "can_activate",
+      "target": "concept.symbolic_reference",
+      "strength": 0.76,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.picture_object_reference",
+      "type": "can_activate",
+      "target": "concept.symbolic_reference",
+      "strength": 0.76,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.story_event_chain",
+      "type": "can_activate",
+      "target": "concept.story_understanding",
+      "strength": 0.76,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.problem_solution_discourse",
+      "type": "can_activate",
+      "target": "concept.story_understanding",
+      "strength": 0.76,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.category_extension",
+      "type": "built_from",
+      "target": "schema.object_label_binding",
+      "strength": 0.84,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.picture_object_reference",
+      "type": "built_from",
+      "target": "schema.object_label_binding",
+      "strength": 0.8,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.modifier_property_binding",
+      "type": "built_from",
+      "target": "schema.property_label_binding",
+      "strength": 0.84,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.predicate_property_sentence",
+      "type": "built_from",
+      "target": "schema.sentence_event_binding",
+      "strength": 0.82,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.count_word_binding",
+      "type": "built_from",
+      "target": "schema.quantity_word_binding",
+      "strength": 0.84,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.set_quantifier_binding",
+      "type": "built_from",
+      "target": "schema.quantity_word_binding",
+      "strength": 0.84,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.comparison_question_binding",
+      "type": "built_from",
+      "target": "schema.question_relation_query",
+      "strength": 0.82,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.logical_connector_binding",
+      "type": "built_from",
+      "target": "schema.and_or_filter_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.ordered_instruction_binding",
+      "type": "built_from",
+      "target": "schema.temporal_word_binding",
+      "strength": 0.82,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.event_transition_binding",
+      "type": "built_from",
+      "target": "schema.action_word_binding",
+      "strength": 0.84,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.result_state_binding",
+      "type": "built_from",
+      "target": "schema.event_transition_binding",
+      "strength": 0.84,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.social_action_word_binding",
+      "type": "built_from",
+      "target": "schema.action_word_binding",
+      "strength": 0.82,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.pronoun_perspective_binding",
+      "type": "built_from",
+      "target": "schema.speaker_addressee_binding",
+      "strength": 0.86,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.possessive_relation_binding",
+      "type": "built_from",
+      "target": "schema.pronoun_perspective_binding",
+      "strength": 0.82,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.transfer_role_binding",
+      "type": "built_from",
+      "target": "schema.agent_patient_role_binding",
+      "strength": 0.82,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.agent_patient_role_binding",
+      "type": "built_from",
+      "target": "schema.sentence_event_binding",
+      "strength": 0.86,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.preposition_phrase_binding",
+      "type": "built_from",
+      "target": "schema.sentence_event_binding",
+      "strength": 0.82,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.modifier_scope_binding",
+      "type": "built_from",
+      "target": "schema.sentence_event_binding",
+      "strength": 0.82,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.relative_clause_binding",
+      "type": "built_from",
+      "target": "schema.sentence_event_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.attachment_ambiguity_binding",
+      "type": "built_from",
+      "target": "schema.contextual_relation_activation",
+      "strength": 0.8,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.answer_slot_binding",
+      "type": "built_from",
+      "target": "schema.question_relation_query",
+      "strength": 0.84,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.word_correction_repair",
+      "type": "built_from",
+      "target": "schema.object_label_binding",
+      "strength": 0.76,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.partial_utterance_resolution",
+      "type": "built_from",
+      "target": "schema.approximate_word_recognition",
+      "strength": 0.86,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.unfamiliar_word_negotiation",
+      "type": "built_from",
+      "target": "schema.relation_cluster_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.symbol_to_action_binding",
+      "type": "built_from",
+      "target": "schema.public_sign_binding",
+      "strength": 0.84,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.symbol_to_quantity_binding",
+      "type": "built_from",
+      "target": "schema.written_symbol_binding",
+      "strength": 0.84,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.narrative_order_binding",
+      "type": "built_from",
+      "target": "schema.story_event_chain",
+      "strength": 0.86,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.promise_language_binding",
+      "type": "built_from",
+      "target": "schema.story_event_chain",
+      "strength": 0.8,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.rule_story_binding",
+      "type": "built_from",
+      "target": "schema.story_event_chain",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.problem_solution_discourse",
+      "type": "built_from",
+      "target": "schema.story_event_chain",
+      "strength": 0.84,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.prediction_from_story_state",
+      "type": "built_from",
+      "target": "schema.story_event_chain",
+      "strength": 0.82,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.causal_clause_binding",
+      "type": "built_from",
+      "target": "schema.conditional_clause_binding",
+      "strength": 0.76,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.prohibition_clause_binding",
+      "type": "built_from",
+      "target": "schema.prohibition_word_binding",
+      "strength": 0.84,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.and_or_filter_binding",
+      "type": "built_from",
+      "target": "schema.logical_connector_binding",
+      "strength": 0.84,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.when_trigger_binding",
+      "type": "built_from",
+      "target": "schema.conditional_clause_binding",
+      "strength": 0.82,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.word_sense_split",
+      "type": "built_from",
+      "target": "schema.polysemy_context_selection",
+      "strength": 0.86,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.pragmatic_force_binding",
+      "type": "built_from",
+      "target": "schema.contextual_relation_activation",
+      "strength": 0.82,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.indirect_request_binding",
+      "type": "built_from",
+      "target": "schema.pragmatic_force_binding",
+      "strength": 0.86,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.cross_language_label_equivalence",
+      "type": "built_from",
+      "target": "schema.object_label_binding",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.phoneme_contrast_binding",
+      "type": "built_from",
+      "target": "schema.word_handle",
+      "strength": 0.76,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.syllable_structure_binding",
+      "type": "built_from",
+      "target": "schema.word_handle",
+      "strength": 0.74,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.approximate_word_recognition",
+      "type": "built_from",
+      "target": "schema.word_handle",
+      "strength": 0.8,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.absence_word_binding",
+      "type": "built_from",
+      "target": "schema.negation_operator_binding",
+      "strength": 0.84,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.tense_event_time_binding",
+      "type": "built_from",
+      "target": "schema.temporal_word_binding",
+      "strength": 0.82,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.desire_belief_expectation_binding",
+      "type": "built_from",
+      "target": "schema.epistemic_strength_binding",
+      "strength": 0.8,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.contextual_relation_activation",
+      "type": "selects",
+      "target": "schema.word_sense_split",
+      "strength": 0.86,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.polysemy_context_selection",
+      "type": "selects",
+      "target": "schema.word_sense_split",
+      "strength": 0.88,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.prosody_affect_binding",
+      "type": "can_cause",
+      "target": "schema.pragmatic_force_binding",
+      "strength": 0.78,
+      "valence": "mixed"
+    },
+    {
+      "source": "schema.promise_language_binding",
+      "type": "can_cause",
+      "target": "schema.prediction_from_story_state",
+      "strength": 0.82,
+      "valence": "mixed"
+    },
+    {
+      "source": "schema.negation_operator_binding",
+      "type": "modifies",
+      "target": "schema.predicate_property_sentence",
+      "strength": 0.84,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.tense_event_time_binding",
+      "type": "modifies",
+      "target": "schema.event_transition_binding",
+      "strength": 0.82,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.epistemic_strength_binding",
+      "type": "modifies",
+      "target": "schema.sentence_event_binding",
+      "strength": 0.82,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.indirect_request_binding",
+      "type": "can_activate",
+      "target": "schema.permission_word_binding",
+      "strength": 0.74,
+      "valence": "neutral"
+    }
+  ],
+  "micro_experiences": [
+    {
+      "id": "experience.name_gesture_permission_001",
+      "title": "Name, gesture, yes, no, stop, and wait",
+      "age_status": "active",
+      "participants": [
+        "agent.speaker",
+        "agent.listener",
+        "surface.spoken_word",
+        "surface.gesture"
+      ],
+      "events": [
+        "caregiver says the child's name",
+        "caregiver says no while blocking",
+        "caregiver nods yes",
+        "caregiver says wait while delaying access"
+      ],
+      "relations_observed": [
+        {
+          "source": "schema.name_binding",
+          "type": "strengthens",
+          "target": "invariant.reference",
+          "strength_delta": 0.05
+        },
+        {
+          "source": "schema.prohibition_word_binding",
+          "type": "strengthens",
+          "target": "invariant.permission_blocking",
+          "strength_delta": 0.04
+        },
+        {
+          "source": "schema.permission_word_binding",
+          "type": "strengthens",
+          "target": "invariant.permission_blocking",
+          "strength_delta": 0.04
+        }
+      ],
+      "language_overlay": [
+        "A word, a gesture, and the allowed or blocked action are bound together."
+      ]
+    },
+    {
+      "id": "experience.object_category_label_001",
+      "title": "Object labels generalize across instances",
+      "age_status": "active",
+      "participants": [
+        "surface.spoken_word",
+        "referent.object",
+        "referent.picture",
+        "agent.shared_attention_partner"
+      ],
+      "events": [
+        "caregiver says ball while touching one ball",
+        "caregiver says ball for a different sized ball",
+        "caregiver says ball for a picture"
+      ],
+      "relations_observed": [
+        {
+          "source": "schema.object_label_binding",
+          "type": "strengthens",
+          "target": "invariant.reference",
+          "strength_delta": 0.05
+        },
+        {
+          "source": "schema.category_extension",
+          "type": "strengthens",
+          "target": "schema.object_label_binding",
+          "strength_delta": 0.04
+        }
+      ],
+      "language_overlay": [
+        "Ball is not one object; it is a handle into a category relation cluster."
+      ]
+    },
+    {
+      "id": "experience.property_quantity_sentence_001",
+      "title": "Property and quantity words modify referents",
+      "age_status": "active",
+      "participants": [
+        "surface.spoken_word",
+        "referent.object",
+        "referent.property",
+        "referent.quantity_set"
+      ],
+      "events": [
+        "caregiver says red block",
+        "caregiver says more food",
+        "caregiver asks how many biscuits",
+        "caregiver says every child got a sweet"
+      ],
+      "relations_observed": [
+        {
+          "source": "schema.property_label_binding",
+          "type": "strengthens",
+          "target": "invariant.property_relation",
+          "strength_delta": 0.04
+        },
+        {
+          "source": "schema.quantity_word_binding",
+          "type": "strengthens",
+          "target": "invariant.quantity_relation",
+          "strength_delta": 0.04
+        }
+      ],
+      "language_overlay": [
+        "Property and quantity words select relation dimensions rather than naming whole objects."
+      ]
+    },
+    {
+      "id": "experience.spatial_temporal_instruction_001",
+      "title": "Spatial and temporal words guide action",
+      "age_status": "active",
+      "participants": [
+        "surface.spoken_word",
+        "referent.location",
+        "referent.action_event"
+      ],
+      "events": [
+        "caregiver says put the ball in the box",
+        "caregiver says take it out",
+        "caregiver says wash hands before eating"
+      ],
+      "relations_observed": [
+        {
+          "source": "schema.spatial_word_binding",
+          "type": "strengthens",
+          "target": "invariant.spatial_relation",
+          "strength_delta": 0.04
+        },
+        {
+          "source": "schema.temporal_word_binding",
+          "type": "strengthens",
+          "target": "invariant.temporal_order",
+          "strength_delta": 0.04
+        }
+      ],
+      "language_overlay": [
+        "Inside, outside, before, and after bind speech to spatial and ordered-action relations."
+      ]
+    },
+    {
+      "id": "experience.verb_event_result_001",
+      "title": "Verb words bind to action-effect structure",
+      "age_status": "active",
+      "participants": [
+        "surface.spoken_word",
+        "referent.action_event",
+        "referent.object"
+      ],
+      "events": [
+        "caregiver says push while pushing",
+        "caregiver says fall after a toy falls",
+        "caregiver says spill after water leaves the cup"
+      ],
+      "relations_observed": [
+        {
+          "source": "schema.action_word_binding",
+          "type": "strengthens",
+          "target": "invariant.action_effect",
+          "strength_delta": 0.05
+        },
+        {
+          "source": "schema.result_state_binding",
+          "type": "strengthens",
+          "target": "schema.event_transition_binding",
+          "strength_delta": 0.04
+        }
+      ],
+      "language_overlay": [
+        "A verb points to an action and its expected event transition or result state."
+      ]
+    },
+    {
+      "id": "experience.pronoun_transfer_roles_001",
+      "title": "Pronouns and transfer roles depend on perspective",
+      "age_status": "active",
+      "participants": [
+        "agent.speaker",
+        "agent.listener",
+        "agent.referent_person",
+        "referent.object"
+      ],
+      "events": [
+        "speaker says I",
+        "speaker says you",
+        "caregiver says the child gave the toy to the sibling",
+        "caregiver says the sibling took the toy"
+      ],
+      "relations_observed": [
+        {
+          "source": "schema.pronoun_perspective_binding",
+          "type": "strengthens",
+          "target": "invariant.agent_role",
+          "strength_delta": 0.05
+        },
+        {
+          "source": "schema.transfer_role_binding",
+          "type": "strengthens",
+          "target": "schema.agent_patient_role_binding",
+          "strength_delta": 0.04
+        }
+      ],
+      "language_overlay": [
+        "I and you change with speaker; gave and took change giver, receiver, and object roles."
+      ]
+    },
+    {
+      "id": "experience.sentence_role_reversal_001",
+      "title": "Sentence order changes event roles",
+      "age_status": "active",
+      "participants": [
+        "referent.sentence",
+        "referent.action_event",
+        "referent.object"
+      ],
+      "events": [
+        "caregiver says the child chased the dog",
+        "caregiver says the dog chased the child",
+        "caregiver says the ball hit the cup",
+        "caregiver says the cup hit the ball"
+      ],
+      "relations_observed": [
+        {
+          "source": "schema.agent_patient_role_binding",
+          "type": "strengthens",
+          "target": "schema.sentence_event_binding",
+          "strength_delta": 0.05
+        },
+        {
+          "source": "schema.modifier_scope_binding",
+          "type": "strengthens",
+          "target": "schema.sentence_event_binding",
+          "strength_delta": 0.03
+        }
+      ],
+      "language_overlay": [
+        "The same words can create different events when grammar roles reverse."
+      ]
+    },
+    {
+      "id": "experience.question_answer_repair_001",
+      "title": "Questions ask for missing relation slots",
+      "age_status": "active",
+      "participants": [
+        "referent.question",
+        "agent.speaker",
+        "agent.listener",
+        "referent.object"
+      ],
+      "events": [
+        "caregiver asks where is the ball",
+        "caregiver asks why the floor is wet",
+        "child says a wrong word and adult corrects it"
+      ],
+      "relations_observed": [
+        {
+          "source": "schema.question_relation_query",
+          "type": "strengthens",
+          "target": "invariant.reference",
+          "strength_delta": 0.04
+        },
+        {
+          "source": "schema.word_correction_repair",
+          "type": "strengthens",
+          "target": "schema.object_label_binding",
+          "strength_delta": 0.03
+        }
+      ],
+      "language_overlay": [
+        "Where asks for location, why asks for cause, and correction updates the word-relation link."
+      ]
+    },
+    {
+      "id": "experience.symbol_sign_quantity_001",
+      "title": "Signs and written marks bind to action and quantity",
+      "age_status": "active",
+      "participants": [
+        "surface.written_mark",
+        "referent.quantity_set",
+        "referent.action_event"
+      ],
+      "events": [
+        "child sees a stop sign",
+        "adult says stop",
+        "child sees number 3 beside three dots"
+      ],
+      "relations_observed": [
+        {
+          "source": "schema.symbol_to_action_binding",
+          "type": "strengthens",
+          "target": "schema.public_sign_binding",
+          "strength_delta": 0.04
+        },
+        {
+          "source": "schema.symbol_to_quantity_binding",
+          "type": "strengthens",
+          "target": "schema.written_symbol_binding",
+          "strength_delta": 0.04
+        }
+      ],
+      "language_overlay": [
+        "Written symbols are public handles into action or quantity relations."
+      ]
+    },
+    {
+      "id": "experience.story_promise_rule_001",
+      "title": "Stories bind promises, rules, problems, and solutions",
+      "age_status": "active",
+      "participants": [
+        "referent.story_event",
+        "referent.promise_outcome",
+        "channel.story_sequence"
+      ],
+      "events": [
+        "story character promises to return",
+        "character breaks the promise",
+        "story shows a rule followed",
+        "child predicts what happens next"
+      ],
+      "relations_observed": [
+        {
+          "source": "schema.promise_language_binding",
+          "type": "strengthens",
+          "target": "schema.story_event_chain",
+          "strength_delta": 0.04
+        },
+        {
+          "source": "schema.prediction_from_story_state",
+          "type": "strengthens",
+          "target": "schema.story_event_chain",
+          "strength_delta": 0.04
+        }
+      ],
+      "language_overlay": [
+        "A story is an ordered relation chain, not a bag of sentences."
+      ]
+    },
+    {
+      "id": "experience.condition_cause_negation_001",
+      "title": "If, because, and not modify relation structures",
+      "age_status": "active",
+      "participants": [
+        "referent.sentence",
+        "referent.action_event",
+        "referent.context"
+      ],
+      "events": [
+        "caregiver says if the light is red, stop",
+        "caregiver says the cup fell because it was near the edge",
+        "caregiver says the cup is not red"
+      ],
+      "relations_observed": [
+        {
+          "source": "schema.conditional_clause_binding",
+          "type": "strengthens",
+          "target": "invariant.condition_rule",
+          "strength_delta": 0.05
+        },
+        {
+          "source": "schema.negation_operator_binding",
+          "type": "strengthens",
+          "target": "invariant.negation_polarity",
+          "strength_delta": 0.04
+        }
+      ],
+      "language_overlay": [
+        "Logical words modify existing relation structures instead of becoming isolated facts."
+      ]
+    },
+    {
+      "id": "experience.polysemy_tone_sound_001",
+      "title": "Context, tone, and sound shape word interpretation",
+      "age_status": "active",
+      "participants": [
+        "surface.spoken_word",
+        "surface.tone",
+        "surface.home_language_word",
+        "referent.context"
+      ],
+      "events": [
+        "light means easy to lift in one context",
+        "light means illumination in another",
+        "same word is happy or angry by tone",
+        "child says ba for ball and context resolves it"
+      ],
+      "relations_observed": [
+        {
+          "source": "schema.polysemy_context_selection",
+          "type": "strengthens",
+          "target": "invariant.context_selection",
+          "strength_delta": 0.05
+        },
+        {
+          "source": "schema.approximate_word_recognition",
+          "type": "strengthens",
+          "target": "invariant.sound_form_contrast",
+          "strength_delta": 0.04
+        }
+      ],
+      "language_overlay": [
+        "Surface form, tone, context, and relation cluster must be represented separately."
+      ]
+    }
+  ],
+  "evaluation_questions": [
+    {
+      "id": "eval.word_handle_cluster",
+      "question": "Why is a word not the same thing as its meaning?",
+      "expected_answer": "A word is a surface handle that activates a relation cluster. Context decides which strong and weak relations become active.",
+      "expected_relations": [
+        {
+          "source": "schema.word_handle",
+          "type": "can_activate",
+          "target": "concept.language_binding"
+        },
+        {
+          "source": "schema.relation_cluster_binding",
+          "type": "can_activate",
+          "target": "concept.meaning_as_relation_cluster"
+        }
+      ]
+    },
+    {
+      "id": "eval.ball_category_extension",
+      "question": "Why can ball apply to balls of different sizes and colors?",
+      "expected_answer": "The word activates an object-label cluster that extends across instances while preserving category-relevant relations.",
+      "expected_relations": [
+        {
+          "source": "schema.category_extension",
+          "type": "built_from",
+          "target": "schema.object_label_binding"
+        }
+      ]
+    },
+    {
+      "id": "eval.property_modifier",
+      "question": "Why is red ball different from ball?",
+      "expected_answer": "Red is a property modifier that selects a property relation on the object-label cluster.",
+      "expected_relations": [
+        {
+          "source": "schema.modifier_property_binding",
+          "type": "built_from",
+          "target": "schema.property_label_binding"
+        }
+      ]
+    },
+    {
+      "id": "eval.sentence_role_reversal",
+      "question": "Why are the dog chased the child and the child chased the dog different?",
+      "expected_answer": "The same words are assigned different agent and patient roles by sentence structure.",
+      "expected_relations": [
+        {
+          "source": "schema.agent_patient_role_binding",
+          "type": "built_from",
+          "target": "schema.sentence_event_binding"
+        }
+      ]
+    },
+    {
+      "id": "eval.question_slot",
+      "question": "What relation slot does where is the ball ask for?",
+      "expected_answer": "Where asks for the missing spatial/location slot of the object relation cluster.",
+      "expected_relations": [
+        {
+          "source": "schema.question_relation_query",
+          "type": "built_from",
+          "target": "invariant.reference"
+        },
+        {
+          "source": "schema.spatial_word_binding",
+          "type": "built_from",
+          "target": "invariant.spatial_relation"
+        }
+      ]
+    },
+    {
+      "id": "eval.polysemy_light",
+      "question": "Why can light mean easy to lift or illumination?",
+      "expected_answer": "The same surface word is routed through context selection to different relation clusters.",
+      "expected_relations": [
+        {
+          "source": "schema.word_sense_split",
+          "type": "built_from",
+          "target": "schema.polysemy_context_selection"
+        },
+        {
+          "source": "schema.polysemy_context_selection",
+          "type": "built_from",
+          "target": "invariant.context_selection"
+        }
+      ]
+    },
+    {
+      "id": "eval.negation_polarity",
+      "question": "How does not change the cup is red?",
+      "expected_answer": "Negation modifies the property assertion while keeping the same target relation structure in view.",
+      "expected_relations": [
+        {
+          "source": "schema.negation_operator_binding",
+          "type": "modifies",
+          "target": "schema.predicate_property_sentence"
+        }
+      ]
+    },
+    {
+      "id": "eval.promise_trust_story",
+      "question": "Why does a broken promise change later expectation?",
+      "expected_answer": "Promise language creates a predicted future action; when the outcome violates it, story state and reliability expectation change.",
+      "expected_relations": [
+        {
+          "source": "schema.promise_language_binding",
+          "type": "can_cause",
+          "target": "schema.prediction_from_story_state"
+        }
+      ]
+    },
+    {
+      "id": "eval.partial_word_context",
+      "question": "Why can ba be understood as ball when the child points to a ball?",
+      "expected_answer": "Approximate sound recognition and context jointly select the likely word handle and relation cluster.",
+      "expected_relations": [
+        {
+          "source": "schema.partial_utterance_resolution",
+          "type": "built_from",
+          "target": "schema.approximate_word_recognition"
+        },
+        {
+          "source": "schema.contextual_relation_activation",
+          "type": "can_activate",
+          "target": "concept.contextual_meaning"
+        }
+      ]
+    },
+    {
+      "id": "eval.indirect_request",
+      "question": "Why can can you open the door function as a request?",
+      "expected_answer": "Pragmatic force and context convert an ability question into an indirect request for action.",
+      "expected_relations": [
+        {
+          "source": "schema.indirect_request_binding",
+          "type": "built_from",
+          "target": "schema.pragmatic_force_binding"
+        }
+      ]
+    }
+  ]
+}

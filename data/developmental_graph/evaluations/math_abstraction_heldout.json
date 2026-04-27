@@ -1,0 +1,444 @@
+{
+  "schema_version": "0.1.0",
+  "evaluation_id": "heldout.math_abstraction.maybe",
+  "title": "Held-Out Evaluation: Math-Abstraction Maybe Rows",
+  "status": "heldout",
+  "source_seed": "data/developmental_graph/seeds/math_abstraction.json",
+  "source_inventory": "docs/math-abstraction-200-situations.md",
+  "source_audit": "docs/math-abstraction-firstset-relation-audit.md",
+  "purpose": "Test whether the math-abstraction seed generalizes from the 66 selected first-set situations to second-pass maybe situations and exposes missing abstraction relation families.",
+  "scoring_notes": [
+    "These cases should not be used as seed micro-experiences in the first math-abstraction training curriculum.",
+    "Cases marked transfer_probe should be answerable from existing math seed motifs.",
+    "Cases marked gap_probe intentionally reveal relation families that may need later expansion."
+  ],
+  "cases": [
+    {
+      "id": "heldout.math.same_shape_different_attribute",
+      "source_ids": ["M003", "M007", "M008"],
+      "split": "maybe",
+      "case_type": "transfer_probe",
+      "prompt": "Two round balls have different colors. Two cups have the same shape but different colors, and two other cups have the same color but different sizes. Which relation families should separate match from difference?",
+      "expected_answer": "The model should compare the selected attribute. Items may match on shape while contrasting in color or size, so same/different must be attribute-specific.",
+      "expected_relation_families": ["schema.attribute_match", "schema.attribute_contrast", "invariant.same_different"],
+      "graph_anchors": [
+        {"source": "schema.attribute_match", "type": "built_from", "target": "invariant.same_different"},
+        {"source": "schema.attribute_contrast", "type": "built_from", "target": "invariant.same_different"}
+      ],
+      "transfer_focus": "Generalize selected-attribute matching beyond blocks, socks, and simple shapes."
+    },
+    {
+      "id": "heldout.math.same_animal_different_pose",
+      "source_ids": ["M009", "M010"],
+      "split": "maybe",
+      "case_type": "gap_probe",
+      "prompt": "A child sees two pictures of the same animal in different poses, and also two different animals in the same pose. What can the current graph capture, and what may be missing?",
+      "expected_answer": "The current graph can use attribute match and contrast, but pose-invariant identity and category recognition are not explicit enough yet.",
+      "expected_relation_families": ["schema.attribute_match", "schema.attribute_contrast", "schema.category_grouping", "invariant.same_different"],
+      "gap_indicators": ["schema.pose_invariant_identity", "schema.object_identity_across_view", "schema.category_under_pose_change"],
+      "graph_anchors": [
+        {"source": "schema.attribute_match", "type": "built_from", "target": "invariant.same_different"},
+        {"source": "schema.attribute_contrast", "type": "built_from", "target": "invariant.same_different"},
+        {"source": "schema.category_grouping", "type": "built_from", "target": "invariant.group_member"}
+      ],
+      "transfer_focus": "Expose the gap between simple attribute comparison and identity/category invariance."
+    },
+    {
+      "id": "heldout.math.claps_letters_similarity",
+      "source_ids": ["M018", "M019", "M020"],
+      "split": "maybe",
+      "case_type": "gap_probe",
+      "prompt": "A child hears two repeated claps and then a different sound. The child also sees letters that look the same and letters that look similar but not identical. What relation families apply?",
+      "expected_answer": "The repeated sound can use rhythm or repetition, while the letters use same/different and attribute contrast. A later graph may need similarity-degree and symbol-shape threshold relations.",
+      "expected_relation_families": ["schema.rhythm_pattern", "schema.attribute_match", "schema.attribute_contrast", "invariant.repeats"],
+      "gap_indicators": ["schema.similarity_degree_threshold", "schema.symbol_shape_confusability"],
+      "graph_anchors": [
+        {"source": "schema.rhythm_pattern", "type": "built_from", "target": "invariant.repeats"},
+        {"source": "schema.attribute_match", "type": "built_from", "target": "invariant.same_different"},
+        {"source": "schema.attribute_contrast", "type": "built_from", "target": "invariant.same_different"}
+      ],
+      "transfer_focus": "Apply same/different and repetition across sound and written-symbol perception."
+    },
+    {
+      "id": "heldout.math.count_arrangement_invariance",
+      "source_ids": ["M023", "M028", "M029", "M030"],
+      "split": "maybe",
+      "case_type": "gap_probe",
+      "prompt": "Three biscuits are on a plate. A child counts the same three toys in a line, spread out, and gathered close together. What should remain stable?",
+      "expected_answer": "The object count should remain three when the same distinct items are merely rearranged. The graph has object count and number, but count invariance under spatial rearrangement should be made explicit later.",
+      "expected_relation_families": ["schema.object_count", "schema.counting_correspondence", "concept.number", "invariant.zero_one_many"],
+      "gap_indicators": ["schema.spatial_arrangement_count_invariance", "schema.same_set_rearranged"],
+      "graph_anchors": [
+        {"source": "schema.object_count", "type": "built_from", "target": "invariant.zero_one_many"},
+        {"source": "schema.object_count", "type": "can_activate", "target": "concept.number"},
+        {"source": "schema.counting_correspondence", "type": "can_activate", "target": "concept.number"}
+      ],
+      "transfer_focus": "Test whether count is tied to distinct items rather than row length or spacing."
+    },
+    {
+      "id": "heldout.math.hidden_move_under_cups",
+      "source_ids": ["M033", "M034"],
+      "split": "maybe",
+      "case_type": "gap_probe",
+      "prompt": "Two toys are under one cup and one toy is under another cup. Then one toy is moved from one cup to the other. Which existing relations help, and what is missing?",
+      "expected_answer": "Containment and before/after quantity change help, but hidden-location tracking and transfer between covered containers are not explicit enough yet.",
+      "expected_relation_families": ["schema.containment_fit", "schema.add_one_quantity_change", "schema.remove_one_quantity_change", "invariant.inside_outside"],
+      "gap_indicators": ["schema.hidden_object_quantity_tracking", "schema.location_update_under_cover", "schema.container_to_container_transfer"],
+      "graph_anchors": [
+        {"source": "schema.containment_fit", "type": "built_from", "target": "invariant.inside_outside"},
+        {"source": "schema.add_one_quantity_change", "type": "built_from", "target": "invariant.before_after"},
+        {"source": "schema.remove_one_quantity_change", "type": "built_from", "target": "invariant.before_after"}
+      ],
+      "transfer_focus": "Use containment and quantity-change relations while exposing hidden-state tracking gaps."
+    },
+    {
+      "id": "heldout.math.bring_one_two_spoons",
+      "source_ids": ["M035", "M036"],
+      "split": "maybe",
+      "case_type": "transfer_probe",
+      "prompt": "A child is asked to bring one spoon, then two spoons, from a drawer. Which relation families should represent the request?",
+      "expected_answer": "The request should bind a number word to a count and use object counting or counting correspondence to select the right number of spoons.",
+      "expected_relation_families": ["schema.object_count", "schema.counting_correspondence", "schema.number_symbol_binding", "concept.number"],
+      "graph_anchors": [
+        {"source": "schema.object_count", "type": "can_activate", "target": "concept.number"},
+        {"source": "schema.counting_correspondence", "type": "can_activate", "target": "concept.number"},
+        {"source": "schema.number_symbol_binding", "type": "can_activate", "target": "concept.number"}
+      ],
+      "transfer_focus": "Apply number/count relations to an instruction rather than a displayed row."
+    },
+    {
+      "id": "heldout.math.many_small_few_large",
+      "source_ids": ["M039", "M040", "M045"],
+      "split": "maybe",
+      "case_type": "transfer_probe",
+      "prompt": "A child sees many small beads, a few large blocks, and five tiny buttons beside two large buttons. What comparison should avoid the size shortcut?",
+      "expected_answer": "The model should compare count separately from size. Many small things can be more numerous than a few large things.",
+      "expected_relation_families": ["schema.quantity_comparison", "schema.cross_property_independence", "invariant.more_less_equal", "invariant.same_different"],
+      "graph_anchors": [
+        {"source": "schema.quantity_comparison", "type": "built_from", "target": "invariant.more_less_equal"},
+        {"source": "schema.cross_property_independence", "type": "built_from", "target": "invariant.same_different"}
+      ],
+      "transfer_focus": "Test count/size independence in quantity comparison."
+    },
+    {
+      "id": "heldout.math.tall_stack_long_row",
+      "source_ids": ["M043", "M044"],
+      "split": "maybe",
+      "case_type": "gap_probe",
+      "prompt": "A child sees one tall stack and one short stack, then one long row and one short row. What relation families are available?",
+      "expected_answer": "The graph can compare quantities and ordered dimensions, but it should later distinguish dimension-specific comparisons such as height versus length.",
+      "expected_relation_families": ["schema.ordered_series", "schema.quantity_comparison", "invariant.order_position", "invariant.more_less_equal"],
+      "gap_indicators": ["schema.dimension_specific_comparison", "schema.height_length_axis_selection"],
+      "graph_anchors": [
+        {"source": "schema.ordered_series", "type": "built_from", "target": "invariant.order_position"},
+        {"source": "schema.quantity_comparison", "type": "built_from", "target": "invariant.more_less_equal"}
+      ],
+      "transfer_focus": "Expose whether comparison knows which dimension is being ordered."
+    },
+    {
+      "id": "heldout.math.lids_crayons_leftover",
+      "source_ids": ["M050", "M051", "M052", "M053"],
+      "split": "maybe",
+      "case_type": "transfer_probe",
+      "prompt": "A child puts one lid on each container, sees more containers than lids, places one crayon beside each sheet, and sees a sheet without a crayon. Which relation families explain this?",
+      "expected_answer": "These are one-to-one assignment problems. If every target cannot receive one item, the graph should detect an unmatched leftover or uncovered target.",
+      "expected_relation_families": ["schema.one_to_one_assignment", "schema.unmatched_leftover", "event.leftover_detected", "invariant.one_to_one"],
+      "graph_anchors": [
+        {"source": "schema.one_to_one_assignment", "type": "built_from", "target": "invariant.one_to_one"},
+        {"source": "schema.unmatched_leftover", "type": "built_from", "target": "schema.one_to_one_assignment"},
+        {"source": "schema.unmatched_leftover", "type": "can_cause", "target": "event.leftover_detected"}
+      ],
+      "transfer_focus": "Generalize one-to-one assignment from cups and shoes to lids/containers and crayons/paper."
+    },
+    {
+      "id": "heldout.math.divide_even_odd_blocks",
+      "source_ids": ["M056", "M057"],
+      "split": "maybe",
+      "case_type": "gap_probe",
+      "prompt": "A child divides six blocks between two bowls, then divides seven blocks between two bowls. What relation families apply, and what may be missing?",
+      "expected_answer": "One-to-one assignment and unequal distribution are relevant. Equal partition, odd/even, and remainder are not explicit yet.",
+      "expected_relation_families": ["schema.one_to_one_assignment", "schema.unequal_distribution", "schema.unmatched_leftover", "schema.quantity_comparison"],
+      "gap_indicators": ["schema.equal_partition", "schema.odd_even_remainder", "schema.division_remainder"],
+      "graph_anchors": [
+        {"source": "schema.one_to_one_assignment", "type": "built_from", "target": "invariant.one_to_one"},
+        {"source": "schema.unequal_distribution", "type": "built_from", "target": "schema.one_to_one_assignment"},
+        {"source": "schema.quantity_comparison", "type": "built_from", "target": "invariant.more_less_equal"}
+      ],
+      "transfer_focus": "Use assignment and leftover relations while revealing partition/remainder gaps."
+    },
+    {
+      "id": "heldout.math.egg_carton_slots",
+      "source_ids": ["M061", "M062", "M063"],
+      "split": "maybe",
+      "case_type": "gap_probe",
+      "prompt": "A child puts buttons into egg-carton holes one by one, then sees empty holes or buttons left over. What should be represented?",
+      "expected_answer": "The graph can use one-to-one assignment, leftover, and fit. A more specific slot-capacity relation may be needed later.",
+      "expected_relation_families": ["schema.one_to_one_assignment", "schema.unmatched_leftover", "schema.containment_fit", "invariant.one_to_one"],
+      "gap_indicators": ["schema.slot_capacity_matching", "schema.empty_slot_detected", "schema.capacity_count_correspondence"],
+      "graph_anchors": [
+        {"source": "schema.one_to_one_assignment", "type": "built_from", "target": "invariant.one_to_one"},
+        {"source": "schema.unmatched_leftover", "type": "can_cause", "target": "event.leftover_detected"},
+        {"source": "schema.containment_fit", "type": "built_from", "target": "invariant.inside_outside"}
+      ],
+      "transfer_focus": "Transfer one-to-one correspondence to fixed slots and capacity."
+    },
+    {
+      "id": "heldout.math.empty_full_last_first",
+      "source_ids": ["M069", "M071", "M072"],
+      "split": "maybe",
+      "case_type": "transfer_probe",
+      "prompt": "Cups are arranged from emptiest to fullest. A child stands last in a line, then moves from last to first. Which ordering relations are active?",
+      "expected_answer": "The cups use ordered series by visible level, and the line uses ordinal position. Moving last to first changes order position.",
+      "expected_relation_families": ["schema.ordered_series", "schema.reverse_order", "schema.ordinal_position", "schema.level_comparison", "concept.order"],
+      "graph_anchors": [
+        {"source": "schema.ordered_series", "type": "built_from", "target": "invariant.order_position"},
+        {"source": "schema.reverse_order", "type": "contrasts_with", "target": "schema.ordered_series"},
+        {"source": "schema.ordered_series", "type": "can_activate", "target": "concept.order"},
+        {"source": "schema.level_comparison", "type": "built_from", "target": "invariant.more_less_equal"}
+      ],
+      "transfer_focus": "Generalize order across amount levels and position in a line."
+    },
+    {
+      "id": "heldout.math.temporal_growth_order",
+      "source_ids": ["M074", "M075"],
+      "split": "maybe",
+      "case_type": "gap_probe",
+      "prompt": "A child places a bedtime picture before a breakfast picture, and sees seed, plant, and fruit pictures out of order. What relation should handle this?",
+      "expected_answer": "The current graph can order events by before/after. A later graph may need natural-process sequence knowledge for growth order.",
+      "expected_relation_families": ["schema.event_sequence_order", "schema.order_violation", "invariant.before_after"],
+      "gap_indicators": ["schema.natural_process_order", "schema.daily_cycle_order", "schema.growth_stage_sequence"],
+      "graph_anchors": [
+        {"source": "schema.event_sequence_order", "type": "built_from", "target": "invariant.before_after"},
+        {"source": "schema.order_violation", "type": "contrasts_with", "target": "schema.instruction_step_order"}
+      ],
+      "transfer_focus": "Apply event ordering to routines and growth sequences while exposing domain-sequence gaps."
+    },
+    {
+      "id": "heldout.math.nesting_missing_middle",
+      "source_ids": ["M076", "M081", "M082", "M083"],
+      "split": "maybe",
+      "case_type": "gap_probe",
+      "prompt": "A child arranges nesting cups from inside to outside, puts the smallest cup inside the next larger cup, tries a cup that does not fit, and places a missing middle block between small and large. Which relations apply?",
+      "expected_answer": "Containment, fit failure, ordered series, and ordinal position apply. Nested size series and middle-size inference are not yet explicit enough.",
+      "expected_relation_families": ["schema.containment_fit", "schema.fit_failure", "schema.ordered_series", "schema.ordinal_position"],
+      "gap_indicators": ["schema.nested_series_fit", "schema.intermediate_size_inference", "schema.size_successor_relation"],
+      "graph_anchors": [
+        {"source": "schema.containment_fit", "type": "built_from", "target": "invariant.inside_outside"},
+        {"source": "schema.fit_failure", "type": "contrasts_with", "target": "schema.containment_fit"},
+        {"source": "schema.ordered_series", "type": "built_from", "target": "invariant.order_position"},
+        {"source": "schema.ordinal_position", "type": "built_from", "target": "invariant.order_position"}
+      ],
+      "transfer_focus": "Connect fit and order for nested-size reasoning."
+    },
+    {
+      "id": "heldout.math.numbered_floor_tiles",
+      "source_ids": ["M085"],
+      "split": "maybe",
+      "case_type": "transfer_probe",
+      "prompt": "A child steps on numbered floor tiles in order. Which relation families should represent the task?",
+      "expected_answer": "The written numbers bind to number/order, and the action follows an ordered series of positions.",
+      "expected_relation_families": ["schema.number_symbol_binding", "schema.ordered_series", "schema.ordinal_position", "concept.number", "concept.order"],
+      "graph_anchors": [
+        {"source": "schema.number_symbol_binding", "type": "can_activate", "target": "concept.number"},
+        {"source": "schema.ordered_series", "type": "can_activate", "target": "concept.order"},
+        {"source": "schema.ordinal_position", "type": "built_from", "target": "invariant.order_position"}
+      ],
+      "transfer_focus": "Bind written number handles to ordered spatial action."
+    },
+    {
+      "id": "heldout.math.category_context_shift",
+      "source_ids": ["M090", "M091", "M092", "M093", "M094", "M095"],
+      "split": "maybe",
+      "case_type": "gap_probe",
+      "prompt": "A child sorts animals by type, size, and where they are usually seen; sorts fruits and vegetables; sees tomato placed with fruit in one setting and vegetables in another; and groups school items separately from kitchen items. What does this test?",
+      "expected_answer": "The seed graph can represent category grouping, function grouping, sorting rules, and group membership. Context-dependent category and hierarchy need later specialization.",
+      "expected_relation_families": ["schema.category_grouping", "schema.function_grouping", "schema.sorting_rule", "invariant.group_member", "concept.grouping"],
+      "gap_indicators": ["schema.context_dependent_category", "schema.category_hierarchy", "schema.taxonomic_vs_use_context"],
+      "graph_anchors": [
+        {"source": "schema.category_grouping", "type": "built_from", "target": "invariant.group_member"},
+        {"source": "schema.function_grouping", "type": "built_from", "target": "invariant.group_member"},
+        {"source": "schema.sorting_rule", "type": "can_activate", "target": "concept.grouping"}
+      ],
+      "transfer_focus": "Test whether grouping follows the active rule rather than a fixed label."
+    },
+    {
+      "id": "heldout.math.overlapping_function_groups",
+      "source_ids": ["M097", "M098", "M099"],
+      "split": "maybe",
+      "case_type": "gap_probe",
+      "prompt": "A child groups things that can roll, things that make sound, and sees one object that belongs in two different piles. What relation is needed?",
+      "expected_answer": "Function grouping and multi-attribute filtering are available, but overlapping group membership should be made explicit later.",
+      "expected_relation_families": ["schema.function_grouping", "schema.multi_attribute_filter", "schema.property_grouping", "concept.grouping"],
+      "gap_indicators": ["schema.overlapping_group_membership", "schema.multiple_valid_classification"],
+      "graph_anchors": [
+        {"source": "schema.function_grouping", "type": "built_from", "target": "invariant.group_member"},
+        {"source": "schema.multi_attribute_filter", "type": "built_from", "target": "schema.property_grouping"},
+        {"source": "schema.property_grouping", "type": "can_activate", "target": "concept.grouping"}
+      ],
+      "transfer_focus": "Expose multiple-membership grouping, not just single-basket sorting."
+    },
+    {
+      "id": "heldout.math.not_toys_missing_category",
+      "source_ids": ["M102", "M103"],
+      "split": "maybe",
+      "case_type": "gap_probe",
+      "prompt": "A child makes a pile of all things that are not toys and finds the missing object type in a set of kitchen items. What should the model do?",
+      "expected_answer": "The model can use negated-property filtering and category grouping. Missing-category-member inference needs a later relation.",
+      "expected_relation_families": ["schema.negated_property_filter", "schema.not_filter", "schema.category_grouping", "schema.odd_one_out"],
+      "gap_indicators": ["schema.missing_category_member", "schema.expected_category_set_completion"],
+      "graph_anchors": [
+        {"source": "schema.negated_property_filter", "type": "built_from", "target": "invariant.property_presence_absence"},
+        {"source": "schema.not_filter", "type": "built_from", "target": "schema.negated_property_filter"},
+        {"source": "schema.category_grouping", "type": "built_from", "target": "invariant.group_member"},
+        {"source": "schema.odd_one_out", "type": "built_from", "target": "schema.attribute_contrast"}
+      ],
+      "transfer_focus": "Combine negation with category expectation."
+    },
+    {
+      "id": "heldout.math.spatial_between_near_far",
+      "source_ids": ["M110", "M111", "M112"],
+      "split": "maybe",
+      "case_type": "gap_probe",
+      "prompt": "A child places one block between two other blocks, one cup next to another, and one toy far away from another toy. What can the current graph represent?",
+      "expected_answer": "The graph has a general spatial position relation, but between, next-to, near, and far should become explicit spatial abstractions later.",
+      "expected_relation_families": ["schema.spatial_position_relation", "invariant.on_under"],
+      "gap_indicators": ["schema.between_relation", "schema.next_to_relation", "invariant.near_far"],
+      "graph_anchors": [
+        {"source": "schema.spatial_position_relation", "type": "built_from", "target": "invariant.on_under"}
+      ],
+      "transfer_focus": "Stress-test whether the current on/under spatial relation is too narrow."
+    },
+    {
+      "id": "heldout.math.rotation_reflection",
+      "source_ids": ["M116", "M117", "M118"],
+      "split": "maybe",
+      "case_type": "gap_probe",
+      "prompt": "A child sees a triangle rotated on a page, a square rotated on a page, and a shape reflected in a mirror. Which relations are available?",
+      "expected_answer": "Same/different and attribute matching help, but rotation and reflection invariance are not explicit yet.",
+      "expected_relation_families": ["schema.attribute_match", "schema.spatial_position_relation", "invariant.same_different"],
+      "gap_indicators": ["schema.rotation_invariance", "schema.reflection_transform", "schema.shape_preserved_under_transform"],
+      "graph_anchors": [
+        {"source": "schema.attribute_match", "type": "built_from", "target": "invariant.same_different"},
+        {"source": "schema.spatial_position_relation", "type": "built_from", "target": "invariant.on_under"}
+      ],
+      "transfer_focus": "Expose geometric transformation gaps while preserving attribute matching."
+    },
+    {
+      "id": "heldout.math.area_coverage_tiling",
+      "source_ids": ["M120", "M121", "M122", "M123", "M124"],
+      "split": "maybe",
+      "case_type": "gap_probe",
+      "prompt": "A child breaks a square cracker into two pieces, covers a picture with matching puzzle pieces, leaves a gap, fills a tray with square tiles, and leaves one corner empty. What relation families apply?",
+      "expected_answer": "Part/whole composition, repeated units, and gap errors are relevant. Area coverage and tiling are not explicit enough yet.",
+      "expected_relation_families": ["schema.shape_composition", "schema.repeated_unit_measurement", "schema.measurement_gap_error", "invariant.part_whole"],
+      "gap_indicators": ["schema.area_coverage_tiling", "schema.coverage_gap", "schema.shape_partition"],
+      "graph_anchors": [
+        {"source": "schema.shape_composition", "type": "built_from", "target": "invariant.part_whole"},
+        {"source": "schema.repeated_unit_measurement", "type": "built_from", "target": "invariant.one_to_one"},
+        {"source": "schema.measurement_gap_error", "type": "contrasts_with", "target": "schema.repeated_unit_measurement"}
+      ],
+      "transfer_focus": "Extend part/whole and measurement error to coverage and tiling."
+    },
+    {
+      "id": "heldout.math.measurement_modalities",
+      "source_ids": ["M129", "M131", "M134", "M136", "M137", "M138", "M139", "M140"],
+      "split": "maybe",
+      "case_type": "gap_probe",
+      "prompt": "A child compares sticks without lining up their ends, different hand spans measuring the same table, two bags by weight, container amounts, loudness, waiting time, and whether a pencil fits in a box. What does this test?",
+      "expected_answer": "The seed covers aligned comparison, repeated-unit measurement, quantity comparison, fit, and measurement. Standard units and modality-specific measurements are still gaps.",
+      "expected_relation_families": ["schema.aligned_measurement_comparison", "schema.repeated_unit_measurement", "schema.quantity_comparison", "schema.containment_fit", "concept.measurement"],
+      "gap_indicators": ["schema.standard_unit", "schema.weight_measurement", "schema.volume_measurement", "schema.duration_comparison", "schema.sound_intensity_comparison"],
+      "graph_anchors": [
+        {"source": "schema.aligned_measurement_comparison", "type": "can_activate", "target": "concept.measurement"},
+        {"source": "schema.repeated_unit_measurement", "type": "can_activate", "target": "concept.measurement"},
+        {"source": "schema.quantity_comparison", "type": "built_from", "target": "invariant.more_less_equal"},
+        {"source": "schema.containment_fit", "type": "built_from", "target": "invariant.inside_outside"}
+      ],
+      "transfer_focus": "Stress-test measurement transfer beyond length."
+    },
+    {
+      "id": "heldout.math.estimate_then_check",
+      "source_ids": ["M143", "M144"],
+      "split": "maybe",
+      "case_type": "gap_probe",
+      "prompt": "A child estimates whether there are enough cups for all guests, then checks by handing them out. What relation families should explain the check?",
+      "expected_answer": "Quantity comparison and one-to-one assignment can verify the estimate, but estimation versus checked count is not explicit yet.",
+      "expected_relation_families": ["schema.quantity_comparison", "schema.one_to_one_assignment", "schema.counting_correspondence"],
+      "gap_indicators": ["schema.estimate_verification", "schema.approximate_quantity_judgment"],
+      "graph_anchors": [
+        {"source": "schema.quantity_comparison", "type": "built_from", "target": "invariant.more_less_equal"},
+        {"source": "schema.one_to_one_assignment", "type": "built_from", "target": "invariant.one_to_one"},
+        {"source": "schema.counting_correspondence", "type": "built_from", "target": "invariant.one_to_one"}
+      ],
+      "transfer_focus": "Connect approximate quantity judgment to exact one-to-one checking."
+    },
+    {
+      "id": "heldout.math.pattern_cycles",
+      "source_ids": ["M149", "M151", "M152", "M153", "M154", "M155", "M156", "M157", "M158", "M159"],
+      "split": "maybe",
+      "case_type": "transfer_probe",
+      "prompt": "A child continues a step-jump pattern, notices a pattern change, repeats a tower pattern, copies a tile pattern, makes a border pattern, hears a song line repeated with one word changed, and sees daily or physical cycles. Which relation families should generalize?",
+      "expected_answer": "The common structure is repetition. Alternating, cyclic, rhythm, missing-element, and next-item prediction schemas should generalize across beads, movement, sound, stories, calendars, and physical cycles.",
+      "expected_relation_families": ["schema.alternating_pattern", "schema.cyclic_pattern", "schema.rhythm_pattern", "schema.missing_pattern_element", "schema.next_item_prediction", "concept.pattern"],
+      "graph_anchors": [
+        {"source": "schema.alternating_pattern", "type": "built_from", "target": "invariant.repeats"},
+        {"source": "schema.cyclic_pattern", "type": "built_from", "target": "invariant.repeats"},
+        {"source": "schema.rhythm_pattern", "type": "built_from", "target": "invariant.repeats"},
+        {"source": "schema.next_item_prediction", "type": "can_cause", "target": "event.prediction_success"},
+        {"source": "schema.alternating_pattern", "type": "can_activate", "target": "concept.pattern"}
+      ],
+      "transfer_focus": "Check whether pattern is learned as repeat structure rather than a bead-only task."
+    },
+    {
+      "id": "heldout.math.symbols_charts_labels",
+      "source_ids": ["M163", "M164", "M165", "M166", "M170", "M173", "M174", "M175"],
+      "split": "maybe",
+      "case_type": "gap_probe",
+      "prompt": "A child matches an apple picture with the written word apple, follows picture and arrow signs, points to the tallest chart bar, sees the same number used as a count and as a bus label, follows a recipe showing two spoons of sugar, and sees a score change. What relation families apply?",
+      "expected_answer": "The graph covers quantity symbols, chart bars, number binding, path following, and quantity change. It lacks general non-numeric label binding, nominal numbers, recipe units, and score update.",
+      "expected_relation_families": ["schema.number_symbol_binding", "schema.quantity_symbol_mapping", "schema.category_count_display", "schema.bar_length_quantity_display", "schema.path_following", "concept.symbolic_representation"],
+      "gap_indicators": ["schema.non_numeric_label_binding", "schema.nominal_number_label", "schema.recipe_unit_quantity", "schema.score_update"],
+      "graph_anchors": [
+        {"source": "schema.number_symbol_binding", "type": "can_activate", "target": "concept.symbolic_representation"},
+        {"source": "schema.quantity_symbol_mapping", "type": "can_activate", "target": "concept.symbolic_representation"},
+        {"source": "schema.category_count_display", "type": "built_from", "target": "schema.quantity_comparison"},
+        {"source": "schema.bar_length_quantity_display", "type": "built_from", "target": "schema.category_count_display"},
+        {"source": "schema.path_following", "type": "built_from", "target": "invariant.path_blocked_unblocked"}
+      ],
+      "transfer_focus": "Separate numeric symbol binding from broader language and sign binding."
+    },
+    {
+      "id": "heldout.math.condition_possibility_probability",
+      "source_ids": ["M178", "M182", "M183", "M184", "M185", "M187", "M188"],
+      "split": "maybe",
+      "case_type": "gap_probe",
+      "prompt": "A child is told to take an umbrella only if it is raining, sees a closed box that may contain a toy, opens an empty box, watches a hidden ball move under a covered cup, checks one of two hiding places, and picks from a bag with mostly red beads and a few blue beads. What does the current graph cover?",
+      "expected_answer": "The graph covers conditional action, containment, quantity comparison, and expected/unexpected. Possibility, elimination by checking, hidden state, and probability likelihood are later gaps.",
+      "expected_relation_families": ["schema.conditional_action_rule", "schema.containment_fit", "schema.quantity_comparison", "invariant.expected_unexpected"],
+      "gap_indicators": ["schema.possibility_state", "schema.elimination_by_checking", "schema.hidden_state_tracking", "schema.probability_likelihood", "schema.random_selection"],
+      "graph_anchors": [
+        {"source": "schema.conditional_action_rule", "type": "built_from", "target": "invariant.condition_action"},
+        {"source": "schema.containment_fit", "type": "built_from", "target": "invariant.inside_outside"},
+        {"source": "schema.quantity_comparison", "type": "built_from", "target": "invariant.more_less_equal"}
+      ],
+      "transfer_focus": "Expose the boundary between condition rules and later uncertainty/probability reasoning."
+    },
+    {
+      "id": "heldout.math.conservation_transformation_rule",
+      "source_ids": ["M191", "M192", "M193", "M194", "M195", "M196", "M197", "M198", "M199"],
+      "split": "maybe",
+      "case_type": "gap_probe",
+      "prompt": "A child pours the same water between differently shaped cups, flattens clay, cuts and folds paper, moves a toy car the same distance several times, doubles a tower, halves a row, changes one part of a drawing, and sees two routes reach the same room. Which relations should transfer?",
+      "expected_answer": "The current graph can use quantity conservation candidate, shape composition, repeated-unit measurement, and rule transfer. Reversible transformation, doubling, halving, and route equivalence are later gaps.",
+      "expected_relation_families": ["schema.quantity_conservation_candidate", "schema.shape_composition", "schema.repeated_unit_measurement", "schema.rule_transfer", "concept.abstraction"],
+      "gap_indicators": ["schema.reversible_transformation", "schema.doubling_operation", "schema.halving_operation", "schema.equivalent_route", "schema.same_distance_repetition"],
+      "graph_anchors": [
+        {"source": "schema.quantity_conservation_candidate", "type": "built_from", "target": "schema.level_comparison"},
+        {"source": "schema.shape_composition", "type": "built_from", "target": "invariant.part_whole"},
+        {"source": "schema.repeated_unit_measurement", "type": "built_from", "target": "invariant.one_to_one"},
+        {"source": "schema.rule_transfer", "type": "can_activate", "target": "concept.abstraction"}
+      ],
+      "transfer_focus": "Test whether relation preservation under transformation is visible even before formal operations exist."
+    }
+  ]
+}

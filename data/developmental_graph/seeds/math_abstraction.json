@@ -1,0 +1,1951 @@
+{
+  "schema_version": "0.1.0",
+  "graph_id": "seed.math_abstraction",
+  "metadata": {
+    "title": "Seed Domain: Math And Abstraction Roots",
+    "description": "Machine-parseable seed graph for early math and abstraction relation motifs. This is a first executable abstraction scaffold, not a formal mathematics ontology.",
+    "agent": {
+      "domain": "math_abstraction",
+      "perspective": "human_scale_abstraction_scaffold",
+      "source_inventory": "docs/math-abstraction-200-situations.md",
+      "source_audit": "docs/math-abstraction-firstset-relation-audit.md"
+    },
+    "notes": [
+      "This graph uses the 66 first-set math-abstraction situations, not all 117 high-priority rows.",
+      "Formal algebra, proof, probability, and institutional measurement are intentionally excluded from this first seed.",
+      "Math concepts are represented as abstractions built from reusable relation schemas, not as primitives."
+    ]
+  },
+  "layers": [
+    {
+      "id": "layer.math_input",
+      "order": -1,
+      "label": "Math Observation Channels",
+      "description": "Observable inputs such as visual attribute, touch counting, speech number, symbol mark, spatial layout, pattern sequence, and rule instruction."
+    },
+    {
+      "id": "layer.math_invariant",
+      "order": 0,
+      "label": "Math Relational Invariants",
+      "description": "Reusable comparison, quantity, correspondence, order, grouping, spatial, part-whole, repetition, and condition relations."
+    },
+    {
+      "id": "layer.math_schema",
+      "order": 1,
+      "label": "Math Schemas",
+      "description": "Reusable abstraction-building patterns such as matching, counting, comparing, sorting, measuring, patterning, symbol mapping, and rule transfer."
+    },
+    {
+      "id": "layer.math_symbol",
+      "order": 2,
+      "label": "Math Symbols",
+      "description": "Symbol handles such as number words, written numbers, tally marks, and simple chart marks."
+    },
+    {
+      "id": "layer.math_object",
+      "order": 3,
+      "label": "Math Objects And Handles",
+      "description": "Concrete handles used in early abstraction tasks: items, sets, containers, paths, measuring units, attributes, and rules."
+    },
+    {
+      "id": "layer.math_event",
+      "order": 4,
+      "label": "Math Event Outcomes",
+      "description": "Reusable outcomes such as match found, count error, quantity change, leftover, order followed, rule applied, prediction, and transfer."
+    },
+    {
+      "id": "layer.math_abstraction",
+      "order": 5,
+      "label": "Math Abstractions",
+      "description": "Early abstractions built from relation patterns: number, quantity, order, grouping, measurement, pattern, symbolic representation, logic, and abstraction."
+    }
+  ],
+  "nodes": [
+    {
+      "id": "channel.visual_attribute",
+      "label": "visual attribute observation",
+      "layer": "layer.math_input",
+      "kind": "observation_channel",
+      "age_status": "active",
+      "summary": "Source for color, shape, size, position, sameness, and visible difference."
+    },
+    {
+      "id": "channel.touch_counting",
+      "label": "touch counting observation",
+      "layer": "layer.math_input",
+      "kind": "action_observation_channel",
+      "age_status": "active",
+      "summary": "Source for pointing, touching, handing out, pairing, and repeated unit placement."
+    },
+    {
+      "id": "channel.speech_number",
+      "label": "speech number observation",
+      "layer": "layer.math_input",
+      "kind": "language_observation_channel",
+      "age_status": "active",
+      "summary": "Source for spoken number words and ordered counting tokens."
+    },
+    {
+      "id": "channel.symbol_mark",
+      "label": "symbol and mark observation",
+      "layer": "layer.math_input",
+      "kind": "symbol_observation_channel",
+      "age_status": "active",
+      "summary": "Source for written numerals, tally marks, chart bars, arrows, and labels."
+    },
+    {
+      "id": "channel.spatial_layout",
+      "label": "spatial layout observation",
+      "layer": "layer.math_input",
+      "kind": "spatial_observation_channel",
+      "age_status": "active",
+      "summary": "Source for inside, outside, on, under, path, blockage, fit, and alignment."
+    },
+    {
+      "id": "channel.sequence_pattern",
+      "label": "sequence and pattern observation",
+      "layer": "layer.math_input",
+      "kind": "sequence_observation_channel",
+      "age_status": "active",
+      "summary": "Source for before/after, ordered steps, repeated cycles, rhythms, and missing elements."
+    },
+    {
+      "id": "channel.rule_instruction",
+      "label": "rule instruction observation",
+      "layer": "layer.math_input",
+      "kind": "instruction_observation_channel",
+      "age_status": "active",
+      "summary": "Source for if/then, not, and, or, and reusable rule instructions."
+    },
+    {
+      "id": "channel.quantity_estimate",
+      "label": "quantity estimate observation",
+      "layer": "layer.math_input",
+      "kind": "comparison_observation_channel",
+      "age_status": "active",
+      "summary": "Source for more, less, equal, full, half-full, heavy, light, and approximate amount."
+    },
+    {
+      "id": "invariant.same_different",
+      "label": "same/different",
+      "layer": "layer.math_invariant",
+      "kind": "comparison_relation",
+      "age_status": "active",
+      "summary": "Compares whether items, attributes, symbols, or outcomes match or differ."
+    },
+    {
+      "id": "invariant.zero_one_many",
+      "label": "zero/one/many",
+      "layer": "layer.math_invariant",
+      "kind": "quantity_relation",
+      "age_status": "active",
+      "summary": "Distinguishes none, one, two, and many as reusable quantity states."
+    },
+    {
+      "id": "invariant.more_less_equal",
+      "label": "more/less/equal",
+      "layer": "layer.math_invariant",
+      "kind": "quantity_comparison_relation",
+      "age_status": "active",
+      "summary": "Compares amount, count, length, level, weight, and distribution."
+    },
+    {
+      "id": "invariant.one_to_one",
+      "label": "one-to-one",
+      "layer": "layer.math_invariant",
+      "kind": "correspondence_relation",
+      "age_status": "active",
+      "summary": "Pairs one source item with one target item without duplication or omission."
+    },
+    {
+      "id": "invariant.before_after",
+      "label": "before/after",
+      "layer": "layer.math_invariant",
+      "kind": "temporal_relation",
+      "age_status": "active",
+      "summary": "Orders states, count tokens, steps, and events in time."
+    },
+    {
+      "id": "invariant.order_position",
+      "label": "order position",
+      "layer": "layer.math_invariant",
+      "kind": "sequence_relation",
+      "age_status": "active",
+      "summary": "Tracks first, last, next, previous, increasing order, and decreasing order."
+    },
+    {
+      "id": "invariant.group_member",
+      "label": "group/member",
+      "layer": "layer.math_invariant",
+      "kind": "membership_relation",
+      "age_status": "active",
+      "summary": "Tracks whether an item belongs inside or outside a rule-defined group."
+    },
+    {
+      "id": "invariant.property_presence_absence",
+      "label": "property presence/absence",
+      "layer": "layer.math_invariant",
+      "kind": "property_relation",
+      "age_status": "active",
+      "summary": "Tracks whether a selected property is present, absent, negated, or required."
+    },
+    {
+      "id": "invariant.inside_outside",
+      "label": "inside/outside",
+      "layer": "layer.math_invariant",
+      "kind": "containment_relation",
+      "age_status": "active",
+      "summary": "Tracks containment and non-containment as a portable spatial abstraction."
+    },
+    {
+      "id": "invariant.on_under",
+      "label": "on/under",
+      "layer": "layer.math_invariant",
+      "kind": "spatial_relation",
+      "age_status": "active",
+      "summary": "Tracks on-top and under positions as contrastable spatial relations."
+    },
+    {
+      "id": "invariant.path_blocked_unblocked",
+      "label": "path blocked/unblocked",
+      "layer": "layer.math_invariant",
+      "kind": "path_relation",
+      "age_status": "active",
+      "summary": "Tracks whether movement through a path can continue or is stopped."
+    },
+    {
+      "id": "invariant.part_whole",
+      "label": "part/whole",
+      "layer": "layer.math_invariant",
+      "kind": "composition_relation",
+      "age_status": "active",
+      "summary": "Tracks how parts combine into wholes or fail to complete a whole."
+    },
+    {
+      "id": "invariant.repeats",
+      "label": "repeats",
+      "layer": "layer.math_invariant",
+      "kind": "pattern_relation",
+      "age_status": "active",
+      "summary": "Tracks repeated structures, cycles, rhythms, and expected next elements."
+    },
+    {
+      "id": "invariant.expected_unexpected",
+      "label": "expected/unexpected",
+      "layer": "layer.math_invariant",
+      "kind": "prediction_relation",
+      "age_status": "active",
+      "summary": "Tracks whether a count, order, pattern, measurement, or rule application matches expectation."
+    },
+    {
+      "id": "invariant.condition_action",
+      "label": "condition/action",
+      "layer": "layer.math_invariant",
+      "kind": "conditional_relation",
+      "age_status": "active",
+      "summary": "Tracks a condition that selects, permits, blocks, or triggers an action."
+    },
+    {
+      "id": "schema.attribute_match",
+      "label": "attribute match",
+      "layer": "layer.math_schema",
+      "kind": "matching_schema",
+      "age_status": "active",
+      "summary": "Items are treated as matching when a selected attribute is the same."
+    },
+    {
+      "id": "schema.attribute_contrast",
+      "label": "attribute contrast",
+      "layer": "layer.math_schema",
+      "kind": "matching_schema",
+      "age_status": "active",
+      "summary": "Items are treated as different when a selected attribute differs."
+    },
+    {
+      "id": "schema.odd_one_out",
+      "label": "odd one out",
+      "layer": "layer.math_schema",
+      "kind": "matching_schema",
+      "age_status": "active",
+      "summary": "One item fails the shared relation that holds for the rest of a small group."
+    },
+    {
+      "id": "schema.match_selection",
+      "label": "match selection",
+      "layer": "layer.math_schema",
+      "kind": "selection_schema",
+      "age_status": "active",
+      "summary": "A matching item is selected from alternatives using a target attribute relation."
+    },
+    {
+      "id": "schema.object_count",
+      "label": "object count",
+      "layer": "layer.math_schema",
+      "kind": "counting_schema",
+      "age_status": "active",
+      "summary": "Distinct visible items are represented as a quantity state."
+    },
+    {
+      "id": "schema.counting_correspondence",
+      "label": "counting correspondence",
+      "layer": "layer.math_schema",
+      "kind": "counting_schema",
+      "age_status": "active",
+      "summary": "Each distinct item receives one counting action and one ordered count token."
+    },
+    {
+      "id": "schema.double_count_error",
+      "label": "double count error",
+      "layer": "layer.math_schema",
+      "kind": "counting_error_schema",
+      "age_status": "active",
+      "summary": "The same item is counted more than once."
+    },
+    {
+      "id": "schema.skip_count_error",
+      "label": "skip count error",
+      "layer": "layer.math_schema",
+      "kind": "counting_error_schema",
+      "age_status": "active",
+      "summary": "A distinct item is not counted."
+    },
+    {
+      "id": "schema.add_one_quantity_change",
+      "label": "add-one quantity change",
+      "layer": "layer.math_schema",
+      "kind": "quantity_change_schema",
+      "age_status": "active",
+      "summary": "Adding one item changes the quantity upward."
+    },
+    {
+      "id": "schema.remove_one_quantity_change",
+      "label": "remove-one quantity change",
+      "layer": "layer.math_schema",
+      "kind": "quantity_change_schema",
+      "age_status": "active",
+      "summary": "Removing one item changes the quantity downward."
+    },
+    {
+      "id": "schema.quantity_comparison",
+      "label": "quantity comparison",
+      "layer": "layer.math_schema",
+      "kind": "comparison_schema",
+      "age_status": "active",
+      "summary": "Two sets or amounts are compared as more, less, or equal."
+    },
+    {
+      "id": "schema.one_to_one_assignment",
+      "label": "one-to-one assignment",
+      "layer": "layer.math_schema",
+      "kind": "correspondence_schema",
+      "age_status": "active",
+      "summary": "One item is assigned to each target member."
+    },
+    {
+      "id": "schema.pairing_correspondence",
+      "label": "pairing correspondence",
+      "layer": "layer.math_schema",
+      "kind": "correspondence_schema",
+      "age_status": "active",
+      "summary": "Items are matched in pairs using a compatible target relation."
+    },
+    {
+      "id": "schema.unmatched_leftover",
+      "label": "unmatched leftover",
+      "layer": "layer.math_schema",
+      "kind": "correspondence_schema",
+      "age_status": "active",
+      "summary": "An item remains after attempted one-to-one assignment or pairing."
+    },
+    {
+      "id": "schema.unequal_distribution",
+      "label": "unequal distribution",
+      "layer": "layer.math_schema",
+      "kind": "distribution_schema",
+      "age_status": "active",
+      "summary": "Targets receive unequal counts or amounts."
+    },
+    {
+      "id": "schema.extra_item",
+      "label": "extra item",
+      "layer": "layer.math_schema",
+      "kind": "distribution_schema",
+      "age_status": "active",
+      "summary": "One target or set has an additional item relative to another."
+    },
+    {
+      "id": "schema.ordered_series",
+      "label": "ordered series",
+      "layer": "layer.math_schema",
+      "kind": "order_schema",
+      "age_status": "active",
+      "summary": "Items are arranged by increasing value along a selected dimension."
+    },
+    {
+      "id": "schema.reverse_order",
+      "label": "reverse order",
+      "layer": "layer.math_schema",
+      "kind": "order_schema",
+      "age_status": "active",
+      "summary": "Items are arranged by decreasing value along the same dimension."
+    },
+    {
+      "id": "schema.ordinal_position",
+      "label": "ordinal position",
+      "layer": "layer.math_schema",
+      "kind": "order_schema",
+      "age_status": "active",
+      "summary": "An item is located at a position such as first, last, next, or previous."
+    },
+    {
+      "id": "schema.event_sequence_order",
+      "label": "event sequence order",
+      "layer": "layer.math_schema",
+      "kind": "sequence_schema",
+      "age_status": "active",
+      "summary": "Events are arranged in a before/after order."
+    },
+    {
+      "id": "schema.instruction_step_order",
+      "label": "instruction step order",
+      "layer": "layer.math_schema",
+      "kind": "sequence_schema",
+      "age_status": "active",
+      "summary": "A multi-step instruction is represented as an ordered action sequence."
+    },
+    {
+      "id": "schema.order_violation",
+      "label": "order violation",
+      "layer": "layer.math_schema",
+      "kind": "sequence_schema",
+      "age_status": "active",
+      "summary": "An expected order is swapped, skipped, or otherwise violated."
+    },
+    {
+      "id": "schema.property_grouping",
+      "label": "property grouping",
+      "layer": "layer.math_schema",
+      "kind": "grouping_schema",
+      "age_status": "active",
+      "summary": "Items are grouped because they share a selected property."
+    },
+    {
+      "id": "schema.category_grouping",
+      "label": "category grouping",
+      "layer": "layer.math_schema",
+      "kind": "grouping_schema",
+      "age_status": "active",
+      "summary": "Items are grouped by object kind or category."
+    },
+    {
+      "id": "schema.function_grouping",
+      "label": "function grouping",
+      "layer": "layer.math_schema",
+      "kind": "grouping_schema",
+      "age_status": "active",
+      "summary": "Items are grouped by what they can do or how they are used."
+    },
+    {
+      "id": "schema.multi_attribute_filter",
+      "label": "multi-attribute filter",
+      "layer": "layer.math_schema",
+      "kind": "filter_schema",
+      "age_status": "active",
+      "summary": "Selection depends on more than one property or relation."
+    },
+    {
+      "id": "schema.sorting_rule",
+      "label": "sorting rule",
+      "layer": "layer.math_schema",
+      "kind": "rule_schema",
+      "age_status": "active",
+      "summary": "A rule determines which group each item belongs to."
+    },
+    {
+      "id": "schema.rule_change",
+      "label": "rule change",
+      "layer": "layer.math_schema",
+      "kind": "rule_schema",
+      "age_status": "active",
+      "summary": "The active sorting or selection rule changes, requiring reclassification."
+    },
+    {
+      "id": "schema.negated_property_filter",
+      "label": "negated property filter",
+      "layer": "layer.math_schema",
+      "kind": "filter_schema",
+      "age_status": "active",
+      "summary": "Items are selected because they do not have a property."
+    },
+    {
+      "id": "schema.containment_fit",
+      "label": "containment fit",
+      "layer": "layer.math_schema",
+      "kind": "spatial_schema",
+      "age_status": "active",
+      "summary": "An object fits inside a container boundary."
+    },
+    {
+      "id": "schema.fit_failure",
+      "label": "fit failure",
+      "layer": "layer.math_schema",
+      "kind": "spatial_schema",
+      "age_status": "active",
+      "summary": "An object cannot fit inside a boundary and must remain outside or beside it."
+    },
+    {
+      "id": "schema.spatial_position_relation",
+      "label": "spatial position relation",
+      "layer": "layer.math_schema",
+      "kind": "spatial_schema",
+      "age_status": "active",
+      "summary": "A position relation such as on, under, beside, or between is represented explicitly."
+    },
+    {
+      "id": "schema.path_following",
+      "label": "path following",
+      "layer": "layer.math_schema",
+      "kind": "path_schema",
+      "age_status": "active",
+      "summary": "A route is followed through ordered movement markers."
+    },
+    {
+      "id": "schema.path_blockage",
+      "label": "path blockage",
+      "layer": "layer.math_schema",
+      "kind": "path_schema",
+      "age_status": "active",
+      "summary": "A route cannot be completed because an obstacle blocks continuation."
+    },
+    {
+      "id": "schema.shape_composition",
+      "label": "shape composition",
+      "layer": "layer.math_schema",
+      "kind": "part_whole_schema",
+      "age_status": "active",
+      "summary": "Parts combine to produce a whole shape."
+    },
+    {
+      "id": "schema.level_comparison",
+      "label": "level comparison",
+      "layer": "layer.math_schema",
+      "kind": "measurement_schema",
+      "age_status": "active",
+      "summary": "Visible levels such as full and half-full are compared."
+    },
+    {
+      "id": "schema.quantity_conservation_candidate",
+      "label": "quantity conservation candidate",
+      "layer": "layer.math_schema",
+      "kind": "measurement_schema",
+      "age_status": "active",
+      "summary": "The same amount may remain despite a changed container shape or visual appearance."
+    },
+    {
+      "id": "schema.aligned_measurement_comparison",
+      "label": "aligned measurement comparison",
+      "layer": "layer.math_schema",
+      "kind": "measurement_schema",
+      "age_status": "active",
+      "summary": "Lengths are compared by aligning starting points."
+    },
+    {
+      "id": "schema.repeated_unit_measurement",
+      "label": "repeated unit measurement",
+      "layer": "layer.math_schema",
+      "kind": "measurement_schema",
+      "age_status": "active",
+      "summary": "A stable unit is reused to measure a length or extent."
+    },
+    {
+      "id": "schema.measurement_gap_error",
+      "label": "measurement gap error",
+      "layer": "layer.math_schema",
+      "kind": "measurement_error_schema",
+      "age_status": "active",
+      "summary": "Gaps or overlaps between repeated units make the measurement unreliable."
+    },
+    {
+      "id": "schema.cross_property_independence",
+      "label": "cross-property independence",
+      "layer": "layer.math_schema",
+      "kind": "property_schema",
+      "age_status": "active",
+      "summary": "One property such as size does not determine another property such as weight."
+    },
+    {
+      "id": "schema.alternating_pattern",
+      "label": "alternating pattern",
+      "layer": "layer.math_schema",
+      "kind": "pattern_schema",
+      "age_status": "active",
+      "summary": "A sequence repeats by alternating elements."
+    },
+    {
+      "id": "schema.cyclic_pattern",
+      "label": "cyclic pattern",
+      "layer": "layer.math_schema",
+      "kind": "pattern_schema",
+      "age_status": "active",
+      "summary": "A sequence repeats as a cycle with more than two elements."
+    },
+    {
+      "id": "schema.rhythm_pattern",
+      "label": "rhythm pattern",
+      "layer": "layer.math_schema",
+      "kind": "pattern_schema",
+      "age_status": "active",
+      "summary": "A sound or action sequence repeats in time."
+    },
+    {
+      "id": "schema.missing_pattern_element",
+      "label": "missing pattern element",
+      "layer": "layer.math_schema",
+      "kind": "pattern_schema",
+      "age_status": "active",
+      "summary": "A missing element is inferred from the surrounding repeated pattern."
+    },
+    {
+      "id": "schema.next_item_prediction",
+      "label": "next item prediction",
+      "layer": "layer.math_schema",
+      "kind": "prediction_schema",
+      "age_status": "active",
+      "summary": "The next item is predicted from a repeated relation structure."
+    },
+    {
+      "id": "schema.number_symbol_binding",
+      "label": "number symbol binding",
+      "layer": "layer.math_schema",
+      "kind": "symbol_schema",
+      "age_status": "active",
+      "summary": "A spoken number and written numeral are bound as handles for the same quantity relation."
+    },
+    {
+      "id": "schema.quantity_symbol_mapping",
+      "label": "quantity symbol mapping",
+      "layer": "layer.math_schema",
+      "kind": "symbol_schema",
+      "age_status": "active",
+      "summary": "A visible quantity such as dots is mapped to a number symbol."
+    },
+    {
+      "id": "schema.tally_event_count",
+      "label": "tally event count",
+      "layer": "layer.math_schema",
+      "kind": "symbol_schema",
+      "age_status": "active",
+      "summary": "A mark is added for each event or item to preserve a count record."
+    },
+    {
+      "id": "schema.category_count_display",
+      "label": "category count display",
+      "layer": "layer.math_schema",
+      "kind": "data_schema",
+      "age_status": "active",
+      "summary": "Categories are displayed with visible quantities."
+    },
+    {
+      "id": "schema.bar_length_quantity_display",
+      "label": "bar length quantity display",
+      "layer": "layer.math_schema",
+      "kind": "data_schema",
+      "age_status": "active",
+      "summary": "Bar length or height represents relative quantity."
+    },
+    {
+      "id": "schema.conditional_action_rule",
+      "label": "conditional action rule",
+      "layer": "layer.math_schema",
+      "kind": "logic_schema",
+      "age_status": "active",
+      "summary": "A condition selects or triggers an action."
+    },
+    {
+      "id": "schema.signal_conditioned_action",
+      "label": "signal conditioned action",
+      "layer": "layer.math_schema",
+      "kind": "logic_schema",
+      "age_status": "active",
+      "summary": "A signal state determines the action to perform."
+    },
+    {
+      "id": "schema.not_filter",
+      "label": "not filter",
+      "layer": "layer.math_schema",
+      "kind": "logic_schema",
+      "age_status": "active",
+      "summary": "A property is excluded from the selected set."
+    },
+    {
+      "id": "schema.and_filter",
+      "label": "and filter",
+      "layer": "layer.math_schema",
+      "kind": "logic_schema",
+      "age_status": "active",
+      "summary": "Selection requires two or more conditions to be true."
+    },
+    {
+      "id": "schema.or_filter",
+      "label": "or filter",
+      "layer": "layer.math_schema",
+      "kind": "logic_schema",
+      "age_status": "active",
+      "summary": "Selection accepts any one of multiple conditions."
+    },
+    {
+      "id": "schema.rule_transfer",
+      "label": "rule transfer",
+      "layer": "layer.math_schema",
+      "kind": "abstraction_schema",
+      "age_status": "active",
+      "summary": "The same rule is applied to a new set of objects."
+    },
+    {
+      "id": "symbol.number_word",
+      "label": "number word",
+      "layer": "layer.math_symbol",
+      "kind": "spoken_symbol",
+      "age_status": "active",
+      "summary": "Spoken handle such as one, two, or three."
+    },
+    {
+      "id": "symbol.written_number",
+      "label": "written number",
+      "layer": "layer.math_symbol",
+      "kind": "written_symbol",
+      "age_status": "active",
+      "summary": "Written numeral such as 3."
+    },
+    {
+      "id": "symbol.tally_mark",
+      "label": "tally mark",
+      "layer": "layer.math_symbol",
+      "kind": "record_symbol",
+      "age_status": "active",
+      "summary": "One mark used to record one event or item."
+    },
+    {
+      "id": "symbol.chart_bar",
+      "label": "chart bar",
+      "layer": "layer.math_symbol",
+      "kind": "data_symbol",
+      "age_status": "active",
+      "summary": "Visible bar whose length or height represents quantity."
+    },
+    {
+      "id": "object.item",
+      "label": "item",
+      "layer": "layer.math_object",
+      "kind": "countable_handle",
+      "age_status": "active",
+      "summary": "Generic countable item such as a biscuit, toy, cup, bead, or block."
+    },
+    {
+      "id": "object.set",
+      "label": "set",
+      "layer": "layer.math_object",
+      "kind": "collection_handle",
+      "age_status": "active",
+      "summary": "A group of items treated together."
+    },
+    {
+      "id": "object.attribute",
+      "label": "attribute",
+      "layer": "layer.math_object",
+      "kind": "property_handle",
+      "age_status": "active",
+      "summary": "Selected property such as color, shape, size, function, or texture."
+    },
+    {
+      "id": "object.container",
+      "label": "container",
+      "layer": "layer.math_object",
+      "kind": "spatial_handle",
+      "age_status": "active",
+      "summary": "Box, cup, glass, basket, or other boundary for containment and fit."
+    },
+    {
+      "id": "object.path",
+      "label": "path",
+      "layer": "layer.math_object",
+      "kind": "spatial_handle",
+      "age_status": "active",
+      "summary": "Route or ordered movement path."
+    },
+    {
+      "id": "object.measure_unit",
+      "label": "measure unit",
+      "layer": "layer.math_object",
+      "kind": "measurement_handle",
+      "age_status": "active",
+      "summary": "Reusable unit such as a hand span or block."
+    },
+    {
+      "id": "object.rule",
+      "label": "rule",
+      "layer": "layer.math_object",
+      "kind": "rule_handle",
+      "age_status": "active",
+      "summary": "Condition or selection pattern that can be applied to items."
+    },
+    {
+      "id": "event.match_found",
+      "label": "match found",
+      "layer": "layer.math_event",
+      "kind": "selection_outcome",
+      "age_status": "active",
+      "summary": "A selected item matches the target relation."
+    },
+    {
+      "id": "event.counting_error",
+      "label": "counting error",
+      "layer": "layer.math_event",
+      "kind": "counting_outcome",
+      "age_status": "active",
+      "summary": "A count is unreliable because of duplication or omission."
+    },
+    {
+      "id": "event.quantity_increase",
+      "label": "quantity increase",
+      "layer": "layer.math_event",
+      "kind": "quantity_outcome",
+      "age_status": "active",
+      "summary": "Quantity rises after an addition."
+    },
+    {
+      "id": "event.quantity_decrease",
+      "label": "quantity decrease",
+      "layer": "layer.math_event",
+      "kind": "quantity_outcome",
+      "age_status": "active",
+      "summary": "Quantity falls after a removal."
+    },
+    {
+      "id": "event.leftover_detected",
+      "label": "leftover detected",
+      "layer": "layer.math_event",
+      "kind": "correspondence_outcome",
+      "age_status": "active",
+      "summary": "An unmatched item remains after attempted pairing or distribution."
+    },
+    {
+      "id": "event.order_followed",
+      "label": "order followed",
+      "layer": "layer.math_event",
+      "kind": "sequence_outcome",
+      "age_status": "active",
+      "summary": "Items, events, or instructions follow the expected order."
+    },
+    {
+      "id": "event.prediction_success",
+      "label": "prediction success",
+      "layer": "layer.math_event",
+      "kind": "prediction_outcome",
+      "age_status": "active",
+      "summary": "A repeated relation supports the expected next item or action."
+    },
+    {
+      "id": "event.rule_applied",
+      "label": "rule applied",
+      "layer": "layer.math_event",
+      "kind": "rule_outcome",
+      "age_status": "active",
+      "summary": "A rule is used to select, sort, or act."
+    },
+    {
+      "id": "event.relation_transfer",
+      "label": "relation transfer",
+      "layer": "layer.math_event",
+      "kind": "abstraction_outcome",
+      "age_status": "active",
+      "summary": "The same relation structure is applied to new objects."
+    },
+    {
+      "id": "concept.number",
+      "label": "number",
+      "layer": "layer.math_abstraction",
+      "kind": "math_abstraction",
+      "age_status": "active",
+      "summary": "Stable abstraction built from countable items, count words, symbols, and correspondence."
+    },
+    {
+      "id": "concept.quantity",
+      "label": "quantity",
+      "layer": "layer.math_abstraction",
+      "kind": "math_abstraction",
+      "age_status": "active",
+      "summary": "Amount or count represented through comparison, change, and equality."
+    },
+    {
+      "id": "concept.order",
+      "label": "order",
+      "layer": "layer.math_abstraction",
+      "kind": "math_abstraction",
+      "age_status": "active",
+      "summary": "Arrangement by sequence, position, before/after, or increasing/decreasing dimension."
+    },
+    {
+      "id": "concept.grouping",
+      "label": "grouping",
+      "layer": "layer.math_abstraction",
+      "kind": "math_abstraction",
+      "age_status": "active",
+      "summary": "Collection membership determined by a selected property, category, function, or rule."
+    },
+    {
+      "id": "concept.measurement",
+      "label": "measurement",
+      "layer": "layer.math_abstraction",
+      "kind": "math_abstraction",
+      "age_status": "active",
+      "summary": "Comparison using alignment, levels, stable repeated units, and error checks."
+    },
+    {
+      "id": "concept.pattern",
+      "label": "pattern",
+      "layer": "layer.math_abstraction",
+      "kind": "math_abstraction",
+      "age_status": "active",
+      "summary": "Repeated relation structure that supports completion and prediction."
+    },
+    {
+      "id": "concept.symbolic_representation",
+      "label": "symbolic representation",
+      "layer": "layer.math_abstraction",
+      "kind": "math_abstraction",
+      "age_status": "active",
+      "summary": "A mark, word, numeral, or display stands for quantity or relation structure."
+    },
+    {
+      "id": "concept.logical_rule",
+      "label": "logical rule",
+      "layer": "layer.math_abstraction",
+      "kind": "math_abstraction",
+      "age_status": "active",
+      "summary": "Condition, negation, conjunction, disjunction, or rule over objects."
+    },
+    {
+      "id": "concept.abstraction",
+      "label": "abstraction",
+      "layer": "layer.math_abstraction",
+      "kind": "meta_abstraction",
+      "age_status": "active",
+      "summary": "Reusable relation structure applied across different objects or situations."
+    }
+  ],
+  "relations": [
+    {
+      "source": "schema.attribute_match",
+      "type": "built_from",
+      "target": "invariant.same_different",
+      "strength": 0.9,
+      "valence": "neutral",
+      "built_from": ["channel.visual_attribute", "object.attribute"]
+    },
+    {
+      "source": "schema.attribute_contrast",
+      "type": "built_from",
+      "target": "invariant.same_different",
+      "strength": 0.88,
+      "valence": "neutral",
+      "built_from": ["channel.visual_attribute", "object.attribute"]
+    },
+    {
+      "source": "schema.odd_one_out",
+      "type": "built_from",
+      "target": "schema.attribute_contrast",
+      "strength": 0.84,
+      "valence": "neutral",
+      "built_from": ["invariant.group_member", "invariant.expected_unexpected"]
+    },
+    {
+      "source": "schema.match_selection",
+      "type": "built_from",
+      "target": "schema.attribute_match",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": ["object.item", "object.set"]
+    },
+    {
+      "source": "schema.match_selection",
+      "type": "can_cause",
+      "target": "event.match_found",
+      "strength": 0.78,
+      "valence": "positive"
+    },
+    {
+      "source": "schema.object_count",
+      "type": "built_from",
+      "target": "invariant.zero_one_many",
+      "strength": 0.9,
+      "valence": "neutral",
+      "built_from": ["channel.visual_attribute", "object.item", "object.set"]
+    },
+    {
+      "source": "schema.object_count",
+      "type": "can_activate",
+      "target": "concept.number",
+      "strength": 0.82,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.counting_correspondence",
+      "type": "built_from",
+      "target": "invariant.one_to_one",
+      "strength": 0.9,
+      "valence": "neutral",
+      "built_from": ["channel.touch_counting", "channel.speech_number", "symbol.number_word", "object.item"]
+    },
+    {
+      "source": "schema.counting_correspondence",
+      "type": "can_activate",
+      "target": "concept.number",
+      "strength": 0.9,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.double_count_error",
+      "type": "contrasts_with",
+      "target": "schema.counting_correspondence",
+      "strength": 0.82,
+      "valence": "negative",
+      "built_from": ["invariant.expected_unexpected", "channel.touch_counting"]
+    },
+    {
+      "source": "schema.skip_count_error",
+      "type": "contrasts_with",
+      "target": "schema.counting_correspondence",
+      "strength": 0.82,
+      "valence": "negative",
+      "built_from": ["invariant.expected_unexpected", "channel.touch_counting"]
+    },
+    {
+      "source": "schema.double_count_error",
+      "type": "can_cause",
+      "target": "event.counting_error",
+      "strength": 0.78,
+      "valence": "negative"
+    },
+    {
+      "source": "schema.skip_count_error",
+      "type": "can_cause",
+      "target": "event.counting_error",
+      "strength": 0.78,
+      "valence": "negative"
+    },
+    {
+      "source": "schema.add_one_quantity_change",
+      "type": "built_from",
+      "target": "invariant.before_after",
+      "strength": 0.84,
+      "valence": "neutral",
+      "built_from": ["invariant.zero_one_many", "invariant.more_less_equal"]
+    },
+    {
+      "source": "schema.add_one_quantity_change",
+      "type": "can_cause",
+      "target": "event.quantity_increase",
+      "strength": 0.86,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.remove_one_quantity_change",
+      "type": "built_from",
+      "target": "invariant.before_after",
+      "strength": 0.84,
+      "valence": "neutral",
+      "built_from": ["invariant.zero_one_many", "invariant.more_less_equal"]
+    },
+    {
+      "source": "schema.remove_one_quantity_change",
+      "type": "can_cause",
+      "target": "event.quantity_decrease",
+      "strength": 0.86,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.quantity_comparison",
+      "type": "built_from",
+      "target": "invariant.more_less_equal",
+      "strength": 0.9,
+      "valence": "neutral",
+      "built_from": ["channel.quantity_estimate", "object.set"]
+    },
+    {
+      "source": "schema.quantity_comparison",
+      "type": "can_activate",
+      "target": "concept.quantity",
+      "strength": 0.86,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.one_to_one_assignment",
+      "type": "built_from",
+      "target": "invariant.one_to_one",
+      "strength": 0.88,
+      "valence": "neutral",
+      "built_from": ["channel.touch_counting", "object.item", "object.set"]
+    },
+    {
+      "source": "schema.pairing_correspondence",
+      "type": "built_from",
+      "target": "invariant.one_to_one",
+      "strength": 0.84,
+      "valence": "neutral",
+      "built_from": ["schema.attribute_match", "object.item"]
+    },
+    {
+      "source": "schema.unmatched_leftover",
+      "type": "built_from",
+      "target": "schema.one_to_one_assignment",
+      "strength": 0.8,
+      "valence": "neutral",
+      "built_from": ["invariant.expected_unexpected"]
+    },
+    {
+      "source": "schema.unmatched_leftover",
+      "type": "can_cause",
+      "target": "event.leftover_detected",
+      "strength": 0.82,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.unequal_distribution",
+      "type": "built_from",
+      "target": "schema.one_to_one_assignment",
+      "strength": 0.82,
+      "valence": "mixed",
+      "built_from": ["invariant.more_less_equal"]
+    },
+    {
+      "source": "schema.extra_item",
+      "type": "built_from",
+      "target": "schema.unequal_distribution",
+      "strength": 0.76,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.ordered_series",
+      "type": "built_from",
+      "target": "invariant.order_position",
+      "strength": 0.88,
+      "valence": "neutral",
+      "built_from": ["invariant.more_less_equal", "channel.sequence_pattern"]
+    },
+    {
+      "source": "schema.reverse_order",
+      "type": "contrasts_with",
+      "target": "schema.ordered_series",
+      "strength": 0.8,
+      "valence": "neutral",
+      "built_from": ["invariant.order_position"]
+    },
+    {
+      "source": "schema.ordinal_position",
+      "type": "built_from",
+      "target": "invariant.order_position",
+      "strength": 0.84,
+      "valence": "neutral",
+      "built_from": ["channel.sequence_pattern"]
+    },
+    {
+      "source": "schema.event_sequence_order",
+      "type": "built_from",
+      "target": "invariant.before_after",
+      "strength": 0.84,
+      "valence": "neutral",
+      "built_from": ["channel.sequence_pattern"]
+    },
+    {
+      "source": "schema.instruction_step_order",
+      "type": "built_from",
+      "target": "schema.event_sequence_order",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": ["channel.rule_instruction"]
+    },
+    {
+      "source": "schema.order_violation",
+      "type": "contrasts_with",
+      "target": "schema.instruction_step_order",
+      "strength": 0.8,
+      "valence": "negative",
+      "built_from": ["invariant.expected_unexpected"]
+    },
+    {
+      "source": "schema.instruction_step_order",
+      "type": "can_cause",
+      "target": "event.order_followed",
+      "strength": 0.8,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.ordered_series",
+      "type": "can_activate",
+      "target": "concept.order",
+      "strength": 0.84,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.property_grouping",
+      "type": "built_from",
+      "target": "invariant.group_member",
+      "strength": 0.88,
+      "valence": "neutral",
+      "built_from": ["invariant.property_presence_absence", "object.attribute", "object.set"]
+    },
+    {
+      "source": "schema.category_grouping",
+      "type": "built_from",
+      "target": "invariant.group_member",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": ["schema.attribute_match", "object.set"]
+    },
+    {
+      "source": "schema.function_grouping",
+      "type": "built_from",
+      "target": "invariant.group_member",
+      "strength": 0.78,
+      "valence": "neutral",
+      "built_from": ["invariant.property_presence_absence"]
+    },
+    {
+      "source": "schema.multi_attribute_filter",
+      "type": "built_from",
+      "target": "schema.property_grouping",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": ["object.attribute"]
+    },
+    {
+      "source": "schema.sorting_rule",
+      "type": "built_from",
+      "target": "invariant.group_member",
+      "strength": 0.86,
+      "valence": "neutral",
+      "built_from": ["object.rule", "channel.rule_instruction"]
+    },
+    {
+      "source": "schema.rule_change",
+      "type": "built_from",
+      "target": "schema.sorting_rule",
+      "strength": 0.8,
+      "valence": "neutral",
+      "built_from": ["invariant.before_after", "invariant.expected_unexpected"]
+    },
+    {
+      "source": "schema.negated_property_filter",
+      "type": "built_from",
+      "target": "invariant.property_presence_absence",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": ["object.attribute", "channel.rule_instruction"]
+    },
+    {
+      "source": "schema.property_grouping",
+      "type": "can_activate",
+      "target": "concept.grouping",
+      "strength": 0.86,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.sorting_rule",
+      "type": "can_activate",
+      "target": "concept.grouping",
+      "strength": 0.82,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.containment_fit",
+      "type": "built_from",
+      "target": "invariant.inside_outside",
+      "strength": 0.84,
+      "valence": "neutral",
+      "built_from": ["channel.spatial_layout", "object.container"]
+    },
+    {
+      "source": "schema.fit_failure",
+      "type": "contrasts_with",
+      "target": "schema.containment_fit",
+      "strength": 0.82,
+      "valence": "mixed",
+      "built_from": ["invariant.expected_unexpected", "object.container"]
+    },
+    {
+      "source": "schema.spatial_position_relation",
+      "type": "built_from",
+      "target": "invariant.on_under",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": ["channel.spatial_layout"]
+    },
+    {
+      "source": "schema.path_following",
+      "type": "built_from",
+      "target": "invariant.path_blocked_unblocked",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": ["channel.symbol_mark", "channel.spatial_layout", "object.path"]
+    },
+    {
+      "source": "schema.path_blockage",
+      "type": "contrasts_with",
+      "target": "schema.path_following",
+      "strength": 0.82,
+      "valence": "negative",
+      "built_from": ["object.path", "invariant.expected_unexpected"]
+    },
+    {
+      "source": "schema.shape_composition",
+      "type": "built_from",
+      "target": "invariant.part_whole",
+      "strength": 0.86,
+      "valence": "neutral",
+      "built_from": ["channel.visual_attribute", "object.item"]
+    },
+    {
+      "source": "schema.level_comparison",
+      "type": "built_from",
+      "target": "invariant.more_less_equal",
+      "strength": 0.8,
+      "valence": "neutral",
+      "built_from": ["channel.quantity_estimate", "object.container"]
+    },
+    {
+      "source": "schema.quantity_conservation_candidate",
+      "type": "built_from",
+      "target": "schema.level_comparison",
+      "strength": 0.74,
+      "valence": "neutral",
+      "built_from": ["invariant.expected_unexpected", "object.container"]
+    },
+    {
+      "source": "schema.aligned_measurement_comparison",
+      "type": "built_from",
+      "target": "invariant.more_less_equal",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": ["channel.spatial_layout", "object.measure_unit"]
+    },
+    {
+      "source": "schema.repeated_unit_measurement",
+      "type": "built_from",
+      "target": "invariant.one_to_one",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": ["channel.touch_counting", "object.measure_unit"]
+    },
+    {
+      "source": "schema.measurement_gap_error",
+      "type": "contrasts_with",
+      "target": "schema.repeated_unit_measurement",
+      "strength": 0.78,
+      "valence": "negative",
+      "built_from": ["invariant.expected_unexpected", "object.measure_unit"]
+    },
+    {
+      "source": "schema.cross_property_independence",
+      "type": "built_from",
+      "target": "invariant.same_different",
+      "strength": 0.72,
+      "valence": "neutral",
+      "built_from": ["object.attribute", "channel.quantity_estimate"]
+    },
+    {
+      "source": "schema.repeated_unit_measurement",
+      "type": "can_activate",
+      "target": "concept.measurement",
+      "strength": 0.84,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.aligned_measurement_comparison",
+      "type": "can_activate",
+      "target": "concept.measurement",
+      "strength": 0.82,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.alternating_pattern",
+      "type": "built_from",
+      "target": "invariant.repeats",
+      "strength": 0.86,
+      "valence": "neutral",
+      "built_from": ["channel.sequence_pattern", "object.item"]
+    },
+    {
+      "source": "schema.cyclic_pattern",
+      "type": "built_from",
+      "target": "invariant.repeats",
+      "strength": 0.84,
+      "valence": "neutral",
+      "built_from": ["channel.sequence_pattern", "object.item"]
+    },
+    {
+      "source": "schema.rhythm_pattern",
+      "type": "built_from",
+      "target": "invariant.repeats",
+      "strength": 0.78,
+      "valence": "neutral",
+      "built_from": ["channel.sequence_pattern"]
+    },
+    {
+      "source": "schema.missing_pattern_element",
+      "type": "built_from",
+      "target": "schema.alternating_pattern",
+      "strength": 0.8,
+      "valence": "neutral",
+      "built_from": ["invariant.expected_unexpected"]
+    },
+    {
+      "source": "schema.next_item_prediction",
+      "type": "built_from",
+      "target": "invariant.repeats",
+      "strength": 0.84,
+      "valence": "positive",
+      "built_from": ["schema.alternating_pattern", "schema.cyclic_pattern"]
+    },
+    {
+      "source": "schema.next_item_prediction",
+      "type": "can_cause",
+      "target": "event.prediction_success",
+      "strength": 0.82,
+      "valence": "positive"
+    },
+    {
+      "source": "schema.alternating_pattern",
+      "type": "can_activate",
+      "target": "concept.pattern",
+      "strength": 0.86,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.number_symbol_binding",
+      "type": "built_from",
+      "target": "schema.object_count",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": ["channel.speech_number", "channel.symbol_mark", "symbol.number_word", "symbol.written_number"]
+    },
+    {
+      "source": "schema.quantity_symbol_mapping",
+      "type": "built_from",
+      "target": "schema.object_count",
+      "strength": 0.84,
+      "valence": "neutral",
+      "built_from": ["symbol.written_number", "object.item"]
+    },
+    {
+      "source": "schema.tally_event_count",
+      "type": "built_from",
+      "target": "schema.counting_correspondence",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": ["symbol.tally_mark", "channel.symbol_mark"]
+    },
+    {
+      "source": "schema.category_count_display",
+      "type": "built_from",
+      "target": "schema.quantity_comparison",
+      "strength": 0.78,
+      "valence": "neutral",
+      "built_from": ["symbol.chart_bar", "object.set"]
+    },
+    {
+      "source": "schema.bar_length_quantity_display",
+      "type": "built_from",
+      "target": "schema.category_count_display",
+      "strength": 0.78,
+      "valence": "neutral",
+      "built_from": ["symbol.chart_bar", "invariant.more_less_equal"]
+    },
+    {
+      "source": "schema.number_symbol_binding",
+      "type": "can_activate",
+      "target": "concept.symbolic_representation",
+      "strength": 0.84,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.quantity_symbol_mapping",
+      "type": "can_activate",
+      "target": "concept.symbolic_representation",
+      "strength": 0.84,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.conditional_action_rule",
+      "type": "built_from",
+      "target": "invariant.condition_action",
+      "strength": 0.86,
+      "valence": "neutral",
+      "built_from": ["channel.rule_instruction", "object.rule"]
+    },
+    {
+      "source": "schema.signal_conditioned_action",
+      "type": "built_from",
+      "target": "schema.conditional_action_rule",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": ["channel.symbol_mark", "object.rule"]
+    },
+    {
+      "source": "schema.not_filter",
+      "type": "built_from",
+      "target": "schema.negated_property_filter",
+      "strength": 0.84,
+      "valence": "neutral",
+      "built_from": ["invariant.property_presence_absence"]
+    },
+    {
+      "source": "schema.and_filter",
+      "type": "built_from",
+      "target": "schema.multi_attribute_filter",
+      "strength": 0.84,
+      "valence": "neutral",
+      "built_from": ["invariant.condition_action"]
+    },
+    {
+      "source": "schema.or_filter",
+      "type": "built_from",
+      "target": "schema.multi_attribute_filter",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": ["invariant.condition_action"]
+    },
+    {
+      "source": "schema.rule_transfer",
+      "type": "built_from",
+      "target": "schema.sorting_rule",
+      "strength": 0.84,
+      "valence": "positive",
+      "built_from": ["invariant.same_different", "object.rule"]
+    },
+    {
+      "source": "schema.rule_transfer",
+      "type": "can_cause",
+      "target": "event.relation_transfer",
+      "strength": 0.86,
+      "valence": "positive"
+    },
+    {
+      "source": "schema.conditional_action_rule",
+      "type": "can_activate",
+      "target": "concept.logical_rule",
+      "strength": 0.86,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.rule_transfer",
+      "type": "can_activate",
+      "target": "concept.abstraction",
+      "strength": 0.9,
+      "valence": "positive"
+    },
+    {
+      "source": "schema.sorting_rule",
+      "type": "can_cause",
+      "target": "event.rule_applied",
+      "strength": 0.8,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.number_symbol_binding",
+      "type": "can_activate",
+      "target": "concept.number",
+      "strength": 0.82,
+      "valence": "neutral"
+    }
+  ],
+  "micro_experiences": [
+    {
+      "id": "experience.match_contrast_001",
+      "title": "Same, different, match, and odd one out",
+      "age_status": "active",
+      "participants": ["object.item", "object.attribute"],
+      "events": ["two identical red blocks are shown", "a red block and a blue block are shown", "a matching sock is selected", "one odd sock is found in a matching set"],
+      "relations_observed": [
+        {
+          "source": "schema.attribute_match",
+          "type": "strengthens",
+          "target": "invariant.same_different",
+          "strength_delta": 0.05
+        },
+        {
+          "source": "schema.odd_one_out",
+          "type": "strengthens",
+          "target": "schema.attribute_contrast",
+          "strength_delta": 0.04
+        }
+      ],
+      "language_overlay": ["Two things can match on one attribute, and one item can be different from the group."]
+    },
+    {
+      "id": "experience.counting_errors_001",
+      "title": "Counting items, double count, and skip count",
+      "age_status": "active",
+      "participants": ["object.item", "symbol.number_word"],
+      "events": ["one biscuit is placed on a plate", "two biscuits are placed on a plate", "a child points to each toy while number words are spoken", "the same toy is counted twice", "one toy is skipped"],
+      "relations_observed": [
+        {
+          "source": "schema.counting_correspondence",
+          "type": "strengthens",
+          "target": "concept.number",
+          "strength_delta": 0.05
+        },
+        {
+          "source": "schema.double_count_error",
+          "type": "strengthens_contrast",
+          "target": "schema.counting_correspondence",
+          "strength_delta": 0.03
+        }
+      ],
+      "language_overlay": ["Counting works when each item is counted once; counting the same item twice or skipping an item creates an error."]
+    },
+    {
+      "id": "experience.quantity_assignment_001",
+      "title": "More, equal, one-to-one, and leftover",
+      "age_status": "active",
+      "participants": ["object.item", "object.set"],
+      "events": ["one bowl has more grapes than another", "two bowls have the same number of grapes", "one cup is given to each person", "one shoe is left after pairs are made"],
+      "relations_observed": [
+        {
+          "source": "schema.quantity_comparison",
+          "type": "strengthens",
+          "target": "concept.quantity",
+          "strength_delta": 0.05
+        },
+        {
+          "source": "schema.unmatched_leftover",
+          "type": "strengthens",
+          "target": "event.leftover_detected",
+          "strength_delta": 0.03
+        }
+      ],
+      "language_overlay": ["Amounts can be compared, and one-to-one assignment can reveal a leftover."]
+    },
+    {
+      "id": "experience_order_steps_001",
+      "title": "Ordering items and following steps",
+      "age_status": "active",
+      "participants": ["object.item", "object.rule"],
+      "events": ["blocks are arranged from smallest to largest", "blocks are arranged from largest to smallest", "picture cards are placed in routine order", "a two-step instruction is swapped", "a three-step instruction is followed in order"],
+      "relations_observed": [
+        {
+          "source": "schema.ordered_series",
+          "type": "strengthens",
+          "target": "concept.order",
+          "strength_delta": 0.05
+        },
+        {
+          "source": "schema.order_violation",
+          "type": "strengthens_contrast",
+          "target": "schema.instruction_step_order",
+          "strength_delta": 0.03
+        }
+      ],
+      "language_overlay": ["Order can be increasing, decreasing, temporal, or instruction-based."]
+    },
+    {
+      "id": "experience_grouping_rules_001",
+      "title": "Grouping by property and changing the rule",
+      "age_status": "active",
+      "participants": ["object.item", "object.attribute", "object.rule"],
+      "events": ["red objects are put in one basket", "round objects are put in one basket", "red round objects and red square objects are separated", "the sorting rule changes halfway", "not-red items are selected"],
+      "relations_observed": [
+        {
+          "source": "schema.property_grouping",
+          "type": "strengthens",
+          "target": "concept.grouping",
+          "strength_delta": 0.05
+        },
+        {
+          "source": "schema.rule_change",
+          "type": "strengthens",
+          "target": "schema.sorting_rule",
+          "strength_delta": 0.04
+        }
+      ],
+      "language_overlay": ["A group is made by a rule, and changing the rule changes group membership."]
+    },
+    {
+      "id": "experience_spatial_fit_path_001",
+      "title": "Fit, position, and path blockage",
+      "age_status": "active",
+      "participants": ["object.item", "object.container", "object.path"],
+      "events": ["a small toy fits inside a box", "a large toy does not fit inside the box", "a ball is placed under a chair", "a ball is placed on top of a chair", "a path is followed until it is blocked"],
+      "relations_observed": [
+        {
+          "source": "schema.containment_fit",
+          "type": "strengthens",
+          "target": "invariant.inside_outside",
+          "strength_delta": 0.04
+        },
+        {
+          "source": "schema.path_blockage",
+          "type": "strengthens_contrast",
+          "target": "schema.path_following",
+          "strength_delta": 0.03
+        }
+      ],
+      "language_overlay": ["Spatial relations such as inside, on, under, and blocked path can be reused as abstract structure."]
+    },
+    {
+      "id": "experience_measurement_parts_001",
+      "title": "Parts, level, alignment, and measurement errors",
+      "age_status": "active",
+      "participants": ["object.item", "object.container", "object.measure_unit"],
+      "events": ["two half-circles are joined into a circle", "a full glass and half-full glass are compared", "two ropes are lined up from the same end", "a block is reused to measure a shelf", "gaps are left between measuring blocks"],
+      "relations_observed": [
+        {
+          "source": "schema.shape_composition",
+          "type": "strengthens",
+          "target": "invariant.part_whole",
+          "strength_delta": 0.04
+        },
+        {
+          "source": "schema.measurement_gap_error",
+          "type": "strengthens_contrast",
+          "target": "schema.repeated_unit_measurement",
+          "strength_delta": 0.03
+        }
+      ],
+      "language_overlay": ["Measurement depends on alignment, stable units, and no gaps or overlaps."]
+    },
+    {
+      "id": "experience_patterns_symbols_001",
+      "title": "Patterns, symbols, tallies, and charts",
+      "age_status": "active",
+      "participants": ["object.item", "symbol.number_word", "symbol.written_number", "symbol.tally_mark", "symbol.chart_bar"],
+      "events": ["beads repeat red and blue", "a missing bead is inferred", "the next story picture is predicted", "spoken three and written 3 are linked", "tally marks record children entering", "a bar chart shows favorite fruits"],
+      "relations_observed": [
+        {
+          "source": "schema.alternating_pattern",
+          "type": "strengthens",
+          "target": "concept.pattern",
+          "strength_delta": 0.05
+        },
+        {
+          "source": "schema.number_symbol_binding",
+          "type": "strengthens",
+          "target": "concept.symbolic_representation",
+          "strength_delta": 0.04
+        }
+      ],
+      "language_overlay": ["A symbol or repeated pattern points to relation structure, not just to a visual mark."]
+    },
+    {
+      "id": "experience_logic_transfer_001",
+      "title": "If, not, and, or, and rule transfer",
+      "age_status": "active",
+      "participants": ["object.item", "object.attribute", "object.rule"],
+      "events": ["if shoes are wet they stay outside", "if the light is red the child stops", "a snack that is not spicy is selected", "a toy that is red and soft is selected", "a toy that is red or soft is selected", "the same rule is used on a new set"],
+      "relations_observed": [
+        {
+          "source": "schema.conditional_action_rule",
+          "type": "strengthens",
+          "target": "concept.logical_rule",
+          "strength_delta": 0.05
+        },
+        {
+          "source": "schema.rule_transfer",
+          "type": "strengthens",
+          "target": "concept.abstraction",
+          "strength_delta": 0.05
+        }
+      ],
+      "language_overlay": ["A rule can select, block, combine, or transfer across new objects."]
+    }
+  ],
+  "evaluation_questions": [
+    {
+      "id": "eval.attribute_match_contrast",
+      "question": "Why can two blocks match in shape while still differing in color?",
+      "expected_answer": "Matching depends on the selected attribute. Same/different must be evaluated relative to color, shape, size, or another chosen property.",
+      "expected_relations": [
+        {
+          "source": "schema.attribute_match",
+          "type": "built_from",
+          "target": "invariant.same_different"
+        },
+        {
+          "source": "schema.attribute_contrast",
+          "type": "built_from",
+          "target": "invariant.same_different"
+        }
+      ]
+    },
+    {
+      "id": "eval.counting_error",
+      "question": "Why is touching the same toy twice while counting different from touching each toy once?",
+      "expected_answer": "Counting needs one-to-one correspondence between distinct items and count tokens. Touching the same item twice breaks that correspondence.",
+      "expected_relations": [
+        {
+          "source": "schema.counting_correspondence",
+          "type": "built_from",
+          "target": "invariant.one_to_one"
+        },
+        {
+          "source": "schema.double_count_error",
+          "type": "contrasts_with",
+          "target": "schema.counting_correspondence"
+        }
+      ]
+    },
+    {
+      "id": "eval.quantity_change",
+      "question": "What relation changes when one more toy is added to a row?",
+      "expected_answer": "The before/after quantity state changes upward by one, causing a quantity increase.",
+      "expected_relations": [
+        {
+          "source": "schema.add_one_quantity_change",
+          "type": "built_from",
+          "target": "invariant.before_after"
+        },
+        {
+          "source": "schema.add_one_quantity_change",
+          "type": "can_cause",
+          "target": "event.quantity_increase"
+        }
+      ]
+    },
+    {
+      "id": "eval_leftover_pairing",
+      "question": "Why does one shoe left after pairing show that the pairing was incomplete?",
+      "expected_answer": "One-to-one pairing tries to match each item with a compatible target. A leftover item means a corresponding pair was not found.",
+      "expected_relations": [
+        {
+          "source": "schema.pairing_correspondence",
+          "type": "built_from",
+          "target": "invariant.one_to_one"
+        },
+        {
+          "source": "schema.unmatched_leftover",
+          "type": "can_cause",
+          "target": "event.leftover_detected"
+        }
+      ]
+    },
+    {
+      "id": "eval_order_violation",
+      "question": "Why can swapping two steps change whether an instruction was followed correctly?",
+      "expected_answer": "The instruction is an ordered sequence. Swapping steps violates the expected order even if both actions happen.",
+      "expected_relations": [
+        {
+          "source": "schema.instruction_step_order",
+          "type": "built_from",
+          "target": "schema.event_sequence_order"
+        },
+        {
+          "source": "schema.order_violation",
+          "type": "contrasts_with",
+          "target": "schema.instruction_step_order"
+        }
+      ]
+    },
+    {
+      "id": "eval_grouping_rule_change",
+      "question": "Why does changing the sorting rule change which basket an item belongs in?",
+      "expected_answer": "Group membership is determined by the active rule. When the rule changes, the same item may need to be classified differently.",
+      "expected_relations": [
+        {
+          "source": "schema.sorting_rule",
+          "type": "built_from",
+          "target": "invariant.group_member"
+        },
+        {
+          "source": "schema.rule_change",
+          "type": "built_from",
+          "target": "schema.sorting_rule"
+        }
+      ]
+    },
+    {
+      "id": "eval_fit_failure",
+      "question": "Why is a large toy beside a box different from a small toy inside the box?",
+      "expected_answer": "Both use containment, but the large toy fails the fit relation and remains outside or beside the container.",
+      "expected_relations": [
+        {
+          "source": "schema.containment_fit",
+          "type": "built_from",
+          "target": "invariant.inside_outside"
+        },
+        {
+          "source": "schema.fit_failure",
+          "type": "contrasts_with",
+          "target": "schema.containment_fit"
+        }
+      ]
+    },
+    {
+      "id": "eval_measurement_gap",
+      "question": "Why do gaps between measuring blocks make a shelf measurement unreliable?",
+      "expected_answer": "Repeated-unit measurement requires stable units placed continuously. Gaps violate the measurement relation.",
+      "expected_relations": [
+        {
+          "source": "schema.repeated_unit_measurement",
+          "type": "built_from",
+          "target": "invariant.one_to_one"
+        },
+        {
+          "source": "schema.measurement_gap_error",
+          "type": "contrasts_with",
+          "target": "schema.repeated_unit_measurement"
+        }
+      ]
+    },
+    {
+      "id": "eval_pattern_prediction",
+      "question": "Why can a child predict the next bead in a red-blue-red-blue pattern?",
+      "expected_answer": "The sequence repeats. The repeated relation structure supports next-item prediction.",
+      "expected_relations": [
+        {
+          "source": "schema.alternating_pattern",
+          "type": "built_from",
+          "target": "invariant.repeats"
+        },
+        {
+          "source": "schema.next_item_prediction",
+          "type": "can_cause",
+          "target": "event.prediction_success"
+        }
+      ]
+    },
+    {
+      "id": "eval_symbol_quantity",
+      "question": "Why can written 3 stand for three dots?",
+      "expected_answer": "The written number is a symbol bound to a quantity relation. It is a handle for the count, not the count itself.",
+      "expected_relations": [
+        {
+          "source": "schema.quantity_symbol_mapping",
+          "type": "built_from",
+          "target": "schema.object_count"
+        },
+        {
+          "source": "schema.quantity_symbol_mapping",
+          "type": "can_activate",
+          "target": "concept.symbolic_representation"
+        }
+      ]
+    },
+    {
+      "id": "eval_rule_transfer",
+      "question": "Why is using the same sorting rule on a new set an abstraction?",
+      "expected_answer": "The object set changes, but the relation rule remains reusable. The same relation structure transfers across objects.",
+      "expected_relations": [
+        {
+          "source": "schema.rule_transfer",
+          "type": "built_from",
+          "target": "schema.sorting_rule"
+        },
+        {
+          "source": "schema.rule_transfer",
+          "type": "can_activate",
+          "target": "concept.abstraction"
+        }
+      ]
+    }
+  ]
+}

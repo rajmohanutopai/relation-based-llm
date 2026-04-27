@@ -1,0 +1,787 @@
+{
+  "schema_version": "0.1.0",
+  "evaluation_id": "heldout.language_binding",
+  "title": "Held-Out Evaluation: Language Binding",
+  "status": "heldout",
+  "source_seed": "data/developmental_graph/seeds/language_binding.json",
+  "source_inventory": "docs/language-binding-400-situations.md",
+  "source_audit": "docs/language-binding-firstset-relation-audit.md",
+  "purpose": "Test whether a small model can transfer language-binding relation schemas beyond the first-set examples without relying on exact wording.",
+  "scoring_notes": [
+    "Prefer closed-vocabulary candidate selection when this file is rendered into model prompts.",
+    "A correct answer should identify relation families, not merely paraphrase the sentence.",
+    "Gap probes are expected to name what the current graph lacks rather than force a false match."
+  ],
+  "cases": [
+    {
+      "id": "heldout.language.same_word_light_context",
+      "source_ids": [
+        "LB203",
+        "LB204",
+        "LB200"
+      ],
+      "split": "maybe",
+      "case_type": "transfer_probe",
+      "prompt": "A child hears 'this box is light' while lifting it and later hears 'turn on the light'. Are both uses of light the same relation?",
+      "expected_answer": "They share a surface form, but context selects different relation clusters: weight/ease of lifting versus illumination.",
+      "expected_relation_families": [
+        "schema.polysemy_context_selection",
+        "schema.word_sense_split",
+        "invariant.context_selection"
+      ],
+      "graph_anchors": [
+        {
+          "source": "schema.polysemy_context_selection",
+          "type": "built_from",
+          "target": "invariant.context_selection"
+        },
+        {
+          "source": "schema.word_sense_split",
+          "type": "built_from",
+          "target": "schema.polysemy_context_selection"
+        }
+      ],
+      "transfer_focus": "Test same-surface different-cluster selection by context."
+    },
+    {
+      "id": "heldout.language.not_under_table",
+      "source_ids": [
+        "LB281",
+        "LB283",
+        "LB124"
+      ],
+      "split": "maybe",
+      "case_type": "transfer_probe",
+      "prompt": "The sentence says: the toy is not under the table. Which relation is blocked or negated?",
+      "expected_answer": "The under-location relation is considered as a candidate, then negation blocks asserting it.",
+      "expected_relation_families": [
+        "schema.negation_operator_binding",
+        "schema.preposition_phrase_binding",
+        "invariant.negation_polarity"
+      ],
+      "graph_anchors": [
+        {
+          "source": "schema.negation_operator_binding",
+          "type": "built_from",
+          "target": "invariant.negation_polarity"
+        },
+        {
+          "source": "schema.preposition_phrase_binding",
+          "type": "built_from",
+          "target": "invariant.spatial_relation"
+        }
+      ],
+      "transfer_focus": "Apply negation to a spatial relation instead of only a property relation."
+    },
+    {
+      "id": "heldout.language.chaser_role_reversal",
+      "source_ids": [
+        "LB263",
+        "LB264",
+        "LB261"
+      ],
+      "split": "maybe",
+      "case_type": "transfer_probe",
+      "prompt": "Compare 'the child chased the dog' with 'the dog chased the child'. What relation changes?",
+      "expected_answer": "The agent and patient roles reverse, so the event relation changes even when the same nouns and verb appear.",
+      "expected_relation_families": [
+        "schema.agent_patient_role_binding",
+        "schema.sentence_event_binding",
+        "invariant.agent_role"
+      ],
+      "graph_anchors": [
+        {
+          "source": "schema.agent_patient_role_binding",
+          "type": "built_from",
+          "target": "schema.sentence_event_binding"
+        },
+        {
+          "source": "schema.agent_patient_role_binding",
+          "type": "built_from",
+          "target": "invariant.agent_role"
+        }
+      ],
+      "transfer_focus": "Test grammar role binding rather than vocabulary recognition."
+    },
+    {
+      "id": "heldout.language.red_soft_and_or",
+      "source_ids": [
+        "LB183",
+        "LB184",
+        "LB307",
+        "LB308"
+      ],
+      "split": "maybe",
+      "case_type": "transfer_probe",
+      "prompt": "One instruction says choose the red and soft toy. Another says choose the red or soft toy. What relation family separates them?",
+      "expected_answer": "And requires both property filters, while or allows either property filter. The surface connector changes the selection rule.",
+      "expected_relation_families": [
+        "schema.and_or_filter_binding",
+        "schema.logical_connector_binding",
+        "invariant.condition_rule"
+      ],
+      "graph_anchors": [
+        {
+          "source": "schema.and_or_filter_binding",
+          "type": "built_from",
+          "target": "invariant.condition_rule"
+        },
+        {
+          "source": "schema.logical_connector_binding",
+          "type": "built_from",
+          "target": "invariant.condition_rule"
+        }
+      ],
+      "transfer_focus": "Test logical connector binding over property filters."
+    },
+    {
+      "id": "heldout.language.where_why_slots",
+      "source_ids": [
+        "LB141",
+        "LB145",
+        "LB146"
+      ],
+      "split": "maybe",
+      "case_type": "transfer_probe",
+      "prompt": "A caregiver asks where the ball is, why the floor is wet, and how many biscuits are on the plate. What should the model infer about these questions?",
+      "expected_answer": "Each question asks for a different missing relation slot: location, cause, and quantity.",
+      "expected_relation_families": [
+        "schema.question_relation_query",
+        "schema.answer_slot_binding",
+        "schema.comparison_question_binding"
+      ],
+      "graph_anchors": [
+        {
+          "source": "schema.question_relation_query",
+          "type": "built_from",
+          "target": "invariant.reference"
+        },
+        {
+          "source": "schema.answer_slot_binding",
+          "type": "built_from",
+          "target": "schema.question_relation_query"
+        },
+        {
+          "source": "schema.comparison_question_binding",
+          "type": "built_from",
+          "target": "schema.question_relation_query"
+        }
+      ],
+      "transfer_focus": "Treat question words as relation-slot queries."
+    },
+    {
+      "id": "heldout.language_promise_follow_break",
+      "source_ids": [
+        "LB173",
+        "LB174",
+        "LB398",
+        "LB399"
+      ],
+      "split": "maybe",
+      "case_type": "transfer_probe",
+      "prompt": "A character says I promise to bring the toy. In one story they bring it, and in another they do not. What relation changes?",
+      "expected_answer": "Promise language creates an expected future action. Fulfillment supports the expectation, while violation changes reliability or trust prediction.",
+      "expected_relation_families": [
+        "schema.promise_language_binding",
+        "schema.prediction_from_story_state",
+        "schema.story_event_chain"
+      ],
+      "graph_anchors": [
+        {
+          "source": "schema.promise_language_binding",
+          "type": "built_from",
+          "target": "schema.story_event_chain"
+        },
+        {
+          "source": "schema.promise_language_binding",
+          "type": "can_cause",
+          "target": "schema.prediction_from_story_state"
+        }
+      ],
+      "transfer_focus": "Connect promise language to future expectation and story outcome."
+    },
+    {
+      "id": "heldout.language_ba_for_ball",
+      "source_ids": [
+        "LB255",
+        "LB256",
+        "LB247"
+      ],
+      "split": "maybe",
+      "case_type": "transfer_probe",
+      "prompt": "A child says ba while pointing to a ball. Another time the caregiver contrasts cat and bat. Which relations should explain this?",
+      "expected_answer": "Sound-form contrast narrows word candidates, while approximate recognition and pointing context can resolve a partial form to ball.",
+      "expected_relation_families": [
+        "schema.approximate_word_recognition",
+        "schema.partial_utterance_resolution",
+        "schema.phoneme_contrast_binding",
+        "invariant.sound_form_contrast"
+      ],
+      "graph_anchors": [
+        {
+          "source": "schema.approximate_word_recognition",
+          "type": "built_from",
+          "target": "invariant.sound_form_contrast"
+        },
+        {
+          "source": "schema.partial_utterance_resolution",
+          "type": "built_from",
+          "target": "schema.approximate_word_recognition"
+        },
+        {
+          "source": "schema.phoneme_contrast_binding",
+          "type": "built_from",
+          "target": "invariant.sound_form_contrast"
+        }
+      ],
+      "transfer_focus": "Separate exact sound contrast from context-supported partial recognition."
+    },
+    {
+      "id": "heldout.language_home_language_water",
+      "source_ids": [
+        "LB236"
+      ],
+      "split": "maybe",
+      "case_type": "transfer_probe",
+      "prompt": "A child hears a home-language word for water and later hears water in English for the same cup. What relation should connect the two forms?",
+      "expected_answer": "The two surface forms should point to the same or overlapping object/action relation cluster rather than two unrelated meanings.",
+      "expected_relation_families": [
+        "schema.cross_language_label_equivalence",
+        "schema.object_label_binding",
+        "invariant.same_different"
+      ],
+      "graph_anchors": [
+        {
+          "source": "schema.cross_language_label_equivalence",
+          "type": "built_from",
+          "target": "invariant.same_different"
+        },
+        {
+          "source": "schema.cross_language_label_equivalence",
+          "type": "built_from",
+          "target": "schema.object_label_binding"
+        }
+      ],
+      "transfer_focus": "Test two surface forms sharing a relation cluster."
+    },
+    {
+      "id": "heldout.language_tone_same_word",
+      "source_ids": [
+        "LB221",
+        "LB222",
+        "LB391"
+      ],
+      "split": "maybe",
+      "case_type": "transfer_probe",
+      "prompt": "The same word is spoken once in a happy tone and once in an angry tone. What should change?",
+      "expected_answer": "The word handle may stay the same, but prosody changes affective prediction and pragmatic interpretation.",
+      "expected_relation_families": [
+        "schema.prosody_affect_binding",
+        "schema.pragmatic_force_binding",
+        "invariant.context_selection"
+      ],
+      "graph_anchors": [
+        {
+          "source": "schema.prosody_affect_binding",
+          "type": "built_from",
+          "target": "invariant.context_selection"
+        },
+        {
+          "source": "schema.prosody_affect_binding",
+          "type": "can_cause",
+          "target": "schema.pragmatic_force_binding"
+        }
+      ],
+      "transfer_focus": "Separate surface word from tone-driven meaning shift."
+    },
+    {
+      "id": "heldout.language_indirect_door_request",
+      "source_ids": [
+        "LB394",
+        "LB225"
+      ],
+      "split": "maybe",
+      "case_type": "transfer_probe",
+      "prompt": "A caregiver says, can you open the door, while looking at the door with full hands. Why is this not only an ability question?",
+      "expected_answer": "Context and pragmatic force make the sentence function as an indirect request for action.",
+      "expected_relation_families": [
+        "schema.indirect_request_binding",
+        "schema.pragmatic_force_binding",
+        "schema.contextual_relation_activation"
+      ],
+      "graph_anchors": [
+        {
+          "source": "schema.indirect_request_binding",
+          "type": "built_from",
+          "target": "schema.pragmatic_force_binding"
+        },
+        {
+          "source": "schema.pragmatic_force_binding",
+          "type": "built_from",
+          "target": "invariant.context_selection"
+        },
+        {
+          "source": "schema.contextual_relation_activation",
+          "type": "built_from",
+          "target": "invariant.context_selection"
+        }
+      ],
+      "transfer_focus": "Test context-driven pragmatic force."
+    },
+    {
+      "id": "heldout.language_tense_eat",
+      "source_ids": [
+        "LB293",
+        "LB294",
+        "LB295"
+      ],
+      "split": "maybe",
+      "case_type": "transfer_probe",
+      "prompt": "Compare the child is eating, the child ate, and the child will eat. What changes while the event relation stays related?",
+      "expected_answer": "The eating event cluster remains related, but tense and event time mark current, past, or future relation state.",
+      "expected_relation_families": [
+        "schema.tense_event_time_binding",
+        "schema.event_transition_binding",
+        "invariant.temporal_order"
+      ],
+      "graph_anchors": [
+        {
+          "source": "schema.tense_event_time_binding",
+          "type": "built_from",
+          "target": "invariant.temporal_order"
+        },
+        {
+          "source": "schema.tense_event_time_binding",
+          "type": "modifies",
+          "target": "schema.event_transition_binding"
+        }
+      ],
+      "transfer_focus": "Test tense as modifier over an event cluster."
+    },
+    {
+      "id": "heldout.language_think_know_maybe",
+      "source_ids": [
+        "LB321",
+        "LB322",
+        "LB323"
+      ],
+      "split": "maybe",
+      "case_type": "transfer_probe",
+      "prompt": "A caregiver says I think the toy is in the box, I know the toy is in the box, and maybe the toy is under the bed. What relation changes?",
+      "expected_answer": "The location relation is marked with different epistemic strength: belief, knowledge, or uncertainty.",
+      "expected_relation_families": [
+        "schema.epistemic_strength_binding",
+        "invariant.uncertainty_strength",
+        "schema.sentence_event_binding"
+      ],
+      "graph_anchors": [
+        {
+          "source": "schema.epistemic_strength_binding",
+          "type": "built_from",
+          "target": "invariant.uncertainty_strength"
+        },
+        {
+          "source": "schema.epistemic_strength_binding",
+          "type": "modifies",
+          "target": "schema.sentence_event_binding"
+        }
+      ],
+      "transfer_focus": "Test belief-strength language over an ordinary relation claim."
+    },
+    {
+      "id": "heldout.language_picture_real_object",
+      "source_ids": [
+        "LB030",
+        "LB018",
+        "LB020"
+      ],
+      "split": "maybe",
+      "case_type": "transfer_probe",
+      "prompt": "A child hears cup for a real cup and for a picture of a cup. What should stay connected?",
+      "expected_answer": "The picture reference should activate the same object-label cluster, while preserving that the picture is not the physical cup itself.",
+      "expected_relation_families": [
+        "schema.picture_object_reference",
+        "schema.object_label_binding",
+        "schema.category_extension"
+      ],
+      "graph_anchors": [
+        {
+          "source": "schema.picture_object_reference",
+          "type": "built_from",
+          "target": "invariant.reference"
+        },
+        {
+          "source": "schema.picture_object_reference",
+          "type": "built_from",
+          "target": "schema.object_label_binding"
+        },
+        {
+          "source": "schema.category_extension",
+          "type": "built_from",
+          "target": "schema.object_label_binding"
+        }
+      ],
+      "transfer_focus": "Test symbolic/picture reference without confusing picture and object."
+    },
+    {
+      "id": "heldout.language_ball_too_squishy",
+      "source_ids": [
+        "LB020",
+        "LB032",
+        "LB044",
+        "LB056",
+        "LB057"
+      ],
+      "split": "maybe",
+      "case_type": "gap_probe",
+      "prompt": "A soft round object is called a ball, but another object is so squishy that adults stop calling it a ball. What can the seed represent, and what is missing?",
+      "expected_answer": "The seed has object labels, property labels, and category extension. It may need graded property thresholds for when a category relation weakens or breaks.",
+      "expected_relation_families": [
+        "schema.object_label_binding",
+        "schema.category_extension",
+        "schema.property_label_binding"
+      ],
+      "gap_indicators": [
+        "schema.graded_property_threshold",
+        "schema.category_boundary_strength",
+        "schema.prototype_similarity_degree"
+      ],
+      "graph_anchors": [
+        {
+          "source": "schema.object_label_binding",
+          "type": "built_from",
+          "target": "invariant.reference"
+        },
+        {
+          "source": "schema.category_extension",
+          "type": "built_from",
+          "target": "schema.object_label_binding"
+        },
+        {
+          "source": "schema.property_label_binding",
+          "type": "built_from",
+          "target": "invariant.property_relation"
+        }
+      ],
+      "transfer_focus": "Expose the need for degree and threshold on category-property clusters."
+    },
+    {
+      "id": "heldout.language_relative_clause_reference",
+      "source_ids": [
+        "LB275",
+        "LB271",
+        "LB273"
+      ],
+      "split": "maybe",
+      "case_type": "transfer_probe",
+      "prompt": "In 'the child who was crying got the toy back', what does 'who was crying' do?",
+      "expected_answer": "The relative clause constrains which child is the referent before the event of getting the toy back is interpreted.",
+      "expected_relation_families": [
+        "schema.relative_clause_binding",
+        "schema.sentence_event_binding",
+        "invariant.reference"
+      ],
+      "graph_anchors": [
+        {
+          "source": "schema.relative_clause_binding",
+          "type": "built_from",
+          "target": "invariant.reference"
+        },
+        {
+          "source": "schema.relative_clause_binding",
+          "type": "built_from",
+          "target": "schema.sentence_event_binding"
+        }
+      ],
+      "transfer_focus": "Test clause-based referent selection."
+    },
+    {
+      "id": "heldout.language_attachment_telescope",
+      "source_ids": [
+        "LB277"
+      ],
+      "split": "maybe",
+      "case_type": "gap_probe",
+      "prompt": "The sentence says: I saw the child with the telescope. What can the seed represent, and what remains ambiguous?",
+      "expected_answer": "The seed can represent attachment ambiguity and context selection, but it may need richer visual and intention context to decide whether I used the telescope or the child had it.",
+      "expected_relation_families": [
+        "schema.attachment_ambiguity_binding",
+        "schema.contextual_relation_activation",
+        "schema.preposition_phrase_binding"
+      ],
+      "gap_indicators": [
+        "schema.instrument_attachment",
+        "schema.possession_attachment",
+        "schema.visual_scene_disambiguation"
+      ],
+      "graph_anchors": [
+        {
+          "source": "schema.attachment_ambiguity_binding",
+          "type": "built_from",
+          "target": "invariant.context_selection"
+        },
+        {
+          "source": "schema.attachment_ambiguity_binding",
+          "type": "built_from",
+          "target": "schema.contextual_relation_activation"
+        },
+        {
+          "source": "schema.preposition_phrase_binding",
+          "type": "built_from",
+          "target": "schema.sentence_event_binding"
+        }
+      ],
+      "transfer_focus": "Expose phrase attachment ambiguity as relation selection."
+    },
+    {
+      "id": "heldout.language_nothing_inside_box",
+      "source_ids": [
+        "LB285",
+        "LB062",
+        "LB160"
+      ],
+      "split": "maybe",
+      "case_type": "transfer_probe",
+      "prompt": "A caregiver says nothing is inside the box, and later a child says gone when a toy is hidden. Which absence relations apply?",
+      "expected_answer": "The language marks absence: nothing binds to an empty containment relation, while gone marks absence relative to expected presence.",
+      "expected_relation_families": [
+        "schema.absence_word_binding",
+        "schema.negation_operator_binding",
+        "invariant.negation_polarity"
+      ],
+      "graph_anchors": [
+        {
+          "source": "schema.absence_word_binding",
+          "type": "built_from",
+          "target": "invariant.negation_polarity"
+        },
+        {
+          "source": "schema.absence_word_binding",
+          "type": "built_from",
+          "target": "schema.negation_operator_binding"
+        }
+      ],
+      "transfer_focus": "Test absence as a language operator over expected object/location relations."
+    },
+    {
+      "id": "heldout.language_story_problem_solution",
+      "source_ids": [
+        "LB351",
+        "LB359",
+        "LB361",
+        "LB363",
+        "LB364"
+      ],
+      "split": "maybe",
+      "case_type": "transfer_probe",
+      "prompt": "A two-sentence story first says a cup fell and water spilled. The next sentence explains why and how it was cleaned. Which discourse relations matter?",
+      "expected_answer": "The story is an ordered event chain with explanation, problem, and solution states that support retelling and prediction.",
+      "expected_relation_families": [
+        "schema.story_event_chain",
+        "schema.problem_solution_discourse",
+        "schema.narrative_order_binding",
+        "schema.prediction_from_story_state"
+      ],
+      "graph_anchors": [
+        {
+          "source": "schema.story_event_chain",
+          "type": "built_from",
+          "target": "invariant.sequence_discourse"
+        },
+        {
+          "source": "schema.problem_solution_discourse",
+          "type": "built_from",
+          "target": "schema.story_event_chain"
+        },
+        {
+          "source": "schema.prediction_from_story_state",
+          "type": "built_from",
+          "target": "schema.story_event_chain"
+        }
+      ],
+      "transfer_focus": "Test discourse as relation-chain structure."
+    },
+    {
+      "id": "heldout.language_name_self_other",
+      "source_ids": [
+        "LB001",
+        "LB002",
+        "LB003",
+        "LB111",
+        "LB112"
+      ],
+      "split": "maybe",
+      "case_type": "gap_probe",
+      "prompt": "A child hears their own name, hears mama and papa, and later hears I and you. What can the seed represent, and what later relation may be needed?",
+      "expected_answer": "The seed can represent name, role word, and speaker-listener perspective. A later child-root graph may need stronger autobiographical self-name binding tied to control and body boundary.",
+      "expected_relation_families": [
+        "schema.name_binding",
+        "schema.social_role_word_binding",
+        "schema.speaker_addressee_binding",
+        "schema.pronoun_perspective_binding"
+      ],
+      "gap_indicators": [
+        "schema.self_name_body_boundary_binding",
+        "schema.autobiographical_self_reference"
+      ],
+      "graph_anchors": [
+        {
+          "source": "schema.name_binding",
+          "type": "built_from",
+          "target": "invariant.reference"
+        },
+        {
+          "source": "schema.social_role_word_binding",
+          "type": "built_from",
+          "target": "invariant.agent_role"
+        },
+        {
+          "source": "schema.pronoun_perspective_binding",
+          "type": "built_from",
+          "target": "schema.speaker_addressee_binding"
+        }
+      ],
+      "transfer_focus": "Keep language perspective separate from deeper self/non-self development."
+    },
+    {
+      "id": "heldout.language_every_some_only",
+      "source_ids": [
+        "LB301",
+        "LB302",
+        "LB304",
+        "LB061",
+        "LB063"
+      ],
+      "split": "maybe",
+      "case_type": "transfer_probe",
+      "prompt": "Compare every child got a sweet, some children got sweets, and only one child got a sweet. What changes?",
+      "expected_answer": "The quantifier changes set scope and distribution expectations over the group.",
+      "expected_relation_families": [
+        "schema.set_quantifier_binding",
+        "schema.quantity_word_binding",
+        "invariant.quantity_relation"
+      ],
+      "graph_anchors": [
+        {
+          "source": "schema.set_quantifier_binding",
+          "type": "built_from",
+          "target": "invariant.quantity_relation"
+        },
+        {
+          "source": "schema.set_quantifier_binding",
+          "type": "built_from",
+          "target": "schema.quantity_word_binding"
+        }
+      ],
+      "transfer_focus": "Test set-scope binding rather than memorized quantifier words."
+    },
+    {
+      "id": "heldout.language_if_because_when",
+      "source_ids": [
+        "LB181",
+        "LB186",
+        "LB313",
+        "LB317"
+      ],
+      "split": "maybe",
+      "case_type": "transfer_probe",
+      "prompt": "Compare if it rains take the umbrella, the cup fell because it was near the edge, and when the bell rings come inside. Which relation families differ?",
+      "expected_answer": "If creates a condition, because links cause to effect, and when marks a trigger in time.",
+      "expected_relation_families": [
+        "schema.conditional_clause_binding",
+        "schema.causal_clause_binding",
+        "schema.when_trigger_binding",
+        "invariant.condition_rule"
+      ],
+      "graph_anchors": [
+        {
+          "source": "schema.conditional_clause_binding",
+          "type": "built_from",
+          "target": "invariant.condition_rule"
+        },
+        {
+          "source": "schema.causal_clause_binding",
+          "type": "built_from",
+          "target": "invariant.cause_effect"
+        },
+        {
+          "source": "schema.when_trigger_binding",
+          "type": "built_from",
+          "target": "invariant.temporal_order"
+        }
+      ],
+      "transfer_focus": "Separate conditional, causal, and trigger clauses."
+    },
+    {
+      "id": "heldout.language_stop_sign_rule",
+      "source_ids": [
+        "LB164",
+        "LB182"
+      ],
+      "split": "maybe",
+      "case_type": "transfer_probe",
+      "prompt": "A child sees a stop sign and hears if the light is red, stop. What relation should connect the sign and the instruction?",
+      "expected_answer": "Both symbols and clauses bind to action rules that block or trigger stopping under a condition.",
+      "expected_relation_families": [
+        "schema.public_sign_binding",
+        "schema.symbol_to_action_binding",
+        "schema.conditional_clause_binding"
+      ],
+      "graph_anchors": [
+        {
+          "source": "schema.symbol_to_action_binding",
+          "type": "built_from",
+          "target": "schema.public_sign_binding"
+        },
+        {
+          "source": "schema.public_sign_binding",
+          "type": "built_from",
+          "target": "invariant.condition_rule"
+        },
+        {
+          "source": "schema.conditional_clause_binding",
+          "type": "built_from",
+          "target": "invariant.condition_rule"
+        }
+      ],
+      "transfer_focus": "Test public symbols and language instructions as action-rule handles."
+    },
+    {
+      "id": "heldout.language_new_word_meaning",
+      "source_ids": [
+        "LB400"
+      ],
+      "split": "maybe",
+      "case_type": "gap_probe",
+      "prompt": "A child asks what does that mean after hearing a new word in a story. What can the seed represent, and what remains open?",
+      "expected_answer": "The seed can represent unfamiliar-word negotiation as a search for a relation cluster. It does not yet model full definition learning from long discourse.",
+      "expected_relation_families": [
+        "schema.unfamiliar_word_negotiation",
+        "schema.relation_cluster_binding",
+        "schema.contextual_relation_activation"
+      ],
+      "gap_indicators": [
+        "schema.definition_from_examples",
+        "schema.long_context_word_learning"
+      ],
+      "graph_anchors": [
+        {
+          "source": "schema.unfamiliar_word_negotiation",
+          "type": "built_from",
+          "target": "invariant.reference"
+        },
+        {
+          "source": "schema.unfamiliar_word_negotiation",
+          "type": "built_from",
+          "target": "schema.relation_cluster_binding"
+        },
+        {
+          "source": "schema.contextual_relation_activation",
+          "type": "built_from",
+          "target": "invariant.context_selection"
+        }
+      ],
+      "transfer_focus": "Treat meaning questions as relation-cluster search, not dictionary lookup only."
+    }
+  ]
+}

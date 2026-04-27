@@ -1,0 +1,1972 @@
+{
+  "schema_version": "0.1.0",
+  "graph_id": "seed.social_world",
+  "metadata": {
+    "title": "Seed Domain: Simple Social World",
+    "description": "Machine-parseable seed graph for simple social-world relation motifs. This is a first executable social scaffold, not a full model of society.",
+    "agent": {
+      "domain": "simple_social_world",
+      "perspective": "human_scale_social_scaffold",
+      "source_inventory": "docs/social-world-200-situations.md",
+      "source_audit": "docs/social-world-firstset-relation-audit.md"
+    },
+    "notes": [
+      "This graph uses the 56 first-set social situations, not all 134 high-priority rows.",
+      "The broader high-priority rows remain available as second-pass extensions.",
+      "Adult institutional domains such as law, economics, politics, and history are intentionally excluded."
+    ]
+  },
+  "layers": [
+    {
+      "id": "layer.social_input",
+      "order": -1,
+      "label": "Social Observation Channels",
+      "description": "Observable social inputs such as face, voice, gesture, touch/proximity, valence, and remembered reliability."
+    },
+    {
+      "id": "layer.social_invariant",
+      "order": 0,
+      "label": "Social Relational Invariants",
+      "description": "Reusable comparison, presence, attention, expectation, response, permission, group, and turn relations."
+    },
+    {
+      "id": "layer.social_schema",
+      "order": 1,
+      "label": "Social Schemas",
+      "description": "Reusable social event patterns such as greeting, response, turn-taking, permission, transfer, trust, and rule behavior."
+    },
+    {
+      "id": "layer.social_signal",
+      "order": 2,
+      "label": "Social Signals",
+      "description": "Observable facial, voice, gesture, approval, distress, and permission signals."
+    },
+    {
+      "id": "layer.agent",
+      "order": 3,
+      "label": "Agents",
+      "description": "Human agent handles used by the first social-world scaffold."
+    },
+    {
+      "id": "layer.social_object",
+      "order": 4,
+      "label": "Social Objects",
+      "description": "Objects, resources, rules, and tasks that become targets of social relations."
+    },
+    {
+      "id": "layer.social_event",
+      "order": 5,
+      "label": "Social Event Outcomes",
+      "description": "Reusable outcomes such as comfort, inclusion, correction, praise, trust change, and rule outcome."
+    },
+    {
+      "id": "layer.social_abstraction",
+      "order": 6,
+      "label": "Social Abstractions",
+      "description": "Early abstractions built from social relation patterns."
+    }
+  ],
+  "nodes": [
+    {
+      "id": "channel.face_expression",
+      "label": "face expression observation",
+      "layer": "layer.social_input",
+      "kind": "social_observation_channel",
+      "age_status": "active",
+      "summary": "Source for smile, frown, gaze, and visible attention cues."
+    },
+    {
+      "id": "channel.voice_tone",
+      "label": "voice tone observation",
+      "layer": "layer.social_input",
+      "kind": "social_observation_channel",
+      "age_status": "active",
+      "summary": "Source for gentle, tense, hurried, loud, and reassuring voice patterns."
+    },
+    {
+      "id": "channel.gesture",
+      "label": "gesture observation",
+      "layer": "layer.social_input",
+      "kind": "social_observation_channel",
+      "age_status": "active",
+      "summary": "Source for pointing, reaching, giving, taking, clapping, and blocking actions."
+    },
+    {
+      "id": "channel.social_touch_proximity",
+      "label": "social touch and proximity observation",
+      "layer": "layer.social_input",
+      "kind": "social_observation_channel",
+      "age_status": "active",
+      "summary": "Source for holding, picking up, comforting, removing hand, and physical intervention."
+    },
+    {
+      "id": "channel.social_valence",
+      "label": "social valence observation",
+      "layer": "layer.social_input",
+      "kind": "social_value_channel",
+      "age_status": "active",
+      "summary": "Source for comfort, discomfort, approval, disapproval, distress, and relief in social settings."
+    },
+    {
+      "id": "channel.social_memory_prediction",
+      "label": "social memory and prediction",
+      "layer": "layer.social_input",
+      "kind": "prediction_channel",
+      "age_status": "active",
+      "summary": "Source for familiarity, reliability, expectation, promise, and trust updates across repeated encounters."
+    },
+    {
+      "id": "invariant.self_other",
+      "label": "self/other",
+      "layer": "layer.social_invariant",
+      "kind": "agent_boundary_relation",
+      "age_status": "active",
+      "summary": "Distinguishes own action and state from another agent's action and state."
+    },
+    {
+      "id": "invariant.familiar_unfamiliar",
+      "label": "familiar/unfamiliar",
+      "layer": "layer.social_invariant",
+      "kind": "agent_prediction_relation",
+      "age_status": "active",
+      "summary": "Compares an agent against previous experience and expected behavior."
+    },
+    {
+      "id": "invariant.presence_absence",
+      "label": "presence/absence",
+      "layer": "layer.social_invariant",
+      "kind": "availability_relation",
+      "age_status": "active",
+      "summary": "Tracks whether an expected agent is present, absent, leaving, or returning."
+    },
+    {
+      "id": "invariant.attention_absence",
+      "label": "attention/absence",
+      "layer": "layer.social_invariant",
+      "kind": "attention_relation",
+      "age_status": "active",
+      "summary": "Tracks whether another agent attends, ignores, follows attention, or fails to respond."
+    },
+    {
+      "id": "invariant.before_after",
+      "label": "before/after",
+      "layer": "layer.social_invariant",
+      "kind": "temporal_relation",
+      "age_status": "active",
+      "summary": "Orders social actions and consequences in time."
+    },
+    {
+      "id": "invariant.expected_unexpected",
+      "label": "expected/unexpected",
+      "layer": "layer.social_invariant",
+      "kind": "prediction_relation",
+      "age_status": "active",
+      "summary": "Tracks whether social behavior matches or violates expectation."
+    },
+    {
+      "id": "invariant.response_nonresponse",
+      "label": "response/non-response",
+      "layer": "layer.social_invariant",
+      "kind": "contingency_relation",
+      "age_status": "active",
+      "summary": "Tracks whether one agent responds to another agent's signal or need."
+    },
+    {
+      "id": "invariant.allowed_blocked",
+      "label": "allowed/blocked",
+      "layer": "layer.social_invariant",
+      "kind": "permission_relation",
+      "age_status": "active",
+      "summary": "Tracks whether an action is permitted, blocked, or conditionally allowed."
+    },
+    {
+      "id": "invariant.more_less_equal",
+      "label": "more/less/equal",
+      "layer": "layer.social_invariant",
+      "kind": "comparison_relation",
+      "age_status": "active",
+      "summary": "Compares shares, attention, priority, effort, and access."
+    },
+    {
+      "id": "invariant.turn_order",
+      "label": "turn order",
+      "layer": "layer.social_invariant",
+      "kind": "sequence_relation",
+      "age_status": "active",
+      "summary": "Tracks whose action or speech turn comes before or after another's."
+    },
+    {
+      "id": "invariant.group_member",
+      "label": "group/member",
+      "layer": "layer.social_invariant",
+      "kind": "membership_relation",
+      "age_status": "active",
+      "summary": "Tracks whether an agent is inside or outside a group activity."
+    },
+    {
+      "id": "invariant.harm_relief",
+      "label": "harm/relief",
+      "layer": "layer.social_invariant",
+      "kind": "care_relation",
+      "age_status": "active",
+      "summary": "Tracks observed hurt, distress, care response, and relief."
+    },
+    {
+      "id": "schema.familiar_agent_presence",
+      "label": "familiar agent presence",
+      "layer": "layer.social_schema",
+      "kind": "agent_availability_schema",
+      "age_status": "active",
+      "summary": "A familiar agent becomes present and activates expected care or attention."
+    },
+    {
+      "id": "schema.agent_absence_return",
+      "label": "agent absence and return",
+      "layer": "layer.social_schema",
+      "kind": "agent_availability_schema",
+      "age_status": "active",
+      "summary": "An expected agent leaves and later returns, changing expectation and comfort."
+    },
+    {
+      "id": "schema.social_referencing_safety_base",
+      "label": "social referencing and safety base",
+      "layer": "layer.social_schema",
+      "kind": "social_reference_schema",
+      "age_status": "active",
+      "summary": "A person looks to a familiar agent when uncertain about another agent or situation."
+    },
+    {
+      "id": "schema.social_affect_signal",
+      "label": "social affect signal",
+      "layer": "layer.social_schema",
+      "kind": "signal_interpretation_schema",
+      "age_status": "active",
+      "summary": "Face or voice signals change comfort, uncertainty, approach, or avoidance prediction."
+    },
+    {
+      "id": "schema.approval_feedback",
+      "label": "approval feedback",
+      "layer": "layer.social_schema",
+      "kind": "feedback_schema",
+      "age_status": "active",
+      "summary": "Another agent's positive signal follows an action and makes repetition more likely."
+    },
+    {
+      "id": "schema.disapproval_or_approval_loss",
+      "label": "disapproval or approval loss",
+      "layer": "layer.social_schema",
+      "kind": "feedback_schema",
+      "age_status": "active",
+      "summary": "A positive signal stops or a negative signal appears after an action."
+    },
+    {
+      "id": "schema.distress_signal_response",
+      "label": "distress signal response",
+      "layer": "layer.social_schema",
+      "kind": "care_response_schema",
+      "age_status": "active",
+      "summary": "An agent perceives distress and responds with care or comfort."
+    },
+    {
+      "id": "schema.distress_signal_nonresponse",
+      "label": "distress signal non-response",
+      "layer": "layer.social_schema",
+      "kind": "care_response_schema",
+      "age_status": "active",
+      "summary": "A distress signal occurs but an expected response is delayed or absent."
+    },
+    {
+      "id": "schema.other_distress_comfort",
+      "label": "comforting another person",
+      "layer": "layer.social_schema",
+      "kind": "empathy_precursor_schema",
+      "age_status": "active",
+      "summary": "A person observes another person's distress and acts to comfort them."
+    },
+    {
+      "id": "schema.social_turn_taking",
+      "label": "social turn-taking",
+      "layer": "layer.social_schema",
+      "kind": "interaction_timing_schema",
+      "age_status": "active",
+      "summary": "Agents alternate action, sound, or speech rather than acting at the same time."
+    },
+    {
+      "id": "schema.wait_window",
+      "label": "wait window",
+      "layer": "layer.social_schema",
+      "kind": "interaction_timing_schema",
+      "age_status": "active",
+      "summary": "An agent pauses to allow another agent's response."
+    },
+    {
+      "id": "schema.turn_violation",
+      "label": "turn violation",
+      "layer": "layer.social_schema",
+      "kind": "interaction_timing_schema",
+      "age_status": "active",
+      "summary": "An agent acts before their turn or speaks over another person."
+    },
+    {
+      "id": "schema.joint_attention_reference",
+      "label": "joint attention reference",
+      "layer": "layer.social_schema",
+      "kind": "reference_schema",
+      "age_status": "active",
+      "summary": "Two agents attend to the same object or event through gaze, pointing, or naming."
+    },
+    {
+      "id": "schema.object_naming_event",
+      "label": "object naming event",
+      "layer": "layer.social_schema",
+      "kind": "language_binding_schema",
+      "age_status": "active",
+      "summary": "A word is socially attached to an attended object."
+    },
+    {
+      "id": "schema.action_naming_event",
+      "label": "action naming event",
+      "layer": "layer.social_schema",
+      "kind": "language_binding_schema",
+      "age_status": "active",
+      "summary": "A word is socially attached to an attended action."
+    },
+    {
+      "id": "schema.permission_request",
+      "label": "permission request",
+      "layer": "layer.social_schema",
+      "kind": "permission_schema",
+      "age_status": "active",
+      "summary": "An agent requests access or action before acting."
+    },
+    {
+      "id": "schema.permission_granted",
+      "label": "permission granted",
+      "layer": "layer.social_schema",
+      "kind": "permission_schema",
+      "age_status": "active",
+      "summary": "An authority or owner allows an action or access."
+    },
+    {
+      "id": "schema.permission_denied",
+      "label": "permission denied",
+      "layer": "layer.social_schema",
+      "kind": "permission_schema",
+      "age_status": "active",
+      "summary": "An authority or owner blocks an action or access."
+    },
+    {
+      "id": "schema.unauthorized_use",
+      "label": "unauthorized use",
+      "layer": "layer.social_schema",
+      "kind": "permission_schema",
+      "age_status": "active",
+      "summary": "An agent uses an object without required permission."
+    },
+    {
+      "id": "schema.gentle_intervention",
+      "label": "gentle intervention",
+      "layer": "layer.social_schema",
+      "kind": "care_control_schema",
+      "age_status": "active",
+      "summary": "A caregiver physically redirects an action without treating it as punishment."
+    },
+    {
+      "id": "schema.safety_prevention",
+      "label": "safety prevention",
+      "layer": "layer.social_schema",
+      "kind": "care_control_schema",
+      "age_status": "active",
+      "summary": "An agent blocks access to prevent harm."
+    },
+    {
+      "id": "schema.object_removal_distress",
+      "label": "object removal distress",
+      "layer": "layer.social_schema",
+      "kind": "loss_response_schema",
+      "age_status": "active",
+      "summary": "Removal of an accessed object causes distress or protest."
+    },
+    {
+      "id": "schema.possession_and_access",
+      "label": "possession and access",
+      "layer": "layer.social_schema",
+      "kind": "resource_schema",
+      "age_status": "active",
+      "summary": "An agent holds, controls, wants, or is blocked from using an object."
+    },
+    {
+      "id": "schema.object_transfer_between_agents",
+      "label": "object transfer between agents",
+      "layer": "layer.social_schema",
+      "kind": "resource_schema",
+      "age_status": "active",
+      "summary": "An object moves from one agent's access to another's through giving or returning."
+    },
+    {
+      "id": "schema.unpermitted_taking",
+      "label": "unpermitted taking",
+      "layer": "layer.social_schema",
+      "kind": "resource_schema",
+      "age_status": "active",
+      "summary": "An agent takes an object from another without permission."
+    },
+    {
+      "id": "schema.refusal_to_transfer",
+      "label": "refusal to transfer",
+      "layer": "layer.social_schema",
+      "kind": "resource_schema",
+      "age_status": "active",
+      "summary": "An agent keeps an object instead of giving it when expected or requested."
+    },
+    {
+      "id": "schema.return_or_restoration",
+      "label": "return or restoration",
+      "layer": "layer.social_schema",
+      "kind": "repair_schema",
+      "age_status": "active",
+      "summary": "An object, access, or relation is restored after disruption."
+    },
+    {
+      "id": "schema.resource_allocation",
+      "label": "resource allocation",
+      "layer": "layer.social_schema",
+      "kind": "allocation_schema",
+      "age_status": "active",
+      "summary": "Resources or turns are distributed across agents."
+    },
+    {
+      "id": "schema.unequal_allocation",
+      "label": "unequal allocation",
+      "layer": "layer.social_schema",
+      "kind": "allocation_schema",
+      "age_status": "active",
+      "summary": "One agent receives more access or resource than another."
+    },
+    {
+      "id": "schema.fairness_precursor",
+      "label": "fairness precursor",
+      "layer": "layer.social_schema",
+      "kind": "social_comparison_schema",
+      "age_status": "active",
+      "summary": "A comparison of allocation, need, role, and expectation that can later support fairness."
+    },
+    {
+      "id": "schema.peer_imitation",
+      "label": "peer imitation",
+      "layer": "layer.social_schema",
+      "kind": "social_learning_schema",
+      "age_status": "active",
+      "summary": "An agent copies another agent's action."
+    },
+    {
+      "id": "schema.observed_consequence_learning",
+      "label": "observed consequence learning",
+      "layer": "layer.social_schema",
+      "kind": "social_learning_schema",
+      "age_status": "active",
+      "summary": "An agent changes behavior after seeing another agent corrected or praised."
+    },
+    {
+      "id": "schema.group_entry_bid",
+      "label": "group entry bid",
+      "layer": "layer.social_schema",
+      "kind": "group_schema",
+      "age_status": "active",
+      "summary": "An agent tries to join an ongoing group activity."
+    },
+    {
+      "id": "schema.group_invitation",
+      "label": "group invitation",
+      "layer": "layer.social_schema",
+      "kind": "group_schema",
+      "age_status": "active",
+      "summary": "A group grants access to an agent."
+    },
+    {
+      "id": "schema.group_exclusion",
+      "label": "group exclusion",
+      "layer": "layer.social_schema",
+      "kind": "group_schema",
+      "age_status": "active",
+      "summary": "A group denies or ignores access to an agent."
+    },
+    {
+      "id": "schema.help_request_response",
+      "label": "help request and response",
+      "layer": "layer.social_schema",
+      "kind": "help_schema",
+      "age_status": "active",
+      "summary": "An agent asks for help and another agent responds."
+    },
+    {
+      "id": "schema.spontaneous_help",
+      "label": "spontaneous help",
+      "layer": "layer.social_schema",
+      "kind": "help_schema",
+      "age_status": "active",
+      "summary": "An agent notices need and helps without being asked."
+    },
+    {
+      "id": "schema.help_refusal",
+      "label": "help refusal",
+      "layer": "layer.social_schema",
+      "kind": "help_schema",
+      "age_status": "active",
+      "summary": "An agent refuses a request for help."
+    },
+    {
+      "id": "schema.promise_commitment",
+      "label": "promise commitment",
+      "layer": "layer.social_schema",
+      "kind": "commitment_schema",
+      "age_status": "active",
+      "summary": "An agent creates an expectation of future action."
+    },
+    {
+      "id": "schema.promise_fulfilled",
+      "label": "promise fulfilled",
+      "layer": "layer.social_schema",
+      "kind": "commitment_schema",
+      "age_status": "active",
+      "summary": "An agent performs the promised future action."
+    },
+    {
+      "id": "schema.promise_violated",
+      "label": "promise violated",
+      "layer": "layer.social_schema",
+      "kind": "commitment_schema",
+      "age_status": "active",
+      "summary": "An agent does not perform the promised future action."
+    },
+    {
+      "id": "schema.trust_update",
+      "label": "trust update",
+      "layer": "layer.social_schema",
+      "kind": "reliability_schema",
+      "age_status": "active",
+      "summary": "Reliability evidence changes expected future behavior."
+    },
+    {
+      "id": "schema.rule_compliance",
+      "label": "rule compliance",
+      "layer": "layer.social_schema",
+      "kind": "rule_schema",
+      "age_status": "active",
+      "summary": "An action matches a rule that applies to it."
+    },
+    {
+      "id": "schema.rule_violation",
+      "label": "rule violation",
+      "layer": "layer.social_schema",
+      "kind": "rule_schema",
+      "age_status": "active",
+      "summary": "An action violates a rule that applies to it."
+    },
+    {
+      "id": "schema.harm_checking",
+      "label": "harm checking",
+      "layer": "layer.social_schema",
+      "kind": "care_response_schema",
+      "age_status": "active",
+      "summary": "An agent checks whether another person is hurt after possible harm."
+    },
+    {
+      "id": "schema.speech_turn_waiting",
+      "label": "speech turn waiting",
+      "layer": "layer.social_schema",
+      "kind": "conversation_schema",
+      "age_status": "active",
+      "summary": "An agent waits for another person's speech turn to finish."
+    },
+    {
+      "id": "schema.responsive_communication",
+      "label": "responsive communication",
+      "layer": "layer.social_schema",
+      "kind": "conversation_schema",
+      "age_status": "active",
+      "summary": "An agent listens and responds to the content of what was said."
+    },
+    {
+      "id": "signal.gentle_tone",
+      "label": "gentle tone",
+      "layer": "layer.social_signal",
+      "kind": "voice_signal",
+      "age_status": "active",
+      "summary": "Soft or reassuring voice pattern."
+    },
+    {
+      "id": "signal.tense_tone",
+      "label": "tense tone",
+      "layer": "layer.social_signal",
+      "kind": "voice_signal",
+      "age_status": "active",
+      "summary": "Hurried, tense, or uncertain voice pattern."
+    },
+    {
+      "id": "signal.smile",
+      "label": "smile",
+      "layer": "layer.social_signal",
+      "kind": "face_signal",
+      "age_status": "active",
+      "summary": "Visible positive facial signal."
+    },
+    {
+      "id": "signal.praise",
+      "label": "praise signal",
+      "layer": "layer.social_signal",
+      "kind": "approval_signal",
+      "age_status": "active",
+      "summary": "Clap, good, or other positive feedback after an action."
+    },
+    {
+      "id": "signal.approval_withdrawal",
+      "label": "approval withdrawal",
+      "layer": "layer.social_signal",
+      "kind": "disapproval_signal",
+      "age_status": "active",
+      "summary": "Loss of smile or positive signal after an action."
+    },
+    {
+      "id": "signal.crying",
+      "label": "crying",
+      "layer": "layer.social_signal",
+      "kind": "distress_signal",
+      "age_status": "active",
+      "summary": "Audible or visible distress signal."
+    },
+    {
+      "id": "signal.pointing",
+      "label": "pointing",
+      "layer": "layer.social_signal",
+      "kind": "reference_signal",
+      "age_status": "active",
+      "summary": "Gesture that directs another agent's attention."
+    },
+    {
+      "id": "signal.no_word",
+      "label": "no signal",
+      "layer": "layer.social_signal",
+      "kind": "permission_signal",
+      "age_status": "active",
+      "summary": "Social signal that blocks an action."
+    },
+    {
+      "id": "signal.yes_word",
+      "label": "yes or okay signal",
+      "layer": "layer.social_signal",
+      "kind": "permission_signal",
+      "age_status": "active",
+      "summary": "Social signal that allows an action."
+    },
+    {
+      "id": "agent.child",
+      "label": "child",
+      "layer": "layer.agent",
+      "kind": "agent",
+      "age_status": "active",
+      "summary": "Child or learner in the social situation."
+    },
+    {
+      "id": "agent.caregiver",
+      "label": "caregiver",
+      "layer": "layer.agent",
+      "kind": "familiar_agent",
+      "age_status": "active",
+      "summary": "Caregiving agent expected to respond to need and distress."
+    },
+    {
+      "id": "agent.familiar_family_member",
+      "label": "familiar family member",
+      "layer": "layer.agent",
+      "kind": "familiar_agent",
+      "age_status": "active",
+      "summary": "Familiar person with positive or predictable prior relation."
+    },
+    {
+      "id": "agent.unfamiliar_visitor",
+      "label": "unfamiliar visitor",
+      "layer": "layer.agent",
+      "kind": "unfamiliar_agent",
+      "age_status": "active",
+      "summary": "Less familiar person with weaker prior prediction."
+    },
+    {
+      "id": "agent.peer_child",
+      "label": "peer child",
+      "layer": "layer.agent",
+      "kind": "peer_agent",
+      "age_status": "active",
+      "summary": "Another child in play, imitation, conflict, or group entry situations."
+    },
+    {
+      "id": "agent.adult",
+      "label": "adult",
+      "layer": "layer.agent",
+      "kind": "adult_agent",
+      "age_status": "active",
+      "summary": "Adult agent who may name, permit, block, correct, or allocate resources."
+    },
+    {
+      "id": "agent.person",
+      "label": "person",
+      "layer": "layer.agent",
+      "kind": "generic_agent",
+      "age_status": "active",
+      "summary": "Generic human agent used for adult social patterns."
+    },
+    {
+      "id": "agent.group",
+      "label": "group",
+      "layer": "layer.agent",
+      "kind": "group_agent",
+      "age_status": "active",
+      "summary": "Multiple people acting as a social group or play group."
+    },
+    {
+      "id": "object.toy",
+      "label": "toy",
+      "layer": "layer.social_object",
+      "kind": "shared_object",
+      "age_status": "active",
+      "summary": "Concrete object used for access, giving, taking, sharing, or conflict."
+    },
+    {
+      "id": "object.dangerous_object",
+      "label": "dangerous object",
+      "layer": "layer.social_object",
+      "kind": "safety_relevant_object",
+      "age_status": "active",
+      "summary": "Object whose access may be blocked to prevent harm."
+    },
+    {
+      "id": "object.owned_object",
+      "label": "owned object",
+      "layer": "layer.social_object",
+      "kind": "owned_object",
+      "age_status": "active",
+      "summary": "Object associated with a person and permission expectations."
+    },
+    {
+      "id": "object.shared_resource",
+      "label": "shared resource",
+      "layer": "layer.social_object",
+      "kind": "allocatable_resource",
+      "age_status": "active",
+      "summary": "Resource that can be divided, allocated, or compared across agents."
+    },
+    {
+      "id": "object.rule",
+      "label": "rule",
+      "layer": "layer.social_object",
+      "kind": "social_constraint",
+      "age_status": "active",
+      "summary": "Expected pattern that permits, requires, or blocks actions in context."
+    },
+    {
+      "id": "object.promise_task",
+      "label": "promised task",
+      "layer": "layer.social_object",
+      "kind": "future_action_target",
+      "age_status": "active",
+      "summary": "Future action that an agent commits to doing."
+    },
+    {
+      "id": "event.comfort_increase",
+      "label": "comfort increase",
+      "layer": "layer.social_event",
+      "kind": "valence_outcome",
+      "age_status": "active",
+      "summary": "Comfort rises through familiar agent presence, reassurance, or care."
+    },
+    {
+      "id": "event.distress_reduction",
+      "label": "distress reduction",
+      "layer": "layer.social_event",
+      "kind": "valence_outcome",
+      "age_status": "active",
+      "summary": "Distress decreases after a helpful or comforting response."
+    },
+    {
+      "id": "event.trust_increase",
+      "label": "trust increase",
+      "layer": "layer.social_event",
+      "kind": "prediction_update_outcome",
+      "age_status": "active",
+      "summary": "Reliability expectation strengthens after fulfilled behavior."
+    },
+    {
+      "id": "event.trust_decrease",
+      "label": "trust decrease",
+      "layer": "layer.social_event",
+      "kind": "prediction_update_outcome",
+      "age_status": "active",
+      "summary": "Reliability expectation weakens after failed or unreliable behavior."
+    },
+    {
+      "id": "event.inclusion",
+      "label": "inclusion",
+      "layer": "layer.social_event",
+      "kind": "group_outcome",
+      "age_status": "active",
+      "summary": "An agent gains access to a group activity."
+    },
+    {
+      "id": "event.exclusion",
+      "label": "exclusion",
+      "layer": "layer.social_event",
+      "kind": "group_outcome",
+      "age_status": "active",
+      "summary": "An agent is denied or ignored by a group activity."
+    },
+    {
+      "id": "event.correction",
+      "label": "correction",
+      "layer": "layer.social_event",
+      "kind": "feedback_outcome",
+      "age_status": "active",
+      "summary": "Another agent signals that an action should change."
+    },
+    {
+      "id": "event.praise",
+      "label": "praise",
+      "layer": "layer.social_event",
+      "kind": "feedback_outcome",
+      "age_status": "active",
+      "summary": "Another agent signals approval after an action."
+    },
+    {
+      "id": "event.rule_followed",
+      "label": "rule followed",
+      "layer": "layer.social_event",
+      "kind": "rule_outcome",
+      "age_status": "active",
+      "summary": "Action matches a rule."
+    },
+    {
+      "id": "event.rule_broken",
+      "label": "rule broken",
+      "layer": "layer.social_event",
+      "kind": "rule_outcome",
+      "age_status": "active",
+      "summary": "Action violates a rule."
+    },
+    {
+      "id": "event.harm_checked",
+      "label": "harm checked",
+      "layer": "layer.social_event",
+      "kind": "care_outcome",
+      "age_status": "active",
+      "summary": "A person checks whether another person is hurt after possible harm."
+    },
+    {
+      "id": "concept.permission",
+      "label": "permission",
+      "layer": "layer.social_abstraction",
+      "kind": "social_abstraction",
+      "age_status": "active",
+      "summary": "Action access determined by allowance, blocking, role, or ownership relation."
+    },
+    {
+      "id": "concept.ownership",
+      "label": "ownership precursor",
+      "layer": "layer.social_abstraction",
+      "kind": "social_abstraction",
+      "age_status": "active",
+      "summary": "Object access expectation built from holding, use, return, and permission."
+    },
+    {
+      "id": "concept.fairness_precursor",
+      "label": "fairness precursor",
+      "layer": "layer.social_abstraction",
+      "kind": "social_abstraction",
+      "age_status": "active",
+      "summary": "Allocation evaluation built from comparison, expectation, need, role, and rule."
+    },
+    {
+      "id": "concept.trust",
+      "label": "trust",
+      "layer": "layer.social_abstraction",
+      "kind": "social_abstraction",
+      "age_status": "active",
+      "summary": "Expectation that an agent will act reliably in future contexts."
+    },
+    {
+      "id": "concept.promise",
+      "label": "promise",
+      "layer": "layer.social_abstraction",
+      "kind": "social_abstraction",
+      "age_status": "active",
+      "summary": "Future action expectation created by a commitment signal."
+    },
+    {
+      "id": "concept.rule",
+      "label": "rule",
+      "layer": "layer.social_abstraction",
+      "kind": "social_abstraction",
+      "age_status": "active",
+      "summary": "Contextual expectation that certain actions should or should not occur."
+    },
+    {
+      "id": "concept.help",
+      "label": "help",
+      "layer": "layer.social_abstraction",
+      "kind": "social_abstraction",
+      "age_status": "active",
+      "summary": "An agent uses effort or ability to reduce another agent's difficulty or need."
+    },
+    {
+      "id": "concept.group_belonging",
+      "label": "group belonging",
+      "layer": "layer.social_abstraction",
+      "kind": "social_abstraction",
+      "age_status": "active",
+      "summary": "Access and acceptance within a group activity or social group."
+    },
+    {
+      "id": "concept.respect_precursor",
+      "label": "respect precursor",
+      "layer": "layer.social_abstraction",
+      "kind": "social_abstraction",
+      "age_status": "active",
+      "summary": "Waiting, listening, permission, and response patterns that preserve another agent's agency."
+    },
+    {
+      "id": "concept.empathy_precursor",
+      "label": "empathy precursor",
+      "layer": "layer.social_abstraction",
+      "kind": "social_abstraction",
+      "age_status": "active",
+      "summary": "Other person's distress is treated as a reason for care response."
+    }
+  ],
+  "relations": [
+    {
+      "source": "schema.familiar_agent_presence",
+      "type": "built_from",
+      "target": "invariant.familiar_unfamiliar",
+      "strength": 0.9,
+      "valence": "positive",
+      "built_from": ["channel.face_expression", "channel.voice_tone", "channel.social_memory_prediction"]
+    },
+    {
+      "source": "schema.agent_absence_return",
+      "type": "built_from",
+      "target": "invariant.presence_absence",
+      "strength": 0.9,
+      "valence": "mixed",
+      "built_from": ["invariant.before_after", "invariant.expected_unexpected"]
+    },
+    {
+      "source": "schema.social_referencing_safety_base",
+      "type": "built_from",
+      "target": "schema.familiar_agent_presence",
+      "strength": 0.82,
+      "valence": "mixed",
+      "built_from": ["invariant.familiar_unfamiliar", "invariant.attention_absence"]
+    },
+    {
+      "source": "schema.social_affect_signal",
+      "type": "built_from",
+      "target": "invariant.expected_unexpected",
+      "strength": 0.84,
+      "valence": "mixed",
+      "built_from": ["channel.face_expression", "channel.voice_tone", "channel.social_valence"]
+    },
+    {
+      "source": "schema.approval_feedback",
+      "type": "built_from",
+      "target": "schema.social_affect_signal",
+      "strength": 0.84,
+      "valence": "positive",
+      "built_from": ["signal.praise", "signal.smile"]
+    },
+    {
+      "source": "schema.disapproval_or_approval_loss",
+      "type": "built_from",
+      "target": "schema.social_affect_signal",
+      "strength": 0.78,
+      "valence": "negative",
+      "built_from": ["signal.approval_withdrawal", "invariant.expected_unexpected"]
+    },
+    {
+      "source": "schema.distress_signal_response",
+      "type": "built_from",
+      "target": "invariant.response_nonresponse",
+      "strength": 0.9,
+      "valence": "positive",
+      "built_from": ["signal.crying", "channel.social_valence"]
+    },
+    {
+      "source": "schema.distress_signal_nonresponse",
+      "type": "built_from",
+      "target": "invariant.response_nonresponse",
+      "strength": 0.82,
+      "valence": "negative",
+      "built_from": ["signal.crying", "invariant.expected_unexpected"]
+    },
+    {
+      "source": "schema.other_distress_comfort",
+      "type": "built_from",
+      "target": "invariant.harm_relief",
+      "strength": 0.84,
+      "valence": "positive",
+      "built_from": ["schema.distress_signal_response", "invariant.self_other"]
+    },
+    {
+      "source": "schema.social_turn_taking",
+      "type": "built_from",
+      "target": "invariant.turn_order",
+      "strength": 0.86,
+      "valence": "neutral",
+      "built_from": ["invariant.before_after", "invariant.response_nonresponse"]
+    },
+    {
+      "source": "schema.wait_window",
+      "type": "built_from",
+      "target": "schema.social_turn_taking",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.turn_violation",
+      "type": "contrasts_with",
+      "target": "schema.social_turn_taking",
+      "strength": 0.76,
+      "valence": "negative",
+      "built_from": ["invariant.turn_order", "invariant.expected_unexpected"]
+    },
+    {
+      "source": "schema.joint_attention_reference",
+      "type": "built_from",
+      "target": "invariant.attention_absence",
+      "strength": 0.9,
+      "valence": "neutral",
+      "built_from": ["signal.pointing", "channel.gesture"]
+    },
+    {
+      "source": "schema.object_naming_event",
+      "type": "built_from",
+      "target": "schema.joint_attention_reference",
+      "strength": 0.82,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.action_naming_event",
+      "type": "built_from",
+      "target": "schema.joint_attention_reference",
+      "strength": 0.82,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.permission_request",
+      "type": "built_from",
+      "target": "invariant.allowed_blocked",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": ["invariant.self_other", "invariant.expected_unexpected"]
+    },
+    {
+      "source": "schema.permission_granted",
+      "type": "contrasts_with",
+      "target": "schema.permission_denied",
+      "strength": 0.9,
+      "valence": "mixed",
+      "built_from": ["signal.yes_word", "signal.no_word"]
+    },
+    {
+      "source": "schema.permission_granted",
+      "type": "can_activate",
+      "target": "concept.permission",
+      "strength": 0.88,
+      "valence": "positive"
+    },
+    {
+      "source": "schema.permission_denied",
+      "type": "can_activate",
+      "target": "concept.permission",
+      "strength": 0.88,
+      "valence": "mixed"
+    },
+    {
+      "source": "schema.unauthorized_use",
+      "type": "built_from",
+      "target": "schema.permission_request",
+      "strength": 0.82,
+      "valence": "negative"
+    },
+    {
+      "source": "schema.gentle_intervention",
+      "type": "built_from",
+      "target": "invariant.allowed_blocked",
+      "strength": 0.76,
+      "valence": "mixed",
+      "built_from": ["channel.social_touch_proximity", "schema.safety_prevention"]
+    },
+    {
+      "source": "schema.safety_prevention",
+      "type": "built_from",
+      "target": "invariant.harm_relief",
+      "strength": 0.8,
+      "valence": "positive",
+      "built_from": ["object.dangerous_object", "invariant.allowed_blocked"]
+    },
+    {
+      "source": "schema.object_removal_distress",
+      "type": "built_from",
+      "target": "invariant.expected_unexpected",
+      "strength": 0.76,
+      "valence": "negative",
+      "built_from": ["object.toy", "signal.crying"]
+    },
+    {
+      "source": "schema.possession_and_access",
+      "type": "can_activate",
+      "target": "concept.ownership",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": ["object.owned_object", "invariant.allowed_blocked"]
+    },
+    {
+      "source": "schema.object_transfer_between_agents",
+      "type": "built_from",
+      "target": "schema.possession_and_access",
+      "strength": 0.82,
+      "valence": "positive"
+    },
+    {
+      "source": "schema.unpermitted_taking",
+      "type": "contrasts_with",
+      "target": "schema.object_transfer_between_agents",
+      "strength": 0.82,
+      "valence": "negative"
+    },
+    {
+      "source": "schema.refusal_to_transfer",
+      "type": "built_from",
+      "target": "invariant.allowed_blocked",
+      "strength": 0.74,
+      "valence": "mixed"
+    },
+    {
+      "source": "schema.return_or_restoration",
+      "type": "can_cause",
+      "target": "event.distress_reduction",
+      "strength": 0.76,
+      "valence": "positive"
+    },
+    {
+      "source": "schema.resource_allocation",
+      "type": "built_from",
+      "target": "invariant.more_less_equal",
+      "strength": 0.86,
+      "valence": "neutral",
+      "built_from": ["object.shared_resource", "invariant.self_other"]
+    },
+    {
+      "source": "schema.unequal_allocation",
+      "type": "built_from",
+      "target": "schema.resource_allocation",
+      "strength": 0.86,
+      "valence": "mixed"
+    },
+    {
+      "source": "schema.fairness_precursor",
+      "type": "built_from",
+      "target": "schema.unequal_allocation",
+      "strength": 0.72,
+      "valence": "mixed",
+      "built_from": ["invariant.more_less_equal", "invariant.expected_unexpected", "object.rule"]
+    },
+    {
+      "source": "schema.peer_imitation",
+      "type": "built_from",
+      "target": "invariant.self_other",
+      "strength": 0.82,
+      "valence": "neutral",
+      "built_from": ["channel.gesture", "channel.social_memory_prediction"]
+    },
+    {
+      "source": "schema.observed_consequence_learning",
+      "type": "built_from",
+      "target": "invariant.expected_unexpected",
+      "strength": 0.8,
+      "valence": "neutral",
+      "built_from": ["event.correction", "event.praise"]
+    },
+    {
+      "source": "schema.group_entry_bid",
+      "type": "built_from",
+      "target": "invariant.group_member",
+      "strength": 0.82,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.group_invitation",
+      "type": "can_cause",
+      "target": "event.inclusion",
+      "strength": 0.84,
+      "valence": "positive"
+    },
+    {
+      "source": "schema.group_exclusion",
+      "type": "can_cause",
+      "target": "event.exclusion",
+      "strength": 0.84,
+      "valence": "negative"
+    },
+    {
+      "source": "schema.group_invitation",
+      "type": "can_activate",
+      "target": "concept.group_belonging",
+      "strength": 0.8,
+      "valence": "positive"
+    },
+    {
+      "source": "schema.group_exclusion",
+      "type": "contrasts_with",
+      "target": "schema.group_invitation",
+      "strength": 0.84,
+      "valence": "negative"
+    },
+    {
+      "source": "schema.help_request_response",
+      "type": "can_activate",
+      "target": "concept.help",
+      "strength": 0.86,
+      "valence": "positive",
+      "built_from": ["invariant.response_nonresponse", "invariant.harm_relief"]
+    },
+    {
+      "source": "schema.spontaneous_help",
+      "type": "can_activate",
+      "target": "concept.help",
+      "strength": 0.82,
+      "valence": "positive"
+    },
+    {
+      "source": "schema.help_refusal",
+      "type": "contrasts_with",
+      "target": "schema.help_request_response",
+      "strength": 0.82,
+      "valence": "negative"
+    },
+    {
+      "source": "schema.promise_commitment",
+      "type": "can_activate",
+      "target": "concept.promise",
+      "strength": 0.9,
+      "valence": "neutral",
+      "built_from": ["object.promise_task", "invariant.before_after", "invariant.expected_unexpected"]
+    },
+    {
+      "source": "schema.promise_fulfilled",
+      "type": "built_from",
+      "target": "schema.promise_commitment",
+      "strength": 0.86,
+      "valence": "positive"
+    },
+    {
+      "source": "schema.promise_violated",
+      "type": "contrasts_with",
+      "target": "schema.promise_fulfilled",
+      "strength": 0.86,
+      "valence": "negative"
+    },
+    {
+      "source": "schema.promise_fulfilled",
+      "type": "can_cause",
+      "target": "event.trust_increase",
+      "strength": 0.82,
+      "valence": "positive"
+    },
+    {
+      "source": "schema.promise_violated",
+      "type": "can_cause",
+      "target": "event.trust_decrease",
+      "strength": 0.84,
+      "valence": "negative"
+    },
+    {
+      "source": "schema.trust_update",
+      "type": "can_activate",
+      "target": "concept.trust",
+      "strength": 0.9,
+      "valence": "mixed",
+      "built_from": ["channel.social_memory_prediction", "invariant.expected_unexpected"]
+    },
+    {
+      "source": "event.trust_increase",
+      "type": "updates",
+      "target": "concept.trust",
+      "strength": 0.8,
+      "valence": "positive"
+    },
+    {
+      "source": "event.trust_decrease",
+      "type": "updates",
+      "target": "concept.trust",
+      "strength": 0.82,
+      "valence": "negative"
+    },
+    {
+      "source": "schema.rule_compliance",
+      "type": "can_activate",
+      "target": "concept.rule",
+      "strength": 0.86,
+      "valence": "neutral",
+      "built_from": ["object.rule", "invariant.allowed_blocked"]
+    },
+    {
+      "source": "schema.rule_violation",
+      "type": "contrasts_with",
+      "target": "schema.rule_compliance",
+      "strength": 0.86,
+      "valence": "negative"
+    },
+    {
+      "source": "schema.rule_compliance",
+      "type": "can_cause",
+      "target": "event.rule_followed",
+      "strength": 0.82,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.rule_violation",
+      "type": "can_cause",
+      "target": "event.rule_broken",
+      "strength": 0.82,
+      "valence": "negative"
+    },
+    {
+      "source": "schema.harm_checking",
+      "type": "built_from",
+      "target": "invariant.harm_relief",
+      "strength": 0.82,
+      "valence": "positive"
+    },
+    {
+      "source": "schema.harm_checking",
+      "type": "can_cause",
+      "target": "event.harm_checked",
+      "strength": 0.82,
+      "valence": "positive"
+    },
+    {
+      "source": "schema.speech_turn_waiting",
+      "type": "built_from",
+      "target": "schema.social_turn_taking",
+      "strength": 0.82,
+      "valence": "positive"
+    },
+    {
+      "source": "schema.responsive_communication",
+      "type": "built_from",
+      "target": "invariant.response_nonresponse",
+      "strength": 0.82,
+      "valence": "positive",
+      "built_from": ["schema.speech_turn_waiting", "invariant.attention_absence"]
+    },
+    {
+      "source": "schema.speech_turn_waiting",
+      "type": "can_activate",
+      "target": "concept.respect_precursor",
+      "strength": 0.74,
+      "valence": "positive"
+    },
+    {
+      "source": "schema.other_distress_comfort",
+      "type": "can_activate",
+      "target": "concept.empathy_precursor",
+      "strength": 0.78,
+      "valence": "positive"
+    },
+    {
+      "source": "agent.caregiver",
+      "type": "can_activate",
+      "target": "schema.familiar_agent_presence",
+      "strength": 0.9,
+      "valence": "positive"
+    },
+    {
+      "source": "agent.unfamiliar_visitor",
+      "type": "can_activate",
+      "target": "invariant.familiar_unfamiliar",
+      "strength": 0.75,
+      "valence": "unknown"
+    },
+    {
+      "source": "signal.gentle_tone",
+      "type": "can_activate",
+      "target": "schema.social_affect_signal",
+      "strength": 0.86,
+      "valence": "positive"
+    },
+    {
+      "source": "signal.tense_tone",
+      "type": "can_activate",
+      "target": "schema.social_affect_signal",
+      "strength": 0.78,
+      "valence": "negative"
+    },
+    {
+      "source": "signal.crying",
+      "type": "can_activate",
+      "target": "schema.distress_signal_response",
+      "strength": 0.86,
+      "valence": "mixed"
+    },
+    {
+      "source": "object.toy",
+      "type": "can_activate",
+      "target": "schema.possession_and_access",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "object.owned_object",
+      "type": "can_activate",
+      "target": "schema.permission_request",
+      "strength": 0.76,
+      "valence": "neutral"
+    },
+    {
+      "source": "agent.child",
+      "type": "can_activate",
+      "target": "schema.social_referencing_safety_base",
+      "strength": 0.74,
+      "valence": "mixed"
+    },
+    {
+      "source": "agent.adult",
+      "type": "can_activate",
+      "target": "schema.permission_granted",
+      "strength": 0.72,
+      "valence": "neutral"
+    },
+    {
+      "source": "agent.familiar_family_member",
+      "type": "can_activate",
+      "target": "schema.familiar_agent_presence",
+      "strength": 0.82,
+      "valence": "positive"
+    },
+    {
+      "source": "agent.peer_child",
+      "type": "can_activate",
+      "target": "schema.peer_imitation",
+      "strength": 0.78,
+      "valence": "neutral"
+    },
+    {
+      "source": "agent.group",
+      "type": "can_activate",
+      "target": "schema.group_entry_bid",
+      "strength": 0.76,
+      "valence": "neutral"
+    },
+    {
+      "source": "agent.person",
+      "type": "can_activate",
+      "target": "schema.promise_commitment",
+      "strength": 0.7,
+      "valence": "neutral"
+    },
+    {
+      "source": "schema.fairness_precursor",
+      "type": "can_activate",
+      "target": "concept.fairness_precursor",
+      "strength": 0.78,
+      "valence": "mixed"
+    },
+    {
+      "source": "schema.familiar_agent_presence",
+      "type": "can_cause",
+      "target": "event.comfort_increase",
+      "strength": 0.78,
+      "valence": "positive"
+    }
+  ],
+  "micro_experiences": [
+    {
+      "id": "experience.caregiver_leave_return_001",
+      "title": "Caregiver leaves and returns",
+      "age_status": "active",
+      "participants": ["agent.child", "agent.caregiver"],
+      "events": ["caregiver is present", "caregiver leaves the room", "child notices absence", "caregiver returns", "comfort can increase"],
+      "relations_observed": [
+        {
+          "source": "schema.agent_absence_return",
+          "type": "strengthens",
+          "target": "invariant.presence_absence",
+          "strength_delta": 0.05
+        },
+        {
+          "source": "agent.caregiver",
+          "type": "strengthens_can_activate",
+          "target": "schema.familiar_agent_presence",
+          "strength_delta": 0.04
+        }
+      ],
+      "language_overlay": ["Caregiver goes away and comes back."]
+    },
+    {
+      "id": "experience.gentle_tense_smile_001",
+      "title": "Caregiver tone and smile change social prediction",
+      "age_status": "active",
+      "participants": ["agent.child", "agent.caregiver"],
+      "events": ["caregiver speaks gently", "caregiver smiles", "caregiver later speaks tensely", "child receives different social signals"],
+      "relations_observed": [
+        {
+          "source": "signal.gentle_tone",
+          "type": "strengthens_can_activate",
+          "target": "schema.social_affect_signal",
+          "strength_delta": 0.04
+        },
+        {
+          "source": "signal.tense_tone",
+          "type": "strengthens_can_activate",
+          "target": "schema.social_affect_signal",
+          "strength_delta": 0.03
+        }
+      ],
+      "language_overlay": ["A gentle voice and a tense voice carry different social signals."]
+    },
+    {
+      "id": "experience.cry_response_nonresponse_001",
+      "title": "Crying receives response or non-response",
+      "age_status": "active",
+      "participants": ["agent.child", "agent.caregiver"],
+      "events": ["child cries", "caregiver responds and picks up child", "in another case caregiver does not respond immediately"],
+      "relations_observed": [
+        {
+          "source": "schema.distress_signal_response",
+          "type": "strengthens",
+          "target": "event.distress_reduction",
+          "strength_delta": 0.05
+        },
+        {
+          "source": "schema.distress_signal_nonresponse",
+          "type": "strengthens",
+          "target": "invariant.expected_unexpected",
+          "strength_delta": 0.03
+        }
+      ],
+      "language_overlay": ["Crying can receive care, or care can be delayed."]
+    },
+    {
+      "id": "experience.joint_attention_naming_001",
+      "title": "Pointing and naming create shared reference",
+      "age_status": "active",
+      "participants": ["agent.child", "agent.adult", "object.toy"],
+      "events": ["child points at toy", "adult looks at the same toy", "adult names the object", "adult names an action"],
+      "relations_observed": [
+        {
+          "source": "schema.joint_attention_reference",
+          "type": "strengthens",
+          "target": "invariant.attention_absence",
+          "strength_delta": 0.05
+        },
+        {
+          "source": "schema.object_naming_event",
+          "type": "strengthens",
+          "target": "schema.joint_attention_reference",
+          "strength_delta": 0.04
+        }
+      ],
+      "language_overlay": ["The adult and child attend to the same object before naming it."]
+    },
+    {
+      "id": "experience.permission_block_allow_001",
+      "title": "No blocks action and yes allows action",
+      "age_status": "active",
+      "participants": ["agent.child", "agent.adult", "object.dangerous_object"],
+      "events": ["child reaches toward dangerous object", "adult says no and blocks action", "adult later says okay for a safe action"],
+      "relations_observed": [
+        {
+          "source": "schema.permission_denied",
+          "type": "strengthens",
+          "target": "concept.permission",
+          "strength_delta": 0.04
+        },
+        {
+          "source": "schema.permission_granted",
+          "type": "strengthens",
+          "target": "concept.permission",
+          "strength_delta": 0.04
+        }
+      ],
+      "language_overlay": ["No blocks an action; yes or okay allows an action."]
+    },
+    {
+      "id": "experience.safety_intervention_001",
+      "title": "Caregiver removes hand or dangerous object",
+      "age_status": "active",
+      "participants": ["agent.child", "agent.caregiver", "object.dangerous_object"],
+      "events": ["child reaches toward unsafe object", "caregiver gently removes the child's hand", "caregiver moves the object away", "child may cry when access is removed"],
+      "relations_observed": [
+        {
+          "source": "schema.gentle_intervention",
+          "type": "strengthens",
+          "target": "schema.safety_prevention",
+          "strength_delta": 0.04
+        },
+        {
+          "source": "schema.object_removal_distress",
+          "type": "strengthens",
+          "target": "signal.crying",
+          "strength_delta": 0.03
+        }
+      ],
+      "language_overlay": ["A blocked action may be a safety intervention, not only punishment."]
+    },
+    {
+      "id": "experience.toy_transfer_conflict_001",
+      "title": "Giving, taking, refusing, and returning toy",
+      "age_status": "active",
+      "participants": ["agent.child", "agent.peer_child", "agent.adult", "object.toy"],
+      "events": ["two children reach for the same toy", "one child grabs the toy", "one child gives a toy", "one child refuses to give", "adult asks for toy to be returned"],
+      "relations_observed": [
+        {
+          "source": "schema.unpermitted_taking",
+          "type": "strengthens",
+          "target": "schema.possession_and_access",
+          "strength_delta": 0.04
+        },
+        {
+          "source": "schema.return_or_restoration",
+          "type": "strengthens",
+          "target": "event.distress_reduction",
+          "strength_delta": 0.03
+        }
+      ],
+      "language_overlay": ["The same toy can be given, taken, refused, or returned."]
+    },
+    {
+      "id": "experience.allocation_turns_001",
+      "title": "Unequal share and turn waiting",
+      "age_status": "active",
+      "participants": ["agent.child", "agent.peer_child", "agent.adult", "object.shared_resource"],
+      "events": ["adult gives one child a bigger share", "adult asks children to wait for turns", "a child pushes ahead before their turn"],
+      "relations_observed": [
+        {
+          "source": "schema.unequal_allocation",
+          "type": "strengthens",
+          "target": "schema.fairness_precursor",
+          "strength_delta": 0.04
+        },
+        {
+          "source": "schema.turn_violation",
+          "type": "strengthens",
+          "target": "invariant.turn_order",
+          "strength_delta": 0.03
+        }
+      ],
+      "language_overlay": ["Shares can be compared, and turns can be followed or violated."]
+    },
+    {
+      "id": "experience.imitation_observed_feedback_001",
+      "title": "Peer imitation and learning from others' feedback",
+      "age_status": "active",
+      "participants": ["agent.child", "agent.peer_child", "agent.adult"],
+      "events": ["child copies another child's action", "child sees another child corrected", "child sees another child praised", "child changes behavior"],
+      "relations_observed": [
+        {
+          "source": "schema.peer_imitation",
+          "type": "strengthens",
+          "target": "invariant.self_other",
+          "strength_delta": 0.04
+        },
+        {
+          "source": "schema.observed_consequence_learning",
+          "type": "strengthens",
+          "target": "invariant.expected_unexpected",
+          "strength_delta": 0.04
+        }
+      ],
+      "language_overlay": ["A child can learn by watching what happens to another child."]
+    },
+    {
+      "id": "experience.group_entry_001",
+      "title": "Joining, invitation, and exclusion",
+      "age_status": "active",
+      "participants": ["agent.child", "agent.group"],
+      "events": ["child tries to join play", "group ignores the child", "group invites the child", "group says the child cannot join"],
+      "relations_observed": [
+        {
+          "source": "schema.group_invitation",
+          "type": "strengthens",
+          "target": "event.inclusion",
+          "strength_delta": 0.04
+        },
+        {
+          "source": "schema.group_exclusion",
+          "type": "strengthens",
+          "target": "event.exclusion",
+          "strength_delta": 0.04
+        }
+      ],
+      "language_overlay": ["A group can include or exclude someone from play."]
+    },
+    {
+      "id": "experience.help_request_001",
+      "title": "Help request, help, and refusal",
+      "age_status": "active",
+      "participants": ["agent.person"],
+      "events": ["person asks for help", "another person helps", "another person helps without being asked", "another person refuses help"],
+      "relations_observed": [
+        {
+          "source": "schema.help_request_response",
+          "type": "strengthens",
+          "target": "concept.help",
+          "strength_delta": 0.04
+        },
+        {
+          "source": "schema.help_refusal",
+          "type": "strengthens_contrast",
+          "target": "schema.help_request_response",
+          "strength_delta": 0.03
+        }
+      ],
+      "language_overlay": ["Help can be requested, given, given without asking, or refused."]
+    },
+    {
+      "id": "experience.promise_trust_001",
+      "title": "Promise kept, promise broken, and trust update",
+      "age_status": "active",
+      "participants": ["agent.person", "object.promise_task"],
+      "events": ["person promises to do something later", "person does what they promised", "person does not do what they promised", "trust changes across reliability"],
+      "relations_observed": [
+        {
+          "source": "schema.promise_fulfilled",
+          "type": "strengthens",
+          "target": "event.trust_increase",
+          "strength_delta": 0.05
+        },
+        {
+          "source": "schema.promise_violated",
+          "type": "strengthens",
+          "target": "event.trust_decrease",
+          "strength_delta": 0.05
+        }
+      ],
+      "language_overlay": ["Keeping a promise supports trust; breaking a promise weakens trust."]
+    },
+    {
+      "id": "experience.rule_compliance_001",
+      "title": "Rule followed and rule broken",
+      "age_status": "active",
+      "participants": ["agent.person", "object.rule"],
+      "events": ["person follows a household rule", "person breaks a household rule", "another person may correct or respond"],
+      "relations_observed": [
+        {
+          "source": "schema.rule_compliance",
+          "type": "strengthens",
+          "target": "event.rule_followed",
+          "strength_delta": 0.04
+        },
+        {
+          "source": "schema.rule_violation",
+          "type": "strengthens",
+          "target": "event.rule_broken",
+          "strength_delta": 0.04
+        }
+      ],
+      "language_overlay": ["A rule can be followed or broken."]
+    },
+    {
+      "id": "experience.harm_speech_response_001",
+      "title": "Harm checking and responsive communication",
+      "age_status": "active",
+      "participants": ["agent.person"],
+      "events": ["person sees someone fall", "person checks whether they are hurt", "person waits for another to finish speaking", "person listens and responds to what was said"],
+      "relations_observed": [
+        {
+          "source": "schema.harm_checking",
+          "type": "strengthens",
+          "target": "event.harm_checked",
+          "strength_delta": 0.04
+        },
+        {
+          "source": "schema.responsive_communication",
+          "type": "strengthens",
+          "target": "concept.respect_precursor",
+          "strength_delta": 0.03
+        }
+      ],
+      "language_overlay": ["Social care includes checking harm; conversation includes waiting and responding to what was said."]
+    }
+  ],
+  "evaluation_questions": [
+    {
+      "id": "eval.caregiver_return",
+      "question": "Why can a caregiver returning after leaving increase comfort?",
+      "expected_answer": "The caregiver is a familiar agent whose return repairs the absence relation and reactivates expected care.",
+      "expected_relations": [
+        {
+          "source": "schema.agent_absence_return",
+          "type": "built_from",
+          "target": "invariant.presence_absence"
+        },
+        {
+          "source": "agent.caregiver",
+          "type": "can_activate",
+          "target": "schema.familiar_agent_presence"
+        }
+      ]
+    },
+    {
+      "id": "eval.cry_nonresponse",
+      "question": "Why is crying followed by no response different from crying followed by being picked up?",
+      "expected_answer": "Both start with a distress signal, but one creates response and relief while the other creates delayed or absent response.",
+      "expected_relations": [
+        {
+          "source": "schema.distress_signal_response",
+          "type": "built_from",
+          "target": "invariant.response_nonresponse"
+        },
+        {
+          "source": "schema.distress_signal_nonresponse",
+          "type": "built_from",
+          "target": "invariant.response_nonresponse"
+        }
+      ]
+    },
+    {
+      "id": "eval.permission_yes_no",
+      "question": "What relation changes when an adult says no and blocks an action versus says okay and allows it?",
+      "expected_answer": "The permission relation changes from blocked or denied to allowed or granted.",
+      "expected_relations": [
+        {
+          "source": "schema.permission_granted",
+          "type": "contrasts_with",
+          "target": "schema.permission_denied"
+        },
+        {
+          "source": "schema.permission_granted",
+          "type": "can_activate",
+          "target": "concept.permission"
+        }
+      ]
+    },
+    {
+      "id": "eval.toy_taking_giving",
+      "question": "Why is giving a toy different from grabbing a toy another child holds?",
+      "expected_answer": "Giving is an object transfer between agents, while grabbing disrupts possession and access without permission.",
+      "expected_relations": [
+        {
+          "source": "schema.unpermitted_taking",
+          "type": "contrasts_with",
+          "target": "schema.object_transfer_between_agents"
+        },
+        {
+          "source": "schema.object_transfer_between_agents",
+          "type": "built_from",
+          "target": "schema.possession_and_access"
+        }
+      ]
+    },
+    {
+      "id": "eval.unequal_share",
+      "question": "Why can one child getting a bigger share raise a fairness question?",
+      "expected_answer": "Unequal allocation activates comparison of more and less, and fairness depends on expectation, rule, need, or role.",
+      "expected_relations": [
+        {
+          "source": "schema.unequal_allocation",
+          "type": "built_from",
+          "target": "schema.resource_allocation"
+        },
+        {
+          "source": "schema.fairness_precursor",
+          "type": "built_from",
+          "target": "schema.unequal_allocation"
+        }
+      ]
+    },
+    {
+      "id": "eval.group_inclusion",
+      "question": "Why is being invited into a game different from being told not to join?",
+      "expected_answer": "Invitation grants group access and can cause inclusion; exclusion denies group access.",
+      "expected_relations": [
+        {
+          "source": "schema.group_invitation",
+          "type": "can_cause",
+          "target": "event.inclusion"
+        },
+        {
+          "source": "schema.group_exclusion",
+          "type": "can_cause",
+          "target": "event.exclusion"
+        }
+      ]
+    },
+    {
+      "id": "eval.help_refusal",
+      "question": "Why is helping someone different from refusing a request for help?",
+      "expected_answer": "Helping responds to need or request, while refusal blocks that expected assistance.",
+      "expected_relations": [
+        {
+          "source": "schema.help_request_response",
+          "type": "can_activate",
+          "target": "concept.help"
+        },
+        {
+          "source": "schema.help_refusal",
+          "type": "contrasts_with",
+          "target": "schema.help_request_response"
+        }
+      ]
+    },
+    {
+      "id": "eval.promise_trust",
+      "question": "Why does breaking a promise reduce trust?",
+      "expected_answer": "A promise creates a future action expectation; violation causes prediction failure and weakens reliability expectation.",
+      "expected_relations": [
+        {
+          "source": "schema.promise_violated",
+          "type": "can_cause",
+          "target": "event.trust_decrease"
+        },
+        {
+          "source": "event.trust_decrease",
+          "type": "updates",
+          "target": "concept.trust"
+        }
+      ]
+    },
+    {
+      "id": "eval.rule_violation",
+      "question": "What relation is active when a person breaks a household rule?",
+      "expected_answer": "A rule applies to the action, but the action violates the rule instead of complying with it.",
+      "expected_relations": [
+        {
+          "source": "schema.rule_violation",
+          "type": "contrasts_with",
+          "target": "schema.rule_compliance"
+        },
+        {
+          "source": "schema.rule_violation",
+          "type": "can_cause",
+          "target": "event.rule_broken"
+        }
+      ]
+    },
+    {
+      "id": "eval.wait_listen_respond",
+      "question": "Why is waiting for someone to finish speaking part of respectful conversation?",
+      "expected_answer": "Speech-turn waiting preserves turn order and supports responsive communication instead of interrupting.",
+      "expected_relations": [
+        {
+          "source": "schema.speech_turn_waiting",
+          "type": "built_from",
+          "target": "schema.social_turn_taking"
+        },
+        {
+          "source": "schema.speech_turn_waiting",
+          "type": "can_activate",
+          "target": "concept.respect_precursor"
+        }
+      ]
+    }
+  ]
+}

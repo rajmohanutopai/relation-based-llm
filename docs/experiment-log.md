@@ -3,6 +3,92 @@
 This is the running chronological log for experiments. New entries go at the
 top so the latest result is always visible first.
 
+## 2026-04-27: nanochat Level 0 Local Smoke
+
+Experiment ID:
+
+```text
+nanochat_level0_local_smoke
+```
+
+Purpose:
+
+```text
+Verify that project JSONL data can be converted into nanochat pretraining
+Parquet shards and that nanochat can train a tiny from-scratch model locally on
+Mac/MPS.
+```
+
+Data:
+
+```text
+plain base dir:    /tmp/adi_nanochat_plain_smoke
+relation base dir: /tmp/adi_nanochat_relation_smoke
+train docs:        11800 per variant
+val docs:          280 per variant
+source split:      physical_v0 train/dev
+```
+
+Model/run:
+
+```text
+nanochat repo: /tmp/nanochat-read
+device:        mps
+depth:         2
+max_seq_len:   256
+iterations:    20
+tokens:        40960 per run
+```
+
+Plain-text smoke result:
+
+```text
+model tag:              adi_plain_d2_smoke20
+parameters:             983094
+initial validation bpb: 2.379064
+final validation bpb:   1.992483
+checkpoint:             /tmp/adi_nanochat_plain_smoke/base_checkpoints/adi_plain_d2_smoke20
+```
+
+Relation-scaffolded smoke result:
+
+```text
+model tag:              adi_relation_d2_smoke20
+parameters:             1179702
+initial validation bpb: 2.412748
+final validation bpb:   2.027082
+checkpoint:             /tmp/adi_nanochat_relation_smoke/base_checkpoints/adi_relation_d2_smoke20
+```
+
+Interpretation:
+
+```text
+The nanochat path works locally: Parquet conversion, tokenizer training,
+base pretraining, validation, and checkpointing all completed for both variants.
+This is not evidence for the theory yet.
+```
+
+Caveat:
+
+```text
+The two smoke runs used separately trained tokenizers. That changed the
+effective vocabulary sizes and parameter counts, so these numbers must not be
+used as a plain-vs-relation comparison.
+```
+
+Decision:
+
+```text
+Next step is to add a shared-tokenizer procedure and a relation_first_then_text
+dataset variant before any serious comparison or GPU spend.
+```
+
+Detailed report:
+
+```text
+docs/tiny-from-scratch-relation-experiment.md
+```
+
 ## 2026-04-26: Physical V0.3 Binary Candidate Scoring
 
 Experiment ID:

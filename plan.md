@@ -88,6 +88,17 @@ not genuine long-horizon relational growth.
   Detailed execution order for the project: first physical-world vertical slice,
   then social world and math, then composite domains like geography and history.
 
+- `docs/core-relation-curriculum-plan.md`
+  Defines the first serious five-domain nanochat curriculum: six-month root
+  world, everyday physical world, simple social world, math/abstraction roots,
+  and language binding. It fixes the matched representation variants:
+  `plain_text`, `relation_scaffolded`, and `relation_first_then_text`.
+
+- `data/developmental_graph/core_curriculum_plan.json`
+  Parseable manifest for the five-domain curriculum. It records which domains
+  are ready, which files are missing, and which gates must pass before serious
+  nanochat training.
+
 - `docs/seed-agent-6mo-indian-child.md`
   Human-readable seed graph for a 6-month-old boy child in an Indian context.
 
@@ -104,6 +115,59 @@ not genuine long-horizon relational growth.
   Raw, non-annotated inventory of 200 everyday physical-world situation
   families. This starts the grounded entry layer without adding relation
   interpretation yet.
+
+- `docs/social-world-200-situations.md`
+  Raw, non-annotated inventory of 200 simple social-world situation families.
+  This starts the social-domain entry layer without adding relation
+  interpretation yet.
+
+- `docs/social-world-firstset-relation-audit.md`
+  Derived relation audit for the first-set simple social situations. It identifies
+  reusable social relation families such as presence/absence, social signals,
+  turn-taking, joint attention, permission, sharing, fairness, imitation,
+  inclusion, help, promise, trust, rules, and comfort response.
+
+- `docs/math-abstraction-200-situations.md`
+  Raw, non-annotated inventory of 200 math-abstraction situation families,
+  with operational prioritisation complete. This starts the abstraction-domain
+  entry layer without adding relation interpretation yet.
+
+- `docs/math-abstraction-firstset-relation-audit.md`
+  Derived relation audit for the 66 first-set math-abstraction situations. It
+  identifies reusable relation families such as same/different, count,
+  comparison, one-to-one assignment, order, grouping, containment, measurement,
+  pattern, symbol mapping, and simple logical filters.
+
+- `data/developmental_graph/seeds/math_abstraction.json`
+  Parseable math-abstraction seed graph with compact relation motifs from the
+  first-set audit. Current count: 109 nodes, 81 relations, 9 micro-experiences,
+  and 11 evaluation questions.
+
+- `data/developmental_graph/evaluations/math_abstraction_heldout.json`
+  Parseable held-out evaluation set for testing math-abstraction transfer and
+  identifying abstraction relation gaps. Current count: 27 cases, 83 graph
+  anchors, and 61 gap indicators.
+
+- `docs/language-binding-400-situations.md`
+  Prioritised raw inventory of 400 language-binding situation families.
+  Current first-set counts: 179 `yes`, 78 `maybe`, 143 `no`. This starts the
+  language-binding entry layer without adding relation interpretation yet.
+
+- `docs/language-binding-firstset-relation-audit.md`
+  Derived relation audit for the 179 first-set language-binding situations. It
+  identifies reusable binding families such as word handles, object labels,
+  property labels, quantity words, sentence-event binding, questions, negation,
+  tense, polysemy, tone, multilingual equivalence, and story/discourse binding.
+
+- `data/developmental_graph/seeds/language_binding.json`
+  Parseable language-binding seed graph with compact relation motifs from the
+  first-set audit. Current count: 121 nodes, 230 relations, 12
+  micro-experiences, and 10 evaluation questions.
+
+- `data/developmental_graph/evaluations/language_binding_heldout.json`
+  Parseable held-out evaluation set for testing language-binding transfer and
+  identifying language relation gaps. Current count: 23 cases, 57 graph anchors,
+  and 10 gap indicators.
 
 - `docs/everyday-physical-world-top50-relation-audit.md`
   Derived relation audit for the 50 everyday physical situations marked as the
@@ -166,6 +230,16 @@ not genuine long-horizon relational growth.
 - `data/developmental_graph/seeds/everyday_physical_world.json`
   Parseable physical-domain seed graph with compact external-world relation
   motifs from the everyday physical audit.
+
+- `data/developmental_graph/seeds/social_world.json`
+  Parseable social-domain seed graph with compact social relation motifs from
+  the prioritised social first-set audit. Current count: 109 nodes, 74
+  relations, 14 micro-experiences, and 10 evaluation questions.
+
+- `data/developmental_graph/evaluations/social_world_heldout.json`
+  Parseable held-out evaluation set for testing social transfer and identifying
+  missing social relation families. Current count: 25 cases, 69 graph anchors,
+  and 47 gap indicators.
 
 - `data/developmental_graph/evaluations/everyday_physical_world_heldout.json`
   Parseable held-out evaluation set for testing physical transfer and identifying
