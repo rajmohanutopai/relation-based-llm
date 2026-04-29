@@ -3,6 +3,248 @@
 This is the running chronological log for experiments. New entries go at the
 top so the latest result is always visible first.
 
+## 2026-04-29: nanochat V6 Transfer QA Dense/Sparse/Corrupt Run
+
+Experiment ID:
+
+```text
+nanochat_v6_transfer_qa_20260429
+```
+
+Purpose:
+
+```text
+Test whether relation-dense ordinary text creates reusable relation behavior
+across observation, inference, transfer, and counterfactual held-out buckets.
+```
+
+Data and model:
+
+```text
+dataset: procedural_foundation_v6_transfer_qa
+model variants: ordinary_dense_qa, ordinary_sparse_qa, ordinary_corrupt_qa
+relations visible to model: no
+train records per variant: 17720
+held-out dense prompts: 8525
+parameters: 4325506
+iterations: 1000
+training tokens per variant: 2048000
+context length: 256
+tokenizer vocab: 1146
+```
+
+Training validation bpb:
+
+```text
+ordinary_dense_qa:   2.448177 -> 0.121423
+ordinary_sparse_qa:  2.593039 -> 0.114275
+ordinary_corrupt_qa: 2.446165 -> 0.118257
+```
+
+Held-out evaluation on dense ordinary prompts:
+
+```text
+ordinary_dense_qa:   91.7% answer exact, 90.3% reason exact
+ordinary_sparse_qa:  53.1% answer exact, 43.4% reason exact
+ordinary_corrupt_qa: 33.9% answer exact, 31.7% reason exact
+```
+
+Dense model bucket scores:
+
+```text
+test_observation:    85.0% answer exact, 84.3% reason exact
+test_inference:      98.1% answer exact, 97.0% reason exact
+test_transfer:       89.0% answer exact, 87.4% reason exact
+test_counterfactual: 99.4% answer exact, 96.9% reason exact
+```
+
+Decision:
+
+```text
+This is the strongest controlled result so far. Dense ordinary relation text
+beats sparse and corrupt controls by a large margin, including on transfer and
+counterfactual tests. Continue with learning-curve, vocabulary-transfer, and
+mixed-domain tests before claiming general language improvement.
+```
+
+Detailed report:
+
+```text
+docs/procedural-foundation-v6-transfer-qa.md
+runs/nanochat_v6_transfer_qa_20260429/evaluation/dense_curriculum_test_d4_i1000/summary.md
+```
+
+## 2026-04-29: Procedural Foundation V6 Transfer QA Dataset
+
+Experiment ID:
+
+```text
+procedural_foundation_v6_transfer_qa
+```
+
+Purpose:
+
+```text
+Move beyond V5's dense-vs-sparse result and test whether relation-dense
+ordinary text supports reusable relation rules across observation, inference,
+transfer, and counterfactual held-out buckets.
+```
+
+Data:
+
+```text
+source world: procedural_foundation_v3
+main variant: ordinary_dense_qa
+control variants: ordinary_sparse_qa, ordinary_corrupt_qa
+relations visible to model: no
+prompt surfaces per unit: 5
+```
+
+Dense main-arm counts:
+
+```text
+train records: 17720
+dev records: 2315
+test_observation records: 2695
+test_inference records: 1700
+test_transfer records: 2380
+test_counterfactual records: 1750
+curriculum_test records: 8525
+```
+
+Validation:
+
+```text
+dense train ambiguous inputs: 0
+dense curriculum_test ambiguous inputs: 0
+visible relation tag leaks: 0
+counterfactual groups with both true and false cases: 146 / 146
+```
+
+Decision:
+
+```text
+V6 is ready for the next nanochat run. Train dense, sparse, and corrupted
+control models, then evaluate all of them on the dense V6 held-out buckets.
+```
+
+Detailed report:
+
+```text
+docs/procedural-foundation-v6-transfer-qa.md
+```
+
+## 2026-04-29: nanochat V5 Sparse QA Full 22K 1000-Iteration Control
+
+Experiment ID:
+
+```text
+nanochat_v5_sparse_qa_22k_i1000_20260429
+```
+
+Purpose:
+
+```text
+Check whether the sparse-control failure at 5K / 250 disappears when the
+model gets the full V5 training set and a longer 1000-iteration budget.
+```
+
+Data and model:
+
+```text
+dataset: procedural_foundation_v5_sparse_qa
+variant: word_sparse_qa
+train records: 22680
+held-out prompts: 3115
+parameters: 4391042
+training tokens: 2048000
+iterations: 1000
+tokenizer: reused V5 full word_plain_qa tokenizer
+validation bpb: 2.528003 -> 0.120677
+```
+
+Held-out evaluation:
+
+```text
+dense plain QA -> dense prompts:       86.4% answer exact, 84.8% reason exact
+relation-output QA -> dense prompts:   86.1% answer exact, 83.7% reason exact
+sparse QA -> dense prompts:            48.0% answer exact, 42.9% reason exact
+sparse QA -> sparse prompts:           44.1% answer exact, 43.4% reason exact
+```
+
+Decision:
+
+```text
+The sparse control still fails at full size. More examples and more training
+do not recover the missing relation distinctions. This strengthens the
+interpretation that the high V5 score depends on relation-dense ordinary text,
+not just the answer protocol or generator priors.
+```
+
+Detailed report:
+
+```text
+docs/nanochat-v5-sparse-qa-control-2026-04-29.md
+```
+
+## 2026-04-29: nanochat V5 Sparse QA Control
+
+Experiment ID:
+
+```text
+nanochat_v5_sparse_qa_5k_i250_20260429
+```
+
+Purpose:
+
+```text
+Validate whether the strong V5 plain-QA result comes from relation-dense text,
+not merely from the answer protocol, object priors, or generator distribution.
+```
+
+Data and model:
+
+```text
+dataset: procedural_foundation_v5_sparse_qa_5k
+variant: word_sparse_qa
+train records: 5000
+held-out prompts: 3115
+parameters: 4391042
+training tokens: 512000
+iterations: 250
+tokenizer: reused V5 5K word_plain_qa tokenizer
+```
+
+Control design:
+
+```text
+Same source examples and same answer/reason targets as V5 5K plain QA, but
+scene text removes discriminating cues such as near/far, open/closed, wet/dry,
+edge/middle, counts, colors, and hot/cold.
+```
+
+Held-out evaluation:
+
+```text
+dense plain QA -> dense prompts: 82.2% answer exact, 70.7% reason exact
+sparse QA -> dense prompts:      47.0% answer exact, 33.4% reason exact
+sparse QA -> sparse prompts:     49.4% answer exact, 42.9% reason exact
+```
+
+Decision:
+
+```text
+This strongly supports the current hypothesis. The high V5 plain-QA result
+depends on relation-dense ordinary text. A sparse text control with the same
+protocol, tokenizer, model, and token budget falls near chance.
+```
+
+Detailed report:
+
+```text
+docs/nanochat-v5-sparse-qa-control-2026-04-29.md
+```
+
 ## 2026-04-29: nanochat V5 5K Relation-As-Input 250-Iteration Run
 
 Experiment ID:

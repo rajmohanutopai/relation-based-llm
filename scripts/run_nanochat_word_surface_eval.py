@@ -207,6 +207,12 @@ def evaluate_model(
             "source_example_id": row.get("source_example_id") or row.get("id"),
             "task_type": row.get("task_type"),
             "surface_type": surface_type,
+            "evaluation_bucket": (
+                row.get("evaluation_bucket")
+                or row.get("split")
+                or row.get("metadata", {}).get("evaluation_bucket")
+                or "unknown"
+            ),
             "prompt": prompt,
             "generation_prompt": generation_prompt,
             "target": target,
@@ -257,6 +263,13 @@ def summarize_predictions(
     for task_type, rows in sorted(grouped_task.items()):
         by_task[task_type] = score_group(rows)
 
+    by_evaluation_bucket: dict[str, dict[str, Any]] = {}
+    grouped_bucket: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for row in predictions:
+        grouped_bucket[str(row.get("evaluation_bucket") or "unknown")].append(row)
+    for bucket, rows in sorted(grouped_bucket.items()):
+        by_evaluation_bucket[bucket] = score_group(rows)
+
     answer_counts = Counter(normalize_value(row["generated_answer"]) or "<empty>" for row in predictions)
     return {
         "model": model_name,
@@ -272,6 +285,7 @@ def summarize_predictions(
         "reason_accuracy": reason_correct / total,
         "by_surface_type": by_surface,
         "by_task_type": by_task,
+        "by_evaluation_bucket": by_evaluation_bucket,
         "top_generated_answers": answer_counts.most_common(20),
     }
 
@@ -331,6 +345,19 @@ def write_markdown(summary: dict[str, Any], path: Path) -> None:
                     count=surface_summary["count"],
                     ans=surface_summary["answer_accuracy"],
                     reason=surface_summary["reason_accuracy"],
+                )
+            )
+        lines.append("")
+    lines.extend(["", "## By Evaluation Bucket", ""])
+    for model_name, model_summary in summary["models"].items():
+        lines.extend([f"### {model_name}", "", "| Bucket | Count | Answer exact | Reason exact |", "| --- | ---: | ---: | ---: |"])
+        for bucket, bucket_summary in model_summary.get("by_evaluation_bucket", {}).items():
+            lines.append(
+                "| {bucket} | {count} | {ans:.1%} | {reason:.1%} |".format(
+                    bucket=bucket,
+                    count=bucket_summary["count"],
+                    ans=bucket_summary["answer_accuracy"],
+                    reason=bucket_summary["reason_accuracy"],
                 )
             )
         lines.append("")
