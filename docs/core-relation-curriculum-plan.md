@@ -1,6 +1,6 @@
 # Core Relation Curriculum Plan
 
-Status: planning artifact for the first serious nanochat from-scratch test.
+Status: core5_v0 and procedural_foundation_v3 generated; nanochat smoke test pending.
 
 Date: 2026-04-27
 
@@ -19,14 +19,118 @@ The immediate goal is not to cover all human knowledge. The goal is to build a
 controlled core curriculum large enough for a tiny from-scratch nanochat model
 to learn something real, while still keeping the result interpretable.
 
+Generated artifact:
+
+```text
+data/developmental_graph/experiments/core5_v0/
+data/developmental_graph/experiments/core5_v0_controlled/
+data/developmental_graph/experiments/core5_v0_childlang/
+data/developmental_graph/experiments/core5_v0_foundation/
+data/developmental_graph/experiments/procedural_foundation_v0/
+data/developmental_graph/experiments/procedural_foundation_v1/
+data/developmental_graph/experiments/procedural_foundation_v2/
+data/developmental_graph/experiments/procedural_foundation_v3/
+data/developmental_graph/experiments/tinystories_v0/
+```
+
+Current generated size:
+
+```text
+total examples: 3055
+train: 2428
+dev: 296
+curriculum_test: 331
+held-out cases: 108
+```
+
+Controlled vocabulary size:
+
+```text
+controlled train union: 1370 alpha words
+controlled_plain_text train: 1367 alpha words
+controlled_relation_scaffolded train: 1369 alpha words
+controlled_relation_first_then_text train: 1370 alpha words
+```
+
+Child-language vocabulary size:
+
+```text
+child_plain_text train: 1342 alpha words
+child_relation_scaffolded train: 1342 alpha words
+child_relation_first_then_text train: 1343 alpha words
+```
+
+Foundation ladder size:
+
+```text
+train/dev/curriculum_test: 403 / 60 / 53
+foundation train union: 93 alpha words
+stages: f0 facts, f1 handle introduction, f2 handle questions, f3 later names
+```
+
+Procedural foundation size:
+
+```text
+train/dev/curriculum_test: 2994 / 302 / 592
+total generated units: 3888
+train vocabulary: 59-73 alpha words depending on variant
+rule family: hand action + height + distance + touch/reach/move outcomes
+```
+
+Procedural foundation V1:
+
+```text
+train/dev/curriculum_test: 542 / 66 / 81
+total generated units: 689
+train vocabulary: 79-106 alpha words depending on variant
+rule families: reach/touch, push/move, drop/fall, shake/sound, hide/see,
+container open/closed, hot/cold touch
+status: quality seed, needs expansion before training
+```
+
+Procedural foundation V2:
+
+```text
+train/dev/curriculum_test: 2477 / 302 / 378
+total generated units: 3157
+train vocabulary: 133-155 alpha words depending on variant
+rule families: V1 families plus support/edge/fall, same/different, more/less,
+path open/closed, caregiver comfort, word-name binding
+status: historical expansion step; superseded by V3 for the active smoke test
+```
+
+Procedural foundation V3:
+
+```text
+train/dev/curriculum_test: 4536 / 553 / 623
+total generated units: 5712
+base entities: 208
+train vocabulary: 302-334 alpha words depending on variant
+rule families: baby body, reach/touch, push/pull, support/edge/fall,
+container open/closed, hide/see, sound, hot/cold, wet/dry, safe/unsafe,
+same/different, more/less, path open/closed, caregiver comfort, familiar agent,
+social signal, give/take, word-name binding
+status: current active procedural nanochat smoke-test candidate
+```
+
+TinyStories V0 baseline:
+
+```text
+train/dev/curriculum_test stories: 1607 / 208 / 225
+train/dev/curriculum_test words: 270421 / 33008 / 36695
+source: roneneldan/TinyStories
+status: normal simple-text control for the procedural V3 comparison
+```
+
 ## Core Test
 
 Train the same nanochat model on matched corpora:
 
 ```text
-A. plain_text
-B. relation_scaffolded
-C. relation_first_then_text
+A. normal_simple_text
+B. relation_designed_plain_text
+C. relation_scaffolded
+D. relation_first_then_text
 ```
 
 Keep fixed:
@@ -750,11 +854,18 @@ the relation model wins because it saw more content
 12. Prioritise language-binding raw situations. Done.
 13. Audit first-set language-binding situations into relation families. Done.
 14. Create `language_binding.json` seed graph and held-out evaluation. Done.
-15. Add a cross-domain core5 curriculum generator.
-16. Add `relation_first_then_text` rendering.
-17. Add shared tokenizer procedure for nanochat.
-18. Run Level 1 core5 local sanity.
-19. Only then run the first one-GPU signal test.
+15. Add a cross-domain core5 curriculum generator. Done.
+16. Add `relation_first_then_text` rendering. Done.
+17. Validate matched source examples across all variants. Done.
+18. Add controlled-vocabulary core5 rendering. Done.
+19. Add child-language core5 rendering. Done.
+20. Add staged foundation ladder. Done.
+21. Add first procedural relation-world generator. Done.
+22. Replace rough procedural generator with coherent scenario grammar. Done.
+23. Expand procedural V1 with derived questions and more rule families.
+24. Add shared tokenizer procedure for nanochat.
+25. Run Level 1 procedural/foundation local sanity, then child-language local sanity.
+26. Only then run the first one-GPU signal test.
 
 ## Do Not Do Yet
 

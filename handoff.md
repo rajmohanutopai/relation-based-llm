@@ -1,6 +1,6 @@
 # Project Handoff
 
-Last updated: 2026-04-27
+Last updated: 2026-04-29
 
 Working directory:
 
@@ -19,39 +19,55 @@ Do not commit or push unless Rajmohan explicitly asks.
 Latest commits:
 
 ```text
+624562a Build core relation curriculum foundation
 aa69e06 Add physical v0.3 binary candidate scoring experiment
 e69aecc Add physical v0.2 candidate selection experiment
-58e850c Add physical v0.1 bridge experiment
 ```
 
 Known untracked files at time of handoff:
 
 ```text
 Chapter_12_Mind_Your_Reality.pdf
-docs/book-theory-implementation-notes.md
-docs/core-relation-curriculum-plan.md
-docs/social-world-200-situations.md
-docs/social-world-firstset-relation-audit.md
-docs/math-abstraction-200-situations.md
-docs/math-abstraction-firstset-relation-audit.md
-docs/language-binding-400-situations.md
-docs/tiny-from-scratch-relation-experiment.md
-handoff.md
-data/developmental_graph/core_curriculum_plan.json
-data/developmental_graph/seeds/social_world.json
-data/developmental_graph/evaluations/social_world_heldout.json
-data/developmental_graph/seeds/math_abstraction.json
-data/developmental_graph/evaluations/math_abstraction_heldout.json
-scripts/create_nanochat_pretrain_shards.py
+data/developmental_graph/experiments/core5_v0/
+data/developmental_graph/experiments/core5_v0_controlled/
+data/developmental_graph/experiments/core5_v0_childlang/
+data/developmental_graph/experiments/core5_v0_foundation/
+data/developmental_graph/experiments/procedural_foundation_v0/
+data/developmental_graph/experiments/procedural_foundation_v1/
+data/developmental_graph/experiments/procedural_foundation_v2/
+data/developmental_graph/experiments/procedural_foundation_v3/
+data/developmental_graph/experiments/tinystories_v0/
+docs/core5-v0-curriculum-variants.md
+docs/core5-v0-controlled-vocabulary.md
+docs/core5-v0-child-language.md
+docs/core5-v0-foundation-ladder.md
+docs/procedural-foundation-v0.md
+docs/procedural-foundation-v1.md
+docs/procedural-foundation-v2.md
+docs/procedural-foundation-v3.md
+docs/tinystories-v0-baseline.md
+docs/nanochat-core4-local-smoke-2026-04-29.md
+docs/procedural-foundation-v3.md
+scripts/create_core5_curriculum_variants.py
+scripts/create_core5_controlled_vocabulary_variants.py
+scripts/create_core5_child_language_variants.py
+scripts/create_core5_foundation_variants.py
+scripts/create_procedural_foundation_world.py
+scripts/create_procedural_foundation_world_v1.py
+scripts/create_procedural_foundation_world_v2.py
+scripts/create_procedural_foundation_world_v3.py
+scripts/create_tinystories_baseline.py
+scripts/create_tinystories_baseline.py
 ```
 
 Known tracked files modified after the last commit:
 
 ```text
-docs/execution-roadmap.md
+data/developmental_graph/core_curriculum_plan.json
+docs/core-relation-curriculum-plan.md
 docs/experiment-log.md
+handoff.md
 plan.md
-requirements-training.txt
 ```
 
 The untracked PDF should not be committed unless explicitly requested.
@@ -433,9 +449,32 @@ New nanochat project artifacts:
 
 ```text
 docs/core-relation-curriculum-plan.md
+docs/core5-v0-curriculum-variants.md
+docs/core5-v0-controlled-vocabulary.md
+docs/core5-v0-child-language.md
+docs/core5-v0-foundation-ladder.md
+docs/procedural-foundation-v0.md
+docs/procedural-foundation-v1.md
+docs/procedural-foundation-v2.md
 data/developmental_graph/core_curriculum_plan.json
+data/developmental_graph/experiments/core5_v0/
+data/developmental_graph/experiments/core5_v0_controlled/
+data/developmental_graph/experiments/core5_v0_childlang/
+data/developmental_graph/experiments/core5_v0_foundation/
+data/developmental_graph/experiments/procedural_foundation_v0/
+data/developmental_graph/experiments/procedural_foundation_v1/
+data/developmental_graph/experiments/procedural_foundation_v2/
+data/developmental_graph/experiments/procedural_foundation_v3/
 docs/tiny-from-scratch-relation-experiment.md
 scripts/create_nanochat_pretrain_shards.py
+scripts/create_core5_curriculum_variants.py
+scripts/create_core5_controlled_vocabulary_variants.py
+scripts/create_core5_child_language_variants.py
+scripts/create_core5_foundation_variants.py
+scripts/create_procedural_foundation_world.py
+scripts/create_procedural_foundation_world_v1.py
+scripts/create_procedural_foundation_world_v2.py
+scripts/create_procedural_foundation_world_v3.py
 ```
 
 The core curriculum plan defines the first serious multi-domain test:
@@ -462,6 +501,127 @@ The parseable manifest validates as JSON:
 data/developmental_graph/core_curriculum_plan.json
 ```
 
+Core5 curriculum generation is now complete:
+
+```text
+experiment:       core5_v0
+domains:          5
+total examples:   3055
+train/dev/test:   2428 / 296 / 331
+held-out cases:   108
+variants:         plain_text, relation_scaffolded, relation_first_then_text
+report:           docs/core5-v0-curriculum-variants.md
+```
+
+Validation completed:
+
+```text
+python -m py_compile scripts/create_core5_curriculum_variants.py
+training dry-run passed for all three variants
+JSON manifests validated
+held-out evaluation validated with expected merged-source warning
+variant source IDs match for every split
+```
+
+Controlled-vocabulary core5 is also complete:
+
+```text
+experiment:       core5_v0_controlled
+train/dev/test:   2428 / 296 / 331
+variants:         controlled_plain_text, controlled_relation_scaffolded, controlled_relation_first_then_text
+train vocabulary: 1367-1370 alpha words per variant
+report:           docs/core5-v0-controlled-vocabulary.md
+```
+
+Child-language core5 remains the broader core5 candidate after smaller smoke
+tests:
+
+```text
+experiment:       core5_v0_childlang
+train/dev/test:   2428 / 296 / 331
+variants:         child_plain_text, child_relation_scaffolded, child_relation_first_then_text
+train vocabulary: 1342-1343 alpha words per variant
+report:           docs/core5-v0-child-language.md
+```
+
+Foundation ladder is now the recommended prelude:
+
+```text
+experiment:       core5_v0_foundation
+train/dev/test:   403 / 60 / 53
+stages:           f0 facts, f1 handles, f2 handle questions, f3 later names
+variants:         foundation_plain_text, foundation_relation_scaffolded, foundation_relation_first_then_text
+train vocabulary: 92-93 alpha words per variant
+report:           docs/core5-v0-foundation-ladder.md
+```
+
+Procedural foundation V0 is generated:
+
+```text
+experiment:       procedural_foundation_v0
+train/dev/test:   2994 / 302 / 592
+things:           28
+states:           height, distance, action, surface
+outcomes:         touch/no-touch, feel/no-feel, move/no-move
+train vocabulary: 59-73 alpha words per variant
+report:           docs/procedural-foundation-v0.md
+```
+
+Procedural foundation V1 replaces V0 as the quality seed:
+
+```text
+experiment:       procedural_foundation_v1
+train/dev/test:   542 / 66 / 81
+rule families:    reach/touch, push/move, drop/fall, shake/sound, hide/see,
+                  container open/closed, hot/cold touch
+train vocabulary: 79-106 alpha words per variant
+report:           docs/procedural-foundation-v1.md
+```
+
+Procedural foundation V2 was the first expanded procedural candidate:
+
+```text
+experiment:       procedural_foundation_v2
+train/dev/test:   2477 / 302 / 378
+rule families:    V1 families plus support/edge/fall, same/different,
+                  more/less, path open/closed, caregiver comfort,
+                  word-name binding
+question views:   main, what_happened, touch, feel, move, why_no_touch,
+                  open_closed, block, cover, see, in_hand, more, less,
+                  go_through, help, word_match, what_name
+train vocabulary: 133-155 alpha words per variant
+report:           docs/procedural-foundation-v2.md
+status:           generated and validated; no model training run yet
+```
+
+Procedural foundation V3 is the current active procedural arm for the local nanochat smoke test:
+
+```text
+experiment:       procedural_foundation_v3
+base entities:    208
+train/dev/test:   4536 / 553 / 623
+rule families:    baby body, reach/touch, push/pull, support/edge/fall,
+                  container open/closed, hide/see, sound, hot/cold, wet/dry,
+                  safe/unsafe, same/different, more/less, path open/closed,
+                  caregiver comfort, familiar agent, social signal, give/take,
+                  word-name binding
+train vocabulary: 302-334 alpha words per variant
+report:           docs/procedural-foundation-v3.md
+status:           generated and validated; no model training run yet
+```
+
+TinyStories V0 is the normal simple-text control:
+
+```text
+experiment:       tinystories_v0
+source:           roneneldan/TinyStories
+train/dev/test:   1607 / 208 / 225 stories
+word budget:      270421 / 33008 / 36695 words
+variant:          tinystories_plain_text
+report:           docs/tinystories-v0-baseline.md
+status:           generated and validated; no model training run yet
+```
+
 The new design doc fixes the from-scratch experiment shape:
 
 ```text
@@ -469,10 +629,11 @@ same tiny nanochat model
 same tokenizer
 same token budget
 same compute budget
-only the training representation changes:
-  plain_text
-  relation_scaffolded
-  relation_first_then_text
+four-arm comparison:
+  normal simple text
+  relation-designed plain text
+  relation-scaffolded text
+  relation-first text
 ```
 
 The new adapter script converts project JSONL examples into nanochat-compatible
@@ -546,7 +707,9 @@ are stable. Use 8x H200 only for speedrun-scale runs.
 Immediate next step:
 
 ```text
-Generate core5 curriculum variants from the five ready seed/evaluation domains.
+Convert tinystories_v0 and procedural_foundation_v3 into nanochat-compatible
+shards and run a small local four-arm smoke training pass with a shared
+tokenizer.
 ```
 
 The Level 0 nanochat smoke path has already completed, the core5 plan exists,
@@ -642,11 +805,42 @@ validator: OK
 Suggested order:
 
 ```text
-1. Generate core5 curriculum variants.
-2. Add `relation_first_then_text` rendering if the generator does not already cover it.
-3. Add shared-tokenizer procedure for nanochat.
-4. Run Level 1 core5 local sanity.
-5. Move to one rented GPU for the first meaningful signal test.
+1. Convert tinystories_v0 and procedural_foundation_v3 to nanochat-compatible shards. Done.
+2. Use one shared tokenizer and identical model shape across all variants. Done.
+3. Run a tiny four-arm local sanity. Done.
+4. Inspect whether normal simple text, relation-designed plain text,
+   relation_scaffolded, and relation_first_then_text train stably under equal
+   conditions. Done for 20-step smoke.
+5. Then repeat with core5_v0_foundation and core5_v0_childlang.
+6. Move to one rented GPU only after local sanity passes.
+```
+
+Latest nanochat smoke result:
+
+```text
+report: docs/nanochat-core4-local-smoke-2026-04-29.md
+run root: /tmp/adi_nanochat_core4_20260429_smoke
+model: nanochat depth 2, 1966134 parameters
+tokenizer: shared 4096-vocab BPE
+training tokens per arm: 40960
+tinystories_plain_text:                 3.014457 -> 2.894597 val BPB
+procedural_plain_text:                  3.546736 -> 3.223261 val BPB
+procedural_relation_scaffolded:         3.805675 -> 3.434072 val BPB
+procedural_relation_first_then_text:    3.842853 -> 3.461918 val BPB
+```
+
+Latest depth-4 local result:
+
+```text
+run root: /tmp/adi_nanochat_core4_20260429_smoke
+workspace copy: runs/nanochat_core4_20260429
+model: nanochat depth 4, 7340162 parameters
+training tokens per arm: 1024000
+tinystories_plain_text:                 2.967028 -> 1.221640 val BPB
+procedural_plain_text:                  3.621244 -> 0.150843 val BPB
+procedural_relation_scaffolded:         3.769814 -> 0.057640 val BPB
+procedural_relation_first_then_text:    3.777705 -> 0.062668 val BPB
+next: held-out relation transfer evaluation against the depth-4 checkpoints
 ```
 
 Track B remains important, but the newest direction is to first test the
@@ -698,6 +892,13 @@ docs/math-abstraction-200-situations.md
 docs/math-abstraction-firstset-relation-audit.md
 docs/language-binding-400-situations.md
 docs/tiny-from-scratch-relation-experiment.md
+docs/procedural-foundation-v2.md
+docs/procedural-foundation-v3.md
+docs/procedural-foundation-v4-word-surface.md
+docs/tinystories-v0-baseline.md
+docs/nanochat-core4-local-smoke-2026-04-29.md
+docs/nanochat-core4-heldout-evaluation-2026-04-29.md
+docs/nanochat-core4-natural-heldout-evaluation-2026-04-29.md
 docs/execution-roadmap.md
 docs/experiment-log.md
 ```
@@ -706,13 +907,27 @@ Core graph/data:
 
 ```text
 data/developmental_graph/core_curriculum_plan.json
+data/developmental_graph/experiments/core5_v0/
+data/developmental_graph/experiments/core5_v0_controlled/
+data/developmental_graph/experiments/core5_v0_childlang/
+data/developmental_graph/experiments/core5_v0_foundation/
+data/developmental_graph/experiments/procedural_foundation_v0/
+data/developmental_graph/experiments/procedural_foundation_v1/
+data/developmental_graph/experiments/procedural_foundation_v2/
+data/developmental_graph/experiments/procedural_foundation_v3/
+data/developmental_graph/experiments/procedural_foundation_v4_word_surface/
+data/developmental_graph/experiments/procedural_foundation_v5_consistent_qa/
+data/developmental_graph/experiments/procedural_foundation_v5_consistent_qa_5k/
+data/developmental_graph/experiments/tinystories_v0/
 data/developmental_graph/seeds/agent_6mo_indian_child.json
 data/developmental_graph/seeds/everyday_physical_world.json
 data/developmental_graph/seeds/social_world.json
 data/developmental_graph/seeds/math_abstraction.json
+data/developmental_graph/seeds/language_binding.json
 data/developmental_graph/evaluations/everyday_physical_world_heldout.json
 data/developmental_graph/evaluations/social_world_heldout.json
 data/developmental_graph/evaluations/math_abstraction_heldout.json
+data/developmental_graph/evaluations/language_binding_heldout.json
 data/developmental_graph/experiments/physical_v0_3/
 ```
 
@@ -721,6 +936,10 @@ Scripts for physical experiments:
 ```text
 scripts/create_binary_candidate_experiment.py
 scripts/create_nanochat_pretrain_shards.py
+scripts/create_procedural_foundation_world_v4_word_surface.py
+scripts/create_procedural_foundation_world_v5_consistent_qa.py
+scripts/run_nanochat_relation_eval.py
+scripts/run_nanochat_word_surface_eval.py
 scripts/run_binary_candidate_evaluation.py
 scripts/score_binary_candidate_logits.py
 scripts/train_tiny_causal_lm.py
@@ -777,8 +996,7 @@ sed -n '1,220p' docs/execution-roadmap.md
 Then ask Rajmohan whether to continue with:
 
 ```text
-social-world held-out evaluation
-nanochat shared-tokenizer repair
+V5 relation-as-input or auxiliary-relation nanochat experiment
 or Track B affect-relation scenarios
 or physical_v0_4 relation-ranking repair
 ```
@@ -786,5 +1004,83 @@ or physical_v0_4 relation-ranking repair
 Current recommendation:
 
 ```text
-social-world held-out evaluation.
+V5 supersedes V4 for the proper-word nanochat run. V4 had about 36% ambiguous
+prompts because identical inputs mapped to multiple target styles. V5 keeps the
+same source world and record count, but has 0 ambiguous inputs and 0 shorthand
+protocol hits.
+
+Latest local result:
+word_plain_qa, 4.39M parameter nanochat from scratch, 2.048M training tokens:
+86.4% answer exact and 84.8% reason exact on 3115 held-out V5 plain prompts.
+
+word_relation_scaffolded_qa, same model/token budget:
+86.1% answer exact and 83.7% reason exact on the same held-out prompts.
+
+Interpretation:
+the proper-word procedural child-world dataset is trainable and gives a clean
+baseline. This specific relation-scaffolded-output design did not beat plain
+QA. Next relation experiment should avoid making the model emit relation
+scaffolds at answer time; try relation-as-input, auxiliary relation prediction,
+or a two-stage relation-pretrain then answer-only QA curriculum.
+
+Detailed report:
+docs/nanochat-v5-consistent-qa-local-run-2026-04-29.md
+
+5K follow-up:
+using only 5000 matched train records per variant, same model/tokenizer and
+same 2.048M training tokens:
+
+word_plain_qa:
+86.1% answer exact and 82.7% reason exact.
+
+word_relation_scaffolded_qa:
+86.8% answer exact and 83.3% reason exact.
+
+Interpretation:
+relation scaffolding weakly helps when distinct training records are reduced,
+but this still used the same token budget. Next test should use the same 5K
+dataset with 250/500/1000 iterations to measure learning speed.
+
+Detailed 5K report:
+docs/nanochat-v5-consistent-qa-5k-local-run-2026-04-29.md
+
+5K 250-iteration follow-up:
+same 5K data and model, but only 512K training tokens:
+
+word_plain_qa:
+82.2% answer exact and 70.7% reason exact.
+
+word_relation_scaffolded_qa:
+74.5% answer exact and 55.8% reason exact.
+
+Interpretation:
+output-scaffolded relations do not help early learning in this form. They have
+lower validation BPB but worse held-out QA, so BPB is being improved by learning
+the repeated scaffold text rather than by better answer behavior.
+
+Next recommended experiment:
+5K relation-as-input with answer-only target, run at 250/500/1000 iterations.
+
+Relation-as-input 250 result:
+variant word_relation_input_qa prepends about 8 known/blocked relation lines to
+the input and keeps output as answer/reason only.
+
+Result:
+81.9% answer exact and 59.9% reason exact on 3115 held-out relation-input
+prompts.
+
+Comparison at 5K/250:
+plain QA: 82.2% answer, 70.7% reason.
+relation-output QA: 74.5% answer, 55.8% reason.
+relation-input QA: 81.9% answer, 59.9% reason.
+
+Sequence check:
+relation-input prompt+target max length was 149 tokens, under the 256-token
+context, so the failure is not context truncation.
+
+Updated recommendation:
+relation-as-input is better than emitting relations, but all-relations input is
+too noisy. Next try relation-candidate-input QA: provide only 3-5 candidate
+relation anchors, including the correct reason anchor, output answer/reason
+only, at 250 iterations.
 ```

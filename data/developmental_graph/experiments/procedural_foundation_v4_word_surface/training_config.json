@@ -1,0 +1,25 @@
+{
+  "baseline_model": {
+    "name": "nanochat",
+    "reason": "V4 tests word-surface relation learning without shorthand prompt tokens.",
+    "role": "from-scratch local comparison after V3"
+  },
+  "dataset_manifest": "data/developmental_graph/experiments/procedural_foundation_v4_word_surface/datasets/manifest.json",
+  "experiment_id": "procedural_foundation_v4_word_surface",
+  "format": {
+    "prompt_template": "{input}\n",
+    "target_template": "{target}"
+  },
+  "frozen_commands": {
+    "word_plain_text": "python3 scripts/create_nanochat_pretrain_shards.py --train-jsonl data/developmental_graph/experiments/procedural_foundation_v4_word_surface/datasets/word_plain_text/train.jsonl --val-jsonl data/developmental_graph/experiments/procedural_foundation_v4_word_surface/datasets/word_plain_text/dev.jsonl --base-dir runs/procedural_foundation_v4_word_surface/nanochat/word_plain_text --mode input_target",
+    "word_relation_first_then_text": "python3 scripts/create_nanochat_pretrain_shards.py --train-jsonl data/developmental_graph/experiments/procedural_foundation_v4_word_surface/datasets/word_relation_first_then_text/train.jsonl --val-jsonl data/developmental_graph/experiments/procedural_foundation_v4_word_surface/datasets/word_relation_first_then_text/dev.jsonl --base-dir runs/procedural_foundation_v4_word_surface/nanochat/word_relation_first_then_text --mode input_target",
+    "word_relation_scaffolded": "python3 scripts/create_nanochat_pretrain_shards.py --train-jsonl data/developmental_graph/experiments/procedural_foundation_v4_word_surface/datasets/word_relation_scaffolded/train.jsonl --val-jsonl data/developmental_graph/experiments/procedural_foundation_v4_word_surface/datasets/word_relation_scaffolded/dev.jsonl --base-dir runs/procedural_foundation_v4_word_surface/nanochat/word_relation_scaffolded --mode input_target"
+  },
+  "output_root": "runs/procedural_foundation_v4_word_surface/nanochat",
+  "schema_version": "0.1.0",
+  "training": {
+    "max_seq_length": 512,
+    "note": "Use scripts/create_nanochat_pretrain_shards.py before nanochat training.",
+    "seed": 1729
+  }
+}

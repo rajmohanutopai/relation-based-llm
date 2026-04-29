@@ -1,0 +1,54 @@
+{
+  "experiment_id": "procedural_foundation_v5_consistent_qa_5k",
+  "notes": [
+    "dev and curriculum_test are copied from full V5 for stable evaluation",
+    "model/tokenizer experiments may reuse the full V5 tokenizer to isolate training-record count"
+  ],
+  "schema_version": "0.1.0",
+  "seed": 1729,
+  "selection": "matched random sample by source_example_id + prompt_type from V5 train split",
+  "source_experiment": "procedural_foundation_v5_consistent_qa",
+  "train_records_per_variant": 5000,
+  "variants": {
+    "word_plain_qa": {
+      "curriculum_test": {
+        "ambiguous_inputs": 0,
+        "records": 3115,
+        "shorthand_protocol_hits": 0,
+        "unique_inputs": 3115
+      },
+      "dev": {
+        "ambiguous_inputs": 0,
+        "records": 2765,
+        "shorthand_protocol_hits": 0,
+        "unique_inputs": 2765
+      },
+      "train": {
+        "ambiguous_inputs": 0,
+        "records": 5000,
+        "shorthand_protocol_hits": 0,
+        "unique_inputs": 5000
+      }
+    },
+    "word_relation_scaffolded_qa": {
+      "curriculum_test": {
+        "ambiguous_inputs": 0,
+        "records": 3115,
+        "shorthand_protocol_hits": 0,
+        "unique_inputs": 3115
+      },
+      "dev": {
+        "ambiguous_inputs": 0,
+        "records": 2765,
+        "shorthand_protocol_hits": 0,
+        "unique_inputs": 2765
+      },
+      "train": {
+        "ambiguous_inputs": 0,
+        "records": 5000,
+        "shorthand_protocol_hits": 0,
+        "unique_inputs": 5000
+      }
+    }
+  }
+}

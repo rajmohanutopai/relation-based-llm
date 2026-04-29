@@ -99,6 +99,92 @@ not genuine long-horizon relational growth.
   are ready, which files are missing, and which gates must pass before serious
   nanochat training.
 
+- `data/developmental_graph/experiments/core5_v0/`
+  First generated five-domain model-ready curriculum. It contains 3055 source
+  examples across the 6mo root world, everyday physical world, social world,
+  math/abstraction roots, and language binding. It renders matched
+  `plain_text`, `relation_scaffolded`, and `relation_first_then_text` variants
+  with 2428 train, 296 dev, and 331 curriculum-test examples per variant.
+
+- `docs/core5-v0-curriculum-variants.md`
+  Report for the core5_v0 curriculum-generation milestone, including counts,
+  commands, validation, and the next shared-tokenizer step.
+
+- `data/developmental_graph/experiments/core5_v0_controlled/`
+  Controlled-vocabulary rendering of the same core5 examples. It keeps the same
+  splits but uses lower-case fixed templates and compact relation packets.
+  Current train vocabulary is 1367-1370 alpha words depending on variant.
+
+- `docs/core5-v0-controlled-vocabulary.md`
+  Report for the controlled-vocabulary dataset, including vocabulary counts and
+  validation commands.
+
+- `data/developmental_graph/experiments/core5_v0_childlang/`
+  Child-language rendering of the same core5 examples. It keeps colon-delimited
+  fields, removes JSON, and rewrites technical words where possible. Current
+  train vocabulary is 1342-1343 alpha words depending on variant.
+
+- `docs/core5-v0-child-language.md`
+  Report for the child-language dataset. It remains a core5 candidate after the
+  smaller procedural/foundation smoke tests.
+
+- `data/developmental_graph/experiments/core5_v0_foundation/`
+  Staged foundation ladder for introducing high relation-load handles only after
+  supporting facts. It has F0 simple facts, F1 handle introduction, F2 handle
+  questions, and F3 later-name attachment. Current train vocabulary is 92-93
+  alpha words depending on variant.
+
+- `docs/core5-v0-foundation-ladder.md`
+  Report for the foundation ladder. This is now the recommended prelude before
+  child-language nanochat training.
+
+- `data/developmental_graph/experiments/procedural_foundation_v0/`
+  First procedural relation-world dataset. It generates touch/reach/move
+  outcomes from object, height, distance, action, and support-surface state.
+  Current count: 2994 train, 302 dev, 592 curriculum-test examples.
+
+- `docs/procedural-foundation-v0.md`
+  Report for the procedural generator and validation results.
+
+- `data/developmental_graph/experiments/procedural_foundation_v1/`
+  Coherent-scenario procedural dataset replacing the rough V0 generator. It has
+  reach/touch, push/move, drop/fall, shake/sound, hide/see,
+  container/open-closed, and hot/cold touch rule families. Current count: 542
+  train, 66 dev, 81 curriculum-test examples.
+
+- `docs/procedural-foundation-v1.md`
+  Report for the coherent procedural generator. This is the quality base to
+  expand before nanochat training.
+
+- `data/developmental_graph/experiments/procedural_foundation_v2/`
+  Expanded coherent procedural dataset. It keeps V1's scenario grammars, adds
+  derived question views, and adds support/edge/fall, same/different,
+  more/less, path open/closed, caregiver comfort, and word-name binding rule
+  families. Current count: 2477 train, 302 dev, 378 curriculum-test examples.
+
+- `docs/procedural-foundation-v2.md`
+  Report for the expanded procedural foundation generator. This is the current
+  historical step before V3.
+
+- `data/developmental_graph/experiments/procedural_foundation_v3/`
+  Larger baby + physical + simple-social procedural dataset. It expands the
+  base world to 208 entities before generating rows. Current count: 4536 train,
+  553 dev, 623 curriculum-test examples.
+
+- `docs/procedural-foundation-v3.md`
+  Report for the larger base-world procedural generator. This is now the
+  current active procedural arm for the local nanochat smoke test.
+
+- `data/developmental_graph/experiments/tinystories_v0/`
+  Normal simple-text baseline streamed from `roneneldan/TinyStories`. It is
+  matched to the V3 relation variants by approximate word budget: 270421 train
+  words, 33008 dev words, and 36695 curriculum-test words.
+
+- `docs/tinystories-v0-baseline.md`
+  Report for the TinyStories baseline. This makes the next nanochat test a
+  four-arm comparison: normal simple text, relation-designed plain text,
+  relation-scaffolded text, and relation-first text.
+
 - `docs/seed-agent-6mo-indian-child.md`
   Human-readable seed graph for a 6-month-old boy child in an Indian context.
 
@@ -315,6 +401,30 @@ not genuine long-horizon relational growth.
 - `scripts/train_tiny_causal_lm.py`
   Minimal Hugging Face causal-LM fine-tuning script for one dataset variant.
   Supports `--dry-run` without training dependencies.
+
+- `scripts/create_core5_curriculum_variants.py`
+  Generates the five-domain `core5_v0` curriculum, merged held-out prompts,
+  matched representation variants, manifests, and local training config.
+
+- `scripts/create_core5_controlled_vocabulary_variants.py`
+  Generates the controlled-vocabulary `core5_v0_controlled` variants for the
+  first nanochat from-scratch training test.
+
+- `scripts/create_core5_child_language_variants.py`
+  Generates the simpler `core5_v0_childlang` variants with colon-delimited
+  child-language fields and simple relation words.
+
+- `scripts/create_core5_foundation_variants.py`
+  Generates the staged `core5_v0_foundation` ladder where complex handles are
+  introduced after support facts instead of used as primitives.
+
+- `scripts/create_procedural_foundation_world.py`
+  Generates procedural scenarios from simple relation rules, currently covering
+  hand action, height, distance, touch, reach, feeling, and object movement.
+
+- `scripts/create_procedural_foundation_world_v1.py`
+  Generates coherent procedural scenarios from rule-family grammars. This is the
+  preferred procedural generator over V0.
 
 ## Layer Structure
 

@@ -67,12 +67,13 @@ meaningful test should be on one rented GPU after the local path is stable.
 
 ## Experimental Comparison
 
-Train the same nanochat model three times:
+Train the same nanochat model four times:
 
 ```text
-A. plain_text
-B. relation_scaffolded
-C. relation_first_then_text
+A. normal_simple_text
+B. relation_designed_plain_text
+C. relation_scaffolded
+D. relation_first_then_text
 ```
 
 Everything else must stay fixed:
@@ -90,13 +91,26 @@ same train/dev/test split logic
 same held-out evaluation
 ```
 
-Only the training text representation changes.
+For B/C/D, only the training text representation changes. A is the external
+normal-simple-text control and must be matched by training token budget.
 
 ## Dataset Variants
 
-### A. plain_text
+### A. normal_simple_text
 
-The model sees ordinary natural language examples.
+The model sees ordinary simple stories, not relation-designed scenarios.
+
+Current source:
+
+```text
+tinystories_v0
+```
+
+This is the true normal-text baseline.
+
+### B. relation_designed_plain_text
+
+The model sees relation-designed scenarios rendered as plain text.
 
 Example document:
 
@@ -110,9 +124,10 @@ The fall-impact frame is the same, but glass is fragile and can shatter, while
 steel is less fragile and may make a ringing sound or dent instead.
 ```
 
-This is the baseline.
+This tests whether relation-designed data helps even without explicit relation
+lines.
 
-### B. relation_scaffolded
+### C. relation_scaffolded
 
 The model sees the same natural-language facts plus explicit relation structure.
 
@@ -141,7 +156,7 @@ outcome.
 
 This tests whether explicit relations improve learning.
 
-### C. relation_first_then_text
+### D. relation_first_then_text
 
 The model first sees the relation packet, then the text that uses it.
 
@@ -606,13 +621,24 @@ all variants.
 
 ## Current Recommendation
 
-Do the shared-tokenizer repair next.
-
-Do not spend Vast.ai money until:
+The shared-tokenizer four-arm local smoke has now completed. See:
 
 ```text
-the custom Parquet conversion is verified
-the tokenizer path is verified
-the base training command is verified
-the evaluation path is clear
+docs/nanochat-core4-local-smoke-2026-04-29.md
+```
+
+The depth-4 local run and first held-out relation evaluation have completed.
+See:
+
+```text
+docs/nanochat-core4-local-smoke-2026-04-29.md
+docs/nanochat-core4-heldout-evaluation-2026-04-29.md
+```
+
+Current recommendation:
+
+```text
+Run one tighter local control before spending Vast.ai money:
+plain procedural model with answer protocol exposure but no explicit relation
+lines vs relation-scaffolded at matched token budget.
 ```

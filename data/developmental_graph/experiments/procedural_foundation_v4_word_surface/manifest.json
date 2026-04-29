@@ -1,0 +1,164 @@
+{
+  "base_world": "data/developmental_graph/experiments/procedural_foundation_v4_word_surface/base_world.json",
+  "base_world_counts": {
+    "categories": {
+      "body": 25,
+      "container": 10,
+      "food": 28,
+      "material": 24,
+      "object": 42,
+      "person": 18,
+      "place": 15,
+      "social_signal": 24,
+      "surface": 13,
+      "toy": 9
+    },
+    "colors": 7,
+    "counts": 5,
+    "entities": 208,
+    "shapes": 6
+  },
+  "dataset_manifest": "data/developmental_graph/experiments/procedural_foundation_v4_word_surface/datasets/manifest.json",
+  "experiment_id": "procedural_foundation_v4_word_surface",
+  "outputs": {
+    "base_world": {
+      "path": "data/developmental_graph/experiments/procedural_foundation_v4_word_surface/base_world.json",
+      "sha256": "4779e782f26d743e749566b57bdfed3628a342dd0bbb44a536cd42ee181fbd0c"
+    },
+    "dataset_manifest": {
+      "path": "data/developmental_graph/experiments/procedural_foundation_v4_word_surface/datasets/manifest.json",
+      "sha256": "78e73fc51479022365bdbc4bc133b69f927563394f9da7cdbf653cee4e01f59c"
+    },
+    "training_config": {
+      "path": "data/developmental_graph/experiments/procedural_foundation_v4_word_surface/training_config.json",
+      "sha256": "9927903cf0d9eff38744ca2e66b9921823ba184f59f1d3f6eb4876c6d345dddf"
+    },
+    "word_plain_text.curriculum_test": {
+      "path": "data/developmental_graph/experiments/procedural_foundation_v4_word_surface/datasets/word_plain_text/curriculum_test.jsonl",
+      "sha256": "4d7094f9b37df0a7c1ced30f8e517a018e74f6a307c06776aec4888cf67bf440"
+    },
+    "word_plain_text.dev": {
+      "path": "data/developmental_graph/experiments/procedural_foundation_v4_word_surface/datasets/word_plain_text/dev.jsonl",
+      "sha256": "00ab4e1214f8b96e58509c2b2329c5905661fb8d1e47437dc4827334820841c2"
+    },
+    "word_plain_text.train": {
+      "path": "data/developmental_graph/experiments/procedural_foundation_v4_word_surface/datasets/word_plain_text/train.jsonl",
+      "sha256": "f65e2f9faf82e3155798a6a40c8ada05b7e4762309a6979e87b3ca668880e2b1"
+    },
+    "word_relation_first_then_text.curriculum_test": {
+      "path": "data/developmental_graph/experiments/procedural_foundation_v4_word_surface/datasets/word_relation_first_then_text/curriculum_test.jsonl",
+      "sha256": "958558f28301205bba22f06e99a4eafc1dc2ecff12e10696cf98b4e13981deef"
+    },
+    "word_relation_first_then_text.dev": {
+      "path": "data/developmental_graph/experiments/procedural_foundation_v4_word_surface/datasets/word_relation_first_then_text/dev.jsonl",
+      "sha256": "5ae902d1975384581695013aea861aac40fdd074916f8ffa4dc25b8f07ad8e93"
+    },
+    "word_relation_first_then_text.train": {
+      "path": "data/developmental_graph/experiments/procedural_foundation_v4_word_surface/datasets/word_relation_first_then_text/train.jsonl",
+      "sha256": "06528cea6dbbfc955a4a1ff47a87cceba9f388d0eda3c06d1c08cfa966905a06"
+    },
+    "word_relation_scaffolded.curriculum_test": {
+      "path": "data/developmental_graph/experiments/procedural_foundation_v4_word_surface/datasets/word_relation_scaffolded/curriculum_test.jsonl",
+      "sha256": "efab553ee74ae976a97cd4b7966f0d5c8eee5845a6a2ac52cea038ebdaf30224"
+    },
+    "word_relation_scaffolded.dev": {
+      "path": "data/developmental_graph/experiments/procedural_foundation_v4_word_surface/datasets/word_relation_scaffolded/dev.jsonl",
+      "sha256": "bcbcd32b5adec1d4171777ffd243cc828b1658e4386f4cee477bafcff70d722f"
+    },
+    "word_relation_scaffolded.train": {
+      "path": "data/developmental_graph/experiments/procedural_foundation_v4_word_surface/datasets/word_relation_scaffolded/train.jsonl",
+      "sha256": "7c6079ccdcaf39b74a061e1bdf3d3c60a077be5f35c4708af417a0fcdf6ccf83"
+    }
+  },
+  "question_type_counts": {
+    "block": 79,
+    "can_move": 25,
+    "cover": 60,
+    "direct_control": 7,
+    "edge": 536,
+    "fall": 670,
+    "familiar": 11,
+    "feel": 444,
+    "go_through": 84,
+    "has_object": 64,
+    "hear_sound": 47,
+    "help": 12,
+    "in_hand": 134,
+    "is_body": 32,
+    "less": 360,
+    "more": 360,
+    "move": 236,
+    "ok": 20,
+    "ok_touch": 348,
+    "open": 242,
+    "same_color": 469,
+    "same_shape": 36,
+    "see": 120,
+    "signal": 8,
+    "touch": 602,
+    "wet_or_dry": 160,
+    "what_name": 22,
+    "why": 236,
+    "why_no_touch": 222,
+    "word_match": 66
+  },
+  "records_per_variant": {
+    "word_plain_text": {
+      "curriculum_test": 3115,
+      "dev": 2765,
+      "train": 22680
+    },
+    "word_relation_first_then_text": {
+      "curriculum_test": 3115,
+      "dev": 2765,
+      "train": 22680
+    },
+    "word_relation_scaffolded": {
+      "curriculum_test": 3115,
+      "dev": 2765,
+      "train": 22680
+    }
+  },
+  "rule_family_counts": {
+    "body_control": 64,
+    "caregiver_comfort": 24,
+    "container_open_closed": 395,
+    "drop_fall": 268,
+    "familiar_agent": 11,
+    "give_take": 64,
+    "hide_see": 180,
+    "more_less_count": 720,
+    "path_open_closed": 168,
+    "push_pull_move": 472,
+    "reach_touch": 1332,
+    "safe_unsafe_touch": 81,
+    "same_different_match": 505,
+    "shake_sound": 47,
+    "social_signal_response": 16,
+    "support_edge_fall": 1072,
+    "temperature_touch": 45,
+    "wet_dry": 160,
+    "word_name_binding": 88
+  },
+  "schema_version": "0.1.0",
+  "source_total_units": 5712,
+  "splits": {
+    "curriculum_test": 623,
+    "dev": 553,
+    "train": 4536
+  },
+  "surface_types": [
+    "labeled_words",
+    "simple_lines",
+    "because_answer",
+    "answer_reason_bridge",
+    "event_continuation"
+  ],
+  "surfaces_per_unit": 5,
+  "training_config": "data/developmental_graph/experiments/procedural_foundation_v4_word_surface/training_config.json",
+  "variants": [
+    "word_plain_text",
+    "word_relation_scaffolded",
+    "word_relation_first_then_text"
+  ]
+}

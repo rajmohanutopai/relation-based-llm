@@ -1,0 +1,245 @@
+{
+  "experiment_id": "core5_v0",
+  "notes": [
+    "All variants preserve source_example_id, split, task_type, and domain membership.",
+    "Only input and target representation differ by variant.",
+    "Held-out transfer prompts remain shared and are not included in these training variants."
+  ],
+  "output_dir": "data/developmental_graph/experiments/core5_v0/datasets",
+  "outputs": {
+    "plain_text.curriculum_test": {
+      "path": "data/developmental_graph/experiments/core5_v0/datasets/plain_text/curriculum_test.jsonl",
+      "sha256": "4706fef1eba5668e2a221ed5fdeae2dfd2c84afff76635897f9655dcaf9098e9"
+    },
+    "plain_text.dev": {
+      "path": "data/developmental_graph/experiments/core5_v0/datasets/plain_text/dev.jsonl",
+      "sha256": "0ce2eb95772f27c2679a5cb2f4fd4de3683a620371e16b3e07c1657cada5cd06"
+    },
+    "plain_text.train": {
+      "path": "data/developmental_graph/experiments/core5_v0/datasets/plain_text/train.jsonl",
+      "sha256": "0215789216fe0cd270f8a6080321c61e0782ab7f57d8666975b9dd79567a9b7f"
+    },
+    "relation_first_then_text.curriculum_test": {
+      "path": "data/developmental_graph/experiments/core5_v0/datasets/relation_first_then_text/curriculum_test.jsonl",
+      "sha256": "261be34569fa2e975e7150161d3519a543e78ef33ed7640b54e69913ae612f3e"
+    },
+    "relation_first_then_text.dev": {
+      "path": "data/developmental_graph/experiments/core5_v0/datasets/relation_first_then_text/dev.jsonl",
+      "sha256": "22962c07fbe4803aed6d57d188a90db6618f6aa8a8513bbba91a840782a95274"
+    },
+    "relation_first_then_text.train": {
+      "path": "data/developmental_graph/experiments/core5_v0/datasets/relation_first_then_text/train.jsonl",
+      "sha256": "44f5a9fab70b09b647100a3fe05cad3a61b35b28bd00a15b9dbd745aa10a7027"
+    },
+    "relation_scaffolded.curriculum_test": {
+      "path": "data/developmental_graph/experiments/core5_v0/datasets/relation_scaffolded/curriculum_test.jsonl",
+      "sha256": "2c48829e37ec388f6e0aa8e18d5b4d94d7a17c78dde8bca309dd71d4419de6a3"
+    },
+    "relation_scaffolded.dev": {
+      "path": "data/developmental_graph/experiments/core5_v0/datasets/relation_scaffolded/dev.jsonl",
+      "sha256": "5ac0fbbf41b464024000c4bae7ff84f3800cc4c20701e80e37b9c73b25907dab"
+    },
+    "relation_scaffolded.train": {
+      "path": "data/developmental_graph/experiments/core5_v0/datasets/relation_scaffolded/train.jsonl",
+      "sha256": "b9bcaf8a890653b7f7ce95aeba4d4e1dae491c51e0bd7c4e210ef035b9520ab8"
+    }
+  },
+  "schema_version": "0.1.0",
+  "source_experiment_dir": "data/developmental_graph/experiments/core5_v0",
+  "source_graph": null,
+  "source_graphs": {
+    "agent_6mo_indian_child": "data/developmental_graph/seeds/agent_6mo_indian_child.json",
+    "everyday_physical_world": "data/developmental_graph/seeds/everyday_physical_world.json",
+    "language_binding": "data/developmental_graph/seeds/language_binding.json",
+    "math_abstraction": "data/developmental_graph/seeds/math_abstraction.json",
+    "social_world": "data/developmental_graph/seeds/social_world.json"
+  },
+  "variants": {
+    "plain_text": {
+      "curriculum_test": {
+        "domain_counts": {
+          "agent_6mo_indian_child": 85,
+          "everyday_physical_world": 66,
+          "language_binding": 79,
+          "math_abstraction": 52,
+          "social_world": 49
+        },
+        "task_type_counts": {
+          "counterfactual_contrast": 6,
+          "explanation_path": 10,
+          "explanation_with_relations": 10,
+          "graph_anchor_from_prompt": 75,
+          "node_id_from_paraphrase": 132,
+          "relation_completion": 68,
+          "relation_family_from_prompt": 19,
+          "state_action_effect": 11
+        },
+        "total": 331
+      },
+      "dev": {
+        "domain_counts": {
+          "agent_6mo_indian_child": 76,
+          "everyday_physical_world": 58,
+          "language_binding": 76,
+          "math_abstraction": 44,
+          "social_world": 42
+        },
+        "task_type_counts": {
+          "counterfactual_contrast": 3,
+          "explanation_path": 7,
+          "explanation_with_relations": 7,
+          "graph_anchor_from_prompt": 71,
+          "node_id_from_paraphrase": 124,
+          "relation_completion": 63,
+          "relation_family_from_prompt": 14,
+          "state_action_effect": 7
+        },
+        "total": 296
+      },
+      "train": {
+        "domain_counts": {
+          "agent_6mo_indian_child": 626,
+          "everyday_physical_world": 488,
+          "language_binding": 611,
+          "math_abstraction": 353,
+          "social_world": 350
+        },
+        "task_type_counts": {
+          "counterfactual_contrast": 16,
+          "explanation_path": 60,
+          "explanation_with_relations": 60,
+          "graph_anchor_from_prompt": 578,
+          "node_id_from_paraphrase": 1012,
+          "relation_completion": 516,
+          "relation_family_from_prompt": 124,
+          "state_action_effect": 62
+        },
+        "total": 2428
+      }
+    },
+    "relation_first_then_text": {
+      "curriculum_test": {
+        "domain_counts": {
+          "agent_6mo_indian_child": 85,
+          "everyday_physical_world": 66,
+          "language_binding": 79,
+          "math_abstraction": 52,
+          "social_world": 49
+        },
+        "task_type_counts": {
+          "counterfactual_contrast": 6,
+          "explanation_path": 10,
+          "explanation_with_relations": 10,
+          "graph_anchor_from_prompt": 75,
+          "node_id_from_paraphrase": 132,
+          "relation_completion": 68,
+          "relation_family_from_prompt": 19,
+          "state_action_effect": 11
+        },
+        "total": 331
+      },
+      "dev": {
+        "domain_counts": {
+          "agent_6mo_indian_child": 76,
+          "everyday_physical_world": 58,
+          "language_binding": 76,
+          "math_abstraction": 44,
+          "social_world": 42
+        },
+        "task_type_counts": {
+          "counterfactual_contrast": 3,
+          "explanation_path": 7,
+          "explanation_with_relations": 7,
+          "graph_anchor_from_prompt": 71,
+          "node_id_from_paraphrase": 124,
+          "relation_completion": 63,
+          "relation_family_from_prompt": 14,
+          "state_action_effect": 7
+        },
+        "total": 296
+      },
+      "train": {
+        "domain_counts": {
+          "agent_6mo_indian_child": 626,
+          "everyday_physical_world": 488,
+          "language_binding": 611,
+          "math_abstraction": 353,
+          "social_world": 350
+        },
+        "task_type_counts": {
+          "counterfactual_contrast": 16,
+          "explanation_path": 60,
+          "explanation_with_relations": 60,
+          "graph_anchor_from_prompt": 578,
+          "node_id_from_paraphrase": 1012,
+          "relation_completion": 516,
+          "relation_family_from_prompt": 124,
+          "state_action_effect": 62
+        },
+        "total": 2428
+      }
+    },
+    "relation_scaffolded": {
+      "curriculum_test": {
+        "domain_counts": {
+          "agent_6mo_indian_child": 85,
+          "everyday_physical_world": 66,
+          "language_binding": 79,
+          "math_abstraction": 52,
+          "social_world": 49
+        },
+        "task_type_counts": {
+          "counterfactual_contrast": 6,
+          "explanation_path": 10,
+          "explanation_with_relations": 10,
+          "graph_anchor_from_prompt": 75,
+          "node_id_from_paraphrase": 132,
+          "relation_completion": 68,
+          "relation_family_from_prompt": 19,
+          "state_action_effect": 11
+        },
+        "total": 331
+      },
+      "dev": {
+        "domain_counts": {
+          "agent_6mo_indian_child": 76,
+          "everyday_physical_world": 58,
+          "language_binding": 76,
+          "math_abstraction": 44,
+          "social_world": 42
+        },
+        "task_type_counts": {
+          "counterfactual_contrast": 3,
+          "explanation_path": 7,
+          "explanation_with_relations": 7,
+          "graph_anchor_from_prompt": 71,
+          "node_id_from_paraphrase": 124,
+          "relation_completion": 63,
+          "relation_family_from_prompt": 14,
+          "state_action_effect": 7
+        },
+        "total": 296
+      },
+      "train": {
+        "domain_counts": {
+          "agent_6mo_indian_child": 626,
+          "everyday_physical_world": 488,
+          "language_binding": 611,
+          "math_abstraction": 353,
+          "social_world": 350
+        },
+        "task_type_counts": {
+          "counterfactual_contrast": 16,
+          "explanation_path": 60,
+          "explanation_with_relations": 60,
+          "graph_anchor_from_prompt": 578,
+          "node_id_from_paraphrase": 1012,
+          "relation_completion": 516,
+          "relation_family_from_prompt": 124,
+          "state_action_effect": 62
+        },
+        "total": 2428
+      }
+    }
+  }
+}

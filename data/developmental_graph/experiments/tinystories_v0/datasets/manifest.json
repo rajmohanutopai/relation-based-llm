@@ -1,0 +1,86 @@
+{
+  "budget_policy": {
+    "dev_words_requested": 32772,
+    "matched_to": "procedural_foundation_v3 relation variants",
+    "test_words_requested": 36626,
+    "train_words_requested": 270309,
+    "unit": "whitespace word approximation; complete stories are kept, so actual totals may exceed requested budgets"
+  },
+  "experiment_id": "tinystories_v0",
+  "output_dir": "data/developmental_graph/experiments/tinystories_v0/datasets",
+  "outputs": {
+    "source.curriculum_test": {
+      "path": "data/developmental_graph/experiments/tinystories_v0/curriculum_test.jsonl",
+      "sha256": "424b15cf1ac7471f327b423ed95390810c06afcede24fab9c67c737fe8115b6f"
+    },
+    "source.dev": {
+      "path": "data/developmental_graph/experiments/tinystories_v0/dev.jsonl",
+      "sha256": "06a06198f5be995a83f855b54631916f5a1e333ac282fb410249b26aad9cb687"
+    },
+    "source.train": {
+      "path": "data/developmental_graph/experiments/tinystories_v0/train.jsonl",
+      "sha256": "eb51f39f62dc339f4275e5c6d2cadf6ddc8bd9ec6dac77b4d23fe2a17553387e"
+    },
+    "tinystories_plain_text.curriculum_test": {
+      "path": "data/developmental_graph/experiments/tinystories_v0/datasets/tinystories_plain_text/curriculum_test.jsonl",
+      "sha256": "424b15cf1ac7471f327b423ed95390810c06afcede24fab9c67c737fe8115b6f"
+    },
+    "tinystories_plain_text.dev": {
+      "path": "data/developmental_graph/experiments/tinystories_v0/datasets/tinystories_plain_text/dev.jsonl",
+      "sha256": "06a06198f5be995a83f855b54631916f5a1e333ac282fb410249b26aad9cb687"
+    },
+    "tinystories_plain_text.train": {
+      "path": "data/developmental_graph/experiments/tinystories_v0/datasets/tinystories_plain_text/train.jsonl",
+      "sha256": "eb51f39f62dc339f4275e5c6d2cadf6ddc8bd9ec6dac77b4d23fe2a17553387e"
+    }
+  },
+  "schema_version": "0.1.0",
+  "source_dataset": "roneneldan/TinyStories",
+  "source_urls": {
+    "train": "https://huggingface.co/datasets/roneneldan/TinyStories/resolve/main/TinyStories-train.txt",
+    "validation": "https://huggingface.co/datasets/roneneldan/TinyStories/resolve/main/TinyStories-valid.txt"
+  },
+  "variants": {
+    "tinystories_plain_text": {
+      "curriculum_test": {
+        "task_type_counts": {
+          "normal_simple_story": 225
+        },
+        "total": 225,
+        "vocabulary": {
+          "total_raw_whitespace_tokens": 36695,
+          "total_words_alpha": 37314,
+          "unique_raw_whitespace_tokens": 3835,
+          "unique_words_alpha": 2179
+        },
+        "whitespace_words": 36695
+      },
+      "dev": {
+        "task_type_counts": {
+          "normal_simple_story": 208
+        },
+        "total": 208,
+        "vocabulary": {
+          "total_raw_whitespace_tokens": 33008,
+          "total_words_alpha": 33503,
+          "unique_raw_whitespace_tokens": 3577,
+          "unique_words_alpha": 2043
+        },
+        "whitespace_words": 33008
+      },
+      "train": {
+        "task_type_counts": {
+          "normal_simple_story": 1607
+        },
+        "total": 1607,
+        "vocabulary": {
+          "total_raw_whitespace_tokens": 270421,
+          "total_words_alpha": 273277,
+          "unique_raw_whitespace_tokens": 12201,
+          "unique_words_alpha": 5211
+        },
+        "whitespace_words": 270421
+      }
+    }
+  }
+}

@@ -174,6 +174,271 @@
       ]
     }
   ],
+  "generated_experiments": [
+    {
+      "id": "core5_v0",
+      "path": "data/developmental_graph/experiments/core5_v0",
+      "status": "generated",
+      "created": "2026-04-28",
+      "source_examples": 3055,
+      "splits": {
+        "train": 2428,
+        "dev": 296,
+        "curriculum_test": 331
+      },
+      "variants": [
+        "plain_text",
+        "relation_scaffolded",
+        "relation_first_then_text"
+      ],
+      "heldout_cases": 108,
+      "report": "docs/core5-v0-curriculum-variants.md"
+    },
+    {
+      "id": "core5_v0_controlled",
+      "path": "data/developmental_graph/experiments/core5_v0_controlled",
+      "status": "generated",
+      "created": "2026-04-28",
+      "source_examples": 3055,
+      "splits": {
+        "train": 2428,
+        "dev": 296,
+        "curriculum_test": 331
+      },
+      "variants": [
+        "controlled_plain_text",
+        "controlled_relation_scaffolded",
+        "controlled_relation_first_then_text"
+      ],
+      "train_unique_alpha_words": 1370,
+      "heldout_cases": 108,
+      "report": "docs/core5-v0-controlled-vocabulary.md"
+    },
+    {
+      "id": "core5_v0_childlang",
+      "path": "data/developmental_graph/experiments/core5_v0_childlang",
+      "status": "generated",
+      "created": "2026-04-28",
+      "source_examples": 3055,
+      "splits": {
+        "train": 2428,
+        "dev": 296,
+        "curriculum_test": 331
+      },
+      "variants": [
+        "child_plain_text",
+        "child_relation_scaffolded",
+        "child_relation_first_then_text"
+      ],
+      "train_unique_alpha_words": 1343,
+      "heldout_cases": 108,
+      "report": "docs/core5-v0-child-language.md",
+      "recommended_after": "core5_v0_foundation"
+    },
+    {
+      "id": "core5_v0_foundation",
+      "path": "data/developmental_graph/experiments/core5_v0_foundation",
+      "status": "generated",
+      "created": "2026-04-28",
+      "source_examples": 3055,
+      "foundation_units": 516,
+      "splits": {
+        "train": 403,
+        "dev": 60,
+        "curriculum_test": 53
+      },
+      "stage_counts_train": {
+        "f0": 353,
+        "f1": 28,
+        "f2": 14,
+        "f3": 8
+      },
+      "variants": [
+        "foundation_plain_text",
+        "foundation_relation_scaffolded",
+        "foundation_relation_first_then_text"
+      ],
+      "train_unique_alpha_words": 93,
+      "heldout_cases": 108,
+      "report": "docs/core5-v0-foundation-ladder.md",
+      "recommended_for_next_nanochat_run": true
+    },
+    {
+      "id": "procedural_foundation_v0",
+      "path": "data/developmental_graph/experiments/procedural_foundation_v0",
+      "status": "generated",
+      "created": "2026-04-28",
+      "procedural_units": 3888,
+      "splits": {
+        "train": 2994,
+        "dev": 302,
+        "curriculum_test": 592
+      },
+      "variants": [
+        "procedural_plain_text",
+        "procedural_relation_scaffolded",
+        "procedural_relation_first_then_text"
+      ],
+      "train_unique_alpha_words": {
+        "plain": 59,
+        "relation": 73
+      },
+      "rule_families": [
+        "height",
+        "distance",
+        "reach",
+        "touch",
+        "feel",
+        "object_movement",
+        "positive_negative_outcome"
+      ],
+      "report": "docs/procedural-foundation-v0.md",
+      "recommended_for_expansion_before_training": false,
+      "note": "Prototype generator; V1 uses better coherent scenario grammar."
+    },
+    {
+      "id": "procedural_foundation_v1",
+      "path": "data/developmental_graph/experiments/procedural_foundation_v1",
+      "status": "generated_quality_seed",
+      "created": "2026-04-28",
+      "procedural_units": 689,
+      "splits": {
+        "train": 542,
+        "dev": 66,
+        "curriculum_test": 81
+      },
+      "variants": [
+        "procedural_plain_text",
+        "procedural_relation_scaffolded",
+        "procedural_relation_first_then_text"
+      ],
+      "train_unique_alpha_words": {
+        "plain": 79,
+        "relation": 106
+      },
+      "rule_families": [
+        "reach_touch",
+        "push_move",
+        "drop_fall",
+        "shake_sound",
+        "hide_see",
+        "container_open_closed",
+        "hot_cold_touch"
+      ],
+      "report": "docs/procedural-foundation-v1.md",
+      "recommended_for_expansion_before_training": false,
+      "note": "Expanded by procedural_foundation_v2."
+    },
+    {
+      "id": "procedural_foundation_v2",
+      "path": "data/developmental_graph/experiments/procedural_foundation_v2",
+      "status": "generated_validated_smoke_candidate",
+      "created": "2026-04-28",
+      "procedural_units": 3157,
+      "splits": {
+        "train": 2477,
+        "dev": 302,
+        "curriculum_test": 378
+      },
+      "variants": [
+        "procedural_plain_text",
+        "procedural_relation_scaffolded",
+        "procedural_relation_first_then_text"
+      ],
+      "train_unique_alpha_words": {
+        "plain": 133,
+        "relation": 155
+      },
+      "rule_families": [
+        "reach_touch",
+        "push_move",
+        "drop_fall",
+        "shake_sound",
+        "hide_see",
+        "container_open_closed",
+        "hot_cold_touch",
+        "support_edge_fall",
+        "same_different_match",
+        "more_less_count",
+        "path_open_closed",
+        "caregiver_comfort",
+        "word_name_binding"
+      ],
+      "report": "docs/procedural-foundation-v2.md",
+      "recommended_for_next_nanochat_run": false,
+      "note": "Generated and dry-run validated; superseded by procedural_foundation_v3 for the next smoke test."
+    },
+    {
+      "id": "procedural_foundation_v3",
+      "path": "data/developmental_graph/experiments/procedural_foundation_v3",
+      "status": "generated_validated_smoke_candidate",
+      "created": "2026-04-28",
+      "base_entities": 208,
+      "procedural_units": 5712,
+      "splits": {
+        "train": 4536,
+        "dev": 553,
+        "curriculum_test": 623
+      },
+      "variants": [
+        "procedural_plain_text",
+        "procedural_relation_scaffolded",
+        "procedural_relation_first_then_text"
+      ],
+      "train_unique_alpha_words": {
+        "plain": 302,
+        "relation": 334
+      },
+      "rule_families": [
+        "reach_touch",
+        "push_pull_move",
+        "body_control",
+        "drop_fall",
+        "support_edge_fall",
+        "container_open_closed",
+        "hide_see",
+        "shake_sound",
+        "temperature_touch",
+        "wet_dry",
+        "safe_unsafe_touch",
+        "same_different_match",
+        "more_less_count",
+        "path_open_closed",
+        "caregiver_comfort",
+        "familiar_agent",
+        "social_signal_response",
+        "give_take",
+        "word_name_binding"
+      ],
+      "report": "docs/procedural-foundation-v3.md",
+      "recommended_for_next_nanochat_run": true,
+      "note": "Generated and dry-run validated; no model training has been run yet."
+    },
+    {
+      "id": "tinystories_v0",
+      "path": "data/developmental_graph/experiments/tinystories_v0",
+      "status": "generated_validated_normal_text_control",
+      "created": "2026-04-29",
+      "source_dataset": "roneneldan/TinyStories",
+      "splits": {
+        "train": 1607,
+        "dev": 208,
+        "curriculum_test": 225
+      },
+      "word_budget": {
+        "train": 270421,
+        "dev": 33008,
+        "curriculum_test": 36695
+      },
+      "variants": [
+        "tinystories_plain_text"
+      ],
+      "train_unique_alpha_words": 5211,
+      "report": "docs/tinystories-v0-baseline.md",
+      "recommended_for_next_nanochat_run": true,
+      "note": "Normal simple-text baseline matched to procedural_foundation_v3 relation variants by approximate word budget."
+    }
+  ],
   "gates": [
     {
       "id": "raw_before_relation",
@@ -197,8 +462,9 @@
     }
   ],
   "next_steps": [
-    "Generate core5 curriculum variants",
-    "Create shared tokenizer for nanochat variants",
-    "Run Level 1 core5 local sanity"
+    "Convert tinystories_v0 and procedural_foundation_v3 variants to nanochat-compatible shards",
+    "Run local shared-tokenizer nanochat smoke test with four arms: normal simple text, relation-designed plain, relation-scaffolded, and relation-first",
+    "Repeat with core5_v0_foundation and core5_v0_childlang if local sanity passes",
+    "Move to one-GPU signal test only after local sanity passes"
   ]
 }

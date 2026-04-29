@@ -1,0 +1,123 @@
+{
+  "child_language_policy": {
+    "case": "lowercase",
+    "fields": "colon_delimited",
+    "json_targets": "removed",
+    "relation_words": "from_link_to",
+    "technical_words": "rewritten_when_possible"
+  },
+  "dataset_manifest": "data/developmental_graph/experiments/core5_v0_childlang/datasets/manifest.json",
+  "experiment_id": "core5_v0_childlang",
+  "outputs": {
+    "child_plain_text.curriculum_test": {
+      "path": "data/developmental_graph/experiments/core5_v0_childlang/datasets/child_plain_text/curriculum_test.jsonl",
+      "sha256": "ee832066f2e4b145083ae1bdc8721475aa75b0fc0781f73597eeb686f350ef24"
+    },
+    "child_plain_text.dev": {
+      "path": "data/developmental_graph/experiments/core5_v0_childlang/datasets/child_plain_text/dev.jsonl",
+      "sha256": "89f6b03a374efba1c82b906a53f6daf658f18f65aedf5985b88679745b5c9bb3"
+    },
+    "child_plain_text.train": {
+      "path": "data/developmental_graph/experiments/core5_v0_childlang/datasets/child_plain_text/train.jsonl",
+      "sha256": "62e1ae31a9fc150a1ebb6a7aa60e264f417f40eae3d6e07a790e0c78e20149e9"
+    },
+    "child_relation_first_then_text.curriculum_test": {
+      "path": "data/developmental_graph/experiments/core5_v0_childlang/datasets/child_relation_first_then_text/curriculum_test.jsonl",
+      "sha256": "914108cbe22bc4756366b46f5cb96d67894475fc148fff3451d64f0ff3edbb18"
+    },
+    "child_relation_first_then_text.dev": {
+      "path": "data/developmental_graph/experiments/core5_v0_childlang/datasets/child_relation_first_then_text/dev.jsonl",
+      "sha256": "716a957bbb3a6b2ec1de59d261e195fe96d74cd08b770d5cb12bc252c4a83fa6"
+    },
+    "child_relation_first_then_text.train": {
+      "path": "data/developmental_graph/experiments/core5_v0_childlang/datasets/child_relation_first_then_text/train.jsonl",
+      "sha256": "20513804c9a49adda358f9791a25e39ecc7a91bd43d6c65ac80690d56c751e70"
+    },
+    "child_relation_scaffolded.curriculum_test": {
+      "path": "data/developmental_graph/experiments/core5_v0_childlang/datasets/child_relation_scaffolded/curriculum_test.jsonl",
+      "sha256": "4005c089f0dc1ba378de4dc4f0f5a4deca2696b55cd0a6b8729b0379f6290b4f"
+    },
+    "child_relation_scaffolded.dev": {
+      "path": "data/developmental_graph/experiments/core5_v0_childlang/datasets/child_relation_scaffolded/dev.jsonl",
+      "sha256": "cc4840dbea6577dfab602948816076b028c8a4bf822bbaab163f7e3e9e3778a5"
+    },
+    "child_relation_scaffolded.train": {
+      "path": "data/developmental_graph/experiments/core5_v0_childlang/datasets/child_relation_scaffolded/train.jsonl",
+      "sha256": "69c3ff2cc4df09c1117d6107dc7a5b63e40a8b4be669adf06280563827c11192"
+    },
+    "dataset_manifest": {
+      "path": "data/developmental_graph/experiments/core5_v0_childlang/datasets/manifest.json",
+      "sha256": "5c687a333dc41535b314a2372c3e5127db772799929440bf0a4bc494a565b849"
+    },
+    "heldout": {
+      "path": "data/developmental_graph/experiments/core5_v0_childlang/heldout.json",
+      "sha256": "db3d4f7f5ccc1e66d3acc8b022e3a7a4b6edc327215db64a947df8b22c1ceb95"
+    },
+    "heldout_prompts": {
+      "path": "data/developmental_graph/experiments/core5_v0_childlang/heldout_prompts.jsonl",
+      "sha256": "c759facdc850d5bd6d275ec9d532bffc5bb17f9950a994d646dba6f76e37c351"
+    },
+    "train_alpha_words": {
+      "path": "data/developmental_graph/experiments/core5_v0_childlang/vocabulary/train_alpha_words.txt",
+      "sha256": "8a470bf0941dc9b08703607f4179b0c1e95b8de415055ccb595bf844c9bd3749"
+    },
+    "training_config": {
+      "path": "data/developmental_graph/experiments/core5_v0_childlang/training_config.json",
+      "sha256": "60103d250daaf68c2e7f24fb198c4f69abfd823760bac93446dc8a6a7f069dc0"
+    }
+  },
+  "schema_version": "0.1.0",
+  "source_experiment_dir": "data/developmental_graph/experiments/core5_v0",
+  "source_manifest": "data/developmental_graph/experiments/core5_v0/manifest.json",
+  "splits": {
+    "curriculum_test": {
+      "task_type_counts": {
+        "counterfactual_contrast": 6,
+        "explanation_path": 10,
+        "explanation_with_relations": 10,
+        "graph_anchor_from_prompt": 75,
+        "node_id_from_paraphrase": 132,
+        "relation_completion": 68,
+        "relation_family_from_prompt": 19,
+        "state_action_effect": 11
+      },
+      "total": 331
+    },
+    "dev": {
+      "task_type_counts": {
+        "counterfactual_contrast": 3,
+        "explanation_path": 7,
+        "explanation_with_relations": 7,
+        "graph_anchor_from_prompt": 71,
+        "node_id_from_paraphrase": 124,
+        "relation_completion": 63,
+        "relation_family_from_prompt": 14,
+        "state_action_effect": 7
+      },
+      "total": 296
+    },
+    "train": {
+      "task_type_counts": {
+        "counterfactual_contrast": 16,
+        "explanation_path": 60,
+        "explanation_with_relations": 60,
+        "graph_anchor_from_prompt": 578,
+        "node_id_from_paraphrase": 1012,
+        "relation_completion": 516,
+        "relation_family_from_prompt": 124,
+        "state_action_effect": 62
+      },
+      "total": 2428
+    }
+  },
+  "training_config": "data/developmental_graph/experiments/core5_v0_childlang/training_config.json",
+  "variants": [
+    "child_plain_text",
+    "child_relation_scaffolded",
+    "child_relation_first_then_text"
+  ],
+  "vocabulary": {
+    "train_alpha_words_path": "data/developmental_graph/experiments/core5_v0_childlang/vocabulary/train_alpha_words.txt",
+    "train_unique_words_all_variants": 1343
+  }
+}
