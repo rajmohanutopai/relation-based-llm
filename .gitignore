@@ -7,3 +7,4 @@ __pycache__/
 .DS_Store
 runs/
 wandb/
+data/developmental_graph/experiments/
