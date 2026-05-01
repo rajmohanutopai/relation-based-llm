@@ -8,3 +8,4 @@ __pycache__/
 runs/
 wandb/
 data/developmental_graph/experiments/
+data/external/

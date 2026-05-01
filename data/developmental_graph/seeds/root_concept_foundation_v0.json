@@ -1,0 +1,2114 @@
+{
+  "evaluation_questions": [
+    {
+      "expected_answer": "child connects to living thing through person.",
+      "expected_relations": [
+        {
+          "source": "living.child",
+          "target": "living.person",
+          "type": "is_a"
+        },
+        {
+          "source": "living.person",
+          "target": "living.living_thing",
+          "type": "is_a"
+        }
+      ],
+      "id": "root_eval.inherit_001",
+      "question": "Using inheritance, how does child connect to living thing?"
+    },
+    {
+      "expected_answer": "mom connects to person through caregiver.",
+      "expected_relations": [
+        {
+          "source": "social.mom",
+          "target": "social.caregiver",
+          "type": "is_a"
+        },
+        {
+          "source": "social.caregiver",
+          "target": "living.person",
+          "type": "is_a"
+        }
+      ],
+      "id": "root_eval.inherit_002",
+      "question": "Using inheritance, how does mom connect to person?"
+    },
+    {
+      "expected_answer": "dad connects to person through caregiver.",
+      "expected_relations": [
+        {
+          "source": "social.dad",
+          "target": "social.caregiver",
+          "type": "is_a"
+        },
+        {
+          "source": "social.caregiver",
+          "target": "living.person",
+          "type": "is_a"
+        }
+      ],
+      "id": "root_eval.inherit_003",
+      "question": "Using inheritance, how does dad connect to person?"
+    },
+    {
+      "expected_answer": "young animal connects to living thing through animal.",
+      "expected_relations": [
+        {
+          "source": "living.young_animal",
+          "target": "living.animal",
+          "type": "is_a"
+        },
+        {
+          "source": "living.animal",
+          "target": "living.living_thing",
+          "type": "is_a"
+        }
+      ],
+      "id": "root_eval.inherit_004",
+      "question": "Using inheritance, how does young animal connect to living thing?"
+    },
+    {
+      "expected_answer": "animal connects to food through living thing.",
+      "expected_relations": [
+        {
+          "source": "living.animal",
+          "target": "living.living_thing",
+          "type": "is_a"
+        },
+        {
+          "source": "living.living_thing",
+          "target": "need.food",
+          "type": "needs"
+        }
+      ],
+      "id": "root_eval.inherit_005",
+      "question": "Using inheritance, how does animal connect to food?"
+    },
+    {
+      "expected_answer": "animal connects to water through living thing.",
+      "expected_relations": [
+        {
+          "source": "living.animal",
+          "target": "living.living_thing",
+          "type": "is_a"
+        },
+        {
+          "source": "living.living_thing",
+          "target": "need.water",
+          "type": "needs"
+        }
+      ],
+      "id": "root_eval.inherit_006",
+      "question": "Using inheritance, how does animal connect to water?"
+    },
+    {
+      "expected_answer": "person connects to sleep through living thing.",
+      "expected_relations": [
+        {
+          "source": "living.person",
+          "target": "living.living_thing",
+          "type": "is_a"
+        },
+        {
+          "source": "living.living_thing",
+          "target": "need.sleep",
+          "type": "needs"
+        }
+      ],
+      "id": "root_eval.inherit_007",
+      "question": "Using inheritance, how does person connect to sleep?"
+    },
+    {
+      "expected_answer": "hand connects to object through body.",
+      "expected_relations": [
+        {
+          "source": "body.hand",
+          "target": "body.body",
+          "type": "part_of"
+        },
+        {
+          "source": "body.body",
+          "target": "concept.object",
+          "type": "is_a"
+        }
+      ],
+      "id": "root_eval.inherit_008",
+      "question": "Using inheritance, how does hand connect to object?"
+    },
+    {
+      "expected_answer": "name connects to thing through word.",
+      "expected_relations": [
+        {
+          "source": "language.name",
+          "target": "language.word",
+          "type": "is_a"
+        },
+        {
+          "source": "language.word",
+          "target": "concept.thing",
+          "type": "is_a"
+        }
+      ],
+      "id": "root_eval.inherit_009",
+      "question": "Using inheritance, how does name connect to thing?"
+    },
+    {
+      "expected_answer": "story connects to relation through event.",
+      "expected_relations": [
+        {
+          "source": "language.story",
+          "target": "concept.event",
+          "type": "has_part"
+        },
+        {
+          "source": "concept.event",
+          "target": "concept.relation",
+          "type": "has_part"
+        }
+      ],
+      "id": "root_eval.inherit_010",
+      "question": "Using inheritance, how does story connect to relation?"
+    }
+  ],
+  "graph_id": "root_concept_foundation_v0",
+  "layers": [
+    {
+      "description": "Most general anchors: thing, relation, event, state.",
+      "id": "root",
+      "label": "Root",
+      "order": 0
+    },
+    {
+      "description": "Touch, sight, sound, taste, smell, body feeling.",
+      "id": "sensory",
+      "label": "Sensory Channels",
+      "order": 1
+    },
+    {
+      "description": "Body parts, control, direct feeling, proto-self.",
+      "id": "body_self",
+      "label": "Body And Self",
+      "order": 2
+    },
+    {
+      "description": "Near, far, up, down, inside, outside, on, under.",
+      "id": "space",
+      "label": "Space",
+      "order": 3
+    },
+    {
+      "description": "Move, touch, fall, block, push, pull, open, closed.",
+      "id": "physical",
+      "label": "Physical Process",
+      "order": 4
+    },
+    {
+      "description": "Hard, soft, hot, cold, wet, dry, big, small.",
+      "id": "property",
+      "label": "Object Properties",
+      "order": 5
+    },
+    {
+      "description": "Living thing, person, animal, plant, young, adult.",
+      "id": "living",
+      "label": "Living Things",
+      "order": 6
+    },
+    {
+      "description": "Pain, comfort, food, water, sleep, good, bad.",
+      "id": "need_valence",
+      "label": "Need And Valence",
+      "order": 7
+    },
+    {
+      "description": "Happy, sad, afraid, angry, want.",
+      "id": "emotion",
+      "label": "Emotion",
+      "order": 8
+    },
+    {
+      "description": "Caregiver, help, hurt, give, take, share, pet.",
+      "id": "social",
+      "label": "Social",
+      "order": 9
+    },
+    {
+      "description": "Word, name, say, hear, story, question, answer.",
+      "id": "language",
+      "label": "Language",
+      "order": 10
+    },
+    {
+      "description": "Before, after, cause, effect, again, stop, start.",
+      "id": "time_change",
+      "label": "Time And Change",
+      "order": 11
+    }
+  ],
+  "metadata": {
+    "description": "Root relation anchors for a relation-first TinyStories curriculum.",
+    "notes": [
+      "This graph is the base concept stage, not the TinyStories word attachment stage.",
+      "Later words should attach to these anchors by inheritance rather than repeat flat facts."
+    ],
+    "title": "Root Concept Foundation V0"
+  },
+  "micro_experiences": [
+    {
+      "age_status": "emerging",
+      "events": [
+        "The hand is near the object. The hand moves to the object.",
+        "The hand touches the object."
+      ],
+      "id": "root_event.near_touch",
+      "relations_observed": [
+        {
+          "source": "space.near",
+          "strength_delta": 0.05,
+          "target": "physical.touch",
+          "type": "enables"
+        },
+        {
+          "source": "body.hand",
+          "strength_delta": 0.05,
+          "target": "physical.touch",
+          "type": "can_cause"
+        }
+      ],
+      "title": "Near Touch"
+    },
+    {
+      "age_status": "emerging",
+      "events": [
+        "The object is far from the hand. The hand moves.",
+        "The hand does not touch the object."
+      ],
+      "id": "root_event.far_no_touch",
+      "relations_observed": [
+        {
+          "source": "space.far",
+          "strength_delta": 0.05,
+          "target": "physical.touch",
+          "type": "blocks"
+        }
+      ],
+      "title": "Far No Touch"
+    },
+    {
+      "age_status": "emerging",
+      "events": [
+        "The object is inside a closed box. The hand reaches the box.",
+        "The closed box blocks the hand."
+      ],
+      "id": "root_event.closed_blocks",
+      "relations_observed": [
+        {
+          "source": "physical.closed",
+          "strength_delta": 0.05,
+          "target": "physical.block",
+          "type": "can_cause"
+        },
+        {
+          "source": "physical.block",
+          "strength_delta": 0.05,
+          "target": "physical.move",
+          "type": "blocks"
+        }
+      ],
+      "title": "Closed Blocks"
+    },
+    {
+      "age_status": "emerging",
+      "events": [
+        "The object is inside an open box. The hand reaches inside.",
+        "The hand can touch the object."
+      ],
+      "id": "root_event.open_enables",
+      "relations_observed": [
+        {
+          "source": "physical.open",
+          "strength_delta": 0.05,
+          "target": "physical.touch",
+          "type": "enables"
+        }
+      ],
+      "title": "Open Enables"
+    },
+    {
+      "age_status": "emerging",
+      "events": [
+        "The object is hot. The hand touches the hot object.",
+        "Hot touch can cause pain."
+      ],
+      "id": "root_event.hot_pain",
+      "relations_observed": [
+        {
+          "source": "property.hot",
+          "strength_delta": 0.05,
+          "target": "valence.pain",
+          "type": "can_cause"
+        }
+      ],
+      "title": "Hot Pain"
+    },
+    {
+      "age_status": "emerging",
+      "events": [
+        "The object is sharp. The skin touches the sharp object.",
+        "Sharp touch can cause pain."
+      ],
+      "id": "root_event.sharp_pain",
+      "relations_observed": [
+        {
+          "source": "property.sharp",
+          "strength_delta": 0.05,
+          "target": "valence.pain",
+          "type": "can_cause"
+        }
+      ],
+      "title": "Sharp Pain"
+    },
+    {
+      "age_status": "emerging",
+      "events": [
+        "The baby feels pain. The caregiver helps the baby.",
+        "Help can reduce pain and bring comfort."
+      ],
+      "id": "root_event.caregiver_comfort",
+      "relations_observed": [
+        {
+          "source": "social.help",
+          "strength_delta": 0.05,
+          "target": "valence.pain",
+          "type": "reduces"
+        },
+        {
+          "source": "social.caregiver",
+          "strength_delta": 0.05,
+          "target": "valence.comfort",
+          "type": "can_cause"
+        }
+      ],
+      "title": "Caregiver Comfort"
+    },
+    {
+      "age_status": "emerging",
+      "events": [
+        "The baby is comfortable. The baby feels okay.",
+        "Comfort can cause happy feeling."
+      ],
+      "id": "root_event.comfort_happy",
+      "relations_observed": [
+        {
+          "source": "valence.comfort",
+          "strength_delta": 0.05,
+          "target": "emotion.happy",
+          "type": "can_cause"
+        }
+      ],
+      "title": "Comfort Happy"
+    },
+    {
+      "age_status": "emerging",
+      "events": [
+        "The baby feels pain. The pain continues.",
+        "Pain can cause sadness."
+      ],
+      "id": "root_event.pain_sad",
+      "relations_observed": [
+        {
+          "source": "valence.pain",
+          "strength_delta": 0.05,
+          "target": "emotion.sad",
+          "type": "can_cause"
+        }
+      ],
+      "title": "Pain Sad"
+    },
+    {
+      "age_status": "emerging",
+      "events": [
+        "Mom says a word. The baby hears the word.",
+        "A heard word can activate a relation."
+      ],
+      "id": "root_event.word_activates_relation",
+      "relations_observed": [
+        {
+          "source": "language.hear_word",
+          "strength_delta": 0.05,
+          "target": "concept.relation",
+          "type": "can_activate"
+        },
+        {
+          "source": "language.hear_word",
+          "strength_delta": 0.05,
+          "target": "sense.sound",
+          "type": "uses_channel"
+        }
+      ],
+      "title": "Word Activates Relation"
+    }
+  ],
+  "nodes": [
+    {
+      "age_status": "emerging",
+      "id": "concept.thing",
+      "kind": "concept",
+      "label": "thing",
+      "layer": "root",
+      "summary": "anything that can be related to another thing"
+    },
+    {
+      "age_status": "emerging",
+      "id": "concept.relation",
+      "kind": "concept",
+      "label": "relation",
+      "layer": "root",
+      "summary": "a link between things; the project meaning primitive"
+    },
+    {
+      "age_status": "emerging",
+      "id": "concept.event",
+      "kind": "concept",
+      "label": "event",
+      "layer": "root",
+      "summary": "something that happens"
+    },
+    {
+      "age_status": "emerging",
+      "id": "concept.state",
+      "kind": "concept",
+      "label": "state",
+      "layer": "root",
+      "summary": "how something is now"
+    },
+    {
+      "age_status": "emerging",
+      "id": "concept.object",
+      "kind": "concept",
+      "label": "object",
+      "layer": "root",
+      "summary": "a thing that can be touched or moved"
+    },
+    {
+      "age_status": "emerging",
+      "id": "concept.place",
+      "kind": "concept",
+      "label": "place",
+      "layer": "root",
+      "summary": "where things can be"
+    },
+    {
+      "age_status": "emerging",
+      "id": "sense.touch",
+      "kind": "channel",
+      "label": "touch",
+      "layer": "sensory",
+      "summary": "contact felt through body"
+    },
+    {
+      "age_status": "emerging",
+      "id": "sense.sight",
+      "kind": "channel",
+      "label": "see",
+      "layer": "sensory",
+      "summary": "light and shape input"
+    },
+    {
+      "age_status": "emerging",
+      "id": "sense.sound",
+      "kind": "channel",
+      "label": "hear",
+      "layer": "sensory",
+      "summary": "sound input"
+    },
+    {
+      "age_status": "emerging",
+      "id": "sense.taste",
+      "kind": "channel",
+      "label": "taste",
+      "layer": "sensory",
+      "summary": "mouth chemical input"
+    },
+    {
+      "age_status": "emerging",
+      "id": "sense.smell",
+      "kind": "channel",
+      "label": "smell",
+      "layer": "sensory",
+      "summary": "nose chemical input"
+    },
+    {
+      "age_status": "emerging",
+      "id": "sense.body_feel",
+      "kind": "channel",
+      "label": "body feel",
+      "layer": "sensory",
+      "summary": "inside body and control feeling"
+    },
+    {
+      "age_status": "emerging",
+      "id": "self.proto_self",
+      "kind": "concept",
+      "label": "self",
+      "layer": "body_self",
+      "summary": "things directly controlled and directly felt"
+    },
+    {
+      "age_status": "emerging",
+      "id": "body.body",
+      "kind": "object",
+      "label": "body",
+      "layer": "body_self",
+      "summary": "the controlled living body"
+    },
+    {
+      "age_status": "emerging",
+      "id": "body.hand",
+      "kind": "object",
+      "label": "hand",
+      "layer": "body_self",
+      "summary": "body part used to reach, touch, push, pull"
+    },
+    {
+      "age_status": "emerging",
+      "id": "body.mouth",
+      "kind": "object",
+      "label": "mouth",
+      "layer": "body_self",
+      "summary": "body part used to eat, taste, cry, speak"
+    },
+    {
+      "age_status": "emerging",
+      "id": "body.eye",
+      "kind": "object",
+      "label": "eye",
+      "layer": "body_self",
+      "summary": "body part used to see"
+    },
+    {
+      "age_status": "emerging",
+      "id": "body.ear",
+      "kind": "object",
+      "label": "ear",
+      "layer": "body_self",
+      "summary": "body part used to hear"
+    },
+    {
+      "age_status": "emerging",
+      "id": "body.nose",
+      "kind": "object",
+      "label": "nose",
+      "layer": "body_self",
+      "summary": "body part used to smell"
+    },
+    {
+      "age_status": "emerging",
+      "id": "body.skin",
+      "kind": "object",
+      "label": "skin",
+      "layer": "body_self",
+      "summary": "body surface that feels touch and pain"
+    },
+    {
+      "age_status": "emerging",
+      "id": "body.leg",
+      "kind": "object",
+      "label": "leg",
+      "layer": "body_self",
+      "summary": "body part used to move from place to place"
+    },
+    {
+      "age_status": "emerging",
+      "id": "space.near",
+      "kind": "relation_anchor",
+      "label": "near",
+      "layer": "space",
+      "summary": "small distance"
+    },
+    {
+      "age_status": "emerging",
+      "id": "space.far",
+      "kind": "relation_anchor",
+      "label": "far",
+      "layer": "space",
+      "summary": "large distance"
+    },
+    {
+      "age_status": "emerging",
+      "id": "space.up",
+      "kind": "relation_anchor",
+      "label": "up",
+      "layer": "space",
+      "summary": "higher place"
+    },
+    {
+      "age_status": "emerging",
+      "id": "space.down",
+      "kind": "relation_anchor",
+      "label": "down",
+      "layer": "space",
+      "summary": "lower place"
+    },
+    {
+      "age_status": "emerging",
+      "id": "space.inside",
+      "kind": "relation_anchor",
+      "label": "inside",
+      "layer": "space",
+      "summary": "in a container or boundary"
+    },
+    {
+      "age_status": "emerging",
+      "id": "space.outside",
+      "kind": "relation_anchor",
+      "label": "outside",
+      "layer": "space",
+      "summary": "not inside a boundary"
+    },
+    {
+      "age_status": "emerging",
+      "id": "space.on",
+      "kind": "relation_anchor",
+      "label": "on",
+      "layer": "space",
+      "summary": "supported by surface"
+    },
+    {
+      "age_status": "emerging",
+      "id": "space.under",
+      "kind": "relation_anchor",
+      "label": "under",
+      "layer": "space",
+      "summary": "below something"
+    },
+    {
+      "age_status": "emerging",
+      "id": "physical.move",
+      "kind": "process",
+      "label": "move",
+      "layer": "physical",
+      "summary": "change place"
+    },
+    {
+      "age_status": "emerging",
+      "id": "physical.touch",
+      "kind": "process",
+      "label": "touch",
+      "layer": "physical",
+      "summary": "make contact"
+    },
+    {
+      "age_status": "emerging",
+      "id": "physical.fall",
+      "kind": "process",
+      "label": "fall",
+      "layer": "physical",
+      "summary": "move down without support"
+    },
+    {
+      "age_status": "emerging",
+      "id": "physical.hit",
+      "kind": "process",
+      "label": "hit",
+      "layer": "physical",
+      "summary": "strong contact"
+    },
+    {
+      "age_status": "emerging",
+      "id": "physical.block",
+      "kind": "process",
+      "label": "block",
+      "layer": "physical",
+      "summary": "stop movement or access"
+    },
+    {
+      "age_status": "emerging",
+      "id": "physical.push",
+      "kind": "process",
+      "label": "push",
+      "layer": "physical",
+      "summary": "move away by force"
+    },
+    {
+      "age_status": "emerging",
+      "id": "physical.pull",
+      "kind": "process",
+      "label": "pull",
+      "layer": "physical",
+      "summary": "move toward by force"
+    },
+    {
+      "age_status": "emerging",
+      "id": "physical.open",
+      "kind": "state",
+      "label": "open",
+      "layer": "physical",
+      "summary": "allows entry or movement"
+    },
+    {
+      "age_status": "emerging",
+      "id": "physical.closed",
+      "kind": "state",
+      "label": "closed",
+      "layer": "physical",
+      "summary": "blocks entry or movement"
+    },
+    {
+      "age_status": "emerging",
+      "id": "physical.hold",
+      "kind": "process",
+      "label": "hold",
+      "layer": "physical",
+      "summary": "keep in hand or arms"
+    },
+    {
+      "age_status": "emerging",
+      "id": "property.hard",
+      "kind": "property",
+      "label": "hard",
+      "layer": "property",
+      "summary": "does not change shape easily"
+    },
+    {
+      "age_status": "emerging",
+      "id": "property.soft",
+      "kind": "property",
+      "label": "soft",
+      "layer": "property",
+      "summary": "changes shape easily"
+    },
+    {
+      "age_status": "emerging",
+      "id": "property.hot",
+      "kind": "property",
+      "label": "hot",
+      "layer": "property",
+      "summary": "high temperature"
+    },
+    {
+      "age_status": "emerging",
+      "id": "property.cold",
+      "kind": "property",
+      "label": "cold",
+      "layer": "property",
+      "summary": "low temperature"
+    },
+    {
+      "age_status": "emerging",
+      "id": "property.wet",
+      "kind": "property",
+      "label": "wet",
+      "layer": "property",
+      "summary": "has water on it"
+    },
+    {
+      "age_status": "emerging",
+      "id": "property.dry",
+      "kind": "property",
+      "label": "dry",
+      "layer": "property",
+      "summary": "does not have water on it"
+    },
+    {
+      "age_status": "emerging",
+      "id": "property.big",
+      "kind": "property",
+      "label": "big",
+      "layer": "property",
+      "summary": "large size"
+    },
+    {
+      "age_status": "emerging",
+      "id": "property.small",
+      "kind": "property",
+      "label": "small",
+      "layer": "property",
+      "summary": "little size"
+    },
+    {
+      "age_status": "emerging",
+      "id": "property.heavy",
+      "kind": "property",
+      "label": "heavy",
+      "layer": "property",
+      "summary": "hard to lift or move"
+    },
+    {
+      "age_status": "emerging",
+      "id": "property.light",
+      "kind": "property",
+      "label": "light",
+      "layer": "property",
+      "summary": "easy to lift or move"
+    },
+    {
+      "age_status": "emerging",
+      "id": "property.sharp",
+      "kind": "property",
+      "label": "sharp",
+      "layer": "property",
+      "summary": "can cut or hurt"
+    },
+    {
+      "age_status": "emerging",
+      "id": "property.round",
+      "kind": "property",
+      "label": "round",
+      "layer": "property",
+      "summary": "curved shape that can roll"
+    },
+    {
+      "age_status": "emerging",
+      "id": "living.living_thing",
+      "kind": "category",
+      "label": "living thing",
+      "layer": "living",
+      "summary": "thing that can grow or need"
+    },
+    {
+      "age_status": "emerging",
+      "id": "living.person",
+      "kind": "category",
+      "label": "person",
+      "layer": "living",
+      "summary": "living thing with social agency"
+    },
+    {
+      "age_status": "emerging",
+      "id": "living.animal",
+      "kind": "category",
+      "label": "animal",
+      "layer": "living",
+      "summary": "living thing that can move and feel"
+    },
+    {
+      "age_status": "emerging",
+      "id": "living.plant",
+      "kind": "category",
+      "label": "plant",
+      "layer": "living",
+      "summary": "living thing that grows but usually does not move like animal"
+    },
+    {
+      "age_status": "emerging",
+      "id": "living.child",
+      "kind": "category",
+      "label": "child",
+      "layer": "living",
+      "summary": "young person"
+    },
+    {
+      "age_status": "emerging",
+      "id": "living.adult",
+      "kind": "category",
+      "label": "adult",
+      "layer": "living",
+      "summary": "grown person"
+    },
+    {
+      "age_status": "emerging",
+      "id": "living.young_animal",
+      "kind": "category",
+      "label": "young animal",
+      "layer": "living",
+      "summary": "young animal, often small and dependent"
+    },
+    {
+      "age_status": "emerging",
+      "id": "need.food",
+      "kind": "need",
+      "label": "food",
+      "layer": "need_valence",
+      "summary": "what living things eat"
+    },
+    {
+      "age_status": "emerging",
+      "id": "need.water",
+      "kind": "need",
+      "label": "water",
+      "layer": "need_valence",
+      "summary": "what living things drink"
+    },
+    {
+      "age_status": "emerging",
+      "id": "need.sleep",
+      "kind": "need",
+      "label": "sleep",
+      "layer": "need_valence",
+      "summary": "rest needed by living things"
+    },
+    {
+      "age_status": "emerging",
+      "id": "need.air",
+      "kind": "need",
+      "label": "air",
+      "layer": "need_valence",
+      "summary": "what living things breathe"
+    },
+    {
+      "age_status": "emerging",
+      "id": "valence.pain",
+      "kind": "valence",
+      "label": "pain",
+      "layer": "need_valence",
+      "summary": "bad body feeling from hurt"
+    },
+    {
+      "age_status": "emerging",
+      "id": "valence.comfort",
+      "kind": "valence",
+      "label": "comfort",
+      "layer": "need_valence",
+      "summary": "body and situation feel okay"
+    },
+    {
+      "age_status": "emerging",
+      "id": "valence.good",
+      "kind": "valence",
+      "label": "good",
+      "layer": "need_valence",
+      "summary": "toward happiness or okay state"
+    },
+    {
+      "age_status": "emerging",
+      "id": "valence.bad",
+      "kind": "valence",
+      "label": "bad",
+      "layer": "need_valence",
+      "summary": "toward pain, danger, or loss"
+    },
+    {
+      "age_status": "emerging",
+      "id": "emotion.happy",
+      "kind": "emotion",
+      "label": "happy",
+      "layer": "emotion",
+      "summary": "positive feeling"
+    },
+    {
+      "age_status": "emerging",
+      "id": "emotion.sad",
+      "kind": "emotion",
+      "label": "sad",
+      "layer": "emotion",
+      "summary": "negative feeling from loss, pain, or broken relation"
+    },
+    {
+      "age_status": "emerging",
+      "id": "emotion.afraid",
+      "kind": "emotion",
+      "label": "afraid",
+      "layer": "emotion",
+      "summary": "negative feeling from possible danger"
+    },
+    {
+      "age_status": "emerging",
+      "id": "emotion.angry",
+      "kind": "emotion",
+      "label": "angry",
+      "layer": "emotion",
+      "summary": "negative feeling when wanted state is blocked"
+    },
+    {
+      "age_status": "emerging",
+      "id": "emotion.want",
+      "kind": "emotion",
+      "label": "want",
+      "layer": "emotion",
+      "summary": "pull toward a state or object"
+    },
+    {
+      "age_status": "emerging",
+      "id": "social.caregiver",
+      "kind": "role",
+      "label": "caregiver",
+      "layer": "social",
+      "summary": "person who protects, feeds, comforts"
+    },
+    {
+      "age_status": "emerging",
+      "id": "social.mom",
+      "kind": "role",
+      "label": "mom",
+      "layer": "social",
+      "summary": "familiar caregiver"
+    },
+    {
+      "age_status": "emerging",
+      "id": "social.dad",
+      "kind": "role",
+      "label": "dad",
+      "layer": "social",
+      "summary": "familiar caregiver"
+    },
+    {
+      "age_status": "emerging",
+      "id": "social.help",
+      "kind": "action",
+      "label": "help",
+      "layer": "social",
+      "summary": "action that reduces problem or pain"
+    },
+    {
+      "age_status": "emerging",
+      "id": "social.hurt",
+      "kind": "action",
+      "label": "hurt",
+      "layer": "social",
+      "summary": "action that causes pain or damage"
+    },
+    {
+      "age_status": "emerging",
+      "id": "social.give",
+      "kind": "action",
+      "label": "give",
+      "layer": "social",
+      "summary": "move object from one person to another"
+    },
+    {
+      "age_status": "emerging",
+      "id": "social.take",
+      "kind": "action",
+      "label": "take",
+      "layer": "social",
+      "summary": "get object from another place or person"
+    },
+    {
+      "age_status": "emerging",
+      "id": "social.share",
+      "kind": "action",
+      "label": "share",
+      "layer": "social",
+      "summary": "let another person use or have too"
+    },
+    {
+      "age_status": "emerging",
+      "id": "social.role",
+      "kind": "role",
+      "label": "role",
+      "layer": "social",
+      "summary": "a social position that changes expected relations"
+    },
+    {
+      "age_status": "emerging",
+      "id": "social.pet",
+      "kind": "role",
+      "label": "pet",
+      "layer": "social",
+      "summary": "animal living near people and cared for by people"
+    },
+    {
+      "age_status": "emerging",
+      "id": "language.word",
+      "kind": "symbol",
+      "label": "word",
+      "layer": "language",
+      "summary": "sound or text that can name a concept"
+    },
+    {
+      "age_status": "emerging",
+      "id": "language.name",
+      "kind": "symbol",
+      "label": "name",
+      "layer": "language",
+      "summary": "word used for a thing or person"
+    },
+    {
+      "age_status": "emerging",
+      "id": "language.say",
+      "kind": "action",
+      "label": "say",
+      "layer": "language",
+      "summary": "make words by mouth"
+    },
+    {
+      "age_status": "emerging",
+      "id": "language.hear_word",
+      "kind": "event",
+      "label": "hear word",
+      "layer": "language",
+      "summary": "sound word reaches listener"
+    },
+    {
+      "age_status": "emerging",
+      "id": "language.story",
+      "kind": "structure",
+      "label": "story",
+      "layer": "language",
+      "summary": "words describing events and relations"
+    },
+    {
+      "age_status": "emerging",
+      "id": "language.question",
+      "kind": "structure",
+      "label": "question",
+      "layer": "language",
+      "summary": "words asking for a relation or state"
+    },
+    {
+      "age_status": "emerging",
+      "id": "language.answer",
+      "kind": "structure",
+      "label": "answer",
+      "layer": "language",
+      "summary": "words giving a relation or state"
+    },
+    {
+      "age_status": "emerging",
+      "id": "time.before",
+      "kind": "time",
+      "label": "before",
+      "layer": "time_change",
+      "summary": "earlier state"
+    },
+    {
+      "age_status": "emerging",
+      "id": "time.after",
+      "kind": "time",
+      "label": "after",
+      "layer": "time_change",
+      "summary": "later state"
+    },
+    {
+      "age_status": "emerging",
+      "id": "time.cause",
+      "kind": "relation",
+      "label": "cause",
+      "layer": "time_change",
+      "summary": "earlier relation makes later relation"
+    },
+    {
+      "age_status": "emerging",
+      "id": "time.effect",
+      "kind": "relation",
+      "label": "effect",
+      "layer": "time_change",
+      "summary": "later relation caused by earlier relation"
+    },
+    {
+      "age_status": "emerging",
+      "id": "time.again",
+      "kind": "time",
+      "label": "again",
+      "layer": "time_change",
+      "summary": "same event repeats"
+    },
+    {
+      "age_status": "emerging",
+      "id": "time.start",
+      "kind": "time",
+      "label": "start",
+      "layer": "time_change",
+      "summary": "begin event"
+    },
+    {
+      "age_status": "emerging",
+      "id": "time.stop",
+      "kind": "time",
+      "label": "stop",
+      "layer": "time_change",
+      "summary": "end event or movement"
+    }
+  ],
+  "relations": [
+    {
+      "age_status": "emerging",
+      "source": "concept.object",
+      "strength": 0.95,
+      "target": "concept.thing",
+      "type": "is_a",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "concept.place",
+      "strength": 0.9,
+      "target": "concept.thing",
+      "type": "is_a",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "concept.event",
+      "strength": 0.9,
+      "target": "concept.relation",
+      "type": "has_part",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "concept.state",
+      "strength": 0.9,
+      "target": "concept.relation",
+      "type": "has_part",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "body.body",
+      "strength": 0.95,
+      "target": "concept.object",
+      "type": "is_a",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "body.hand",
+      "strength": 0.95,
+      "target": "body.body",
+      "type": "part_of",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "body.mouth",
+      "strength": 0.95,
+      "target": "body.body",
+      "type": "part_of",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "body.eye",
+      "strength": 0.95,
+      "target": "body.body",
+      "type": "part_of",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "body.ear",
+      "strength": 0.95,
+      "target": "body.body",
+      "type": "part_of",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "body.nose",
+      "strength": 0.95,
+      "target": "body.body",
+      "type": "part_of",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "body.skin",
+      "strength": 0.95,
+      "target": "body.body",
+      "type": "part_of",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "body.leg",
+      "strength": 0.95,
+      "target": "body.body",
+      "type": "part_of",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "body.hand",
+      "strength": 0.95,
+      "target": "self.proto_self",
+      "type": "directly_controlled_by",
+      "valence": "positive"
+    },
+    {
+      "age_status": "emerging",
+      "source": "body.mouth",
+      "strength": 0.8,
+      "target": "self.proto_self",
+      "type": "directly_controlled_by",
+      "valence": "positive"
+    },
+    {
+      "age_status": "emerging",
+      "source": "body.leg",
+      "strength": 0.75,
+      "target": "self.proto_self",
+      "type": "directly_controlled_by",
+      "valence": "positive"
+    },
+    {
+      "age_status": "emerging",
+      "source": "body.skin",
+      "strength": 0.95,
+      "target": "sense.touch",
+      "type": "directly_feels",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "body.skin",
+      "strength": 0.95,
+      "target": "valence.pain",
+      "type": "directly_feels",
+      "valence": "negative"
+    },
+    {
+      "age_status": "emerging",
+      "source": "body.eye",
+      "strength": 0.95,
+      "target": "sense.sight",
+      "type": "uses_channel",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "body.ear",
+      "strength": 0.95,
+      "target": "sense.sound",
+      "type": "uses_channel",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "body.nose",
+      "strength": 0.9,
+      "target": "sense.smell",
+      "type": "uses_channel",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "body.mouth",
+      "strength": 0.9,
+      "target": "sense.taste",
+      "type": "uses_channel",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "body.body",
+      "strength": 0.85,
+      "target": "sense.body_feel",
+      "type": "uses_channel",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "body.mouth",
+      "strength": 0.7,
+      "target": "language.say",
+      "type": "can_cause",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "body.hand",
+      "strength": 0.95,
+      "target": "physical.touch",
+      "type": "can_cause",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "body.hand",
+      "strength": 0.85,
+      "target": "physical.push",
+      "type": "can_cause",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "body.hand",
+      "strength": 0.85,
+      "target": "physical.pull",
+      "type": "can_cause",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "space.near",
+      "strength": 0.95,
+      "target": "physical.touch",
+      "type": "enables",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "space.far",
+      "strength": 0.9,
+      "target": "physical.touch",
+      "type": "blocks",
+      "valence": "negative"
+    },
+    {
+      "age_status": "emerging",
+      "source": "space.up",
+      "strength": 0.95,
+      "target": "space.down",
+      "type": "contrasts_with",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "space.near",
+      "strength": 0.95,
+      "target": "space.far",
+      "type": "contrasts_with",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "space.inside",
+      "strength": 0.95,
+      "target": "space.outside",
+      "type": "contrasts_with",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "space.on",
+      "strength": 0.8,
+      "target": "concept.object",
+      "type": "supports",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "space.under",
+      "strength": 0.65,
+      "target": "space.on",
+      "type": "contrasts_with",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "physical.open",
+      "strength": 0.85,
+      "target": "physical.touch",
+      "type": "enables",
+      "valence": "positive"
+    },
+    {
+      "age_status": "emerging",
+      "source": "physical.closed",
+      "strength": 0.9,
+      "target": "physical.touch",
+      "type": "blocks",
+      "valence": "negative"
+    },
+    {
+      "age_status": "emerging",
+      "source": "physical.closed",
+      "strength": 0.9,
+      "target": "physical.block",
+      "type": "can_cause",
+      "valence": "negative"
+    },
+    {
+      "age_status": "emerging",
+      "source": "physical.hold",
+      "strength": 0.85,
+      "target": "physical.fall",
+      "type": "blocks",
+      "valence": "positive"
+    },
+    {
+      "age_status": "emerging",
+      "source": "physical.fall",
+      "strength": 0.8,
+      "target": "physical.hit",
+      "type": "can_cause",
+      "valence": "negative"
+    },
+    {
+      "age_status": "emerging",
+      "source": "physical.hit",
+      "strength": 0.85,
+      "target": "valence.pain",
+      "type": "can_cause",
+      "valence": "negative"
+    },
+    {
+      "age_status": "emerging",
+      "source": "physical.push",
+      "strength": 0.8,
+      "target": "physical.move",
+      "type": "can_cause",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "physical.pull",
+      "strength": 0.8,
+      "target": "physical.move",
+      "type": "can_cause",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "physical.block",
+      "strength": 0.9,
+      "target": "physical.move",
+      "type": "blocks",
+      "valence": "negative"
+    },
+    {
+      "age_status": "emerging",
+      "source": "property.hot",
+      "strength": 0.9,
+      "target": "valence.pain",
+      "type": "can_cause",
+      "valence": "negative"
+    },
+    {
+      "age_status": "emerging",
+      "source": "property.sharp",
+      "strength": 0.9,
+      "target": "valence.pain",
+      "type": "can_cause",
+      "valence": "negative"
+    },
+    {
+      "age_status": "emerging",
+      "source": "property.hard",
+      "strength": 0.55,
+      "target": "physical.hit",
+      "type": "can_cause",
+      "valence": "negative"
+    },
+    {
+      "age_status": "emerging",
+      "source": "property.soft",
+      "strength": 0.65,
+      "target": "physical.hit",
+      "type": "reduces",
+      "valence": "positive"
+    },
+    {
+      "age_status": "emerging",
+      "source": "property.heavy",
+      "strength": 0.7,
+      "target": "physical.move",
+      "type": "blocks",
+      "valence": "negative"
+    },
+    {
+      "age_status": "emerging",
+      "source": "property.light",
+      "strength": 0.75,
+      "target": "physical.move",
+      "type": "enables",
+      "valence": "positive"
+    },
+    {
+      "age_status": "emerging",
+      "source": "property.round",
+      "strength": 0.55,
+      "target": "physical.move",
+      "type": "enables",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "property.wet",
+      "strength": 0.95,
+      "target": "property.dry",
+      "type": "contrasts_with",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "property.hot",
+      "strength": 0.95,
+      "target": "property.cold",
+      "type": "contrasts_with",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "property.hard",
+      "strength": 0.95,
+      "target": "property.soft",
+      "type": "contrasts_with",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "property.big",
+      "strength": 0.95,
+      "target": "property.small",
+      "type": "contrasts_with",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "property.heavy",
+      "strength": 0.95,
+      "target": "property.light",
+      "type": "contrasts_with",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "living.living_thing",
+      "strength": 0.95,
+      "target": "concept.thing",
+      "type": "is_a",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "living.person",
+      "strength": 0.95,
+      "target": "living.living_thing",
+      "type": "is_a",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "living.animal",
+      "strength": 0.95,
+      "target": "living.living_thing",
+      "type": "is_a",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "living.plant",
+      "strength": 0.9,
+      "target": "living.living_thing",
+      "type": "is_a",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "living.child",
+      "strength": 0.95,
+      "target": "living.person",
+      "type": "is_a",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "living.adult",
+      "strength": 0.95,
+      "target": "living.person",
+      "type": "is_a",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "living.young_animal",
+      "strength": 0.95,
+      "target": "living.animal",
+      "type": "is_a",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "living.living_thing",
+      "strength": 0.8,
+      "target": "need.food",
+      "type": "needs",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "living.living_thing",
+      "strength": 0.85,
+      "target": "need.water",
+      "type": "needs",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "living.living_thing",
+      "strength": 0.75,
+      "target": "need.sleep",
+      "type": "needs",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "living.living_thing",
+      "strength": 0.75,
+      "target": "need.air",
+      "type": "needs",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "living.animal",
+      "strength": 0.85,
+      "target": "physical.move",
+      "type": "can_cause",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "living.animal",
+      "strength": 0.75,
+      "target": "sense.sound",
+      "type": "can_cause",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "living.animal",
+      "strength": 0.9,
+      "target": "valence.pain",
+      "type": "can_feel",
+      "valence": "negative"
+    },
+    {
+      "age_status": "emerging",
+      "source": "living.person",
+      "strength": 0.9,
+      "target": "language.say",
+      "type": "can_cause",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "living.person",
+      "strength": 0.9,
+      "target": "emotion.happy",
+      "type": "can_feel",
+      "valence": "positive"
+    },
+    {
+      "age_status": "emerging",
+      "source": "living.person",
+      "strength": 0.9,
+      "target": "emotion.sad",
+      "type": "can_feel",
+      "valence": "negative"
+    },
+    {
+      "age_status": "emerging",
+      "source": "living.young_animal",
+      "strength": 0.7,
+      "target": "property.small",
+      "type": "has_property",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "living.young_animal",
+      "strength": 0.7,
+      "target": "social.help",
+      "type": "needs",
+      "valence": "positive"
+    },
+    {
+      "age_status": "emerging",
+      "source": "living.plant",
+      "strength": 0.85,
+      "target": "need.water",
+      "type": "needs",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "valence.pain",
+      "strength": 0.9,
+      "target": "valence.comfort",
+      "type": "contrasts_with",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "valence.pain",
+      "strength": 0.8,
+      "target": "emotion.sad",
+      "type": "can_cause",
+      "valence": "negative"
+    },
+    {
+      "age_status": "emerging",
+      "source": "valence.pain",
+      "strength": 0.6,
+      "target": "emotion.afraid",
+      "type": "can_cause",
+      "valence": "negative"
+    },
+    {
+      "age_status": "emerging",
+      "source": "valence.comfort",
+      "strength": 0.8,
+      "target": "emotion.happy",
+      "type": "can_cause",
+      "valence": "positive"
+    },
+    {
+      "age_status": "emerging",
+      "source": "valence.good",
+      "strength": 0.7,
+      "target": "emotion.happy",
+      "type": "can_cause",
+      "valence": "positive"
+    },
+    {
+      "age_status": "emerging",
+      "source": "valence.bad",
+      "strength": 0.7,
+      "target": "emotion.sad",
+      "type": "can_cause",
+      "valence": "negative"
+    },
+    {
+      "age_status": "emerging",
+      "source": "valence.good",
+      "strength": 0.9,
+      "target": "valence.bad",
+      "type": "contrasts_with",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "social.help",
+      "strength": 0.8,
+      "target": "valence.pain",
+      "type": "reduces",
+      "valence": "positive"
+    },
+    {
+      "age_status": "emerging",
+      "source": "social.help",
+      "strength": 0.8,
+      "target": "emotion.happy",
+      "type": "can_cause",
+      "valence": "positive"
+    },
+    {
+      "age_status": "emerging",
+      "source": "social.hurt",
+      "strength": 0.9,
+      "target": "valence.pain",
+      "type": "can_cause",
+      "valence": "negative"
+    },
+    {
+      "age_status": "emerging",
+      "source": "social.hurt",
+      "strength": 0.8,
+      "target": "emotion.sad",
+      "type": "can_cause",
+      "valence": "negative"
+    },
+    {
+      "age_status": "emerging",
+      "source": "emotion.want",
+      "strength": 0.65,
+      "target": "physical.move",
+      "type": "can_cause",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "emotion.want",
+      "strength": 0.55,
+      "target": "social.take",
+      "type": "can_cause",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "emotion.angry",
+      "strength": 0.45,
+      "target": "social.hurt",
+      "type": "can_cause",
+      "valence": "negative"
+    },
+    {
+      "age_status": "emerging",
+      "source": "emotion.angry",
+      "strength": 0.55,
+      "target": "emotion.happy",
+      "type": "contrasts_with",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "social.caregiver",
+      "strength": 0.95,
+      "target": "living.person",
+      "type": "is_a",
+      "valence": "positive"
+    },
+    {
+      "age_status": "emerging",
+      "source": "social.mom",
+      "strength": 0.95,
+      "target": "social.caregiver",
+      "type": "is_a",
+      "valence": "positive"
+    },
+    {
+      "age_status": "emerging",
+      "source": "social.dad",
+      "strength": 0.95,
+      "target": "social.caregiver",
+      "type": "is_a",
+      "valence": "positive"
+    },
+    {
+      "age_status": "emerging",
+      "source": "social.caregiver",
+      "strength": 0.9,
+      "target": "social.help",
+      "type": "can_cause",
+      "valence": "positive"
+    },
+    {
+      "age_status": "emerging",
+      "source": "social.caregiver",
+      "strength": 0.85,
+      "target": "valence.comfort",
+      "type": "can_cause",
+      "valence": "positive"
+    },
+    {
+      "age_status": "emerging",
+      "source": "social.give",
+      "strength": 0.6,
+      "target": "social.take",
+      "type": "can_cause",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "social.share",
+      "strength": 0.65,
+      "target": "social.give",
+      "type": "is_a",
+      "valence": "positive"
+    },
+    {
+      "age_status": "emerging",
+      "source": "social.pet",
+      "strength": 0.6,
+      "target": "social.role",
+      "type": "is_a",
+      "valence": "positive"
+    },
+    {
+      "age_status": "emerging",
+      "source": "social.pet",
+      "strength": 0.7,
+      "target": "living.person",
+      "type": "near",
+      "valence": "positive"
+    },
+    {
+      "age_status": "emerging",
+      "source": "language.word",
+      "strength": 0.9,
+      "target": "concept.thing",
+      "type": "is_a",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "language.name",
+      "strength": 0.95,
+      "target": "language.word",
+      "type": "is_a",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "language.word",
+      "strength": 0.95,
+      "target": "concept.thing",
+      "type": "can_name",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "language.hear_word",
+      "strength": 0.95,
+      "target": "sense.sound",
+      "type": "uses_channel",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "language.hear_word",
+      "strength": 0.75,
+      "target": "concept.relation",
+      "type": "can_activate",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "language.story",
+      "strength": 0.8,
+      "target": "concept.event",
+      "type": "has_part",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "language.story",
+      "strength": 0.8,
+      "target": "concept.relation",
+      "type": "has_part",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "language.question",
+      "strength": 0.9,
+      "target": "concept.relation",
+      "type": "asks_for",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "language.answer",
+      "strength": 0.9,
+      "target": "concept.relation",
+      "type": "gives",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "time.before",
+      "strength": 0.95,
+      "target": "time.after",
+      "type": "contrasts_with",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "time.cause",
+      "strength": 0.75,
+      "target": "time.before",
+      "type": "links",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "time.cause",
+      "strength": 0.75,
+      "target": "time.effect",
+      "type": "links",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "time.start",
+      "strength": 0.85,
+      "target": "time.stop",
+      "type": "contrasts_with",
+      "valence": "neutral"
+    },
+    {
+      "age_status": "emerging",
+      "source": "time.again",
+      "strength": 0.85,
+      "target": "concept.event",
+      "type": "repeats",
+      "valence": "neutral"
+    }
+  ],
+  "schema_version": "0.1.0"
+}

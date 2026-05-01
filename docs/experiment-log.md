@@ -3,6 +3,454 @@
 This is the running chronological log for experiments. New entries go at the
 top so the latest result is always visible first.
 
+## 2026-05-01: Age 6mo Root World 500
+
+Experiment ID:
+
+```text
+age_6mo_root_world_500
+```
+
+Purpose:
+
+```text
+Create the full 500-concept 6-month root-world seed. These are embodied
+relation handles for model training, not spoken-word milestones.
+```
+
+Counts:
+
+```text
+concepts: 500
+relations: 1092
+curriculum rows: 3155
+```
+
+Category allocation:
+
+```text
+core_relation:              45
+body_part:                  35
+body_action_control:        40
+sensory_input:              55
+body_state_valence:         50
+space_motion_physics:       55
+object_property:            40
+common_object:              55
+caregiver_social:           35
+routine_event:              45
+sound_language_precursor:   25
+learning_memory:            20
+```
+
+Status allocation:
+
+```text
+active:                     407
+emerging:                    69
+latent:                      14
+internal:                    10
+```
+
+Update:
+
+```text
+Review fixes applied: root anchors are now real concepts, advanced concepts are
+marked active/emerging/latent, smell/body-balance/internal sensation coverage was
+added, valence-learning hubs were strengthened, and common objects now carry
+richer relation bundles.
+```
+
+Second review fixes:
+
+```text
+Relation schema normalized to a closed 18-type vocabulary.
+Relation targets now resolve to concept nodes or declared external anchors.
+Forward prerequisite validation added and passed.
+Sparse bundles enriched; no concept has only one relation.
+Status-aware scene_relation rows added for active/emerging concepts.
+```
+
+Third review fixes:
+
+```text
+Added internal status for ontology-only handles.
+Moved abstract graph handles such as relation/state/event/action/input/cause/effect
+out of active child-facing status.
+Added missing desire/control/social-regulation handles: wanted, not wanted, too
+much, enough, can control, cannot control, alone, with caregiver, not held, safe
+touch, start, stop, again, gone, back again, body limit.
+Removed or replaced weaker/specific handles: doctor touch, family group, arms,
+kiss touch, chew gum, crawl attempt, teething discomfort, medicine discomfort,
+bath comfort, transition, interruption, path, blocked path, container boundary.
+```
+
+US-first cleanup:
+
+```text
+Removed India-specific handles from the 6mo seed. Replaced dal/ragi/nappy/
+pressure cooker whistle with oatmeal/applesauce/wipes/vacuum sound.
+Demoted support, boundary, physical support, contact, no contact, waiting,
+sound pattern, repetition comfort, success feeling, and blocked feeling from
+active to emerging.
+Enriched body limit, gone, back again, and safe touch with experiential relation
+bundles.
+```
+
+Validation:
+
+```text
+expected_total: 500
+actual_total: 500
+duplicate_words: 0
+missing prerequisites: 0
+forward prerequisites: 0
+unknown relation targets: 0
+unknown relation types: 0
+empty relation bundles: 0
+category count mismatches: 0
+JSON files parse cleanly.
+```
+
+Files:
+
+```text
+generator: scripts/create_age_6mo_root_world_500.py
+seed: data/developmental_graph/seeds/age_6mo_root_world_500.json
+curriculum: data/developmental_graph/experiments/age_6mo_root_world_500/curriculum.jsonl
+report: docs/age-6mo-root-world-500.md
+```
+
+Decision:
+
+```text
+Use this as the age_6mo source concept set. The first scene_relation renderer is
+now included; next build a richer multi-relation episode renderer before serious
+training.
+```
+
+## 2026-05-01: Procedural Foundation V7 ConceptNet
+
+Experiment ID:
+
+```text
+procedural_foundation_v7_conceptnet
+```
+
+Purpose:
+
+```text
+Create the first reusable project-specific ConceptNet layer: high-frequency
+normal words mapped to a staged relation system.
+```
+
+Core design:
+
+```text
+word -> age level -> domain tags -> prerequisite earlier words -> relation bundle
+```
+
+Counts:
+
+```text
+concepts: 215
+relations: 283
+train rows: 713
+dev rows: 279
+curriculum_test rows: 156
+```
+
+Age levels:
+
+```text
+age_6mo: 39 concepts
+age_1yo: 51 concepts
+age_3yo: 47 concepts
+age_5yo: 78 concepts
+```
+
+Validation:
+
+```text
+duplicate words: 0
+missing prerequisites: 0
+forward prerequisites: 0
+empty relation bundles: 0
+JSON manifests parse cleanly.
+```
+
+Files:
+
+```text
+generator: scripts/create_procedural_foundation_world_v7_conceptnet.py
+seed: data/developmental_graph/seeds/adi_conceptnet_v7.json
+generated output: data/developmental_graph/experiments/procedural_foundation_v7_conceptnet/
+report: docs/procedural-foundation-v7-conceptnet.md
+```
+
+Decision:
+
+```text
+Use V7 as the curated relation-lexicon source of truth. Do not train a serious
+model on V7 alone yet; next add a scene renderer that converts relation bundles
+into ordinary relation-dense examples.
+```
+
+## 2026-04-30: Root Procedural Expansion V1
+
+Experiment ID:
+
+```text
+root_procedural_expansion_v1
+```
+
+Purpose:
+
+```text
+Expand root_concept_foundation_v1 into a larger ordinary-language procedural
+QA dataset with hidden root-relation metadata and dense/sparse/corrupt control
+arms.
+```
+
+Data:
+
+```text
+generator: scripts/create_root_procedural_expansion_v1.py
+generated output: data/developmental_graph/experiments/root_procedural_expansion_v1/
+root seed: root_concept_foundation_v1
+```
+
+Source units:
+
+```text
+total: 3276
+train: 1926
+dev: 258
+test_observation: 380
+test_inference: 53
+test_transfer: 375
+test_counterfactual: 284
+```
+
+Rendered records per variant:
+
+```text
+train: 9630
+dev: 1290
+curriculum_test: 5460
+```
+
+Variants:
+
+```text
+root_dense_qa
+root_sparse_qa
+root_corrupt_qa
+```
+
+Validation:
+
+```text
+No train/test source-id overlap.
+No train/test counterfactual-group overlap.
+No selected transfer-key train overlap.
+No dense-train ambiguous prompts.
+No shorthand protocol leaks.
+No bare visible "Question: Why?" prompts.
+No visible relation-label phrases like "open lets touch happen".
+```
+
+Local nanochat training:
+
+```text
+run directory: runs/nanochat_root_procedural_v1_20260430/
+model: nanochat decoder-only transformer, depth 4, 4 heads, 256 embedding dim
+parameters: about 4.06M
+context length: 256
+tokenizer vocab: 881, padded to 896 at runtime
+iterations: 1000 per variant
+training tokens: 2048000 per variant
+device: Apple MPS
+variants trained: root_dense_qa, root_sparse_qa, root_corrupt_qa
+```
+
+Training validation bpb:
+
+```text
+root_dense_qa:   final 0.129592, min 0.115348
+root_sparse_qa:  final 0.132896, min 0.121064
+root_corrupt_qa: final 0.131706, min 0.120557
+```
+
+Held-out evaluation:
+
+```text
+dataset: root_dense_qa/curriculum_test.jsonl
+examples: 5460
+temperature: 0.0
+max generated tokens: 48
+summary: runs/nanochat_root_procedural_v1_20260430/evaluation/dense_curriculum_test_d4_i1000/summary.md
+```
+
+Overall exact-match results:
+
+```text
+root_dense_qa:   answer 94.5% (5162/5460), reason 94.2% (5144/5460)
+root_sparse_qa:  answer 52.7% (2879/5460), reason 36.9% (2016/5460)
+root_corrupt_qa: answer 45.3% (2474/5460), reason 44.5% (2431/5460)
+```
+
+Dense held-out bucket results:
+
+```text
+test_observation:    answer 95.5%, reason 94.2%
+test_inference:      answer 100.0%, reason 99.6%
+test_transfer:       answer 92.7%, reason 93.2%
+test_counterfactual: answer 94.6%, reason 94.6%
+```
+
+Known weakness:
+
+```text
+The dense model is weak on language_name examples: answer 51.1%, reason 51.1%.
+It often flips word-object match/mismatch cases. The next root dataset revision
+should make naming examples clearer and more numerous before TinyStories word
+attachment.
+```
+
+Decision:
+
+```text
+The dense ordinary-language relation data strongly beats sparse and corrupt
+controls on the same dense held-out prompts. Continue, but fix the weak naming
+task before using this root model as the base for TinyStories word attachment.
+```
+
+Detailed report:
+
+```text
+docs/root-procedural-expansion-v1.md
+```
+
+## 2026-04-30: Root Concept Foundation V1
+
+Experiment ID:
+
+```text
+root_concept_foundation_v1
+```
+
+Purpose:
+
+```text
+Replace the V0 root foundation with a cleaner relation-first seed graph that
+fixes split leakage, clearer relation semantics, concrete positive/negative
+scenario probes, and a first explicit encoding of the happiness mechanism.
+```
+
+Data:
+
+```text
+seed graph: data/developmental_graph/seeds/root_concept_foundation_v1.json
+generator: scripts/create_root_concept_foundation_v1.py
+generated output: data/developmental_graph/experiments/root_concept_foundation_v1/
+```
+
+Graph counts:
+
+```text
+layers: 11
+nodes: 133
+relations: 172
+micro experiences: 84
+evaluation questions: 34
+```
+
+Dataset variants:
+
+```text
+root_prose: 239 train,  6 dev, 11 curriculum_test
+root_qa:    306 train, 12 dev, 22 curriculum_test
+root_mixed: 545 train, 18 dev, 33 curriculum_test
+```
+
+Validation:
+
+```text
+Graph validation passes.
+No train/dev/test canonical group overlap in root_prose, root_qa, or root_mixed.
+```
+
+Decision:
+
+```text
+Use V1 instead of V0 as the root seed. Do not treat it as enough data for a
+serious model run by itself; expand it procedurally before the next training
+experiment, then compare against TinyStories-only and corrupt/shuffled controls.
+```
+
+Detailed report:
+
+```text
+docs/root-concept-foundation-v1.md
+```
+
+## 2026-04-30: Root Concept Foundation V0
+
+Experiment ID:
+
+```text
+root_concept_foundation_v0
+```
+
+Purpose:
+
+```text
+Start the TinyStories relation-first path by creating a root concept graph and
+small prose/QA curriculum. Later TinyStories words should attach to these root
+anchors by inheritance instead of repeating flat definitions.
+```
+
+Data:
+
+```text
+seed graph: data/developmental_graph/seeds/root_concept_foundation_v0.json
+generator: scripts/create_root_concept_foundation_v0.py
+generated output: data/developmental_graph/experiments/root_concept_foundation_v0/
+```
+
+Graph counts:
+
+```text
+layers: 12
+nodes: 95
+relations: 112
+micro experiences: 10
+evaluation questions: 10
+```
+
+Dataset variants:
+
+```text
+root_prose: 100 train, 18 dev, 14 curriculum_test
+root_qa:    108 train,  8 dev, 16 curriculum_test
+root_mixed: 208 train, 26 dev, 30 curriculum_test
+```
+
+Decision:
+
+```text
+Use root_mixed as the first Stage 1 candidate, then build
+tinystories_word_attachment_v0 from frequent TinyStories vocabulary. Do not
+claim performance yet; no model training has been run for this stage.
+```
+
+Detailed report:
+
+```text
+docs/root-concept-foundation-v0.md
+```
+
 ## 2026-04-29: nanochat V6 Transfer QA Dense/Sparse/Corrupt Run
 
 Experiment ID:

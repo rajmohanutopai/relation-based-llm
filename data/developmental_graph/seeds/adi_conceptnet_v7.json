@@ -1,0 +1,6436 @@
+{
+  "concepts": [
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "root"
+      ],
+      "id": "concept.thing",
+      "kind": "root",
+      "notes": "",
+      "prerequisites": [],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "root",
+          "text": "thing is the most general handle",
+          "type": "is_a"
+        }
+      ],
+      "stage": "age_6mo",
+      "stage_order": 0,
+      "summary": "anything that can have relations",
+      "word": "thing"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "root"
+      ],
+      "id": "concept.kind",
+      "kind": "root",
+      "notes": "",
+      "prerequisites": [
+        "thing"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "relation",
+          "text": "kind groups things by shared relations",
+          "type": "is_a"
+        }
+      ],
+      "stage": "age_6mo",
+      "stage_order": 0,
+      "summary": "a group of things with shared relations",
+      "word": "kind"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "root"
+      ],
+      "id": "concept.part",
+      "kind": "root",
+      "notes": "",
+      "prerequisites": [
+        "thing",
+        "whole"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "whole",
+          "text": "part belongs to a whole",
+          "type": "part_of"
+        }
+      ],
+      "stage": "age_6mo",
+      "stage_order": 0,
+      "summary": "a thing within a larger thing",
+      "word": "part"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "root"
+      ],
+      "id": "concept.whole",
+      "kind": "root",
+      "notes": "",
+      "prerequisites": [
+        "thing",
+        "part"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "part",
+          "text": "whole can have parts",
+          "type": "has_part"
+        }
+      ],
+      "stage": "age_6mo",
+      "stage_order": 0,
+      "summary": "a thing made of parts",
+      "word": "whole"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "root"
+      ],
+      "id": "concept.relation",
+      "kind": "root",
+      "notes": "",
+      "prerequisites": [
+        "thing"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "thing",
+          "text": "relation links one thing to another",
+          "type": "links"
+        }
+      ],
+      "stage": "age_6mo",
+      "stage_order": 0,
+      "summary": "a link between things",
+      "word": "relation"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "root"
+      ],
+      "id": "concept.state",
+      "kind": "root",
+      "notes": "",
+      "prerequisites": [
+        "thing"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "thing",
+          "text": "state describes a thing now",
+          "type": "describes"
+        }
+      ],
+      "stage": "age_6mo",
+      "stage_order": 0,
+      "summary": "how a thing is now",
+      "word": "state"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "root"
+      ],
+      "id": "concept.event",
+      "kind": "root",
+      "notes": "",
+      "prerequisites": [
+        "thing",
+        "state"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "state",
+          "text": "event can change state",
+          "type": "changes"
+        }
+      ],
+      "stage": "age_6mo",
+      "stage_order": 0,
+      "summary": "something that happens",
+      "word": "event"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [
+        "different"
+      ],
+      "domains": [
+        "root"
+      ],
+      "id": "concept.same",
+      "kind": "root",
+      "notes": "",
+      "prerequisites": [
+        "thing"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "different",
+          "text": "same contrasts with different",
+          "type": "contrasts_with"
+        }
+      ],
+      "stage": "age_6mo",
+      "stage_order": 0,
+      "summary": "two handles point to one thing or matching relation",
+      "word": "same"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [
+        "same"
+      ],
+      "domains": [
+        "root"
+      ],
+      "id": "concept.different",
+      "kind": "root",
+      "notes": "",
+      "prerequisites": [
+        "thing"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "same",
+          "text": "different contrasts with same",
+          "type": "contrasts_with"
+        }
+      ],
+      "stage": "age_6mo",
+      "stage_order": 0,
+      "summary": "two handles do not point to the same thing or relation",
+      "word": "different"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "root"
+      ],
+      "id": "concept.yes",
+      "kind": "answer",
+      "notes": "",
+      "prerequisites": [
+        "relation"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "relation",
+          "text": "yes means the asked relation holds",
+          "type": "confirms"
+        }
+      ],
+      "stage": "age_6mo",
+      "stage_order": 0,
+      "summary": "answer that relation holds",
+      "word": "yes"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [
+        "yes"
+      ],
+      "domains": [
+        "root"
+      ],
+      "id": "concept.no",
+      "kind": "answer",
+      "notes": "",
+      "prerequisites": [
+        "relation"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "relation",
+          "text": "no means the asked relation does not hold",
+          "type": "denies"
+        }
+      ],
+      "stage": "age_6mo",
+      "stage_order": 0,
+      "summary": "answer that relation does not hold",
+      "word": "no"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [
+        "less"
+      ],
+      "domains": [
+        "math"
+      ],
+      "id": "concept.more",
+      "kind": "quantity",
+      "notes": "",
+      "prerequisites": [
+        "thing"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "less",
+          "text": "more contrasts with less",
+          "type": "contrasts_with"
+        }
+      ],
+      "stage": "age_6mo",
+      "stage_order": 0,
+      "summary": "greater amount",
+      "word": "more"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [
+        "more"
+      ],
+      "domains": [
+        "math"
+      ],
+      "id": "concept.less",
+      "kind": "quantity",
+      "notes": "",
+      "prerequisites": [
+        "thing"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "more",
+          "text": "less contrasts with more",
+          "type": "contrasts_with"
+        }
+      ],
+      "stage": "age_6mo",
+      "stage_order": 0,
+      "summary": "smaller amount",
+      "word": "less"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "math"
+      ],
+      "id": "concept.one",
+      "kind": "quantity",
+      "notes": "",
+      "prerequisites": [
+        "thing"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "number",
+          "text": "one is a number amount",
+          "type": "is_a"
+        }
+      ],
+      "stage": "age_6mo",
+      "stage_order": 0,
+      "summary": "single thing",
+      "word": "one"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "math"
+      ],
+      "id": "concept.two",
+      "kind": "quantity",
+      "notes": "",
+      "prerequisites": [
+        "one",
+        "more"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "one",
+          "text": "two is more than one",
+          "type": "is_more_than"
+        }
+      ],
+      "stage": "age_6mo",
+      "stage_order": 0,
+      "summary": "one and one",
+      "word": "two"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "language"
+      ],
+      "id": "concept.name",
+      "kind": "symbol",
+      "notes": "",
+      "prerequisites": [
+        "thing",
+        "same",
+        "different"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "thing",
+          "text": "name points to a thing",
+          "type": "points_to"
+        }
+      ],
+      "stage": "age_6mo",
+      "stage_order": 0,
+      "summary": "stable handle used for a thing",
+      "word": "name"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "body"
+      ],
+      "id": "concept.body",
+      "kind": "body",
+      "notes": "",
+      "prerequisites": [
+        "thing",
+        "whole"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "hand",
+          "text": "body has hand",
+          "type": "has_part"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "pain",
+          "text": "body can feel pain",
+          "type": "can_feel"
+        }
+      ],
+      "stage": "age_6mo",
+      "stage_order": 0,
+      "summary": "controlled living whole",
+      "word": "body"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "body"
+      ],
+      "id": "concept.hand",
+      "kind": "body_part",
+      "notes": "",
+      "prerequisites": [
+        "body",
+        "part"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "body",
+          "text": "hand is part of body",
+          "type": "part_of"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "touch",
+          "text": "hand can touch",
+          "type": "can_do"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "hold",
+          "text": "hand can hold",
+          "type": "can_do"
+        }
+      ],
+      "stage": "age_6mo",
+      "stage_order": 0,
+      "summary": "body part for reach, hold, touch",
+      "word": "hand"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "body"
+      ],
+      "id": "concept.eye",
+      "kind": "body_part",
+      "notes": "",
+      "prerequisites": [
+        "body",
+        "part"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "body",
+          "text": "eye is part of body",
+          "type": "part_of"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "see",
+          "text": "eye is used to see",
+          "type": "uses"
+        }
+      ],
+      "stage": "age_6mo",
+      "stage_order": 0,
+      "summary": "body part for seeing",
+      "word": "eye"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "body"
+      ],
+      "id": "concept.ear",
+      "kind": "body_part",
+      "notes": "",
+      "prerequisites": [
+        "body",
+        "part"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "body",
+          "text": "ear is part of body",
+          "type": "part_of"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "hear",
+          "text": "ear is used to hear",
+          "type": "uses"
+        }
+      ],
+      "stage": "age_6mo",
+      "stage_order": 0,
+      "summary": "body part for hearing",
+      "word": "ear"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "body"
+      ],
+      "id": "concept.mouth",
+      "kind": "body_part",
+      "notes": "",
+      "prerequisites": [
+        "body",
+        "part"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "body",
+          "text": "mouth is part of body",
+          "type": "part_of"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "eat",
+          "text": "mouth can eat",
+          "type": "can_do"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "say",
+          "text": "mouth can say words",
+          "type": "can_do"
+        }
+      ],
+      "stage": "age_6mo",
+      "stage_order": 0,
+      "summary": "body part for eat, taste, say",
+      "word": "mouth"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "body"
+      ],
+      "id": "concept.skin",
+      "kind": "body_part",
+      "notes": "",
+      "prerequisites": [
+        "body",
+        "part"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "body",
+          "text": "skin is part of body",
+          "type": "part_of"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "touch",
+          "text": "skin feels touch",
+          "type": "can_feel"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "pain",
+          "text": "skin feels pain",
+          "type": "can_feel"
+        }
+      ],
+      "stage": "age_6mo",
+      "stage_order": 0,
+      "summary": "body surface that feels touch and pain",
+      "word": "skin"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "self"
+      ],
+      "id": "concept.self",
+      "kind": "body_relation",
+      "notes": "",
+      "prerequisites": [
+        "body",
+        "hand",
+        "control"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "self",
+          "text": "self controls body parts",
+          "type": "controlled_by"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "body",
+          "text": "self directly feels body",
+          "type": "feels"
+        }
+      ],
+      "stage": "age_6mo",
+      "stage_order": 0,
+      "summary": "what is controlled and directly felt",
+      "word": "self"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "root"
+      ],
+      "id": "concept.control",
+      "kind": "relation",
+      "notes": "",
+      "prerequisites": [
+        "relation",
+        "event"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "move",
+          "text": "control enables movement",
+          "type": "enables"
+        }
+      ],
+      "stage": "age_6mo",
+      "stage_order": 0,
+      "summary": "can make something move or stop",
+      "word": "control"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "body"
+      ],
+      "id": "concept.touch",
+      "kind": "sense_action",
+      "notes": "",
+      "prerequisites": [
+        "hand",
+        "skin",
+        "thing"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "near",
+          "text": "touch needs near contact",
+          "type": "needs"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "feel",
+          "text": "touch can cause feeling",
+          "type": "can_cause"
+        }
+      ],
+      "stage": "age_6mo",
+      "stage_order": 0,
+      "summary": "contact between body and thing",
+      "word": "touch"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "body"
+      ],
+      "id": "concept.feel",
+      "kind": "sense",
+      "notes": "",
+      "prerequisites": [
+        "body",
+        "state"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "body",
+          "text": "feel comes from body",
+          "type": "comes_from"
+        }
+      ],
+      "stage": "age_6mo",
+      "stage_order": 0,
+      "summary": "body input from touch or inside body",
+      "word": "feel"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "body"
+      ],
+      "id": "concept.see",
+      "kind": "sense",
+      "notes": "",
+      "prerequisites": [
+        "eye",
+        "thing"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "eye",
+          "text": "see uses eye",
+          "type": "uses"
+        }
+      ],
+      "stage": "age_6mo",
+      "stage_order": 0,
+      "summary": "eye input from visible thing",
+      "word": "see"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "body"
+      ],
+      "id": "concept.hear",
+      "kind": "sense",
+      "notes": "",
+      "prerequisites": [
+        "ear",
+        "sound"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "ear",
+          "text": "hear uses ear",
+          "type": "uses"
+        }
+      ],
+      "stage": "age_6mo",
+      "stage_order": 0,
+      "summary": "ear input from sound",
+      "word": "hear"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "sense"
+      ],
+      "id": "concept.sound",
+      "kind": "signal",
+      "notes": "",
+      "prerequisites": [
+        "hear",
+        "event"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "heard",
+          "text": "sound can be heard",
+          "type": "can_be"
+        }
+      ],
+      "stage": "age_6mo",
+      "stage_order": 0,
+      "summary": "thing that can be heard",
+      "word": "sound"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "space"
+      ],
+      "id": "concept.near",
+      "kind": "space",
+      "notes": "",
+      "prerequisites": [
+        "thing"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "touch",
+          "text": "near enables touch",
+          "type": "enables"
+        }
+      ],
+      "stage": "age_6mo",
+      "stage_order": 0,
+      "summary": "small distance",
+      "word": "near"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "space"
+      ],
+      "id": "concept.far",
+      "kind": "space",
+      "notes": "",
+      "prerequisites": [
+        "thing"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "touch",
+          "text": "far prevents touch",
+          "type": "prevents"
+        }
+      ],
+      "stage": "age_6mo",
+      "stage_order": 0,
+      "summary": "large distance",
+      "word": "far"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "space"
+      ],
+      "id": "concept.up",
+      "kind": "space",
+      "notes": "",
+      "prerequisites": [
+        "thing"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "down",
+          "text": "up contrasts with down",
+          "type": "contrasts_with"
+        }
+      ],
+      "stage": "age_6mo",
+      "stage_order": 0,
+      "summary": "higher place",
+      "word": "up"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "space"
+      ],
+      "id": "concept.down",
+      "kind": "space",
+      "notes": "",
+      "prerequisites": [
+        "thing"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "up",
+          "text": "down contrasts with up",
+          "type": "contrasts_with"
+        }
+      ],
+      "stage": "age_6mo",
+      "stage_order": 0,
+      "summary": "lower place",
+      "word": "down"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "space"
+      ],
+      "id": "concept.inside",
+      "kind": "space",
+      "notes": "",
+      "prerequisites": [
+        "thing"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "container",
+          "text": "inside needs a container",
+          "type": "needs"
+        }
+      ],
+      "stage": "age_6mo",
+      "stage_order": 0,
+      "summary": "within a boundary",
+      "word": "inside"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "space"
+      ],
+      "id": "concept.outside",
+      "kind": "space",
+      "notes": "",
+      "prerequisites": [
+        "inside"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "inside",
+          "text": "outside contrasts with inside",
+          "type": "contrasts_with"
+        }
+      ],
+      "stage": "age_6mo",
+      "stage_order": 0,
+      "summary": "not within a boundary",
+      "word": "outside"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "space"
+      ],
+      "id": "concept.on",
+      "kind": "space",
+      "notes": "",
+      "prerequisites": [
+        "thing"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "surface",
+          "text": "on needs surface support",
+          "type": "needs"
+        }
+      ],
+      "stage": "age_6mo",
+      "stage_order": 0,
+      "summary": "supported by a surface",
+      "word": "on"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "space"
+      ],
+      "id": "concept.under",
+      "kind": "space",
+      "notes": "",
+      "prerequisites": [
+        "up",
+        "down"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "thing",
+          "text": "under means below a thing",
+          "type": "is_below"
+        }
+      ],
+      "stage": "age_6mo",
+      "stage_order": 0,
+      "summary": "below another thing",
+      "word": "under"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "emotion"
+      ],
+      "id": "concept.pain",
+      "kind": "valence",
+      "notes": "",
+      "prerequisites": [
+        "body",
+        "feel"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "bad",
+          "text": "pain causes bad feeling",
+          "type": "causes"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "danger",
+          "text": "pain can signal danger",
+          "type": "can_signal"
+        }
+      ],
+      "stage": "age_6mo",
+      "stage_order": 0,
+      "summary": "bad body feeling",
+      "word": "pain"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "emotion"
+      ],
+      "id": "concept.comfort",
+      "kind": "valence",
+      "notes": "",
+      "prerequisites": [
+        "body",
+        "feel"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "good",
+          "text": "comfort can cause good feeling",
+          "type": "can_cause"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "pain",
+          "text": "comfort reduces pain",
+          "type": "reduces"
+        }
+      ],
+      "stage": "age_6mo",
+      "stage_order": 0,
+      "summary": "body and situation feel okay",
+      "word": "comfort"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "category"
+      ],
+      "id": "concept.object",
+      "kind": "kind",
+      "notes": "",
+      "prerequisites": [
+        "thing",
+        "touch"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "thing",
+          "text": "object is a thing",
+          "type": "is_a"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "touched",
+          "text": "object can be touched",
+          "type": "can_be"
+        }
+      ],
+      "stage": "age_1yo",
+      "stage_order": 1,
+      "summary": "visible or touchable thing",
+      "word": "object"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "category"
+      ],
+      "id": "concept.toy",
+      "kind": "kind",
+      "notes": "",
+      "prerequisites": [
+        "object"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "object",
+          "text": "toy is an object",
+          "type": "is_a"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "play",
+          "text": "toy is used for play",
+          "type": "used_for"
+        }
+      ],
+      "stage": "age_1yo",
+      "stage_order": 1,
+      "summary": "object used for play",
+      "word": "toy"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "physical"
+      ],
+      "id": "concept.ball",
+      "kind": "object",
+      "notes": "",
+      "prerequisites": [
+        "toy",
+        "round",
+        "move"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "toy",
+          "text": "ball is a toy",
+          "type": "is_a"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "round",
+          "text": "ball is usually round",
+          "type": "has_property"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "roll",
+          "text": "ball can roll",
+          "type": "can_do"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "bounce",
+          "text": "ball can bounce",
+          "type": "can_do"
+        }
+      ],
+      "stage": "age_1yo",
+      "stage_order": 1,
+      "summary": "round toy that can roll and bounce",
+      "word": "ball"
+    },
+    {
+      "aliases": [
+        "block"
+      ],
+      "contrast_with": [],
+      "domains": [
+        "physical"
+      ],
+      "id": "concept.cube",
+      "kind": "object",
+      "notes": "",
+      "prerequisites": [
+        "object",
+        "shape"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "flat",
+          "text": "cube has flat sides",
+          "type": "has_property"
+        },
+        {
+          "polarity": "negative",
+          "strength": 0.7,
+          "target": "roll",
+          "text": "cube does not roll easily",
+          "type": "does_not_easily"
+        }
+      ],
+      "stage": "age_1yo",
+      "stage_order": 1,
+      "summary": "object with flat sides",
+      "word": "cube"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "physical"
+      ],
+      "id": "concept.cup",
+      "kind": "object",
+      "notes": "",
+      "prerequisites": [
+        "object",
+        "inside"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "container",
+          "text": "cup is a container",
+          "type": "is_a"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "drink",
+          "text": "cup is used for drink",
+          "type": "used_for"
+        }
+      ],
+      "stage": "age_1yo",
+      "stage_order": 1,
+      "summary": "container for drink",
+      "word": "cup"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "physical"
+      ],
+      "id": "concept.bottle",
+      "kind": "object",
+      "notes": "",
+      "prerequisites": [
+        "container",
+        "inside"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "container",
+          "text": "bottle is a container",
+          "type": "is_a"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "water",
+          "text": "bottle can hold water",
+          "type": "can_hold"
+        }
+      ],
+      "stage": "age_1yo",
+      "stage_order": 1,
+      "summary": "container for water or milk",
+      "word": "bottle"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "physical"
+      ],
+      "id": "concept.box",
+      "kind": "object",
+      "notes": "",
+      "prerequisites": [
+        "container",
+        "inside"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "container",
+          "text": "box is a container",
+          "type": "is_a"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "open",
+          "text": "box can be open",
+          "type": "can_have_state"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "closed",
+          "text": "box can be closed",
+          "type": "can_have_state"
+        }
+      ],
+      "stage": "age_1yo",
+      "stage_order": 1,
+      "summary": "container that can open and close",
+      "word": "box"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "physical"
+      ],
+      "id": "concept.bag",
+      "kind": "object",
+      "notes": "",
+      "prerequisites": [
+        "container",
+        "soft"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "container",
+          "text": "bag is a container",
+          "type": "is_a"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "soft",
+          "text": "bag is often soft",
+          "type": "has_property"
+        }
+      ],
+      "stage": "age_1yo",
+      "stage_order": 1,
+      "summary": "soft container",
+      "word": "bag"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "physical"
+      ],
+      "id": "concept.book",
+      "kind": "object",
+      "notes": "",
+      "prerequisites": [
+        "object",
+        "flat"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "page",
+          "text": "book has pages",
+          "type": "has_part"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "mark",
+          "text": "book can have marks and later words",
+          "type": "can_have"
+        }
+      ],
+      "stage": "age_1yo",
+      "stage_order": 1,
+      "summary": "object with pages and marks",
+      "word": "book"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "physical"
+      ],
+      "id": "concept.page",
+      "kind": "object_part",
+      "notes": "",
+      "prerequisites": [
+        "part",
+        "book"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "book",
+          "text": "page is part of book",
+          "type": "part_of"
+        }
+      ],
+      "stage": "age_1yo",
+      "stage_order": 1,
+      "summary": "flat part of a book or paper",
+      "word": "page"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "physical"
+      ],
+      "id": "concept.paper",
+      "kind": "object",
+      "notes": "",
+      "prerequisites": [
+        "object",
+        "flat"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "flat",
+          "text": "paper is flat",
+          "type": "has_property"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "word",
+          "text": "paper can have words",
+          "type": "can_have"
+        }
+      ],
+      "stage": "age_1yo",
+      "stage_order": 1,
+      "summary": "thin flat object that can hold marks",
+      "word": "paper"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "physical"
+      ],
+      "id": "concept.pen",
+      "kind": "tool",
+      "notes": "",
+      "prerequisites": [
+        "object",
+        "hand"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "write",
+          "text": "pen is used to write",
+          "type": "used_for"
+        }
+      ],
+      "stage": "age_1yo",
+      "stage_order": 1,
+      "summary": "tool for making marks",
+      "word": "pen"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "physical"
+      ],
+      "id": "concept.spoon",
+      "kind": "tool",
+      "notes": "",
+      "prerequisites": [
+        "object",
+        "hand"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "mouth",
+          "text": "spoon helps move food to mouth",
+          "type": "used_for"
+        }
+      ],
+      "stage": "age_1yo",
+      "stage_order": 1,
+      "summary": "tool for eating or serving",
+      "word": "spoon"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "physical"
+      ],
+      "id": "concept.plate",
+      "kind": "object",
+      "notes": "",
+      "prerequisites": [
+        "object",
+        "flat"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "object",
+          "text": "plate can hold objects like food",
+          "type": "can_hold"
+        }
+      ],
+      "stage": "age_1yo",
+      "stage_order": 1,
+      "summary": "flat object that can hold things for mouth",
+      "word": "plate"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "physical"
+      ],
+      "id": "concept.blanket",
+      "kind": "object",
+      "notes": "",
+      "prerequisites": [
+        "object",
+        "soft",
+        "comfort"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "soft",
+          "text": "blanket is soft",
+          "type": "has_property"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "comfort",
+          "text": "blanket can give comfort",
+          "type": "can_make"
+        }
+      ],
+      "stage": "age_1yo",
+      "stage_order": 1,
+      "summary": "soft object for warmth and comfort",
+      "word": "blanket"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "physical"
+      ],
+      "id": "concept.pillow",
+      "kind": "object",
+      "notes": "",
+      "prerequisites": [
+        "object",
+        "soft",
+        "comfort"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "soft",
+          "text": "pillow is soft",
+          "type": "has_property"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "comfort",
+          "text": "pillow can give comfort",
+          "type": "can_make"
+        }
+      ],
+      "stage": "age_1yo",
+      "stage_order": 1,
+      "summary": "soft object for head and rest",
+      "word": "pillow"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "physical"
+      ],
+      "id": "concept.chair",
+      "kind": "object",
+      "notes": "",
+      "prerequisites": [
+        "object",
+        "support"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "sit",
+          "text": "chair is used to sit",
+          "type": "used_for"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "person",
+          "text": "chair can support person",
+          "type": "can_support"
+        }
+      ],
+      "stage": "age_1yo",
+      "stage_order": 1,
+      "summary": "object used to sit",
+      "word": "chair"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "physical"
+      ],
+      "id": "concept.table",
+      "kind": "object",
+      "notes": "",
+      "prerequisites": [
+        "surface",
+        "on"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "surface",
+          "text": "table is a surface",
+          "type": "is_a"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "object",
+          "text": "table can support objects",
+          "type": "can_support"
+        }
+      ],
+      "stage": "age_1yo",
+      "stage_order": 1,
+      "summary": "high surface for objects",
+      "word": "table"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "physical"
+      ],
+      "id": "concept.floor",
+      "kind": "object",
+      "notes": "",
+      "prerequisites": [
+        "surface",
+        "down"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "surface",
+          "text": "floor is a surface",
+          "type": "is_a"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "down",
+          "text": "floor is down",
+          "type": "has_property"
+        }
+      ],
+      "stage": "age_1yo",
+      "stage_order": 1,
+      "summary": "low surface under body and objects",
+      "word": "floor"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "physical"
+      ],
+      "id": "concept.door",
+      "kind": "object",
+      "notes": "",
+      "prerequisites": [
+        "open",
+        "closed",
+        "inside"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "open",
+          "text": "door can be open",
+          "type": "can_have_state"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "closed",
+          "text": "door can be closed",
+          "type": "can_have_state"
+        }
+      ],
+      "stage": "age_1yo",
+      "stage_order": 1,
+      "summary": "thing that opens or closes a way through",
+      "word": "door"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "category"
+      ],
+      "id": "concept.container",
+      "kind": "kind",
+      "notes": "",
+      "prerequisites": [
+        "object",
+        "inside"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "object",
+          "text": "container can hold object inside",
+          "type": "can_hold"
+        }
+      ],
+      "stage": "age_1yo",
+      "stage_order": 1,
+      "summary": "object that can have things inside",
+      "word": "container"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "category"
+      ],
+      "id": "concept.surface",
+      "kind": "kind",
+      "notes": "",
+      "prerequisites": [
+        "object",
+        "touch"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "object",
+          "text": "surface can support object",
+          "type": "can_support"
+        }
+      ],
+      "stage": "age_1yo",
+      "stage_order": 1,
+      "summary": "object face that can support contact",
+      "word": "surface"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [
+        "closed"
+      ],
+      "domains": [
+        "physical"
+      ],
+      "id": "concept.open",
+      "kind": "state",
+      "notes": "",
+      "prerequisites": [
+        "state",
+        "inside"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "reach",
+          "text": "open enables reach inside",
+          "type": "enables"
+        }
+      ],
+      "stage": "age_1yo",
+      "stage_order": 1,
+      "summary": "allows entry or movement",
+      "word": "open"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [
+        "open"
+      ],
+      "domains": [
+        "physical"
+      ],
+      "id": "concept.closed",
+      "kind": "state",
+      "notes": "",
+      "prerequisites": [
+        "state",
+        "inside"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "reach",
+          "text": "closed prevents reach inside",
+          "type": "prevents"
+        }
+      ],
+      "stage": "age_1yo",
+      "stage_order": 1,
+      "summary": "blocks entry or movement",
+      "word": "closed"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "physical"
+      ],
+      "id": "concept.move",
+      "kind": "action",
+      "notes": "",
+      "prerequisites": [
+        "event",
+        "state"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "place",
+          "text": "move changes place",
+          "type": "changes"
+        }
+      ],
+      "stage": "age_1yo",
+      "stage_order": 1,
+      "summary": "change place",
+      "word": "move"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "physical"
+      ],
+      "id": "concept.reach",
+      "kind": "action",
+      "notes": "",
+      "prerequisites": [
+        "hand",
+        "near"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "touch",
+          "text": "reach can enable touch",
+          "type": "can_enable"
+        }
+      ],
+      "stage": "age_1yo",
+      "stage_order": 1,
+      "summary": "move hand toward thing",
+      "word": "reach"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "physical"
+      ],
+      "id": "concept.hold",
+      "kind": "action",
+      "notes": "",
+      "prerequisites": [
+        "hand",
+        "object"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "fall",
+          "text": "hold can prevent fall",
+          "type": "prevents"
+        }
+      ],
+      "stage": "age_1yo",
+      "stage_order": 1,
+      "summary": "keep thing in hand",
+      "word": "hold"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "physical"
+      ],
+      "id": "concept.drop",
+      "kind": "action",
+      "notes": "",
+      "prerequisites": [
+        "hold",
+        "down"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "fall",
+          "text": "drop can cause fall",
+          "type": "can_cause"
+        }
+      ],
+      "stage": "age_1yo",
+      "stage_order": 1,
+      "summary": "let held thing go",
+      "word": "drop"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "time_change"
+      ],
+      "id": "concept.fall",
+      "kind": "event",
+      "notes": "",
+      "prerequisites": [
+        "down",
+        "support"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "support",
+          "text": "fall happens when support is gone",
+          "type": "needs_missing"
+        }
+      ],
+      "stage": "age_1yo",
+      "stage_order": 1,
+      "summary": "move down when support is gone",
+      "word": "fall"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "physical"
+      ],
+      "id": "concept.push",
+      "kind": "action",
+      "notes": "",
+      "prerequisites": [
+        "hand",
+        "move"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "move",
+          "text": "push can make object move",
+          "type": "can_cause"
+        }
+      ],
+      "stage": "age_1yo",
+      "stage_order": 1,
+      "summary": "move thing away by force",
+      "word": "push"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "physical"
+      ],
+      "id": "concept.pull",
+      "kind": "action",
+      "notes": "",
+      "prerequisites": [
+        "hand",
+        "move"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "move",
+          "text": "pull can make object move",
+          "type": "can_cause"
+        }
+      ],
+      "stage": "age_1yo",
+      "stage_order": 1,
+      "summary": "move thing toward self by force",
+      "word": "pull"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "physical"
+      ],
+      "id": "concept.roll",
+      "kind": "action",
+      "notes": "",
+      "prerequisites": [
+        "round",
+        "move"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "round",
+          "text": "round shape enables roll",
+          "type": "enabled_by"
+        }
+      ],
+      "stage": "age_1yo",
+      "stage_order": 1,
+      "summary": "round thing moves by turning",
+      "word": "roll"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "physical"
+      ],
+      "id": "concept.bounce",
+      "kind": "action",
+      "notes": "",
+      "prerequisites": [
+        "move",
+        "surface"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "surface",
+          "text": "bounce needs surface contact",
+          "type": "needs"
+        }
+      ],
+      "stage": "age_1yo",
+      "stage_order": 1,
+      "summary": "hit surface and come back",
+      "word": "bounce"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "time_change"
+      ],
+      "id": "concept.break",
+      "kind": "event",
+      "notes": "",
+      "prerequisites": [
+        "event",
+        "object"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "bad",
+          "text": "break often causes bad state",
+          "type": "causes"
+        }
+      ],
+      "stage": "age_1yo",
+      "stage_order": 1,
+      "summary": "stop working or split apart",
+      "word": "break"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "physical"
+      ],
+      "id": "concept.fix",
+      "kind": "action",
+      "notes": "",
+      "prerequisites": [
+        "break",
+        "state"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "broken",
+          "text": "fix reduces broken state",
+          "type": "reduces"
+        }
+      ],
+      "stage": "age_1yo",
+      "stage_order": 1,
+      "summary": "make broken thing work again",
+      "word": "fix"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "physical"
+      ],
+      "id": "concept.clean",
+      "kind": "action",
+      "notes": "",
+      "prerequisites": [
+        "object",
+        "state"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "dirty",
+          "text": "clean changes dirty state",
+          "type": "changes"
+        }
+      ],
+      "stage": "age_1yo",
+      "stage_order": 1,
+      "summary": "remove dirt",
+      "word": "clean"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "property"
+      ],
+      "id": "concept.round",
+      "kind": "property",
+      "notes": "",
+      "prerequisites": [
+        "state",
+        "shape"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "roll",
+          "text": "round enables roll",
+          "type": "enables"
+        }
+      ],
+      "stage": "age_1yo",
+      "stage_order": 1,
+      "summary": "curved shape",
+      "word": "round"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "property"
+      ],
+      "id": "concept.flat",
+      "kind": "property",
+      "notes": "",
+      "prerequisites": [
+        "shape",
+        "surface"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "on",
+          "text": "flat can support things",
+          "type": "supports"
+        }
+      ],
+      "stage": "age_1yo",
+      "stage_order": 1,
+      "summary": "not curved surface",
+      "word": "flat"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "property"
+      ],
+      "id": "concept.soft",
+      "kind": "property",
+      "notes": "",
+      "prerequisites": [
+        "touch",
+        "feel"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "comfort",
+          "text": "soft can make comfort",
+          "type": "can_make"
+        }
+      ],
+      "stage": "age_1yo",
+      "stage_order": 1,
+      "summary": "changes shape easily",
+      "word": "soft"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "property"
+      ],
+      "id": "concept.hard",
+      "kind": "property",
+      "notes": "",
+      "prerequisites": [
+        "touch",
+        "feel"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "soft",
+          "text": "hard contrasts with soft",
+          "type": "contrasts_with"
+        }
+      ],
+      "stage": "age_1yo",
+      "stage_order": 1,
+      "summary": "does not change shape easily",
+      "word": "hard"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "property"
+      ],
+      "id": "concept.hot",
+      "kind": "property",
+      "notes": "",
+      "prerequisites": [
+        "touch",
+        "pain"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "pain",
+          "text": "hot can cause pain",
+          "type": "can_cause"
+        }
+      ],
+      "stage": "age_1yo",
+      "stage_order": 1,
+      "summary": "high temperature",
+      "word": "hot"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "property"
+      ],
+      "id": "concept.cold",
+      "kind": "property",
+      "notes": "",
+      "prerequisites": [
+        "touch",
+        "feel"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "hot",
+          "text": "cold contrasts with hot",
+          "type": "contrasts_with"
+        }
+      ],
+      "stage": "age_1yo",
+      "stage_order": 1,
+      "summary": "low temperature",
+      "word": "cold"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "property"
+      ],
+      "id": "concept.sharp",
+      "kind": "property",
+      "notes": "",
+      "prerequisites": [
+        "touch",
+        "pain"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "pain",
+          "text": "sharp can cause pain",
+          "type": "can_cause"
+        }
+      ],
+      "stage": "age_1yo",
+      "stage_order": 1,
+      "summary": "can cut or hurt",
+      "word": "sharp"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "property"
+      ],
+      "id": "concept.safe",
+      "kind": "property",
+      "notes": "",
+      "prerequisites": [
+        "pain",
+        "danger"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "pain",
+          "text": "safe lowers chance of pain",
+          "type": "prevents"
+        }
+      ],
+      "stage": "age_1yo",
+      "stage_order": 1,
+      "summary": "unlikely to hurt",
+      "word": "safe"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "property"
+      ],
+      "id": "concept.danger",
+      "kind": "property",
+      "notes": "",
+      "prerequisites": [
+        "pain",
+        "state"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "pain",
+          "text": "danger can cause pain",
+          "type": "can_cause"
+        }
+      ],
+      "stage": "age_1yo",
+      "stage_order": 1,
+      "summary": "may hurt or break",
+      "word": "danger"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "property"
+      ],
+      "id": "concept.big",
+      "kind": "property",
+      "notes": "",
+      "prerequisites": [
+        "more"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "small",
+          "text": "big is more size than small",
+          "type": "is_more_than"
+        }
+      ],
+      "stage": "age_1yo",
+      "stage_order": 1,
+      "summary": "large size",
+      "word": "big"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "property"
+      ],
+      "id": "concept.small",
+      "kind": "property",
+      "notes": "",
+      "prerequisites": [
+        "less"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "big",
+          "text": "small is less size than big",
+          "type": "is_less_than"
+        }
+      ],
+      "stage": "age_1yo",
+      "stage_order": 1,
+      "summary": "small size",
+      "word": "small"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "property"
+      ],
+      "id": "concept.heavy",
+      "kind": "property",
+      "notes": "",
+      "prerequisites": [
+        "move"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "move",
+          "text": "heavy can prevent move",
+          "type": "prevents"
+        }
+      ],
+      "stage": "age_1yo",
+      "stage_order": 1,
+      "summary": "hard to move",
+      "word": "heavy"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "property"
+      ],
+      "id": "concept.light_weight",
+      "kind": "property",
+      "notes": "",
+      "prerequisites": [
+        "move"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "move",
+          "text": "light weight can enable move",
+          "type": "enables"
+        }
+      ],
+      "stage": "age_1yo",
+      "stage_order": 1,
+      "summary": "easy to move",
+      "word": "light weight"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "property"
+      ],
+      "id": "concept.shape",
+      "kind": "property_kind",
+      "notes": "",
+      "prerequisites": [
+        "state",
+        "object"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "object",
+          "text": "shape describes object",
+          "type": "describes"
+        }
+      ],
+      "stage": "age_1yo",
+      "stage_order": 1,
+      "summary": "form of object",
+      "word": "shape"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "root"
+      ],
+      "id": "concept.support",
+      "kind": "relation",
+      "notes": "",
+      "prerequisites": [
+        "on",
+        "fall"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "fall",
+          "text": "support prevents fall",
+          "type": "prevents"
+        }
+      ],
+      "stage": "age_1yo",
+      "stage_order": 1,
+      "summary": "holds thing up",
+      "word": "support"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "category"
+      ],
+      "id": "concept.living_thing",
+      "kind": "kind",
+      "notes": "",
+      "prerequisites": [
+        "thing",
+        "need"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "food",
+          "text": "living thing needs food",
+          "type": "needs"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "water",
+          "text": "living thing needs water",
+          "type": "needs"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "air",
+          "text": "living thing needs air",
+          "type": "needs"
+        }
+      ],
+      "stage": "age_3yo",
+      "stage_order": 2,
+      "summary": "thing that needs and grows",
+      "word": "living thing"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "category"
+      ],
+      "id": "concept.person",
+      "kind": "kind",
+      "notes": "",
+      "prerequisites": [
+        "living thing",
+        "body",
+        "word"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "living thing",
+          "text": "person is living thing",
+          "type": "is_a"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "word",
+          "text": "person can use words",
+          "type": "can_use"
+        }
+      ],
+      "stage": "age_3yo",
+      "stage_order": 2,
+      "summary": "living thing with body, words, social relations",
+      "word": "person"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "category"
+      ],
+      "id": "concept.child",
+      "kind": "kind",
+      "notes": "",
+      "prerequisites": [
+        "person"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "person",
+          "text": "child is a person",
+          "type": "is_a"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "care",
+          "text": "child needs care",
+          "type": "needs"
+        }
+      ],
+      "stage": "age_3yo",
+      "stage_order": 2,
+      "summary": "young person",
+      "word": "child"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "category"
+      ],
+      "id": "concept.adult",
+      "kind": "kind",
+      "notes": "",
+      "prerequisites": [
+        "person"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "person",
+          "text": "adult is a person",
+          "type": "is_a"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "care",
+          "text": "adult can give care",
+          "type": "can_give"
+        }
+      ],
+      "stage": "age_3yo",
+      "stage_order": 2,
+      "summary": "grown person",
+      "word": "adult"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "social"
+      ],
+      "id": "concept.mom",
+      "kind": "role",
+      "notes": "",
+      "prerequisites": [
+        "adult",
+        "care"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "caregiver",
+          "text": "mom is caregiver",
+          "type": "is_a"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "comfort",
+          "text": "mom can give comfort",
+          "type": "can_give"
+        }
+      ],
+      "stage": "age_3yo",
+      "stage_order": 2,
+      "summary": "familiar caregiver",
+      "word": "mom"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "social"
+      ],
+      "id": "concept.dad",
+      "kind": "role",
+      "notes": "",
+      "prerequisites": [
+        "adult",
+        "care"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "caregiver",
+          "text": "dad is caregiver",
+          "type": "is_a"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "comfort",
+          "text": "dad can give comfort",
+          "type": "can_give"
+        }
+      ],
+      "stage": "age_3yo",
+      "stage_order": 2,
+      "summary": "familiar caregiver",
+      "word": "dad"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "social"
+      ],
+      "id": "concept.caregiver",
+      "kind": "role",
+      "notes": "",
+      "prerequisites": [
+        "person",
+        "care"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "help",
+          "text": "caregiver can help",
+          "type": "can_do"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "pain",
+          "text": "caregiver can reduce pain",
+          "type": "reduces"
+        }
+      ],
+      "stage": "age_3yo",
+      "stage_order": 2,
+      "summary": "person who protects, feeds, comforts",
+      "word": "caregiver"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "social"
+      ],
+      "id": "concept.friend",
+      "kind": "role",
+      "notes": "",
+      "prerequisites": [
+        "person",
+        "play"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "play",
+          "text": "friend can play",
+          "type": "can_do"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "share",
+          "text": "friend can share",
+          "type": "can_do"
+        }
+      ],
+      "stage": "age_3yo",
+      "stage_order": 2,
+      "summary": "person who plays, helps, shares",
+      "word": "friend"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "category"
+      ],
+      "id": "concept.animal",
+      "kind": "kind",
+      "notes": "",
+      "prerequisites": [
+        "living thing",
+        "move",
+        "feel"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "living thing",
+          "text": "animal is living thing",
+          "type": "is_a"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "move",
+          "text": "animal can move",
+          "type": "can_do"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "pain",
+          "text": "animal can feel pain",
+          "type": "can_feel"
+        }
+      ],
+      "stage": "age_3yo",
+      "stage_order": 2,
+      "summary": "living thing that can move and feel",
+      "word": "animal"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "living"
+      ],
+      "id": "concept.dog",
+      "kind": "animal",
+      "notes": "",
+      "prerequisites": [
+        "animal",
+        "pet"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "animal",
+          "text": "dog is animal",
+          "type": "is_a"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "pet",
+          "text": "dog can be pet",
+          "type": "can_be"
+        }
+      ],
+      "stage": "age_3yo",
+      "stage_order": 2,
+      "summary": "animal often near people",
+      "word": "dog"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "living"
+      ],
+      "id": "concept.puppy",
+      "kind": "animal",
+      "notes": "",
+      "prerequisites": [
+        "dog",
+        "young"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "dog",
+          "text": "puppy is dog",
+          "type": "is_a"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "young animal",
+          "text": "puppy is young animal",
+          "type": "is_a"
+        }
+      ],
+      "stage": "age_3yo",
+      "stage_order": 2,
+      "summary": "young dog",
+      "word": "puppy"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "living"
+      ],
+      "id": "concept.cat",
+      "kind": "animal",
+      "notes": "",
+      "prerequisites": [
+        "animal",
+        "pet"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "animal",
+          "text": "cat is animal",
+          "type": "is_a"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "pet",
+          "text": "cat can be pet",
+          "type": "can_be"
+        }
+      ],
+      "stage": "age_3yo",
+      "stage_order": 2,
+      "summary": "small animal often near people",
+      "word": "cat"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "living"
+      ],
+      "id": "concept.bird",
+      "kind": "animal",
+      "notes": "",
+      "prerequisites": [
+        "animal"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "animal",
+          "text": "bird is animal",
+          "type": "is_a"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "wing",
+          "text": "bird has wings",
+          "type": "has_part"
+        }
+      ],
+      "stage": "age_3yo",
+      "stage_order": 2,
+      "summary": "animal with wings",
+      "word": "bird"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "living"
+      ],
+      "id": "concept.plant",
+      "kind": "living thing",
+      "notes": "",
+      "prerequisites": [
+        "living thing"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "living thing",
+          "text": "plant is living thing",
+          "type": "is_a"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "water",
+          "text": "plant needs water",
+          "type": "needs"
+        }
+      ],
+      "stage": "age_3yo",
+      "stage_order": 2,
+      "summary": "living thing that grows in place",
+      "word": "plant"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "living"
+      ],
+      "id": "concept.food",
+      "kind": "need_object",
+      "notes": "",
+      "prerequisites": [
+        "living thing",
+        "need"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "food need",
+          "text": "food satisfies food need",
+          "type": "satisfies"
+        }
+      ],
+      "stage": "age_3yo",
+      "stage_order": 2,
+      "summary": "thing living things eat",
+      "word": "food"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "living"
+      ],
+      "id": "concept.water",
+      "kind": "need_object",
+      "notes": "",
+      "prerequisites": [
+        "living thing",
+        "need"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "water need",
+          "text": "water satisfies water need",
+          "type": "satisfies"
+        }
+      ],
+      "stage": "age_3yo",
+      "stage_order": 2,
+      "summary": "thing living things drink",
+      "word": "water"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "living"
+      ],
+      "id": "concept.air",
+      "kind": "need_object",
+      "notes": "",
+      "prerequisites": [
+        "living thing",
+        "need"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "air need",
+          "text": "air satisfies air need",
+          "type": "satisfies"
+        }
+      ],
+      "stage": "age_3yo",
+      "stage_order": 2,
+      "summary": "thing needed for breathing",
+      "word": "air"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "living"
+      ],
+      "id": "concept.sleep",
+      "kind": "need_event",
+      "notes": "",
+      "prerequisites": [
+        "body",
+        "need"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "sleep need",
+          "text": "sleep satisfies rest need",
+          "type": "satisfies"
+        }
+      ],
+      "stage": "age_3yo",
+      "stage_order": 2,
+      "summary": "rest needed by body",
+      "word": "sleep"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "root"
+      ],
+      "id": "concept.need",
+      "kind": "relation",
+      "notes": "",
+      "prerequisites": [
+        "living thing",
+        "bad"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "bad",
+          "text": "missing need can cause bad state",
+          "type": "missing_causes"
+        }
+      ],
+      "stage": "age_3yo",
+      "stage_order": 2,
+      "summary": "required for living or comfort",
+      "word": "need"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "social"
+      ],
+      "id": "concept.care",
+      "kind": "social_action",
+      "notes": "",
+      "prerequisites": [
+        "help",
+        "living thing"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "pain",
+          "text": "care can reduce pain",
+          "type": "reduces"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "comfort",
+          "text": "care can cause comfort",
+          "type": "causes"
+        }
+      ],
+      "stage": "age_3yo",
+      "stage_order": 2,
+      "summary": "help a living thing stay okay",
+      "word": "care"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "social"
+      ],
+      "id": "concept.help",
+      "kind": "social_action",
+      "notes": "",
+      "prerequisites": [
+        "person",
+        "bad"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "bad",
+          "text": "help reduces bad state",
+          "type": "reduces"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "good",
+          "text": "help can cause good",
+          "type": "can_cause"
+        }
+      ],
+      "stage": "age_3yo",
+      "stage_order": 2,
+      "summary": "reduce problem or pain",
+      "word": "help"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "social"
+      ],
+      "id": "concept.hurt",
+      "kind": "social_action",
+      "notes": "",
+      "prerequisites": [
+        "pain",
+        "person"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "pain",
+          "text": "hurt causes pain",
+          "type": "causes"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "sad",
+          "text": "hurt can cause sad",
+          "type": "causes"
+        }
+      ],
+      "stage": "age_3yo",
+      "stage_order": 2,
+      "summary": "cause pain or damage",
+      "word": "hurt"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "social"
+      ],
+      "id": "concept.give",
+      "kind": "social_action",
+      "notes": "",
+      "prerequisites": [
+        "person",
+        "object"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "object",
+          "text": "give moves object to person",
+          "type": "moves"
+        }
+      ],
+      "stage": "age_3yo",
+      "stage_order": 2,
+      "summary": "move object to another person",
+      "word": "give"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "social"
+      ],
+      "id": "concept.take",
+      "kind": "social_action",
+      "notes": "",
+      "prerequisites": [
+        "person",
+        "object"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "object",
+          "text": "take moves object from place or person",
+          "type": "moves"
+        }
+      ],
+      "stage": "age_3yo",
+      "stage_order": 2,
+      "summary": "get object from person or place",
+      "word": "take"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "social"
+      ],
+      "id": "concept.share",
+      "kind": "social_action",
+      "notes": "",
+      "prerequisites": [
+        "give",
+        "friend"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "happy",
+          "text": "share can cause happy",
+          "type": "can_cause"
+        }
+      ],
+      "stage": "age_3yo",
+      "stage_order": 2,
+      "summary": "let another person use too",
+      "word": "share"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "social"
+      ],
+      "id": "concept.play",
+      "kind": "social_action",
+      "notes": "",
+      "prerequisites": [
+        "toy",
+        "friend"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "toy",
+          "text": "play can use toy",
+          "type": "uses"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "happy",
+          "text": "play can cause happy",
+          "type": "can_cause"
+        }
+      ],
+      "stage": "age_3yo",
+      "stage_order": 2,
+      "summary": "pleasant action with toy, person, or pet",
+      "word": "play"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "emotion"
+      ],
+      "id": "concept.happy",
+      "kind": "emotion",
+      "notes": "",
+      "prerequisites": [
+        "good",
+        "comfort"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "comfort",
+          "text": "comfort can cause happy",
+          "type": "caused_by"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "new link",
+          "text": "new link can cause happy",
+          "type": "caused_by"
+        }
+      ],
+      "stage": "age_3yo",
+      "stage_order": 2,
+      "summary": "good feeling",
+      "word": "happy"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "emotion"
+      ],
+      "id": "concept.sad",
+      "kind": "emotion",
+      "notes": "",
+      "prerequisites": [
+        "bad",
+        "pain"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "pain",
+          "text": "pain can cause sad",
+          "type": "caused_by"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "loss",
+          "text": "loss can cause sad",
+          "type": "caused_by"
+        }
+      ],
+      "stage": "age_3yo",
+      "stage_order": 2,
+      "summary": "bad feeling from pain, loss, or broken relation",
+      "word": "sad"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "emotion"
+      ],
+      "id": "concept.afraid",
+      "kind": "emotion",
+      "notes": "",
+      "prerequisites": [
+        "danger",
+        "bad"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "danger",
+          "text": "danger can cause afraid",
+          "type": "caused_by"
+        }
+      ],
+      "stage": "age_3yo",
+      "stage_order": 2,
+      "summary": "bad feeling from possible danger",
+      "word": "afraid"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "emotion"
+      ],
+      "id": "concept.angry",
+      "kind": "emotion",
+      "notes": "",
+      "prerequisites": [
+        "want",
+        "bad"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "blocked want",
+          "text": "blocked want can cause angry",
+          "type": "caused_by"
+        }
+      ],
+      "stage": "age_3yo",
+      "stage_order": 2,
+      "summary": "bad feeling when want is blocked",
+      "word": "angry"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "emotion"
+      ],
+      "id": "concept.want",
+      "kind": "emotion_relation",
+      "notes": "",
+      "prerequisites": [
+        "object",
+        "state"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "object",
+          "text": "want points toward object or state",
+          "type": "points_to"
+        }
+      ],
+      "stage": "age_3yo",
+      "stage_order": 2,
+      "summary": "pull toward object or state",
+      "word": "want"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "emotion"
+      ],
+      "id": "concept.good",
+      "kind": "valence",
+      "notes": "",
+      "prerequisites": [
+        "comfort"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "happy",
+          "text": "good can cause happy",
+          "type": "can_cause"
+        }
+      ],
+      "stage": "age_3yo",
+      "stage_order": 2,
+      "summary": "toward comfort, safety, happy",
+      "word": "good"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "emotion"
+      ],
+      "id": "concept.bad",
+      "kind": "valence",
+      "notes": "",
+      "prerequisites": [
+        "pain"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "sad",
+          "text": "bad can cause sad",
+          "type": "can_cause"
+        }
+      ],
+      "stage": "age_3yo",
+      "stage_order": 2,
+      "summary": "toward pain, danger, loss",
+      "word": "bad"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "language"
+      ],
+      "id": "concept.word",
+      "kind": "symbol",
+      "notes": "",
+      "prerequisites": [
+        "sound",
+        "name"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "thing",
+          "text": "word can name thing",
+          "type": "can_name"
+        }
+      ],
+      "stage": "age_3yo",
+      "stage_order": 2,
+      "summary": "sound or text that can name",
+      "word": "word"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "language"
+      ],
+      "id": "concept.say",
+      "kind": "language_action",
+      "notes": "",
+      "prerequisites": [
+        "mouth",
+        "word"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "sound",
+          "text": "say creates sound",
+          "type": "creates"
+        }
+      ],
+      "stage": "age_3yo",
+      "stage_order": 2,
+      "summary": "make word sound by mouth",
+      "word": "say"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "language"
+      ],
+      "id": "concept.hear_word",
+      "kind": "language_event",
+      "notes": "",
+      "prerequisites": [
+        "hear",
+        "word"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "name",
+          "text": "hearing word can wake name relation",
+          "type": "can_wake"
+        }
+      ],
+      "stage": "age_3yo",
+      "stage_order": 2,
+      "summary": "hear a spoken word",
+      "word": "hear word"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "physical"
+      ],
+      "id": "concept.look",
+      "kind": "action",
+      "notes": "",
+      "prerequisites": [
+        "eye",
+        "see"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "eye",
+          "text": "look uses eyes",
+          "type": "uses"
+        }
+      ],
+      "stage": "age_3yo",
+      "stage_order": 2,
+      "summary": "use eyes toward a thing",
+      "word": "look"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "language"
+      ],
+      "id": "concept.ask",
+      "kind": "language_action",
+      "notes": "",
+      "prerequisites": [
+        "word",
+        "answer"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "answer",
+          "text": "ask expects answer",
+          "type": "expects"
+        }
+      ],
+      "stage": "age_3yo",
+      "stage_order": 2,
+      "summary": "use words to request answer or help",
+      "word": "ask"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "language"
+      ],
+      "id": "concept.answer",
+      "kind": "language_action",
+      "notes": "",
+      "prerequisites": [
+        "word",
+        "ask"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "ask",
+          "text": "answer responds to ask",
+          "type": "responds_to"
+        }
+      ],
+      "stage": "age_3yo",
+      "stage_order": 2,
+      "summary": "words returned to a question",
+      "word": "answer"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "language"
+      ],
+      "id": "concept.tell",
+      "kind": "language_action",
+      "notes": "",
+      "prerequisites": [
+        "word",
+        "person"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "word",
+          "text": "tell moves word to person",
+          "type": "moves"
+        }
+      ],
+      "stage": "age_3yo",
+      "stage_order": 2,
+      "summary": "give words to another person",
+      "word": "tell"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "language"
+      ],
+      "id": "concept.story",
+      "kind": "language_structure",
+      "notes": "",
+      "prerequisites": [
+        "word",
+        "event"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "event",
+          "text": "story has events",
+          "type": "has"
+        }
+      ],
+      "stage": "age_3yo",
+      "stage_order": 2,
+      "summary": "words about events",
+      "word": "story"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "property"
+      ],
+      "id": "concept.young",
+      "kind": "property",
+      "notes": "",
+      "prerequisites": [
+        "living thing"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "adult",
+          "text": "young contrasts with adult",
+          "type": "contrasts_with"
+        }
+      ],
+      "stage": "age_3yo",
+      "stage_order": 2,
+      "summary": "early in life",
+      "word": "young"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "social"
+      ],
+      "id": "concept.pet",
+      "kind": "social_role",
+      "notes": "",
+      "prerequisites": [
+        "animal",
+        "care"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "animal",
+          "text": "pet is animal",
+          "type": "is_a"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "care",
+          "text": "pet receives care",
+          "type": "receives"
+        }
+      ],
+      "stage": "age_3yo",
+      "stage_order": 2,
+      "summary": "animal near people and cared for",
+      "word": "pet"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "body"
+      ],
+      "id": "concept.wing",
+      "kind": "body_part",
+      "notes": "",
+      "prerequisites": [
+        "animal",
+        "part"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "bird",
+          "text": "wing is part of bird",
+          "type": "part_of"
+        }
+      ],
+      "stage": "age_3yo",
+      "stage_order": 2,
+      "summary": "animal part for flying",
+      "word": "wing"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "time_change"
+      ],
+      "id": "concept.loss",
+      "kind": "event",
+      "notes": "",
+      "prerequisites": [
+        "want",
+        "sad"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "sad",
+          "text": "loss can cause sad",
+          "type": "can_cause"
+        }
+      ],
+      "stage": "age_3yo",
+      "stage_order": 2,
+      "summary": "wanted relation breaks or thing is gone",
+      "word": "loss"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "learning"
+      ],
+      "id": "concept.new_link",
+      "kind": "learning_event",
+      "notes": "",
+      "prerequisites": [
+        "relation",
+        "happy"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "happy",
+          "text": "new link can cause happy",
+          "type": "can_cause"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "excited",
+          "text": "new link can cause excited",
+          "type": "can_cause"
+        }
+      ],
+      "stage": "age_3yo",
+      "stage_order": 2,
+      "summary": "new relation is created",
+      "word": "new link"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "emotion"
+      ],
+      "id": "concept.excited",
+      "kind": "emotion",
+      "notes": "",
+      "prerequisites": [
+        "happy",
+        "new link"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "new link",
+          "text": "new link can cause excited",
+          "type": "caused_by"
+        }
+      ],
+      "stage": "age_3yo",
+      "stage_order": 2,
+      "summary": "strong happy feeling around new event",
+      "word": "excited"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "place"
+      ],
+      "id": "concept.home",
+      "kind": "place",
+      "notes": "",
+      "prerequisites": [
+        "place",
+        "family"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "person",
+          "text": "home can contain family",
+          "type": "contains"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "comfort",
+          "text": "home can give comfort",
+          "type": "can_give"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "familiar place for family and care",
+      "word": "home"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "place"
+      ],
+      "id": "concept.room",
+      "kind": "place",
+      "notes": "",
+      "prerequisites": [
+        "place",
+        "part"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "home",
+          "text": "room can be part of home",
+          "type": "part_of"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "part of a home or building",
+      "word": "room"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "place"
+      ],
+      "id": "concept.kitchen",
+      "kind": "place",
+      "notes": "",
+      "prerequisites": [
+        "room",
+        "food"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "food",
+          "text": "kitchen is used for food",
+          "type": "used_for"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "room for food and cooking",
+      "word": "kitchen"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "physical"
+      ],
+      "id": "concept.bed",
+      "kind": "object",
+      "notes": "",
+      "prerequisites": [
+        "sleep",
+        "object"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "sleep",
+          "text": "bed is used for sleep",
+          "type": "used_for"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "object used for sleep",
+      "word": "bed"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "place"
+      ],
+      "id": "concept.school",
+      "kind": "place",
+      "notes": "",
+      "prerequisites": [
+        "child",
+        "learn"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "learn",
+          "text": "school is used for learning",
+          "type": "used_for"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "place where children learn",
+      "word": "school"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "social"
+      ],
+      "id": "concept.teacher",
+      "kind": "role",
+      "notes": "",
+      "prerequisites": [
+        "person",
+        "learn"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "teach",
+          "text": "teacher can teach",
+          "type": "can_do"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "person who helps child learn",
+      "word": "teacher"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "social"
+      ],
+      "id": "concept.student",
+      "kind": "role",
+      "notes": "",
+      "prerequisites": [
+        "person",
+        "learn"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "learn",
+          "text": "student learns",
+          "type": "does"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "person who learns in school",
+      "word": "student"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "place"
+      ],
+      "id": "concept.road",
+      "kind": "place",
+      "notes": "",
+      "prerequisites": [
+        "path",
+        "move"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "move",
+          "text": "road is used for movement",
+          "type": "used_for"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "path for people and vehicles",
+      "word": "road"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "physical"
+      ],
+      "id": "concept.car",
+      "kind": "vehicle",
+      "notes": "",
+      "prerequisites": [
+        "object",
+        "road"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "move",
+          "text": "car moves people",
+          "type": "used_for"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "vehicle that moves people",
+      "word": "car"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "physical"
+      ],
+      "id": "concept.bus",
+      "kind": "vehicle",
+      "notes": "",
+      "prerequisites": [
+        "car",
+        "more"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "vehicle",
+          "text": "bus is vehicle",
+          "type": "is_a"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "people",
+          "text": "bus carries many people",
+          "type": "carries"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "large vehicle for many people",
+      "word": "bus"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "place"
+      ],
+      "id": "concept.shop",
+      "kind": "place",
+      "notes": "",
+      "prerequisites": [
+        "place",
+        "object"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "get thing",
+          "text": "shop is used to get things",
+          "type": "used_for"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "place where people get things",
+      "word": "shop"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "place"
+      ],
+      "id": "concept.farm",
+      "kind": "place",
+      "notes": "",
+      "prerequisites": [
+        "place",
+        "food",
+        "plant"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "grow food",
+          "text": "farm grows food",
+          "type": "used_for"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "place where food is grown",
+      "word": "farm"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "place"
+      ],
+      "id": "concept.village",
+      "kind": "place",
+      "notes": "",
+      "prerequisites": [
+        "place",
+        "person"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "home",
+          "text": "village contains homes",
+          "type": "contains"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "small place where people live",
+      "word": "village"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "geography",
+        "place"
+      ],
+      "id": "concept.city",
+      "kind": "place",
+      "notes": "",
+      "prerequisites": [
+        "place",
+        "more"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "road",
+          "text": "city contains roads",
+          "type": "contains"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "home",
+          "text": "city contains homes",
+          "type": "contains"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "large place where many people live",
+      "word": "city"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "geography",
+        "place"
+      ],
+      "id": "concept.country",
+      "kind": "place",
+      "notes": "",
+      "prerequisites": [
+        "place",
+        "people"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "city",
+          "text": "country contains cities",
+          "type": "contains"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "people",
+          "text": "country contains people",
+          "type": "contains"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "large land group with people",
+      "word": "country"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "place"
+      ],
+      "id": "concept.world",
+      "kind": "place",
+      "notes": "",
+      "prerequisites": [
+        "place",
+        "whole"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "country",
+          "text": "world contains countries",
+          "type": "contains"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "all places and living things together",
+      "word": "world"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "geography",
+        "nature"
+      ],
+      "id": "concept.river",
+      "kind": "nature",
+      "notes": "",
+      "prerequisites": [
+        "water",
+        "move"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "water",
+          "text": "river is water",
+          "type": "is_a"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "place",
+          "text": "river flows through place",
+          "type": "can_flow"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "moving water in a path",
+      "word": "river"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "geography",
+        "nature"
+      ],
+      "id": "concept.mountain",
+      "kind": "nature",
+      "notes": "",
+      "prerequisites": [
+        "up",
+        "place"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "up",
+          "text": "mountain is high",
+          "type": "has_property"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "high land",
+      "word": "mountain"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "living"
+      ],
+      "id": "concept.tree",
+      "kind": "plant",
+      "notes": "",
+      "prerequisites": [
+        "plant"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "plant",
+          "text": "tree is plant",
+          "type": "is_a"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "big plant with trunk and leaves",
+      "word": "tree"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "living"
+      ],
+      "id": "concept.flower",
+      "kind": "plant",
+      "notes": "",
+      "prerequisites": [
+        "plant",
+        "see"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "plant part",
+          "text": "flower is plant part",
+          "type": "is_a"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "plant part often seen and smelled",
+      "word": "flower"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "nature"
+      ],
+      "id": "concept.sun",
+      "kind": "nature",
+      "notes": "",
+      "prerequisites": [
+        "hot",
+        "light"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "light",
+          "text": "sun gives light",
+          "type": "gives"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "heat",
+          "text": "sun gives heat",
+          "type": "gives"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "bright hot thing in sky",
+      "word": "sun"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "nature"
+      ],
+      "id": "concept.rain",
+      "kind": "nature_event",
+      "notes": "",
+      "prerequisites": [
+        "water",
+        "fall"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "event",
+          "text": "rain is event",
+          "type": "is_a"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "water",
+          "text": "rain gives water",
+          "type": "gives"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "water falls from sky",
+      "word": "rain"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "time"
+      ],
+      "id": "concept.day",
+      "kind": "time",
+      "notes": "",
+      "prerequisites": [
+        "event",
+        "light"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "light",
+          "text": "day has light",
+          "type": "has"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "time with light",
+      "word": "day"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "time"
+      ],
+      "id": "concept.night",
+      "kind": "time",
+      "notes": "",
+      "prerequisites": [
+        "event",
+        "dark"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "day",
+          "text": "night contrasts with day",
+          "type": "contrasts_with"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "time with dark",
+      "word": "night"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "time"
+      ],
+      "id": "concept.yesterday",
+      "kind": "time",
+      "notes": "",
+      "prerequisites": [
+        "before",
+        "day"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "today",
+          "text": "yesterday is before today",
+          "type": "is_before"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "day before today",
+      "word": "yesterday"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "time"
+      ],
+      "id": "concept.today",
+      "kind": "time",
+      "notes": "",
+      "prerequisites": [
+        "day"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "day",
+          "text": "today is current day",
+          "type": "is_now"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "current day",
+      "word": "today"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "time"
+      ],
+      "id": "concept.tomorrow",
+      "kind": "time",
+      "notes": "",
+      "prerequisites": [
+        "after",
+        "day"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "today",
+          "text": "tomorrow is after today",
+          "type": "is_after"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "day after today",
+      "word": "tomorrow"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "time"
+      ],
+      "id": "concept.before",
+      "kind": "time_relation",
+      "notes": "",
+      "prerequisites": [
+        "event"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "event",
+          "text": "before orders events",
+          "type": "orders"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "earlier than event",
+      "word": "before"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "time"
+      ],
+      "id": "concept.after",
+      "kind": "time_relation",
+      "notes": "",
+      "prerequisites": [
+        "event"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "event",
+          "text": "after orders events",
+          "type": "orders"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "later than event",
+      "word": "after"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "physical"
+      ],
+      "id": "concept.learn",
+      "kind": "action",
+      "notes": "",
+      "prerequisites": [
+        "new link",
+        "relation"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "relation",
+          "text": "learn creates relation",
+          "type": "creates"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "create or strengthen relation",
+      "word": "learn"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "physical"
+      ],
+      "id": "concept.teach",
+      "kind": "action",
+      "notes": "",
+      "prerequisites": [
+        "learn",
+        "help"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "learn",
+          "text": "teach helps learning",
+          "type": "helps"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "help another person learn",
+      "word": "teach"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "learning"
+      ],
+      "id": "concept.remember",
+      "kind": "mental_action",
+      "notes": "",
+      "prerequisites": [
+        "learn",
+        "after"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "relation",
+          "text": "remember keeps relation",
+          "type": "keeps"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "keep relation available later",
+      "word": "remember"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "learning"
+      ],
+      "id": "concept.forget",
+      "kind": "mental_action",
+      "notes": "",
+      "prerequisites": [
+        "remember",
+        "loss"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "loss",
+          "text": "forget can cause relation loss",
+          "type": "can_cause"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "lose access to relation",
+      "word": "forget"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "time"
+      ],
+      "id": "concept.past",
+      "kind": "time",
+      "notes": "",
+      "prerequisites": [
+        "before",
+        "event"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "event",
+          "text": "past contains earlier events",
+          "type": "contains"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "events before now",
+      "word": "past"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "domain",
+        "history"
+      ],
+      "id": "concept.history",
+      "kind": "domain",
+      "notes": "",
+      "prerequisites": [
+        "past",
+        "story",
+        "person"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "past",
+          "text": "history is about past",
+          "type": "is_about"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "event",
+          "text": "history has events",
+          "type": "has"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "remembered past of people and groups",
+      "word": "history"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "geography",
+        "language"
+      ],
+      "id": "concept.map",
+      "kind": "symbol",
+      "notes": "",
+      "prerequisites": [
+        "place",
+        "relation"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "place",
+          "text": "map shows places",
+          "type": "shows"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "picture of places and relations",
+      "word": "map"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "domain",
+        "geography"
+      ],
+      "id": "concept.geography",
+      "kind": "domain",
+      "notes": "",
+      "prerequisites": [
+        "place",
+        "map"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "place",
+          "text": "geography is about places",
+          "type": "is_about"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "relations among places, land, water, people",
+      "word": "geography"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "social"
+      ],
+      "id": "concept.family",
+      "kind": "social_group",
+      "notes": "",
+      "prerequisites": [
+        "person",
+        "care"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "person",
+          "text": "family contains people",
+          "type": "contains"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "care",
+          "text": "family can give care",
+          "type": "can_give"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "people connected by care and relation",
+      "word": "family"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "social"
+      ],
+      "id": "concept.group",
+      "kind": "social_group",
+      "notes": "",
+      "prerequisites": [
+        "person",
+        "relation",
+        "more"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "person",
+          "text": "group contains people",
+          "type": "contains"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "many people linked by relation",
+      "word": "group"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "category"
+      ],
+      "id": "concept.people",
+      "kind": "plural_kind",
+      "notes": "",
+      "prerequisites": [
+        "person",
+        "more"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "person",
+          "text": "people means more than one person",
+          "type": "is_more_than"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "more than one person",
+      "word": "people"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "place"
+      ],
+      "id": "concept.path",
+      "kind": "place_relation",
+      "notes": "",
+      "prerequisites": [
+        "place",
+        "move"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "move",
+          "text": "path enables movement",
+          "type": "enables"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "way from one place to another",
+      "word": "path"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "place"
+      ],
+      "id": "concept.place",
+      "kind": "root_place",
+      "notes": "",
+      "prerequisites": [
+        "thing",
+        "state"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "thing",
+          "text": "place locates thing",
+          "type": "locates"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "where a thing can be",
+      "word": "place"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "sense"
+      ],
+      "id": "concept.light",
+      "kind": "physical_signal",
+      "notes": "",
+      "prerequisites": [
+        "see"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "see",
+          "text": "light enables seeing",
+          "type": "enables"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "what makes seeing possible",
+      "word": "light"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "physical"
+      ],
+      "id": "concept.dark",
+      "kind": "physical_state",
+      "notes": "",
+      "prerequisites": [
+        "light",
+        "no"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "see",
+          "text": "dark can prevent seeing",
+          "type": "prevents"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "low light",
+      "word": "dark"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "physical"
+      ],
+      "id": "concept.heat",
+      "kind": "physical_property",
+      "notes": "",
+      "prerequisites": [
+        "hot",
+        "feel"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "hot",
+          "text": "heat can cause hot state",
+          "type": "can_cause"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "hot energy felt by body",
+      "word": "heat"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "physical"
+      ],
+      "id": "concept.vehicle",
+      "kind": "object_kind",
+      "notes": "",
+      "prerequisites": [
+        "object",
+        "move"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "move",
+          "text": "vehicle is used for movement",
+          "type": "used_for"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "object used to move people or things",
+      "word": "vehicle"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "social"
+      ],
+      "id": "concept.buy",
+      "kind": "social_action",
+      "notes": "",
+      "prerequisites": [
+        "give",
+        "thing"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "thing",
+          "text": "buy exchanges something accepted for a thing",
+          "type": "exchanges"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "get thing by giving something accepted",
+      "word": "buy"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "abstract",
+        "math"
+      ],
+      "id": "concept.number",
+      "kind": "abstract",
+      "notes": "",
+      "prerequisites": [
+        "one",
+        "two",
+        "more"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "amount",
+          "text": "number measures amount",
+          "type": "measures"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "stable handle for amount",
+      "word": "number"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "abstract",
+        "math"
+      ],
+      "id": "concept.amount",
+      "kind": "abstract",
+      "notes": "",
+      "prerequisites": [
+        "more",
+        "less"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "more",
+          "text": "amount can be more",
+          "type": "can_be"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "less",
+          "text": "amount can be less",
+          "type": "can_be"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "how much or how many",
+      "word": "amount"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "abstract",
+        "math"
+      ],
+      "id": "concept.measure",
+      "kind": "abstract_action",
+      "notes": "",
+      "prerequisites": [
+        "amount",
+        "same",
+        "different"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "amount",
+          "text": "measure compares amount",
+          "type": "compares"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "compare amount, size, time, or weight",
+      "word": "measure"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "abstract"
+      ],
+      "id": "concept.time",
+      "kind": "abstract",
+      "notes": "",
+      "prerequisites": [
+        "before",
+        "after",
+        "event"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "event",
+          "text": "time orders events",
+          "type": "orders"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "ordering of events",
+      "word": "time"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "abstract",
+        "science"
+      ],
+      "id": "concept.cause",
+      "kind": "abstract_relation",
+      "notes": "",
+      "prerequisites": [
+        "before",
+        "event"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "effect",
+          "text": "cause makes effect",
+          "type": "makes"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "earlier state makes later state",
+      "word": "cause"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "abstract",
+        "science"
+      ],
+      "id": "concept.effect",
+      "kind": "abstract_relation",
+      "notes": "",
+      "prerequisites": [
+        "after",
+        "event"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "cause",
+          "text": "effect comes from cause",
+          "type": "comes_from"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "later state from cause",
+      "word": "effect"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "social"
+      ],
+      "id": "concept.rule",
+      "kind": "abstract_social",
+      "notes": "",
+      "prerequisites": [
+        "relation",
+        "group"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "action",
+          "text": "rule guides action",
+          "type": "guides"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "relation that says what should happen",
+      "word": "rule"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "social"
+      ],
+      "id": "concept.promise",
+      "kind": "abstract_social",
+      "notes": "",
+      "prerequisites": [
+        "word",
+        "after",
+        "rule"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "expectation",
+          "text": "promise creates expectation",
+          "type": "creates"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "word relation that creates expected future action",
+      "word": "promise"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "social"
+      ],
+      "id": "concept.money",
+      "kind": "abstract_social",
+      "notes": "",
+      "prerequisites": [
+        "buy",
+        "thing"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "buy",
+          "text": "money is used to buy",
+          "type": "used_for"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "shared token used to buy and sell",
+      "word": "money"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "social"
+      ],
+      "id": "concept.work",
+      "kind": "social_action",
+      "notes": "",
+      "prerequisites": [
+        "event",
+        "person"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "value",
+          "text": "work can create value",
+          "type": "can_create"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "effort used to make value or help",
+      "word": "work"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "social"
+      ],
+      "id": "concept.job",
+      "kind": "social_role",
+      "notes": "",
+      "prerequisites": [
+        "work",
+        "person"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "relation",
+          "text": "job is a regular social relation",
+          "type": "is_a"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "work",
+          "text": "job uses work",
+          "type": "uses"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "regular work relation",
+      "word": "job"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "social"
+      ],
+      "id": "concept.government",
+      "kind": "social_system",
+      "notes": "",
+      "prerequisites": [
+        "group",
+        "rule",
+        "country"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "rule",
+          "text": "government makes rules",
+          "type": "makes"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "group role that makes and enforces rules",
+      "word": "government"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "social"
+      ],
+      "id": "concept.society",
+      "kind": "social_system",
+      "notes": "",
+      "prerequisites": [
+        "people",
+        "rule",
+        "group"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "people",
+          "text": "society contains people",
+          "type": "contains"
+        },
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "rule",
+          "text": "society has rules",
+          "type": "has"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "large group of people with shared rules and roles",
+      "word": "society"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "social"
+      ],
+      "id": "concept.law",
+      "kind": "social_rule",
+      "notes": "",
+      "prerequisites": [
+        "rule",
+        "government"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "rule",
+          "text": "law is rule",
+          "type": "is_a"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "formal rule of society or government",
+      "word": "law"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "social"
+      ],
+      "id": "concept.right",
+      "kind": "abstract_social",
+      "notes": "",
+      "prerequisites": [
+        "law",
+        "person"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "person",
+          "text": "right protects person relation",
+          "type": "protects"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "protected allowed relation",
+      "word": "right"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "social"
+      ],
+      "id": "concept.wrong",
+      "kind": "abstract_social",
+      "notes": "",
+      "prerequisites": [
+        "rule",
+        "hurt"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "right",
+          "text": "wrong contrasts with right",
+          "type": "contrasts_with"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "relation that breaks rule or causes harm",
+      "word": "wrong"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "abstract",
+        "science"
+      ],
+      "id": "concept.truth",
+      "kind": "abstract",
+      "notes": "",
+      "prerequisites": [
+        "word",
+        "same",
+        "event"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "word matches relation",
+          "text": "truth means words match relation",
+          "type": "means"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "words match relation or event",
+      "word": "truth"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "social"
+      ],
+      "id": "concept.lie",
+      "kind": "abstract_social",
+      "notes": "",
+      "prerequisites": [
+        "word",
+        "different",
+        "truth"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "truth",
+          "text": "lie contrasts with truth",
+          "type": "contrasts_with"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "words intentionally do not match relation",
+      "word": "lie"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "abstract"
+      ],
+      "id": "concept.reason",
+      "kind": "abstract",
+      "notes": "",
+      "prerequisites": [
+        "cause",
+        "answer"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "answer",
+          "text": "reason explains answer",
+          "type": "explains"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "relation explaining why answer holds",
+      "word": "reason"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "language"
+      ],
+      "id": "concept.question",
+      "kind": "language_structure",
+      "notes": "",
+      "prerequisites": [
+        "ask",
+        "answer"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "answer",
+          "text": "question expects answer",
+          "type": "expects"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "words that ask for relation or answer",
+      "word": "question"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "language"
+      ],
+      "id": "concept.explain",
+      "kind": "language_action",
+      "notes": "",
+      "prerequisites": [
+        "reason",
+        "tell"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "reason",
+          "text": "explain gives reason",
+          "type": "gives"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "give relation chain behind answer",
+      "word": "explain"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "abstract"
+      ],
+      "id": "concept.category",
+      "kind": "abstract",
+      "notes": "",
+      "prerequisites": [
+        "kind",
+        "same",
+        "different"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "kind",
+          "text": "category is kind",
+          "type": "is_a"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "kind used for grouping",
+      "word": "category"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "abstract"
+      ],
+      "id": "concept.example",
+      "kind": "abstract",
+      "notes": "",
+      "prerequisites": [
+        "category",
+        "one"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "category",
+          "text": "example is in category",
+          "type": "is_in"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "one thing inside a category",
+      "word": "example"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "abstract"
+      ],
+      "id": "concept.idea",
+      "kind": "abstract",
+      "notes": "",
+      "prerequisites": [
+        "relation",
+        "remember"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "relation",
+          "text": "idea has relations",
+          "type": "has"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "relation bundle held in mind",
+      "word": "idea"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "abstract"
+      ],
+      "id": "concept.knowledge",
+      "kind": "abstract",
+      "notes": "",
+      "prerequisites": [
+        "relation",
+        "remember"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "relation",
+          "text": "knowledge is made of remembered relations",
+          "type": "is_made_of"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "strong remembered relations that can be used",
+      "word": "knowledge"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "social"
+      ],
+      "id": "concept.value",
+      "kind": "abstract_social",
+      "notes": "",
+      "prerequisites": [
+        "good",
+        "need"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "good",
+          "text": "value points toward good or useful",
+          "type": "points_to"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "relation of usefulness or importance",
+      "word": "value"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "social"
+      ],
+      "id": "concept.trust",
+      "kind": "abstract_social",
+      "notes": "",
+      "prerequisites": [
+        "person",
+        "promise",
+        "remember"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "promise",
+          "text": "trust depends on kept relations",
+          "type": "depends_on"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "strong expectation that person or relation will hold",
+      "word": "trust"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "social"
+      ],
+      "id": "concept.fair",
+      "kind": "abstract_social",
+      "notes": "",
+      "prerequisites": [
+        "people",
+        "same",
+        "rule"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "same",
+          "text": "fair uses same relation across people",
+          "type": "uses"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "balanced relation among people",
+      "word": "fair"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "social"
+      ],
+      "id": "concept.unfair",
+      "kind": "abstract_social",
+      "notes": "",
+      "prerequisites": [
+        "fair",
+        "different"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "fair",
+          "text": "unfair contrasts with fair",
+          "type": "contrasts_with"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "unbalanced relation among people",
+      "word": "unfair"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "domain",
+        "science"
+      ],
+      "id": "concept.science",
+      "kind": "domain",
+      "notes": "",
+      "prerequisites": [
+        "truth",
+        "cause",
+        "explain"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "relation",
+          "text": "science tests relations",
+          "type": "tests"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "method for testing relations in the world",
+      "word": "science"
+    },
+    {
+      "aliases": [],
+      "contrast_with": [],
+      "domains": [
+        "domain",
+        "math"
+      ],
+      "id": "concept.math",
+      "kind": "domain",
+      "notes": "",
+      "prerequisites": [
+        "number",
+        "measure",
+        "shape"
+      ],
+      "relations": [
+        {
+          "polarity": "positive",
+          "strength": 0.75,
+          "target": "relation",
+          "text": "math is about formal relations",
+          "type": "is_about"
+        }
+      ],
+      "stage": "age_5yo",
+      "stage_order": 3,
+      "summary": "relations among number, amount, shape, pattern",
+      "word": "math"
+    }
+  ],
+  "counts": {
+    "by_domain": {
+      "abstract": 12,
+      "body": 11,
+      "category": 10,
+      "domain": 4,
+      "emotion": 10,
+      "geography": 6,
+      "history": 1,
+      "language": 11,
+      "learning": 3,
+      "living": 11,
+      "math": 8,
+      "nature": 4,
+      "physical": 39,
+      "place": 13,
+      "property": 15,
+      "root": 14,
+      "science": 4,
+      "self": 1,
+      "sense": 2,
+      "social": 32,
+      "space": 8,
+      "time": 8,
+      "time_change": 3
+    },
+    "by_kind": {
+      "abstract": 9,
+      "abstract_action": 1,
+      "abstract_relation": 2,
+      "abstract_social": 10,
+      "action": 13,
+      "animal": 4,
+      "answer": 2,
+      "body": 1,
+      "body_part": 6,
+      "body_relation": 1,
+      "domain": 4,
+      "emotion": 5,
+      "emotion_relation": 1,
+      "event": 3,
+      "kind": 9,
+      "language_action": 5,
+      "language_event": 1,
+      "language_structure": 2,
+      "learning_event": 1,
+      "living thing": 1,
+      "mental_action": 2,
+      "nature": 3,
+      "nature_event": 1,
+      "need_event": 1,
+      "need_object": 3,
+      "object": 16,
+      "object_kind": 1,
+      "object_part": 1,
+      "physical_property": 1,
+      "physical_signal": 1,
+      "physical_state": 1,
+      "place": 11,
+      "place_relation": 1,
+      "plant": 2,
+      "plural_kind": 1,
+      "property": 14,
+      "property_kind": 1,
+      "quantity": 4,
+      "relation": 3,
+      "role": 6,
+      "root": 9,
+      "root_place": 1,
+      "sense": 3,
+      "sense_action": 1,
+      "signal": 1,
+      "social_action": 9,
+      "social_group": 2,
+      "social_role": 2,
+      "social_rule": 1,
+      "social_system": 2,
+      "space": 8,
+      "state": 2,
+      "symbol": 3,
+      "time": 6,
+      "time_relation": 2,
+      "tool": 2,
+      "valence": 4,
+      "vehicle": 2
+    },
+    "by_stage": {
+      "age_1yo": 51,
+      "age_3yo": 47,
+      "age_5yo": 78,
+      "age_6mo": 39
+    },
+    "concepts": 215,
+    "relations": 283
+  },
+  "description": "Curated staged high-frequency concept lexicon. Words are handles to relation bundles.",
+  "graph_id": "adi_conceptnet_v7",
+  "schema_version": "0.1.0",
+  "stages": [
+    {
+      "id": "age_6mo",
+      "label": "6 Months",
+      "order": 0,
+      "purpose": "Direct embodied roots: body, touch, pain, comfort, near/far, caregiver, basic object handles."
+    },
+    {
+      "id": "age_1yo",
+      "label": "1 Year",
+      "order": 1,
+      "purpose": "Object permanence, simple action, containment, food/water, early words, simple social response."
+    },
+    {
+      "id": "age_3yo",
+      "label": "3 Years",
+      "order": 2,
+      "purpose": "Richer objects, language, play, animals, places, before/after, simple cause and category."
+    },
+    {
+      "id": "age_5yo",
+      "label": "5 Years",
+      "order": 3,
+      "purpose": "School-ready abstractions: number, measure, story, geography/history seeds, rules, truth, society."
+    }
+  ],
+  "title": "Adi ConceptNet V7",
+  "validation": {
+    "duplicates": [],
+    "empty_relation_bundles": [],
+    "forward_prerequisites": [],
+    "missing_prerequisites": [],
+    "passes": true
+  }
+}
