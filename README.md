@@ -1,4 +1,4 @@
-# Adi LLM Experiments
+# Relation Based LLM Experiments
 
 This project started with a simple question:
 
