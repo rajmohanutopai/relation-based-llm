@@ -33,36 +33,41 @@ Direct bridge-only scratch training was better in this setup.
 
 ## Paraphrase Stress Test
 
-The original held-out test was close to the training format. To check whether
-the model was learning robust relations or just matching prompt surfaces, I
-created a paraphrase stress test.
+The original held-out test was close to the training format. I created a
+paraphrase stress test to ask the same relation questions in different ways,
+while still using only words that appeared in training.
 
-The stress test used:
-
-- the same held-out examples
-- the same target answers
-- only words that appeared in training
-- different question wording
-
-Answer accuracy dropped sharply, but reason accuracy stayed high.
-
-That means the model often recovered the right relation, but did not reliably
-put it into the expected answer format.
+The stress test showed that the model learned many relation patterns, even when
+the prompt wording changed.
 
 Example:
 
 ```text
 Question:
-Give the meaning for audible.
-
-Expected:
-answer: audible can be heard.
-reason: audible can be heard.
+The box is loose. The child opens the box. The toy is inside.
+The hand reaches in. What does loose tell us in this case?
 
 Model:
-answer: yes.
-reason: audible can be heard.
+answer: loose enables move and open lets the hand reach inside.
+reason: loose enables move and open lets the hand reach inside.
 ```
+
+Example:
+
+```text
+Question:
+The child sees a toy. The toy is interesting in this moment.
+The child looks longer or changes attention. What does interesting show?
+
+Model:
+answer: interesting can make new link.
+reason: interesting can make new link.
+```
+
+Answer accuracy dropped sharply, but reason accuracy stayed high.
+
+That means the model often recovered the right relation, but did not reliably
+put it into the expected answer format.
 
 ## Conclusion
 
@@ -74,4 +79,3 @@ specific curriculum-learning approach did not beat direct scratch training.
 
 The next useful test, if this resumes, should focus on unseen recombinations and
 relation-content scoring rather than exact answer formatting.
-

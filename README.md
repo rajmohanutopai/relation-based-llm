@@ -45,33 +45,56 @@ At 500 training steps, the clearest comparison was:
 
 So the relation-root curriculum did not give an advantage.
 
-## The Important Caveat
+## Example Outputs
 
-The first test was too easy.
-
-The model scored very high when the test questions looked like the training
-questions. When I asked the same things in a different way, while still using
-only words seen during training, answer accuracy dropped a lot.
-
-But the model often still put the correct relation in the reason field.
-
-Example:
+The model did learn many of the relation patterns. Some examples from the
+reworded test set:
 
 ```text
 Question:
-Give the meaning for audible.
-
-Expected:
-answer: audible can be heard.
-reason: audible can be heard.
+The box is loose. The child opens the box. The toy is inside.
+The hand reaches in. What does loose tell us in this case?
 
 Model:
-answer: yes.
-reason: audible can be heard.
+answer: loose enables move and open lets the hand reach inside.
+reason: loose enables move and open lets the hand reach inside.
 ```
 
-So the model learned many relation strings, but it did not learn a robust way to
-answer across different question forms.
+```text
+Question:
+The child sees a toy. The toy is interesting in this moment.
+The child looks longer or changes attention. What does interesting show?
+
+Model:
+answer: interesting can make new link.
+reason: interesting can make new link.
+```
+
+```text
+Question:
+The child sees crawl. A thing changes after the event.
+The child watches the result. What does crawl show?
+
+Model:
+answer: crawl is body move.
+reason: crawl is body move.
+```
+
+```text
+Question:
+The child compares filled with inside. Filled means something is inside.
+What state link is right for filled?
+
+Model:
+answer: filled has inside thing.
+reason: filled has inside thing.
+```
+
+The reworded test was useful because it showed both sides of the result. The
+model often recovered the right relation, especially in the reason field, but it
+was still weaker at handling different answer formats. That is why I treat this
+as a useful experiment rather than a successful replacement for ordinary
+training.
 
 ## Current Conclusion
 
