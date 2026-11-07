@@ -1,0 +1,194 @@
+seed_word,seed_category,candidate_phrase,sources,embedding_score,approved,approved_target,review_notes
+sibling,caregiver_social,sibling,"conceptnet,visual_genome,wordnet",0.7855822443962097,yes,sibling,simple_morph
+sibling,caregiver_social,sibling relative,conceptnet,0.7747584581375122,yes,sibling,high_score_contains_seed
+grasp,body_action_control,same as grasping,conceptnet,0.7717494368553162,yes,grasp,high_score_contains_seed
+sibling,caregiver_social,family sibling,conceptnet,0.7689162492752075,yes,sibling,high_score_contains_seed
+rested body,body_state_valence,rested body,conceptnet,0.7682350277900696,yes,rested body,simple_morph
+calm,body_state_valence,calmness,"conceptnet,wordnet",0.7663179039955139,yes,calm,manual_safe
+sibling,caregiver_social,sister sibling,conceptnet,0.7641521692276001,yes,sibling,high_score_contains_seed
+breakable,object_property,breakableness,"conceptnet,wordnet",0.7636246681213379,yes,breakable,manual_safe
+avoidance,learning_memory,avoidance,"conceptnet,wordnet",0.7634870409965515,yes,avoidance,manual_safe
+grasp,body_action_control,grasp with hands,conceptnet,0.7606279850006104,yes,grasp,high_score_contains_seed
+tired body,body_state_valence,tired body,conceptnet,0.7580970525741577,yes,tired body,simple_morph
+attached,space_motion_physics,attachedness,conceptnet,0.7570433020591736,yes,attached,manual_safe
+wave arm,body_action_control,wave arm,conceptnet,0.7543946504592896,yes,wave arm,simple_morph
+being carried,caregiver_social,being carried,conceptnet,0.7509174942970276,yes,being carried,simple_morph
+grasp,body_action_control,grasp hands,conceptnet,0.7502045631408691,yes,grasp,high_score_contains_seed
+avoidance,learning_memory,avoidances,conceptnet,0.7463020086288452,yes,avoidance,manual_safe
+grandfather,caregiver_social,grandfather,"conceptnet,wordnet",0.7460718750953674,yes,grandfather,simple_morph
+reach,body_action_control,touch within reach,conceptnet,0.7442745566368103,yes,reach,high_score_contains_seed
+avoidance,learning_memory,anti avoidance,conceptnet,0.7429872155189514,yes,avoidance,high_score_contains_seed
+visible,space_motion_physics,visibleness,"conceptnet,wordnet",0.7419555187225342,yes,visible,manual_safe
+grasp,body_action_control,grasp hand,conceptnet,0.7391914129257202,yes,grasp,high_score_contains_seed
+fuss,body_action_control,fussiness,wordnet,0.7378976345062256,yes,fuss,high_score_contains_seed
+separate,space_motion_physics,separateness,"conceptnet,wordnet",0.737109363079071,yes,separate,manual_safe
+being carried,caregiver_social,being carried with,visual_genome,0.7341873049736023,yes,being carried,high_score_contains_seed
+open hand,body_action_control,open hands,conceptnet,0.7340857982635498,yes,open hand,simple_morph
+grandfather,caregiver_social,grandfathers,conceptnet,0.7337377071380615,yes,grandfather,simple_morph
+moving,space_motion_physics,the act of moving something from one location to another,wordnet,0.7337314486503601,yes,moving,manual_safe
+upset,body_state_valence,upsettedness,conceptnet,0.733537495136261,yes,upset,high_score_contains_seed
+being carried,caregiver_social,being carried by,visual_genome,0.7285014390945435,yes,being carried,high_score_contains_seed
+moving,space_motion_physics,the act of moving from one place to another,wordnet,0.7273889780044556,yes,moving,manual_safe
+hidden,space_motion_physics,hiddenness,"conceptnet,wordnet",0.7249140739440918,yes,hidden,manual_safe
+turn head,body_action_control,turn head toward,conceptnet,0.7248035073280334,yes,turn head,high_score_contains_seed
+grandfather,caregiver_social,paternal grandfather,conceptnet,0.7240374684333801,yes,grandfather,high_score_contains_seed
+contact,space_motion_physics,physical contact,"conceptnet,wordnet",0.723840594291687,yes,contact,manual_safe
+no sound,sound_language_precursor,the property of making no sound,wordnet,0.7235013842582703,yes,no sound,high_score_contains_seed
+safe,object_property,safeness,"conceptnet,wordnet",0.7226592302322388,yes,safe,manual_safe
+slide,space_motion_physics,slide object,wordbank,0.7205106019973755,yes,slide,high_score_contains_seed
+open hand,body_action_control,open hand,conceptnet,0.7181643843650818,yes,open hand,simple_morph
+bounce,space_motion_physics,bounce,"conceptnet,wordnet",0.7175966501235962,yes,bounce,simple_morph
+unfamiliar,object_property,unfamiliarity,wordnet,0.7140557765960693,yes,unfamiliar,manual_safe
+toward,space_motion_physics,toward,"conceptnet,visual_genome",0.7127390503883362,yes,toward,simple_morph
+breakable,object_property,breakables,conceptnet,0.7067740559577942,yes,breakable,simple_morph
+breakable,object_property,breakable,"conceptnet,wordnet",0.7060401439666748,yes,breakable,manual_safe
+toward,space_motion_physics,towardness,conceptnet,0.7048535943031311,yes,toward,simple_morph
+gesture,sound_language_precursor,gesture,"conceptnet,visual_genome,wordnet",0.7046210765838623,yes,gesture,simple_morph
+door opens,routine_event,door opens,conceptnet,0.7044564485549927,yes,door opens,simple_morph
+vibration,space_motion_physics,vibration,"conceptnet,wordnet",0.7041845321655273,yes,vibration,simple_morph
+slide,space_motion_physics,slide,"conceptnet,visual_genome,wordbank,wordnet",0.7020041942596436,yes,slide,simple_morph
+turn head,body_action_control,turn head,conceptnet,0.7018222808837891,yes,turn head,simple_morph
+boundary,core_relation,boundary,"conceptnet,visual_genome,wordnet",0.6988840699195862,yes,boundary,simple_morph
+wave arm,body_action_control,wave arms,conceptnet,0.6976563930511475,yes,wave arm,simple_morph
+gesture,sound_language_precursor,gestures,"conceptnet,visual_genome",0.6970281004905701,yes,gesture,simple_morph
+lean,body_action_control,lean,"conceptnet,visual_genome,wordnet",0.6965082287788391,yes,lean,simple_morph
+access,space_motion_physics,access,"conceptnet,wordnet",0.6962189078330994,yes,access,simple_morph
+open hand,body_action_control,open handed,conceptnet,0.6959239840507507,yes,open hand,simple_morph
+tip over,space_motion_physics,tip over,"conceptnet,wordnet",0.6952072978019714,yes,tip over,simple_morph
+upset,body_state_valence,upsetness,conceptnet,0.6927444934844971,yes,upset,simple_morph
+vibration,space_motion_physics,vibrations,conceptnet,0.690894603729248,yes,vibration,simple_morph
+unsafe,object_property,unsafeness,conceptnet,0.6895948648452759,yes,unsafe,simple_morph
+visible,space_motion_physics,visible,"conceptnet,visual_genome,wordnet",0.6881309151649475,yes,visible,simple_morph
+fuss,body_action_control,fuss,"conceptnet,wordnet",0.685111403465271,yes,fuss,simple_morph
+syllable,sound_language_precursor,syllable,"conceptnet,wordnet",0.6840065121650696,yes,syllable,simple_morph
+moving,space_motion_physics,moving,"conceptnet,visual_genome,wordnet",0.6830790042877197,yes,moving,simple_morph
+unfamiliar,object_property,unfamiliars,conceptnet,0.6799530982971191,yes,unfamiliar,simple_morph
+blunt,object_property,blunt,"conceptnet,wordnet",0.6794000864028931,yes,blunt,simple_morph
+unfamiliar,object_property,unfamiliar,"conceptnet,wordnet",0.6792384386062622,yes,unfamiliar,simple_morph
+applesauce,common_object,applesauce,"conceptnet,wordbank,wordnet",0.6772550344467163,yes,applesauce,simple_morph
+relation,core_relation,relation,"conceptnet,wordnet",0.6766970157623291,yes,relation,simple_morph
+light source,space_motion_physics,light source,"conceptnet,wordnet",0.6766290068626404,yes,light source,simple_morph
+peekaboo,caregiver_social,peekaboo,"conceptnet,wordbank,wordnet",0.6724473834037781,yes,peekaboo,simple_morph
+bounce,space_motion_physics,bounces,conceptnet,0.6720157265663147,yes,bounce,simple_morph
+thumb,body_part,thumb,"conceptnet,visual_genome,wordnet",0.6683160662651062,yes,thumb,simple_morph
+separate,space_motion_physics,separate,"conceptnet,wordnet",0.668251633644104,yes,separate,simple_morph
+openable,object_property,openable,conceptnet,0.6682261228561401,yes,openable,simple_morph
+darkness,space_motion_physics,darkness,"conceptnet,wordnet",0.6677570343017578,yes,darkness,simple_morph
+familiar,object_property,familiarness,conceptnet,0.6657503247261047,yes,familiar,simple_morph
+toward,space_motion_physics,towards,conceptnet,0.6650874018669128,yes,toward,simple_morph
+spit up,routine_event,spit ups,conceptnet,0.6646538376808167,yes,spit up,simple_morph
+attention,core_relation,attention,"conceptnet,wordnet",0.6606537699699402,yes,attention,simple_morph
+slide,space_motion_physics,slides,"conceptnet,visual_genome",0.65999835729599,yes,slide,simple_morph
+squishy,object_property,squishy,"conceptnet,wordnet",0.6596760153770447,yes,squishy,simple_morph
+diaper,common_object,diaper,"conceptnet,visual_genome,wordbank,wordnet",0.6596676111221313,yes,diaper,simple_morph
+shadow,space_motion_physics,shadow,"conceptnet,visual_genome,wordnet",0.6590087413787842,yes,shadow,simple_morph
+habituation,learning_memory,habituation,"conceptnet,wordnet",0.6579344868659973,yes,habituation,simple_morph
+fall,space_motion_physics,fall,"conceptnet,visual_genome,wordbank,wordnet",0.6576575636863708,yes,fall,simple_morph
+familiar face,caregiver_social,familiar face,conceptnet,0.6573939919471741,yes,familiar face,simple_morph
+kiss,body_action_control,kiss,"conceptnet,visual_genome,wordbank,wordnet",0.6563823819160461,yes,kiss,simple_morph
+fuss,body_action_control,fussing,conceptnet,0.6554378867149353,yes,fuss,simple_morph
+hidden,space_motion_physics,the state of being hidden,wordnet,0.6553118824958801,yes,hidden,manual_safe
+thirst,body_state_valence,thirst,"conceptnet,wordnet",0.6550356149673462,yes,thirst,simple_morph
+spit up,routine_event,spit up,"conceptnet,wordnet",0.6548123955726624,yes,spit up,simple_morph
+blunt,object_property,bluntness,"conceptnet,wordnet",0.6527426242828369,yes,blunt,simple_morph
+cube,common_object,cube,"conceptnet,visual_genome,wordnet",0.6523913145065308,yes,cube,simple_morph
+turn head,body_action_control,turn heads,conceptnet,0.6520915031433105,yes,turn head,simple_morph
+rhyme,sound_language_precursor,rhyme,"conceptnet,wordnet",0.6513610482215881,yes,rhyme,simple_morph
+syllable,sound_language_precursor,syllables,conceptnet,0.6501988768577576,yes,syllable,simple_morph
+warm,space_motion_physics,warmness,"conceptnet,wordnet",0.6497414708137512,yes,warm,simple_morph
+habituation,learning_memory,habituations,conceptnet,0.6476793885231018,yes,habituation,simple_morph
+kiss,body_action_control,kissing,"conceptnet,wordnet",0.6463102102279663,yes,kiss,simple_morph
+skin contact,sensory_input,skin contact,conceptnet,0.645534873008728,yes,skin contact,simple_morph
+teether,common_object,teether,conceptnet,0.6453902721405029,yes,teether,simple_morph
+lap,caregiver_social,lap,"conceptnet,visual_genome,wordnet",0.6452978849411011,yes,lap,simple_morph
+edge,space_motion_physics,edge,"conceptnet,visual_genome,wordnet",0.6436214447021484,yes,edge,simple_morph
+input,core_relation,input,"conceptnet,visual_genome,wordnet",0.6435655951499939,yes,input,simple_morph
+babble,body_action_control,babble,"conceptnet,wordnet",0.6433988809585571,yes,babble,simple_morph
+pressure,space_motion_physics,pressure,"conceptnet,wordnet",0.6428245902061462,yes,pressure,simple_morph
+babble,body_action_control,babbles,conceptnet,0.6415600776672363,yes,babble,simple_morph
+input,core_relation,inputs,"conceptnet,visual_genome",0.6404392123222351,yes,input,simple_morph
+dog bark,sensory_input,dog bark,conceptnet,0.6399210691452026,yes,dog bark,simple_morph
+bump,space_motion_physics,bump,"conceptnet,visual_genome,wordbank,wordnet",0.6388909816741943,yes,bump,simple_morph
+peekaboo,caregiver_social,peekaboos,conceptnet,0.6364889740943909,yes,peekaboo,simple_morph
+light source,space_motion_physics,light sources,conceptnet,0.6351370215415955,yes,light source,simple_morph
+high voice,sound_language_precursor,high voice,conceptnet,0.6340282559394836,yes,high voice,simple_morph
+wet,space_motion_physics,wet,"conceptnet,wordbank,wordnet",0.632920503616333,yes,wet,simple_morph
+peekaboo,caregiver_social,peekabooing,conceptnet,0.6328588724136353,yes,peekaboo,simple_morph
+disappears,space_motion_physics,disappears,conceptnet,0.632321298122406,yes,disappears,simple_morph
+reach,body_action_control,reach,"conceptnet,wordnet",0.6299440264701843,yes,reach,simple_morph
+balance,space_motion_physics,balance,"conceptnet,wordnet",0.6296526789665222,yes,balance,simple_morph
+teether,common_object,teethers,conceptnet,0.6293766498565674,yes,teether,simple_morph
+bouncy,object_property,bouncy,"conceptnet,wordnet",0.6293179392814636,yes,bouncy,simple_morph
+fuss,body_action_control,fusses,conceptnet,0.6287434697151184,yes,fuss,simple_morph
+eye contact,sensory_input,eye contact,"conceptnet,wordnet",0.6267345547676086,yes,eye contact,simple_morph
+behind,space_motion_physics,behind,"conceptnet,visual_genome,wordbank,wordnet",0.6256119012832642,yes,behind,simple_morph
+familiar,object_property,familiars,conceptnet,0.6248407363891602,yes,familiar,simple_morph
+sharp,object_property,sharp,"conceptnet,visual_genome,wordnet",0.6202899217605591,yes,sharp,simple_morph
+quiet,object_property,quietness,"conceptnet,wordnet",0.6197609305381775,yes,quiet,simple_morph
+light bulb,common_object,light bulb,"conceptnet,wordnet",0.619238555431366,yes,light bulb,simple_morph
+memory trace,learning_memory,memory trace,"conceptnet,wordnet",0.6181958913803101,yes,memory trace,simple_morph
+familiar,object_property,familiar,"conceptnet,wordnet",0.6166819334030151,yes,familiar,simple_morph
+unsafe,object_property,unsafe,"conceptnet,wordnet",0.6162827014923096,yes,unsafe,simple_morph
+oatmeal,common_object,oatmeal,"conceptnet,wordnet",0.6151648163795471,yes,oatmeal,simple_morph
+mosquito,common_object,mosquito,"conceptnet,visual_genome,wordnet",0.6144490242004395,yes,mosquito,simple_morph
+cube,common_object,cubes,"conceptnet,visual_genome",0.6139578819274902,yes,cube,simple_morph
+light bulb,common_object,light bulbs,conceptnet,0.6134270429611206,yes,light bulb,simple_morph
+thirst,body_state_valence,thirsts,conceptnet,0.6132297515869141,yes,thirst,simple_morph
+event,core_relation,event,"conceptnet,visual_genome,wordnet",0.6124511361122131,yes,event,simple_morph
+preference,learning_memory,preference,"conceptnet,wordnet",0.611954391002655,yes,preference,simple_morph
+front,space_motion_physics,front,"conceptnet,visual_genome,wordnet",0.6111670136451721,yes,front,simple_morph
+dog bark,sensory_input,dog barks,conceptnet,0.6110482811927795,yes,dog bark,simple_morph
+frustration,body_state_valence,frustration,"conceptnet,wordnet",0.6105495691299438,yes,frustration,simple_morph
+dry,space_motion_physics,dry,"conceptnet,visual_genome,wordbank,wordnet",0.6099379062652588,yes,dry,simple_morph
+roll,space_motion_physics,rolling,"conceptnet,visual_genome,wordnet",0.608386754989624,yes,roll,simple_morph
+peekaboo,caregiver_social,peekabooed,conceptnet,0.6082680821418762,yes,peekaboo,simple_morph
+away,space_motion_physics,away,"conceptnet,wordbank,wordnet",0.6082613468170166,yes,away,simple_morph
+wipes,common_object,wipes,"conceptnet,visual_genome",0.6079413890838623,yes,wipes,simple_morph
+warm,space_motion_physics,warm,"conceptnet,wordnet",0.6072417497634888,yes,warm,simple_morph
+being dressed,caregiver_social,being dressed,conceptnet,0.6036522388458252,yes,being dressed,simple_morph
+loud voice,sound_language_precursor,loud voice,conceptnet,0.6035600900650024,yes,loud voice,simple_morph
+wanted,body_state_valence,wantedness,conceptnet,0.5998108983039856,yes,wanted,simple_morph
+not wanted,body_state_valence,not wanted,wordnet,0.599572479724884,yes,not wanted,simple_morph
+tip over,space_motion_physics,tip overs,conceptnet,0.5984594821929932,yes,tip over,simple_morph
+pressure,space_motion_physics,pressures,conceptnet,0.5966975688934326,yes,pressure,simple_morph
+action,core_relation,action,"conceptnet,wordnet",0.5965145230293274,yes,action,simple_morph
+gone,space_motion_physics,goneness,conceptnet,0.5955299139022827,yes,gone,simple_morph
+diaper,common_object,diapers,"conceptnet,visual_genome",0.5909562706947327,yes,diaper,simple_morph
+roll,space_motion_physics,roll,"conceptnet,visual_genome,wordnet",0.5900878310203552,yes,roll,simple_morph
+light weight,object_property,light weight,conceptnet,0.5880309343338013,yes,light weight,simple_morph
+outside,core_relation,outsideness,conceptnet,0.5865897536277771,yes,outside,simple_morph
+cold,space_motion_physics,cold,"conceptnet,wordbank,wordnet",0.585223913192749,yes,cold,simple_morph
+closable,object_property,closable,conceptnet,0.5851806402206421,yes,closable,simple_morph
+mosquito,common_object,mosquitoes,conceptnet,0.5821694731712341,yes,mosquito,simple_morph
+alone,caregiver_social,aloneness,"conceptnet,wordnet",0.5819832682609558,yes,alone,simple_morph
+oatmeal,common_object,oatmeals,conceptnet,0.5814319252967834,yes,oatmeal,simple_morph
+sour taste,sensory_input,sour taste,conceptnet,0.5807982087135315,yes,sour taste,simple_morph
+middle,space_motion_physics,middle,"conceptnet,wordnet",0.5805050730705261,yes,middle,simple_morph
+prediction,learning_memory,prediction,"conceptnet,wordnet",0.5782462358474731,yes,prediction,simple_morph
+sleepiness,body_state_valence,sleepiness,"conceptnet,wordnet",0.5772475004196167,yes,sleepiness,simple_morph
+dog bark,sensory_input,dog barking,conceptnet,0.5764210820198059,yes,dog bark,simple_morph
+sleepiness,body_state_valence,sleepinesses,conceptnet,0.5760596990585327,yes,sleepiness,simple_morph
+settle,body_action_control,settle,"conceptnet,wordnet",0.5758358240127563,yes,settle,simple_morph
+dim,object_property,dim,"conceptnet,wordnet",0.5752905011177063,yes,dim,simple_morph
+closed,core_relation,closedness,conceptnet,0.5718994736671448,yes,closed,simple_morph
+same,core_relation,sameness,"conceptnet,wordnet",0.5716957449913025,yes,same,simple_morph
+quiet,object_property,quiet,"conceptnet,wordbank,wordnet",0.5697518587112427,yes,quiet,simple_morph
+call response,caregiver_social,call response,conceptnet,0.5658238530158997,yes,call response,simple_morph
+whole,core_relation,whole,"conceptnet,wordnet",0.5643566250801086,yes,whole,simple_morph
+whole,core_relation,wholes,conceptnet,0.5517394542694092,yes,whole,simple_morph
+effect,core_relation,effect,"conceptnet,visual_genome,wordnet",0.5439369082450867,yes,effect,simple_morph
+open,core_relation,opens,conceptnet,0.5428107976913452,yes,open,simple_morph
+too much,body_state_valence,too muchness,conceptnet,0.538956344127655,yes,too much,simple_morph
+being fed,caregiver_social,being fed,visual_genome,0.5385986566543579,yes,being fed,simple_morph
+different,core_relation,different,"conceptnet,visual_genome,wordnet",0.5336290001869202,yes,different,simple_morph
+middle,space_motion_physics,middles,conceptnet,0.5326022505760193,yes,middle,simple_morph
+down,core_relation,down,"conceptnet,visual_genome,wordbank,wordnet",0.5298410058021545,yes,down,simple_morph
+fast,space_motion_physics,fast,"conceptnet,wordbank,wordnet",0.5228076577186584,yes,fast,simple_morph
+stop,routine_event,stops,"conceptnet,visual_genome,wordnet",0.5218392610549927,yes,stop,simple_morph
+light weight,object_property,light weights,conceptnet,0.5145082473754883,yes,light weight,simple_morph
+off,core_relation,off,"conceptnet,visual_genome,wordbank,wordnet",0.5122458934783936,yes,off,simple_morph
+there,space_motion_physics,thereness,"conceptnet,wordnet",0.5015720725059509,yes,there,simple_morph
+medicine,common_object,medicine,"conceptnet,visual_genome,wordbank,wordnet",0.4976139664649963,yes,medicine,simple_morph
+dishabituation,learning_memory,dishabituations,conceptnet,0.4940724670886993,yes,dishabituation,simple_morph
+thing,core_relation,thing,"conceptnet,visual_genome,wordnet",0.47642782330513,yes,thing,simple_morph
+many,core_relation,many,"conceptnet,visual_genome,wordnet",0.4626525640487671,yes,many,simple_morph

@@ -1,0 +1,386 @@
+object,field,answer,source,held_out
+ball,round_like,yes,llm_blind_subagent_claude_opus_5_5,False
+ball,hard,no,llm_blind_subagent_claude_opus_5_5,False
+ball,bouncy,yes,llm_blind_subagent_claude_opus_5_5,False
+ball,breakable,no,llm_blind_subagent_claude_opus_5_5,False
+ball,heavy_like,no,llm_blind_subagent_claude_opus_5_5,False
+ball,noisy,no,llm_blind_subagent_claude_opus_5_5,False
+ball,closable,no,llm_blind_subagent_claude_opus_5_5,False
+rattle,round_like,unsure,llm_blind_subagent_claude_opus_5_5,False
+rattle,hard,yes,llm_blind_subagent_claude_opus_5_5,False
+rattle,bouncy,no,llm_blind_subagent_claude_opus_5_5,False
+rattle,breakable,no,llm_blind_subagent_claude_opus_5_5,False
+rattle,heavy_like,no,llm_blind_subagent_claude_opus_5_5,False
+rattle,noisy,yes,llm_blind_subagent_claude_opus_5_5,False
+rattle,closable,no,llm_blind_subagent_claude_opus_5_5,False
+block,round_like,no,llm_blind_subagent_claude_opus_5_5,False
+block,hard,yes,llm_blind_subagent_claude_opus_5_5,False
+block,bouncy,no,llm_blind_subagent_claude_opus_5_5,False
+block,breakable,no,llm_blind_subagent_claude_opus_5_5,False
+block,heavy_like,no,llm_blind_subagent_claude_opus_5_5,False
+block,noisy,no,llm_blind_subagent_claude_opus_5_5,False
+block,closable,no,llm_blind_subagent_claude_opus_5_5,False
+doll,round_like,no,llm_blind_subagent_claude_opus_5_5,False
+doll,hard,unsure,llm_blind_subagent_claude_opus_5_5,False
+doll,bouncy,no,llm_blind_subagent_claude_opus_5_5,False
+doll,breakable,no,llm_blind_subagent_claude_opus_5_5,False
+doll,heavy_like,no,llm_blind_subagent_claude_opus_5_5,False
+doll,noisy,no,llm_blind_subagent_claude_opus_5_5,False
+doll,closable,no,llm_blind_subagent_claude_opus_5_5,False
+toy car,round_like,yes,llm_blind_subagent_claude_opus_5_5,False
+toy car,hard,yes,llm_blind_subagent_claude_opus_5_5,False
+toy car,bouncy,no,llm_blind_subagent_claude_opus_5_5,False
+toy car,breakable,no,llm_blind_subagent_claude_opus_5_5,False
+toy car,heavy_like,no,llm_blind_subagent_claude_opus_5_5,False
+toy car,noisy,no,llm_blind_subagent_claude_opus_5_5,False
+toy car,closable,no,llm_blind_subagent_claude_opus_5_5,False
+ring toy,round_like,no,llm_blind_subagent_claude_opus_5_5,False
+ring toy,hard,yes,llm_blind_subagent_claude_opus_5_5,False
+ring toy,bouncy,no,llm_blind_subagent_claude_opus_5_5,False
+ring toy,breakable,no,llm_blind_subagent_claude_opus_5_5,False
+ring toy,heavy_like,no,llm_blind_subagent_claude_opus_5_5,False
+ring toy,noisy,no,llm_blind_subagent_claude_opus_5_5,False
+ring toy,closable,no,llm_blind_subagent_claude_opus_5_5,False
+balloon,round_like,yes,llm_blind_subagent_claude_opus_5_5,False
+balloon,hard,no,llm_blind_subagent_claude_opus_5_5,False
+balloon,bouncy,yes,llm_blind_subagent_claude_opus_5_5,False
+balloon,breakable,no,llm_blind_subagent_claude_opus_5_5,False
+balloon,heavy_like,no,llm_blind_subagent_claude_opus_5_5,False
+balloon,noisy,no,llm_blind_subagent_claude_opus_5_5,False
+balloon,closable,no,llm_blind_subagent_claude_opus_5_5,False
+spoon,round_like,no,llm_blind_subagent_claude_opus_5_5,False
+spoon,hard,yes,llm_blind_subagent_claude_opus_5_5,False
+spoon,bouncy,no,llm_blind_subagent_claude_opus_5_5,False
+spoon,breakable,no,llm_blind_subagent_claude_opus_5_5,False
+spoon,heavy_like,no,llm_blind_subagent_claude_opus_5_5,False
+spoon,noisy,no,llm_blind_subagent_claude_opus_5_5,False
+spoon,closable,no,llm_blind_subagent_claude_opus_5_5,False
+cup,round_like,unsure,llm_blind_subagent_claude_opus_5_5,False
+cup,hard,yes,llm_blind_subagent_claude_opus_5_5,False
+cup,bouncy,no,llm_blind_subagent_claude_opus_5_5,False
+cup,breakable,unsure,llm_blind_subagent_claude_opus_5_5,False
+cup,heavy_like,no,llm_blind_subagent_claude_opus_5_5,False
+cup,noisy,no,llm_blind_subagent_claude_opus_5_5,False
+cup,closable,no,llm_blind_subagent_claude_opus_5_5,False
+bowl,round_like,no,llm_blind_subagent_claude_opus_5_5,False
+bowl,hard,yes,llm_blind_subagent_claude_opus_5_5,False
+bowl,bouncy,no,llm_blind_subagent_claude_opus_5_5,False
+bowl,breakable,unsure,llm_blind_subagent_claude_opus_5_5,False
+bowl,heavy_like,no,llm_blind_subagent_claude_opus_5_5,False
+bowl,noisy,no,llm_blind_subagent_claude_opus_5_5,False
+bowl,closable,no,llm_blind_subagent_claude_opus_5_5,False
+bottle,round_like,yes,llm_blind_subagent_claude_opus_5_5,False
+bottle,hard,yes,llm_blind_subagent_claude_opus_5_5,False
+bottle,bouncy,no,llm_blind_subagent_claude_opus_5_5,False
+bottle,breakable,unsure,llm_blind_subagent_claude_opus_5_5,False
+bottle,heavy_like,no,llm_blind_subagent_claude_opus_5_5,False
+bottle,noisy,no,llm_blind_subagent_claude_opus_5_5,False
+bottle,closable,yes,llm_blind_subagent_claude_opus_5_5,False
+banana,round_like,no,llm_blind_subagent_claude_opus_5_5,False
+banana,hard,no,llm_blind_subagent_claude_opus_5_5,False
+banana,bouncy,no,llm_blind_subagent_claude_opus_5_5,False
+banana,breakable,no,llm_blind_subagent_claude_opus_5_5,False
+banana,heavy_like,no,llm_blind_subagent_claude_opus_5_5,False
+banana,noisy,no,llm_blind_subagent_claude_opus_5_5,False
+banana,closable,no,llm_blind_subagent_claude_opus_5_5,False
+cracker,round_like,no,llm_blind_subagent_claude_opus_5_5,False
+cracker,hard,yes,llm_blind_subagent_claude_opus_5_5,False
+cracker,bouncy,no,llm_blind_subagent_claude_opus_5_5,False
+cracker,breakable,yes,llm_blind_subagent_claude_opus_5_5,False
+cracker,heavy_like,no,llm_blind_subagent_claude_opus_5_5,False
+cracker,noisy,no,llm_blind_subagent_claude_opus_5_5,False
+cracker,closable,no,llm_blind_subagent_claude_opus_5_5,False
+apple,round_like,yes,llm_blind_subagent_claude_opus_5_5,False
+apple,hard,yes,llm_blind_subagent_claude_opus_5_5,False
+apple,bouncy,no,llm_blind_subagent_claude_opus_5_5,False
+apple,breakable,no,llm_blind_subagent_claude_opus_5_5,False
+apple,heavy_like,no,llm_blind_subagent_claude_opus_5_5,False
+apple,noisy,no,llm_blind_subagent_claude_opus_5_5,False
+apple,closable,no,llm_blind_subagent_claude_opus_5_5,False
+sock,round_like,no,llm_blind_subagent_claude_opus_5_5,False
+sock,hard,no,llm_blind_subagent_claude_opus_5_5,False
+sock,bouncy,no,llm_blind_subagent_claude_opus_5_5,False
+sock,breakable,no,llm_blind_subagent_claude_opus_5_5,False
+sock,heavy_like,no,llm_blind_subagent_claude_opus_5_5,False
+sock,noisy,no,llm_blind_subagent_claude_opus_5_5,False
+sock,closable,no,llm_blind_subagent_claude_opus_5_5,False
+shoe,round_like,no,llm_blind_subagent_claude_opus_5_5,False
+shoe,hard,unsure,llm_blind_subagent_claude_opus_5_5,False
+shoe,bouncy,no,llm_blind_subagent_claude_opus_5_5,False
+shoe,breakable,no,llm_blind_subagent_claude_opus_5_5,False
+shoe,heavy_like,no,llm_blind_subagent_claude_opus_5_5,False
+shoe,noisy,no,llm_blind_subagent_claude_opus_5_5,False
+shoe,closable,no,llm_blind_subagent_claude_opus_5_5,False
+hat,round_like,no,llm_blind_subagent_claude_opus_5_5,False
+hat,hard,no,llm_blind_subagent_claude_opus_5_5,False
+hat,bouncy,no,llm_blind_subagent_claude_opus_5_5,False
+hat,breakable,no,llm_blind_subagent_claude_opus_5_5,False
+hat,heavy_like,no,llm_blind_subagent_claude_opus_5_5,False
+hat,noisy,no,llm_blind_subagent_claude_opus_5_5,False
+hat,closable,no,llm_blind_subagent_claude_opus_5_5,False
+towel,round_like,no,llm_blind_subagent_claude_opus_5_5,False
+towel,hard,no,llm_blind_subagent_claude_opus_5_5,False
+towel,bouncy,no,llm_blind_subagent_claude_opus_5_5,False
+towel,breakable,no,llm_blind_subagent_claude_opus_5_5,False
+towel,heavy_like,no,llm_blind_subagent_claude_opus_5_5,False
+towel,noisy,no,llm_blind_subagent_claude_opus_5_5,False
+towel,closable,no,llm_blind_subagent_claude_opus_5_5,False
+blanket,round_like,no,llm_blind_subagent_claude_opus_5_5,False
+blanket,hard,no,llm_blind_subagent_claude_opus_5_5,False
+blanket,bouncy,no,llm_blind_subagent_claude_opus_5_5,False
+blanket,breakable,no,llm_blind_subagent_claude_opus_5_5,False
+blanket,heavy_like,no,llm_blind_subagent_claude_opus_5_5,False
+blanket,noisy,no,llm_blind_subagent_claude_opus_5_5,False
+blanket,closable,no,llm_blind_subagent_claude_opus_5_5,False
+soap,round_like,no,llm_blind_subagent_claude_opus_5_5,False
+soap,hard,yes,llm_blind_subagent_claude_opus_5_5,False
+soap,bouncy,no,llm_blind_subagent_claude_opus_5_5,False
+soap,breakable,no,llm_blind_subagent_claude_opus_5_5,False
+soap,heavy_like,no,llm_blind_subagent_claude_opus_5_5,False
+soap,noisy,no,llm_blind_subagent_claude_opus_5_5,False
+soap,closable,no,llm_blind_subagent_claude_opus_5_5,False
+comb,round_like,no,llm_blind_subagent_claude_opus_5_5,False
+comb,hard,yes,llm_blind_subagent_claude_opus_5_5,False
+comb,bouncy,no,llm_blind_subagent_claude_opus_5_5,False
+comb,breakable,no,llm_blind_subagent_claude_opus_5_5,False
+comb,heavy_like,no,llm_blind_subagent_claude_opus_5_5,False
+comb,noisy,no,llm_blind_subagent_claude_opus_5_5,False
+comb,closable,no,llm_blind_subagent_claude_opus_5_5,False
+toothbrush,round_like,no,llm_blind_subagent_claude_opus_5_5,False
+toothbrush,hard,yes,llm_blind_subagent_claude_opus_5_5,False
+toothbrush,bouncy,no,llm_blind_subagent_claude_opus_5_5,False
+toothbrush,breakable,no,llm_blind_subagent_claude_opus_5_5,False
+toothbrush,heavy_like,no,llm_blind_subagent_claude_opus_5_5,False
+toothbrush,noisy,no,llm_blind_subagent_claude_opus_5_5,False
+toothbrush,closable,no,llm_blind_subagent_claude_opus_5_5,False
+key,round_like,no,llm_blind_subagent_claude_opus_5_5,False
+key,hard,yes,llm_blind_subagent_claude_opus_5_5,False
+key,bouncy,no,llm_blind_subagent_claude_opus_5_5,False
+key,breakable,no,llm_blind_subagent_claude_opus_5_5,False
+key,heavy_like,no,llm_blind_subagent_claude_opus_5_5,False
+key,noisy,no,llm_blind_subagent_claude_opus_5_5,False
+key,closable,no,llm_blind_subagent_claude_opus_5_5,False
+book,round_like,no,llm_blind_subagent_claude_opus_5_5,False
+book,hard,unsure,llm_blind_subagent_claude_opus_5_5,False
+book,bouncy,no,llm_blind_subagent_claude_opus_5_5,False
+book,breakable,no,llm_blind_subagent_claude_opus_5_5,False
+book,heavy_like,no,llm_blind_subagent_claude_opus_5_5,False
+book,noisy,no,llm_blind_subagent_claude_opus_5_5,False
+book,closable,yes,llm_blind_subagent_claude_opus_5_5,False
+phone,round_like,no,llm_blind_subagent_claude_opus_5_5,False
+phone,hard,yes,llm_blind_subagent_claude_opus_5_5,False
+phone,bouncy,no,llm_blind_subagent_claude_opus_5_5,False
+phone,breakable,unsure,llm_blind_subagent_claude_opus_5_5,False
+phone,heavy_like,no,llm_blind_subagent_claude_opus_5_5,False
+phone,noisy,no,llm_blind_subagent_claude_opus_5_5,False
+phone,closable,no,llm_blind_subagent_claude_opus_5_5,False
+pillow,round_like,no,llm_blind_subagent_claude_opus_5_5,False
+pillow,hard,no,llm_blind_subagent_claude_opus_5_5,False
+pillow,bouncy,no,llm_blind_subagent_claude_opus_5_5,False
+pillow,breakable,no,llm_blind_subagent_claude_opus_5_5,False
+pillow,heavy_like,no,llm_blind_subagent_claude_opus_5_5,False
+pillow,noisy,no,llm_blind_subagent_claude_opus_5_5,False
+pillow,closable,no,llm_blind_subagent_claude_opus_5_5,False
+pot,round_like,no,llm_blind_subagent_claude_opus_5_5,False
+pot,hard,yes,llm_blind_subagent_claude_opus_5_5,False
+pot,bouncy,no,llm_blind_subagent_claude_opus_5_5,False
+pot,breakable,no,llm_blind_subagent_claude_opus_5_5,False
+pot,heavy_like,unsure,llm_blind_subagent_claude_opus_5_5,False
+pot,noisy,no,llm_blind_subagent_claude_opus_5_5,False
+pot,closable,yes,llm_blind_subagent_claude_opus_5_5,False
+chair,round_like,no,llm_blind_subagent_claude_opus_5_5,False
+chair,hard,yes,llm_blind_subagent_claude_opus_5_5,False
+chair,bouncy,no,llm_blind_subagent_claude_opus_5_5,False
+chair,breakable,no,llm_blind_subagent_claude_opus_5_5,False
+chair,heavy_like,yes,llm_blind_subagent_claude_opus_5_5,False
+chair,noisy,no,llm_blind_subagent_claude_opus_5_5,False
+chair,closable,no,llm_blind_subagent_claude_opus_5_5,False
+plate,round_like,no,llm_blind_subagent_claude_opus_5_5,False
+plate,hard,yes,llm_blind_subagent_claude_opus_5_5,False
+plate,bouncy,no,llm_blind_subagent_claude_opus_5_5,False
+plate,breakable,yes,llm_blind_subagent_claude_opus_5_5,False
+plate,heavy_like,no,llm_blind_subagent_claude_opus_5_5,False
+plate,noisy,no,llm_blind_subagent_claude_opus_5_5,False
+plate,closable,no,llm_blind_subagent_claude_opus_5_5,False
+glass,round_like,unsure,llm_blind_subagent_claude_opus_5_5,False
+glass,hard,yes,llm_blind_subagent_claude_opus_5_5,False
+glass,bouncy,no,llm_blind_subagent_claude_opus_5_5,False
+glass,breakable,yes,llm_blind_subagent_claude_opus_5_5,False
+glass,heavy_like,no,llm_blind_subagent_claude_opus_5_5,False
+glass,noisy,no,llm_blind_subagent_claude_opus_5_5,False
+glass,closable,no,llm_blind_subagent_claude_opus_5_5,False
+box,round_like,no,llm_blind_subagent_claude_opus_5_5,False
+box,hard,unsure,llm_blind_subagent_claude_opus_5_5,False
+box,bouncy,no,llm_blind_subagent_claude_opus_5_5,False
+box,breakable,no,llm_blind_subagent_claude_opus_5_5,False
+box,heavy_like,no,llm_blind_subagent_claude_opus_5_5,False
+box,noisy,no,llm_blind_subagent_claude_opus_5_5,False
+box,closable,yes,llm_blind_subagent_claude_opus_5_5,False
+basket,round_like,no,llm_blind_subagent_claude_opus_5_5,False
+basket,hard,unsure,llm_blind_subagent_claude_opus_5_5,False
+basket,bouncy,no,llm_blind_subagent_claude_opus_5_5,False
+basket,breakable,no,llm_blind_subagent_claude_opus_5_5,False
+basket,heavy_like,no,llm_blind_subagent_claude_opus_5_5,False
+basket,noisy,no,llm_blind_subagent_claude_opus_5_5,False
+basket,closable,no,llm_blind_subagent_claude_opus_5_5,False
+bag,round_like,no,llm_blind_subagent_claude_opus_5_5,False
+bag,hard,no,llm_blind_subagent_claude_opus_5_5,False
+bag,bouncy,no,llm_blind_subagent_claude_opus_5_5,False
+bag,breakable,no,llm_blind_subagent_claude_opus_5_5,False
+bag,heavy_like,no,llm_blind_subagent_claude_opus_5_5,False
+bag,noisy,no,llm_blind_subagent_claude_opus_5_5,False
+bag,closable,unsure,llm_blind_subagent_claude_opus_5_5,False
+jar,round_like,unsure,llm_blind_subagent_claude_opus_5_5,False
+jar,hard,yes,llm_blind_subagent_claude_opus_5_5,False
+jar,bouncy,no,llm_blind_subagent_claude_opus_5_5,False
+jar,breakable,yes,llm_blind_subagent_claude_opus_5_5,False
+jar,heavy_like,no,llm_blind_subagent_claude_opus_5_5,False
+jar,noisy,no,llm_blind_subagent_claude_opus_5_5,False
+jar,closable,yes,llm_blind_subagent_claude_opus_5_5,False
+bucket,round_like,unsure,llm_blind_subagent_claude_opus_5_5,False
+bucket,hard,yes,llm_blind_subagent_claude_opus_5_5,False
+bucket,bouncy,no,llm_blind_subagent_claude_opus_5_5,False
+bucket,breakable,no,llm_blind_subagent_claude_opus_5_5,False
+bucket,heavy_like,no,llm_blind_subagent_claude_opus_5_5,False
+bucket,noisy,no,llm_blind_subagent_claude_opus_5_5,False
+bucket,closable,no,llm_blind_subagent_claude_opus_5_5,False
+mug,round_like,no,llm_blind_subagent_claude_opus_5_5,True
+mug,hard,yes,llm_blind_subagent_claude_opus_5_5,True
+mug,bouncy,no,llm_blind_subagent_claude_opus_5_5,True
+mug,breakable,yes,llm_blind_subagent_claude_opus_5_5,True
+mug,heavy_like,no,llm_blind_subagent_claude_opus_5_5,True
+mug,noisy,no,llm_blind_subagent_claude_opus_5_5,True
+mug,closable,no,llm_blind_subagent_claude_opus_5_5,True
+tin,round_like,unsure,llm_blind_subagent_claude_opus_5_5,True
+tin,hard,yes,llm_blind_subagent_claude_opus_5_5,True
+tin,bouncy,no,llm_blind_subagent_claude_opus_5_5,True
+tin,breakable,no,llm_blind_subagent_claude_opus_5_5,True
+tin,heavy_like,no,llm_blind_subagent_claude_opus_5_5,True
+tin,noisy,no,llm_blind_subagent_claude_opus_5_5,True
+tin,closable,yes,llm_blind_subagent_claude_opus_5_5,True
+teddy bear,round_like,no,llm_blind_subagent_claude_opus_5_5,True
+teddy bear,hard,no,llm_blind_subagent_claude_opus_5_5,True
+teddy bear,bouncy,no,llm_blind_subagent_claude_opus_5_5,True
+teddy bear,breakable,no,llm_blind_subagent_claude_opus_5_5,True
+teddy bear,heavy_like,no,llm_blind_subagent_claude_opus_5_5,True
+teddy bear,noisy,no,llm_blind_subagent_claude_opus_5_5,True
+teddy bear,closable,no,llm_blind_subagent_claude_opus_5_5,True
+drum,round_like,unsure,llm_blind_subagent_claude_opus_5_5,True
+drum,hard,yes,llm_blind_subagent_claude_opus_5_5,True
+drum,bouncy,no,llm_blind_subagent_claude_opus_5_5,True
+drum,breakable,no,llm_blind_subagent_claude_opus_5_5,True
+drum,heavy_like,unsure,llm_blind_subagent_claude_opus_5_5,True
+drum,noisy,unsure,llm_blind_subagent_claude_opus_5_5,True
+drum,closable,no,llm_blind_subagent_claude_opus_5_5,True
+orange,round_like,yes,llm_blind_subagent_claude_opus_5_5,True
+orange,hard,no,llm_blind_subagent_claude_opus_5_5,True
+orange,bouncy,no,llm_blind_subagent_claude_opus_5_5,True
+orange,breakable,no,llm_blind_subagent_claude_opus_5_5,True
+orange,heavy_like,no,llm_blind_subagent_claude_opus_5_5,True
+orange,noisy,no,llm_blind_subagent_claude_opus_5_5,True
+orange,closable,no,llm_blind_subagent_claude_opus_5_5,True
+slipper,round_like,no,llm_blind_subagent_claude_opus_5_5,True
+slipper,hard,no,llm_blind_subagent_claude_opus_5_5,True
+slipper,bouncy,no,llm_blind_subagent_claude_opus_5_5,True
+slipper,breakable,no,llm_blind_subagent_claude_opus_5_5,True
+slipper,heavy_like,no,llm_blind_subagent_claude_opus_5_5,True
+slipper,noisy,no,llm_blind_subagent_claude_opus_5_5,True
+slipper,closable,no,llm_blind_subagent_claude_opus_5_5,True
+mitten,round_like,no,llm_blind_subagent_claude_opus_5_5,True
+mitten,hard,no,llm_blind_subagent_claude_opus_5_5,True
+mitten,bouncy,no,llm_blind_subagent_claude_opus_5_5,True
+mitten,breakable,no,llm_blind_subagent_claude_opus_5_5,True
+mitten,heavy_like,no,llm_blind_subagent_claude_opus_5_5,True
+mitten,noisy,no,llm_blind_subagent_claude_opus_5_5,True
+mitten,closable,no,llm_blind_subagent_claude_opus_5_5,True
+sponge,round_like,no,llm_blind_subagent_claude_opus_5_5,True
+sponge,hard,no,llm_blind_subagent_claude_opus_5_5,True
+sponge,bouncy,no,llm_blind_subagent_claude_opus_5_5,True
+sponge,breakable,no,llm_blind_subagent_claude_opus_5_5,True
+sponge,heavy_like,no,llm_blind_subagent_claude_opus_5_5,True
+sponge,noisy,no,llm_blind_subagent_claude_opus_5_5,True
+sponge,closable,no,llm_blind_subagent_claude_opus_5_5,True
+brush,round_like,no,llm_blind_subagent_claude_opus_5_5,True
+brush,hard,yes,llm_blind_subagent_claude_opus_5_5,True
+brush,bouncy,no,llm_blind_subagent_claude_opus_5_5,True
+brush,breakable,no,llm_blind_subagent_claude_opus_5_5,True
+brush,heavy_like,no,llm_blind_subagent_claude_opus_5_5,True
+brush,noisy,no,llm_blind_subagent_claude_opus_5_5,True
+brush,closable,no,llm_blind_subagent_claude_opus_5_5,True
+cushion,round_like,no,llm_blind_subagent_claude_opus_5_5,True
+cushion,hard,no,llm_blind_subagent_claude_opus_5_5,True
+cushion,bouncy,no,llm_blind_subagent_claude_opus_5_5,True
+cushion,breakable,no,llm_blind_subagent_claude_opus_5_5,True
+cushion,heavy_like,no,llm_blind_subagent_claude_opus_5_5,True
+cushion,noisy,no,llm_blind_subagent_claude_opus_5_5,True
+cushion,closable,no,llm_blind_subagent_claude_opus_5_5,True
+fork,round_like,no,llm_blind_subagent_claude_opus_5_5,True
+fork,hard,yes,llm_blind_subagent_claude_opus_5_5,True
+fork,bouncy,no,llm_blind_subagent_claude_opus_5_5,True
+fork,breakable,no,llm_blind_subagent_claude_opus_5_5,True
+fork,heavy_like,no,llm_blind_subagent_claude_opus_5_5,True
+fork,noisy,no,llm_blind_subagent_claude_opus_5_5,True
+fork,closable,no,llm_blind_subagent_claude_opus_5_5,True
+bell,round_like,no,llm_blind_subagent_claude_opus_5_5,False
+bell,hard,yes,llm_blind_subagent_claude_opus_5_5,False
+bell,bouncy,no,llm_blind_subagent_claude_opus_5_5,False
+bell,breakable,no,llm_blind_subagent_claude_opus_5_5,False
+bell,heavy_like,no,llm_blind_subagent_claude_opus_5_5,False
+bell,noisy,yes,llm_blind_subagent_claude_opus_5_5,False
+bell,closable,no,llm_blind_subagent_claude_opus_5_5,False
+stool,round_like,no,llm_blind_subagent_claude_opus_5_5,False
+stool,hard,yes,llm_blind_subagent_claude_opus_5_5,False
+stool,bouncy,no,llm_blind_subagent_claude_opus_5_5,False
+stool,breakable,no,llm_blind_subagent_claude_opus_5_5,False
+stool,heavy_like,yes,llm_blind_subagent_claude_opus_5_5,False
+stool,noisy,no,llm_blind_subagent_claude_opus_5_5,False
+stool,closable,no,llm_blind_subagent_claude_opus_5_5,False
+watermelon,round_like,yes,llm_blind_subagent_claude_opus_5_5,False
+watermelon,hard,yes,llm_blind_subagent_claude_opus_5_5,False
+watermelon,bouncy,no,llm_blind_subagent_claude_opus_5_5,False
+watermelon,breakable,yes,llm_blind_subagent_claude_opus_5_5,False
+watermelon,heavy_like,yes,llm_blind_subagent_claude_opus_5_5,False
+watermelon,noisy,no,llm_blind_subagent_claude_opus_5_5,False
+watermelon,closable,no,llm_blind_subagent_claude_opus_5_5,False
+beach ball,round_like,yes,llm_blind_subagent_claude_opus_5_5,False
+beach ball,hard,no,llm_blind_subagent_claude_opus_5_5,False
+beach ball,bouncy,yes,llm_blind_subagent_claude_opus_5_5,False
+beach ball,breakable,no,llm_blind_subagent_claude_opus_5_5,False
+beach ball,heavy_like,no,llm_blind_subagent_claude_opus_5_5,False
+beach ball,noisy,no,llm_blind_subagent_claude_opus_5_5,False
+beach ball,closable,no,llm_blind_subagent_claude_opus_5_5,False
+rolling pin,round_like,yes,llm_blind_subagent_claude_opus_5_5,False
+rolling pin,hard,yes,llm_blind_subagent_claude_opus_5_5,False
+rolling pin,bouncy,no,llm_blind_subagent_claude_opus_5_5,False
+rolling pin,breakable,no,llm_blind_subagent_claude_opus_5_5,False
+rolling pin,heavy_like,unsure,llm_blind_subagent_claude_opus_5_5,False
+rolling pin,noisy,no,llm_blind_subagent_claude_opus_5_5,False
+rolling pin,closable,no,llm_blind_subagent_claude_opus_5_5,False
+toy truck,round_like,yes,llm_blind_subagent_claude_opus_5_5,False
+toy truck,hard,yes,llm_blind_subagent_claude_opus_5_5,False
+toy truck,bouncy,no,llm_blind_subagent_claude_opus_5_5,False
+toy truck,breakable,no,llm_blind_subagent_claude_opus_5_5,False
+toy truck,heavy_like,no,llm_blind_subagent_claude_opus_5_5,False
+toy truck,noisy,no,llm_blind_subagent_claude_opus_5_5,False
+toy truck,closable,no,llm_blind_subagent_claude_opus_5_5,False
+soup can,round_like,yes,llm_blind_subagent_claude_opus_5_5,False
+soup can,hard,yes,llm_blind_subagent_claude_opus_5_5,False
+soup can,bouncy,no,llm_blind_subagent_claude_opus_5_5,False
+soup can,breakable,no,llm_blind_subagent_claude_opus_5_5,False
+soup can,heavy_like,unsure,llm_blind_subagent_claude_opus_5_5,False
+soup can,noisy,unsure,llm_blind_subagent_claude_opus_5_5,False
+soup can,closable,no,llm_blind_subagent_claude_opus_5_5,False
+tambourine,round_like,no,llm_blind_subagent_claude_opus_5_5,True
+tambourine,hard,yes,llm_blind_subagent_claude_opus_5_5,True
+tambourine,bouncy,no,llm_blind_subagent_claude_opus_5_5,True
+tambourine,breakable,no,llm_blind_subagent_claude_opus_5_5,True
+tambourine,heavy_like,no,llm_blind_subagent_claude_opus_5_5,True
+tambourine,noisy,yes,llm_blind_subagent_claude_opus_5_5,True
+tambourine,closable,no,llm_blind_subagent_claude_opus_5_5,True
+melon,round_like,yes,llm_blind_subagent_claude_opus_5_5,True
+melon,hard,yes,llm_blind_subagent_claude_opus_5_5,True
+melon,bouncy,no,llm_blind_subagent_claude_opus_5_5,True
+melon,breakable,yes,llm_blind_subagent_claude_opus_5_5,True
+melon,heavy_like,yes,llm_blind_subagent_claude_opus_5_5,True
+melon,noisy,no,llm_blind_subagent_claude_opus_5_5,True
+melon,closable,no,llm_blind_subagent_claude_opus_5_5,True
