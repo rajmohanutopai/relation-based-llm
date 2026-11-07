@@ -3,6 +3,642 @@
 This is the running chronological log for experiments. New entries go at the
 top so the latest result is always visible first.
 
+## 2026-11-07: State Machine Audit
+
+Experiment ID:
+
+```text
+state_machines_v0
+```
+
+Purpose:
+
+```text
+Map the repo's state machines, reproduce invalid states, fix them with regression tests.
+Document: docs/state-machines.md. Tests: tests/test_state_machines.py (32 pass).
+```
+
+Result:
+
+```text
+10 confirmed bugs fixed. Highest: a failed paid Gemini rerun lost results; a wrong
+--output-dir deleted input splits; two runs on one --out lost half their results. One changes
+reported numbers: v4 attach and both learn up to 0.018 less in area than reported, with no
+verdict flipped. Training reruns remain unconfirmed; the model isn't cached here.
+```
+
+Decision:
+
+```text
+v4 report corrected. Issue groups are in the document, not filed on GitHub.
+```
+
+## 2026-11-07: Acting Agent V4.2 (new seeds; peak and re-forming)
+
+Experiment ID:
+
+```text
+acting_agent_v4_2
+```
+
+Purpose:
+
+```text
+Confirm v4.1 on new seeds 6-10, test S-curve against a flat payment of equal total, and
+test whether paying only the first forming removes fading's harm. 110 runs.
+```
+
+Result:
+
+```text
+Noise fix confirmed (5/5). The peak doesn't matter: flat matches the S-curve (13.2% vs
+12.9% on gadgets; 16.1% vs 16.0%). Re-forming explains fading's harm (86% and 57% of the
+rise). S-curve-only did not beat v3.1 on speed in A (2/5), though it ends higher. Surprise
+leads (0.775 vs 0.750).
+```
+
+Decision:
+
+```text
+Saturating payment is what fixes noise. No evidence yet for a needed peak or for a better
+learner. Report: docs/acting-agent-v4-2-design.md
+```
+
+## 2026-11-07: Object Properties V0, LLM answers
+
+Experiment ID:
+
+```text
+object_properties_llm_v0
+```
+
+Purpose:
+
+```text
+The user waived the no-bulk-LLM-rows rule for the 385-question worksheet. A fresh
+subagent with no repository access answered, blind to simulator values. Same graph test.
+```
+
+Result:
+
+```text
+Passes, 5/5 seeds. Names 0.648 on new objects, hand 0.625, sourced 0.623, llm 0.779,
+table7 0.830; actions to 85% about 1,420 for names, 1,160 for llm. 94% coverage; 96.4%
+agreement against a 77.9% all-"no" baseline. Limits: Claude helped build this project's
+world, I worded the questions knowing the simulator, and the fields are its rule inputs.
+```
+
+Decision:
+
+```text
+Filled, mostly true graphs help, and coverage was the gap. Not proof for language. Next:
+a test on properties chosen independently of the world. Report: docs/object-properties-v0.md
+```
+
+## 2026-11-07: Age 6mo Relation Audit V0
+
+Experiment ID:
+
+```text
+age_6mo_relation_audit_v0
+```
+
+Purpose:
+
+```text
+First check of the 9,253 hand-written rows: machine checks on all, and one reader
+(Claude) on a fixed random sample of 200. No row or status changed.
+```
+
+Result:
+
+```text
+Form is clean: no missing fields, repeated IDs or opposite-relation clashes; 106
+repeated triples and 2 polarity conflicts. In the sample, 171 of 200 had no fault;
+1 doubtful fact, 2 garbled, 7 with the wrong relation, 18 in adult or theory
+language, 1 empty. Rows join up poorly on exact phrases: 82% of 8,415 nodes appear
+in one row, and 14% of rows have both ends in the concept list.
+```
+
+Decision:
+
+```text
+Don't review row by row first. Decide on theory-language rows, then design a
+phrase-to-concept step. User's call. Report: docs/age-6mo-relation-audit-v0.md
+```
+
+## 2026-11-07: Object Properties V0 (facts from external sources)
+
+Experiment ID:
+
+```text
+object_properties_v0
+```
+
+Purpose:
+
+```text
+Fill the graph's physical-fact gap from ConceptNet and Visual Genome through a
+mapper, with no LLM rows and no simulator values, then rerun the v1 graph test.
+```
+
+Result:
+
+```text
+Fails both rules. 54 of 385 cells (14%), 61% agreeing with the simulator, with many
+disagreements a clash of meaning. Sourced beat names on both measures in 0/5 seeds
+and hand on new objects in 2/5. New objects: names 0.648, hand 0.625, sourced 0.623,
+table7 0.830. I predicted 25-40% coverage, about 75% agreement, and a win over hand;
+all three were wrong.
+```
+
+Decision:
+
+```text
+These sources can't supply the table. Wrote a blank 385-question worksheet for the
+user, blind to simulator values. Report: docs/object-properties-v0.md
+```
+
+## 2026-11-07: Acting Agent V4.1 (which part of the spike worked)
+
+Experiment ID:
+
+```text
+acting_agent_v4_1
+```
+
+Purpose:
+
+```text
+Split v4's spike rule into low pay, fading and S-curve, in all 8 combinations, to
+see which removes the pull to noise. 80 runs; corners reproduce v4 exactly.
+```
+
+Result:
+
+```text
+The S-curve alone is enough: same-gadget time 25.3% -> 15.3%, below random's 17% in
+4/5 seeds. Low pay helps less (18.9%, 1/5). Fading makes noise worse (+3 points, in
+every pairing and seed), so fading plus S-curve without low pay fails (19.3%, 0/5).
+No one switch carries the learning cost in fresh-gadget rooms. I predicted low pay
+would be the main cause, and it isn't. Surprise still leads.
+```
+
+Decision:
+
+```text
+S-curve only is the best version so far, but I picked it after seeing the data; it
+needs fresh seeds. Report: docs/acting-agent-v4-1-design.md. Whole line summarised
+in docs/acting-agent-summary.md
+```
+
+## 2026-11-05: Acting Agent V4 (attach and spike)
+
+Experiment ID:
+
+```text
+acting_agent_v4
+```
+
+Purpose:
+
+```text
+Test the user's two rules against happiness from noise. Attach: links must
+connect to seed concepts or grow from them. Spike: unconfirmed links fade
+fast, strength follows an S-curve, and each thing can confirm a link once.
+```
+
+Result:
+
+```text
+Noise rule passed: spike and both spent less time on gadgets than random in
+5/5 seeds in both conditions (same gadgets: 25% -> 14-15%, random 17%). Attach
+alone failed; its frontier reached all 36 features. Learning rule failed for
+every version: in fresh-gadget rooms spike gave up the old lead (0.734 ->
+0.693-0.702, random 0.696), and surprise stays ahead. False links were about 1%
+everywhere, so my guess that they were widespread was wrong.
+```
+
+Decision:
+
+```text
+Spike fixes the noise trap but doesn't yet build better knowledge. Report:
+docs/acting-agent-v4-design.md
+```
+
+## 2026-11-04: Acting Agent V3 (explicit connections)
+
+Experiment ID:
+
+```text
+acting_agent_v3
+```
+
+Purpose:
+
+```text
+Compute happiness and sadness as the user's theory states them: an explicit
+store of specific and general links (general links form only from specific
+ones), happiness = sum of strength gain x (1 - strength), sadness = sum of
+strength x miss.
+```
+
+Result:
+
+```text
+Mixed. Gate failed once (single-feature links polluted by gadgets); fixed
+with paired-feature links and a strongest-link predictor before any arm
+comparison. Grokking held: all top-1% happiest tries formed a general link
+(base rate 22%), and happiness per try fell about 90% with age. With fresh
+gadgets, happiness beat random, novelty and learning progress in 5/5 seeds
+(area 0.737 vs 0.696 random). With fixed gadgets it spent 38% of its time on
+them and lost (0.714 vs 0.718 random, 0.751 surprise). Sadness was swamped by
+everyday noise; the big world change was no sadder than the small one.
+```
+
+Decision:
+
+```text
+Main and grief rules failed. Next candidate: sadness from repeated failure
+of strong links, and find why fixed gadgets keep paying. Report:
+docs/acting-agent-v3-design.md
+```
+
+v3.1 (2026-11-04):
+
+```text
+Fixed gadgets trapped the agent through a promised grok that never came
+(gadget feature links always "about to form"). Fix: expected chance of
+forming = 1/(2 + past failures). Sadness now needs repeated failure above a
+link's usual rate. Gadget time in A fell 38% -> 26% (random 16%); area 0.728
+(random 0.718, surprise 0.751). B unchanged: beats random, novelty, LP 5/5.
+Everyday sadness fell ~20x. Grief test still flat: the "big" change touched
+only 29 tries in 1,000, so it was too small to test.
+```
+
+Fair grief test (2026-11-04):
+
+```text
+Big change: every light thing stops moving when pushed (~12% of tries);
+small: one light object. Valid run after two test-code fixes (noise kept,
+changed outcomes from their own random source so runs stay matched). Failed:
+total sadness big/small 0.79-1.14, no seed above 2x. Changed moments are
+1.5-3.3x sadder (waves), but total sadness doesn't rise: links measured
+against their usual failure rate adapt as fast as the loss comes.
+```
+
+## 2026-11-04: Acting Agent V2 (both gates failed)
+
+Experiment ID:
+
+```text
+acting_agent_v2
+```
+
+Purpose:
+
+```text
+Give the happiness rule a fair test: a world too big to cover at random
+(800 made-up objects in 16 kinds, 20 objects + 4 gadgets per room, 15
+actions per room), graph features so things share what is learned, and a
+useful-gain measure (one step's effect on the 8 nearest probe objects, same
+action) checked against the graph and names models first.
+```
+
+Pass rules and prediction:
+
+```text
+Fixed in the design before any run. Main rule: happiness_useful beats
+learning_progress, novelty and surprise in both gadget conditions, 4 of 5
+seeds. Predicted: gate passes, main rule passes, beating random fails.
+Report: docs/acting-agent-v2-design.md
+```
+
+Gate result (2026-11-04):
+
+```text
+Failed. Neighbour transfer was negative for ordinary things with the graph
+model (step 0.05 harms a trained model). With smaller steps it is positive
+for everything, gadgets too, and the same for graph and names models: it
+measures general learning, not carry-over. Sizing also failed: random tried
+58% of regions, and the graph model stopped improving by about 1,600 actions
+(16 kinds make 600 objects easy). Full grid not run. Third loss-based
+useful-gain measure to fail.
+```
+
+Second gate (2026-11-04):
+
+```text
+Failed. Decision transfer (neighbour answers fixed minus broken by one step)
+in a 100-kind, 1,200-object world: graph model -0.016 for ordinary things
+(one try breaks more than it fixes), names model slightly positive. The
+graph model still plateaus at about 0.80 early. Fourth single-try measure to
+fail; stopped and handed back.
+```
+
+## 2026-11-03: Acting Agent V1 (gate)
+
+Experiment ID:
+
+```text
+acting_agent_v1
+```
+
+Purpose:
+
+```text
+Give the agent's world model shared features (word vectors) so useful gain
+(carry-over to other things) can be measured.
+```
+
+Result:
+
+```text
+Gate failed. One-step transfer to other cases is negative for ordinary things
+(-0.003 to -0.004) with names or word vectors. Word vectors carry over a
+little (zero-shot new objects 0.654 vs 0.597), too weakly to show in the
+transfer test. Full grid not run.
+```
+
+Decision:
+
+```text
+Next candidate: graph-derived property features (noisy, with gaps), which
+also tests the "graph speeds up a small learner" hunch. Report:
+docs/acting-agent-v1-design.md
+```
+
+Graph features (exploratory; simulated graph = property table + errors/gaps):
+
+```text
+Perfect graph: actions to 85% ~700 vs ~1530 for names; new objects 0.860 vs
+0.597. 2% errors 0.834, 5% 0.773, 10% 0.760 on new objects; speed gain mostly
+gone at 10% errors. With a free per-thing slot, a noisy graph is ignored. The
+transfer gate fails even with the perfect graph, so the one-step transfer
+test is dropped as a usefulness measure.
+```
+
+Hand-written graph test (pre-set rule; random agent; 5 seeds):
+
+```text
+Fails as predicted. The 6mo rows give 23 of 294 property cells (8%) and none
+for held-out objects; hand graph 0.808 / 0.625 vs names 0.826 / 0.648. True
+values at the same cells score the same, so coverage, not correctness, is the
+limit. A complete true 7-field table: 0.865 / 0.830, ~40% fewer actions to
+85%.
+```
+
+## 2026-11-03: Acting Agent V0
+
+Experiment ID:
+
+```text
+acting_agent_v0
+```
+
+Purpose:
+
+```text
+Test the happiness rule as the only reward of an agent that acts in a
+simulated room with gadgets that teach nothing, against random, surprise,
+novelty, plain pleasure and plain learning progress.
+```
+
+Setup:
+
+```text
+scripts/acting_agent_v0.py; world_sim rules without text; 6 ordinary things
++ 2 gadgets per room; 3000 actions; small MLP world model; prequential loss.
+Signal check in an exact world, then a confirmatory run with 10% outcome
+noise, same gadgets (A) or fresh gadgets each room (B), 5 seeds.
+```
+
+Result:
+
+```text
+Fails the pass rule. A: surprise and novelty 0.839, happiness 0.823, random
+0.820. B: random 0.813, happiness 0.806; fresh gadgets trap novelty (50%) and
+learning progress (59%); happiness 38%, beats learning progress in 5/5 seeds.
+The sadness term fires on unlucky outcomes for known toys, so the rule
+prefers gadgets to them.
+```
+
+Rerun with connection loss = forgetting (pre-set rule, same pass rule):
+
+```text
+Fails again. A: 0.829, beats random 4/5 but trails surprise and novelty
+(0.839); gadget time 21%. B: 0.790 vs random 0.813; 60% on fresh gadgets.
+A new gadget gives real but useless gain (learning it is 50/50); no version
+measures "useful".
+```
+
+Decision:
+
+```text
+Two pre-set tries failed. Next idea, exploratory: useful gain = gain that
+improves prediction in other regions (transfer). Report:
+docs/acting-agent-v0-design.md
+```
+
+Exploratory useful-gain run (gradient cosine as transfer):
+
+```text
+A 0.834, B 0.816 (best happiness numbers; B edges random 0.813), but the
+cosine was ~0.002 for both gadgets and toys, so the gain term vanished and the
+arm acted close to random. Not evidence for the idea.
+```
+
+Direct transfer test (one step on the new case alone, loss change elsewhere):
+
+```text
+Does not separate: about -0.002 for toys and gadgets alike. Agent work
+paused per the stopping rule. Useful gain remains untested; it likely needs a
+world model with shared object features.
+```
+
+## 2026-11-03: Sampler Experiment V2
+
+Experiment ID:
+
+```text
+sampler_v2
+```
+
+Purpose:
+
+```text
+Test the full plan.md happiness rule (activation + gain - loss - shortcut) as
+a sampler, measured on unseen rows, against random and surprise.
+```
+
+Setup:
+
+```text
+world_sim_v1 + 1600 noise rows; 3.48M-param GPT; 1500 steps x batch 32;
+3 seeds. 64 unseen + 64 seen probe rows per cluster, answer-word loss,
+smoothed. Arms: random, surprise, happiness, happiness_review (+ loss).
+```
+
+Result:
+
+```text
+random wins in every seed on curve area for test_iid (0.749 vs 0.734 / 0.738)
+and new objects (0.650 vs 0.598 / 0.605). Surprise chased noise (13.7% of
+picks); happiness cut it to 4-5%, but avoiding 9% waste didn't pay. Most of
+the loss comes early, when the sampler starves tasks. Fails the pass rule.
+```
+
+Decision:
+
+```text
+Drop the happiness sampler for choosing training rows. Next test the rule as
+the reward of an acting agent in the simulator. Report:
+docs/sampler-v2-experiment.md
+```
+
+## 2026-11-02: Sampler Experiment V1
+
+Experiment ID:
+
+```text
+sampler_v1
+```
+
+Purpose:
+
+```text
+Test whether choosing what to learn by the happiness rule
+(drop in loss * (1 - strength), plus replay when a strong link weakens)
+beats random, fixed roots-first, and surprise-seeking sampling.
+```
+
+Setup:
+
+```text
+world_sim_v1 + 1600 noise rows; 3.48M-param GPT; word tokenizer; 3000 steps x
+batch 32; 3 seeds; only the sampler differs between arms.
+```
+
+Result:
+
+```text
+test_iid / new wording / new objects (stated) / curve area:
+random     0.919 / 0.620 / 0.792 / 0.821
+happiness  0.907 / 0.565 / 0.764 / 0.806
+surprise   0.906 / 0.605 / 0.751 / 0.804
+fixed      0.859 / 0.546 / 0.690 / 0.608
+Random leads at every point on the curve. The happiness sampler's picks stayed
+near-even (7-10% per cluster); its signal was too noisy to steer. The noise
+test was flawed (noise rows mostly learnable).
+```
+
+Decision:
+
+```text
+Fixed roots-first ordering does not help (agrees with May 3). Run one
+follow-up with a stronger happiness signal, answer-only noise scoring, and
+finer clusters; if happiness still loses to random, move to the acting-agent
+experiment.
+```
+
+Detailed report:
+
+```text
+docs/sampler-v1-experiment.md
+```
+
+## 2026-11-02: World Simulator V1
+
+Experiment ID:
+
+```text
+world_sim_v1
+```
+
+Purpose:
+
+```text
+Fix v0's one-word physics answers, and add the parts the happiness-sampler
+test needs: shortcut ("drug") cases, a learn-more choice task, and an
+unlearnable noise set.
+```
+
+Counts:
+
+```text
+train 16501, dev 1663, test_iid 1231, test_new_wording 1233,
+test_new_object 3086; train_noise 1600, test_noise 400; 15 task types
+```
+
+Result:
+
+```text
+On new objects, the best single word for push_moves fell from 1.000 to 0.495
+and for shake_sound from 0.910 to 0.244. Test-wording sentence overlap fell
+from 29% to 18%. Lint finds no issues. The hand-written audit checked 34
+relations: 32 agree, 2 differ in meaning. drop_* and push_falls still lean on
+surface words (0.6-0.85).
+```
+
+Decision:
+
+```text
+Use v1 for the first happiness-sampler run (random vs fixed vs happiness,
+4M, 3 seeds, tight budget, noise files in the sampler pool).
+```
+
+Detailed report:
+
+```text
+docs/world-sim-v1.md
+```
+
+## 2026-11-02: World Simulator V0
+
+Experiment ID:
+
+```text
+world_sim_v0
+```
+
+Purpose:
+
+```text
+Replace template-first rows with rows computed from a small simulated world
+(objects, containers, surfaces, baby height, caregiver, relation strengths).
+Fix the root_bridge_600_v1 problems: narrow tasks, one-word giveaways, four
+fixed happiness answers, and broken grammar.
+```
+
+Counts:
+
+```text
+train 14420, dev 1448, test_iid 1026, test_new_wording 1015,
+test_new_object 2003; 13 task types; train vocabulary 321 words
+```
+
+Result:
+
+```text
+No test input appears in train. Lint finds no errors. Answers are balanced
+(yes/no tasks at 50/50). On new objects, the best single word scores
+0.24-0.63 on reach, sight, tracking and feeling tasks, close to the majority
+baseline. Single-object physics tasks are still decided by the object's name.
+```
+
+Decision:
+
+```text
+Add shortcut cases, a noise cluster, and more varied physics objects in v1
+before the happiness-sampler run. Do not train a comparison on v0 alone.
+```
+
+Detailed report:
+
+```text
+docs/world-sim-v0.md
+```
+
 ## 2026-05-01: Age 6mo Root World 500
 
 Experiment ID:

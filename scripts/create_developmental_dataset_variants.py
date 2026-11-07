@@ -18,9 +18,13 @@ import hashlib
 import json
 import re
 import shutil
+import sys
 from collections import Counter
 from pathlib import Path
 from typing import Any
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from output_state import refuse_overlap, staged_directory  # noqa: E402
 
 
 Example = dict[str, Any]
@@ -76,9 +80,6 @@ def sha256_file(path: Path) -> str:
 def ensure_output_dir(path: Path, overwrite: bool) -> None:
     if path.exists() and any(path.iterdir()) and not overwrite:
         raise FileExistsError(f"{path} already exists and is not empty; pass --overwrite to replace dataset variants")
-    if path.exists() and overwrite:
-        shutil.rmtree(path)
-    path.mkdir(parents=True, exist_ok=True)
 
 
 def graph_nodes(graph: dict[str, Any] | None) -> dict[str, dict[str, Any]]:
@@ -453,9 +454,10 @@ def validate_matched_variants(records: dict[str, dict[str, list[VariantRecord]]]
                 raise ValueError(f"{split_name}/{variant} source IDs differ; missing={missing}, extra={extra}")
 
 
-def output_file_manifest(paths: dict[str, Path]) -> dict[str, dict[str, str]]:
+def output_file_manifest(paths: dict[str, Path], output_dir: Path, staged_dir: Path) -> dict[str, dict[str, str]]:
+    """Record final paths; hash the staged files that will move there."""
     return {
-        name: {"path": str(path), "sha256": sha256_file(path)}
+        name: {"path": str(path), "sha256": sha256_file(staged_dir / path.relative_to(output_dir))}
         for name, path in sorted(paths.items())
     }
 
@@ -467,6 +469,7 @@ def build_manifest(
     graph_path: Path | None,
     records: dict[str, dict[str, list[VariantRecord]]],
     output_paths: dict[str, Path],
+    staged_dir: Path,
 ) -> dict[str, Any]:
     variants: dict[str, Any] = {}
     for variant in VARIANTS:
@@ -484,7 +487,7 @@ def build_manifest(
         "source_graph": str(graph_path) if graph_path else None,
         "output_dir": str(output_dir),
         "variants": variants,
-        "outputs": output_file_manifest(output_paths),
+        "outputs": output_file_manifest(output_paths, output_dir, staged_dir),
         "notes": [
             "All variants preserve source_example_id, split, and task_type.",
             "Only input and target representation differ by variant.",
@@ -508,6 +511,7 @@ def main() -> int:
     nodes = graph_nodes(graph)
 
     output_dir = args.output_dir or args.experiment_dir / "datasets"
+    refuse_overlap(output_dir, args.experiment_dir)
     ensure_output_dir(output_dir, args.overwrite)
 
     records: dict[str, dict[str, list[VariantRecord]]] = {
@@ -516,20 +520,19 @@ def main() -> int:
     }
     output_paths: dict[str, Path] = {}
 
-    for split_name in SPLITS:
-        examples = load_jsonl(args.experiment_dir / f"{split_name}.jsonl")
-        for variant in VARIANTS:
-            rows = [make_record(experiment_id, variant, split_name, example, nodes) for example in examples]
-            records[variant][split_name] = rows
-            path = output_dir / variant / f"{split_name}.jsonl"
-            write_jsonl(path, rows)
-            output_paths[f"{variant}.{split_name}"] = path
+    with staged_directory(output_dir) as staged_dir:
+        for split_name in SPLITS:
+            examples = load_jsonl(args.experiment_dir / f"{split_name}.jsonl")
+            for variant in VARIANTS:
+                rows = [make_record(experiment_id, variant, split_name, example, nodes) for example in examples]
+                records[variant][split_name] = rows
+                write_jsonl(staged_dir / variant / f"{split_name}.jsonl", rows)
+                output_paths[f"{variant}.{split_name}"] = output_dir / variant / f"{split_name}.jsonl"
 
-    validate_matched_variants(records)
+        validate_matched_variants(records)
 
-    manifest_path = output_dir / "manifest.json"
-    manifest = build_manifest(experiment_id, args.experiment_dir, output_dir, graph_path, records, output_paths)
-    write_json(manifest_path, manifest)
+        manifest = build_manifest(experiment_id, args.experiment_dir, output_dir, graph_path, records, output_paths, staged_dir)
+        write_json(staged_dir / "manifest.json", manifest)
 
     print(json.dumps(manifest, indent=2, sort_keys=True))
     return 0

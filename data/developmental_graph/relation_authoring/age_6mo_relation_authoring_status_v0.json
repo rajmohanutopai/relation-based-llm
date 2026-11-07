@@ -2267,7 +2267,7 @@
       "batch_id": "batch_0009",
       "assigned_to": null,
       "relation_output_file": "data/developmental_graph/relation_authoring/age_6mo_handwritten_relations_v0/batch_0009.jsonl",
-      "relation_rows_written": 22,
+      "relation_rows_written": 23,
       "qa_rows_written": 0,
       "review_status": "not_reviewed",
       "review_notes": ""
