@@ -10,9 +10,14 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
+import os
 import random
 from pathlib import Path
 from typing import Any
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from output_state import atomic_write_text  # noqa: E402
 
 
 TRAIN_SHARD = "shard_00000.parquet"
@@ -157,8 +162,19 @@ def main() -> None:
         if output_path.exists() and not args.overwrite:
             raise SystemExit(f"{output_path} already exists; pass --overwrite to replace it")
 
-    write_parquet(train_texts, train_path)
-    write_parquet(val_texts, val_path)
+    # Write aside and move last, so a crash can't pair a new train shard with an
+    # old val shard. The suffix keeps nanochat from reading these as shards.
+    staged_train = train_path.with_name(f"{train_path.name}.tmp-{os.getpid()}")
+    staged_val = val_path.with_name(f"{val_path.name}.tmp-{os.getpid()}")
+    try:
+        write_parquet(train_texts, staged_train)
+        write_parquet(val_texts, staged_val)
+        manifest_path.unlink(missing_ok=True)
+        os.replace(staged_train, train_path)
+        os.replace(staged_val, val_path)
+    finally:
+        staged_train.unlink(missing_ok=True)
+        staged_val.unlink(missing_ok=True)
 
     manifest = {
         "format": "nanochat_base_data_climbmix",
@@ -176,7 +192,7 @@ def main() -> None:
         "train_shard": str(train_path),
         "val_shard": str(val_path),
     }
-    manifest_path.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
+    atomic_write_text(manifest_path, json.dumps(manifest, indent=2) + "\n")
 
     print(f"Wrote {train_path} ({len(train_texts)} docs)")
     print(f"Wrote {val_path} ({len(val_texts)} docs)")

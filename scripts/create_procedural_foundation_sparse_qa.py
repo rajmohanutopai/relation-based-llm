@@ -17,6 +17,7 @@ import shutil
 from collections import Counter
 from pathlib import Path
 from typing import Any
+from output_state import retire_output_dir  # noqa: E402
 
 
 SPLITS = ("train", "dev", "curriculum_test")
@@ -244,7 +245,7 @@ def main() -> None:
     if args.output_dir.exists() and any(args.output_dir.iterdir()):
         if not args.overwrite:
             raise SystemExit(f"{args.output_dir} exists; pass --overwrite")
-        shutil.rmtree(args.output_dir)
+        retire_output_dir(args.output_dir)
     args.output_dir.mkdir(parents=True, exist_ok=True)
 
     split_rows: dict[str, list[dict[str, Any]]] = {}

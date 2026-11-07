@@ -27,6 +27,7 @@ from pathlib import Path
 from typing import Any
 
 import create_procedural_foundation_world_v3 as v3
+from output_state import retire_output_dir  # noqa: E402
 
 
 SPLITS = v3.SPLITS
@@ -76,7 +77,7 @@ def ensure_output_dir(path: Path, overwrite: bool) -> None:
     if path.exists() and any(path.iterdir()) and not overwrite:
         raise FileExistsError(f"{path} already exists and is not empty; pass --overwrite")
     if path.exists() and overwrite:
-        shutil.rmtree(path)
+        retire_output_dir(path)
     path.mkdir(parents=True, exist_ok=True)
 
 

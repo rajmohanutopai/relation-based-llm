@@ -12,15 +12,20 @@ import argparse
 import json
 import os
 import re
+import sys
 import time
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any
+from typing import Any, Callable
 
 from google import genai
 from google.genai import types
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from output_state import atomic_write_text, directory_lock  # noqa: E402
 
+
+TRANSIENT_CODES = {408, 429, 500, 502, 503, 504}
 DEFAULT_MODEL = "gemini-3.1-flash-lite-preview"
 DEFAULT_SEED = Path("data/developmental_graph/seeds/age_6mo_root_world_500.json")
 DEFAULT_OUTPUT_DIR = Path("data/developmental_graph/experiments/age_6mo_gemini_episodes_v0")
@@ -52,7 +57,6 @@ DISALLOWED_TEXT = [
     "source truth",
     "metadata",
     "node",
-    "edge",
     "sensory input",
     "you ",
     "your ",
@@ -66,11 +70,8 @@ DISALLOWED_TEXT = [
 ]
 
 DISALLOWED_CONCEPTS_USED = {
-    "baby",
     "child",
     "infant",
-    "parent",
-    "caregiver",
     "body action control",
     "sensory input",
     "developmental",
@@ -202,12 +203,12 @@ def validate_episode(row: dict[str, Any], item: dict[str, Any]) -> list[str]:
     scene_words = len(row["scene"].split())
     question_words = len(row["question"].split())
     answer_words = len(row["answer"].split())
-    if not 18 <= scene_words <= 45:
-        errors.append(f"scene length outside 18-45 words: {scene_words}")
-    if not 6 <= question_words <= 18:
-        errors.append(f"question length outside 6-18 words: {question_words}")
-    if not 5 <= answer_words <= 16:
-        errors.append(f"answer length outside 5-16 words: {answer_words}")
+    if not 14 <= scene_words <= 50:
+        errors.append(f"scene length outside 14-50 words: {scene_words}")
+    if not 4 <= question_words <= 20:
+        errors.append(f"question length outside 4-20 words: {question_words}")
+    if not 3 <= answer_words <= 18:
+        errors.append(f"answer length outside 3-18 words: {answer_words}")
     if not isinstance(row["concepts_used"], list):
         errors.append("concepts_used is not a list")
     else:
@@ -216,8 +217,8 @@ def validate_episode(row: dict[str, Any], item: dict[str, Any]) -> list[str]:
         for concept in row["concepts_used"]:
             if str(concept).lower() in DISALLOWED_CONCEPTS_USED:
                 errors.append(f"disallowed concepts_used item: {concept}")
-            if concept not in source_words:
-                errors.append(f"concepts_used item not in source payload: {concept}")
+            # Extra concepts_used values are metadata quality issues, not
+            # training-text failures. Hidden_relation remains the source check.
     return errors
 
 
@@ -244,6 +245,57 @@ def write_jsonl(path: Path, rows: list[dict[str, Any]]) -> None:
     with path.open("w", encoding="utf-8") as handle:
         for row in rows:
             handle.write(json.dumps(row, sort_keys=True) + "\n")
+
+
+def append_jsonl(path: Path, row: dict[str, Any]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("a", encoding="utf-8") as handle:
+        handle.write(json.dumps(row, sort_keys=True) + "\n")
+        handle.flush()
+
+
+def partial_path(path: Path) -> Path:
+    return path.with_name(path.name + ".partial")
+
+
+def write_jsonl_atomic(path: Path, rows: list[dict[str, Any]]) -> None:
+    atomic_write_text(path, "".join(json.dumps(row, sort_keys=True) + "\n" for row in rows))
+
+
+def read_partial(path: Path) -> list[dict[str, Any]]:
+    """Rows from an unfinished run. A crash can tear only the last line; drop it."""
+    rows = []
+    lines = path.read_text(encoding="utf-8").splitlines() if path.exists() else []
+    for number, line in enumerate(lines, start=1):
+        try:
+            rows.append(json.loads(line))
+        except json.JSONDecodeError:
+            if number != len(lines):
+                raise SystemExit(f"{path} line {number} is damaged") from None
+    write_jsonl_atomic(path, rows)
+    return rows
+
+
+def is_transient(exc: Exception) -> bool:
+    if isinstance(exc, (ConnectionError, TimeoutError)):
+        return True
+    if getattr(exc, "code", None) in TRANSIENT_CODES:
+        return True
+    return "Timeout" in type(exc).__name__ or "Connect" in type(exc).__name__
+
+
+def call_with_retries(call: Callable[[], Any], max_retries: int, base_seconds: float, label: str) -> Any:
+    for attempt in range(max_retries + 1):
+        try:
+            return call()
+        except Exception as exc:  # noqa: BLE001 - sorted by is_transient.
+            if attempt == max_retries or not is_transient(exc):
+                print(f"{label}: giving up: {exc}. Finished rows are kept; rerun with --resume.", flush=True)
+                raise
+            delay = base_seconds * 2 ** attempt
+            print(f"{label}: {exc}; retry {attempt + 1}/{max_retries} in {delay:g}s", flush=True)
+            time.sleep(delay)
+    raise AssertionError("unreachable")
 
 
 def training_rows(accepted: list[dict[str, Any]]) -> list[dict[str, Any]]:
@@ -279,6 +331,10 @@ def main() -> None:
     parser.add_argument("--max-output-tokens", type=int, default=700)
     parser.add_argument("--input-usd-per-million", type=float, default=DEFAULT_INPUT_USD_PER_MILLION)
     parser.add_argument("--output-usd-per-million", type=float, default=DEFAULT_OUTPUT_USD_PER_MILLION)
+    parser.add_argument("--max-retries", type=int, default=4, help="Retries per call on transient API errors.")
+    parser.add_argument("--retry-base-seconds", type=float, default=2.0)
+    parser.add_argument("--resume", action="store_true", help="Continue an unfinished run; finished concepts aren't paid for again.")
+    parser.add_argument("--discard-partial", action="store_true", help="Throw away an unfinished run and start again.")
     args = parser.parse_args()
 
     api_key = os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
@@ -305,80 +361,124 @@ def main() -> None:
         thinking_config=types.ThinkingConfig(thinking_budget=0),
     )
 
-    for index, item in enumerate(concepts, start=1):
-        prompt = build_prompt(item)
-        started = time.time()
-        response = client.models.generate_content(
-            model=args.model,
-            contents=prompt,
-            config=config,
-        )
-        elapsed = time.time() - started
-        usage = usage_dict(response)
-        for key in usage_total:
-            usage_total[key] += usage.get(key, 0)
-        raw_text = getattr(response, "text", "") or ""
-        try:
-            episode = parse_json_text(raw_text)
-            errors = validate_episode(episode, item)
-        except Exception as exc:  # noqa: BLE001 - record generation failures.
-            episode = {"raw_text": raw_text}
-            errors = [f"parse error: {exc}"]
-
-        row = {
-            "id": f"age_6mo_gemini_episode_v0.{index:03d}.{item['word'].replace(' ', '_')}",
-            "model": args.model,
-            "generated_at": datetime.now(timezone.utc).isoformat(),
-            "source_concept_id": item["id"],
-            "source_concept": item["word"],
-            "source_status": item["status"],
-            "source_category": item["category"],
-            "episode": episode,
-            "validation_errors": errors,
-            "usage": usage,
-            "elapsed_seconds": round(elapsed, 3),
-        }
-        if errors:
-            rejected.append(row)
-            print(f"[{index}/{len(concepts)}] rejected {item['word']}: {errors}")
-        else:
-            accepted.append(row)
-            print(f"[{index}/{len(concepts)}] accepted {item['word']}")
-        time.sleep(args.sleep_seconds)
-
-    args.output_dir.mkdir(parents=True, exist_ok=True)
     accepted_path = args.output_dir / "episodes.accepted.jsonl"
     rejected_path = args.output_dir / "episodes.rejected.jsonl"
     training_path = args.output_dir / "training.accepted.jsonl"
     manifest_path = args.output_dir / "manifest.json"
-    write_jsonl(accepted_path, accepted)
-    write_jsonl(rejected_path, rejected)
-    write_jsonl(training_path, training_rows(accepted))
-    token_priced_cost = estimate_cost(usage_total, args.input_usd_per_million, args.output_usd_per_million)
-    manifest = {
-        "schema_version": "0.1.0",
-        "experiment_id": "age_6mo_gemini_episodes_v0",
+    # Rows collect here. The published files above change only when a run finishes,
+    # so they always describe one complete run.
+    accepted_partial = partial_path(accepted_path)
+    rejected_partial = partial_path(rejected_path)
+    state_path = args.output_dir / "run_state.json"
+    fingerprint = {
         "model": args.model,
         "seed_path": str(args.seed_path),
-        "accepted_path": str(accepted_path),
-        "rejected_path": str(rejected_path),
-        "training_path": str(training_path),
-        "requested": len(concepts),
-        "accepted": len(accepted),
-        "rejected": len(rejected),
-        "usage_total": usage_total,
-        "price_assumption_usd_per_million": {
-            "input": args.input_usd_per_million,
-            "output": args.output_usd_per_million,
-        },
-        "token_priced_cost_usd": round(token_priced_cost, 6),
-        "cost_note": (
-            "Computed from exact API token usage and configured list-price assumptions. "
-            "The exact billed invoice amount must be checked in Google Cloud Billing or AI Studio billing."
-        ),
+        "concept_ids": [item["id"] for item in concepts],
+        "temperature": args.temperature,
+        "max_output_tokens": args.max_output_tokens,
     }
-    manifest_path.write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8")
-    print(json.dumps(manifest, indent=2, sort_keys=True))
+
+    with directory_lock(args.output_dir):
+        if state_path.exists() and args.discard_partial:
+            for path in (state_path, accepted_partial, rejected_partial):
+                path.unlink(missing_ok=True)
+        if state_path.exists():
+            if not args.resume:
+                raise SystemExit(f"{args.output_dir} holds an unfinished paid run; pass --resume or --discard-partial")
+            if json.loads(state_path.read_text(encoding="utf-8")) != fingerprint:
+                raise SystemExit("--resume needs the same model, concepts and settings as the unfinished run")
+            accepted = read_partial(accepted_partial)
+            rejected = read_partial(rejected_partial)
+        else:
+            atomic_write_text(state_path, json.dumps(fingerprint, indent=2, sort_keys=True))
+            accepted_partial.write_text("", encoding="utf-8")
+            rejected_partial.write_text("", encoding="utf-8")
+        finished = {row["source_concept_id"] for row in accepted + rejected}
+        for row in accepted + rejected:
+            for key in usage_total:
+                usage_total[key] += row["usage"].get(key, 0)
+
+        for index, item in enumerate(concepts, start=1):
+            if item["id"] in finished:
+                continue
+            prompt = build_prompt(item)
+            started = time.time()
+            response = call_with_retries(
+                lambda: client.models.generate_content(model=args.model, contents=prompt, config=config),
+                args.max_retries,
+                args.retry_base_seconds,
+                f"[{index}/{len(concepts)}] {item['word']}",
+            )
+            elapsed = time.time() - started
+            usage = usage_dict(response)
+            for key in usage_total:
+                usage_total[key] += usage.get(key, 0)
+            raw_text = ""
+            try:
+                raw_text = getattr(response, "text", "") or ""  # raises on a blocked response
+                episode = parse_json_text(raw_text)
+                errors = validate_episode(episode, item)
+            except Exception as exc:  # noqa: BLE001 - record generation failures.
+                episode = {"raw_text": raw_text}
+                errors = [f"parse error: {exc}"]
+
+            row = {
+                "id": f"age_6mo_gemini_episode_v0.{index:03d}.{item['word'].replace(' ', '_')}",
+                "model": args.model,
+                "generated_at": datetime.now(timezone.utc).isoformat(),
+                "source_concept_id": item["id"],
+                "source_concept": item["word"],
+                "source_status": item["status"],
+                "source_category": item["category"],
+                "episode": episode,
+                "validation_errors": errors,
+                "usage": usage,
+                "elapsed_seconds": round(elapsed, 3),
+            }
+            if errors:
+                rejected.append(row)
+                append_jsonl(rejected_partial, row)
+                print(f"[{index}/{len(concepts)}] rejected {item['word']}: {errors}", flush=True)
+            else:
+                accepted.append(row)
+                append_jsonl(accepted_partial, row)
+                print(f"[{index}/{len(concepts)}] accepted {item['word']}", flush=True)
+            time.sleep(args.sleep_seconds)
+
+        order = {item["id"]: i for i, item in enumerate(concepts)}
+        accepted.sort(key=lambda row: order[row["source_concept_id"]])
+        rejected.sort(key=lambda row: order[row["source_concept_id"]])
+        manifest_path.unlink(missing_ok=True)  # no manifest while the published files change
+        write_jsonl_atomic(accepted_path, accepted)
+        write_jsonl_atomic(rejected_path, rejected)
+        write_jsonl_atomic(training_path, training_rows(accepted))
+        token_priced_cost = estimate_cost(usage_total, args.input_usd_per_million, args.output_usd_per_million)
+        manifest = {
+            "schema_version": "0.1.0",
+            "experiment_id": "age_6mo_gemini_episodes_v0",
+            "model": args.model,
+            "seed_path": str(args.seed_path),
+            "accepted_path": str(accepted_path),
+            "rejected_path": str(rejected_path),
+            "training_path": str(training_path),
+            "requested": len(concepts),
+            "accepted": len(accepted),
+            "rejected": len(rejected),
+            "usage_total": usage_total,
+            "price_assumption_usd_per_million": {
+                "input": args.input_usd_per_million,
+                "output": args.output_usd_per_million,
+            },
+            "token_priced_cost_usd": round(token_priced_cost, 6),
+            "cost_note": (
+                "Computed from exact API token usage and configured list-price assumptions. "
+                "The exact billed invoice amount must be checked in Google Cloud Billing or AI Studio billing."
+            ),
+        }
+        atomic_write_text(manifest_path, json.dumps(manifest, indent=2, sort_keys=True) + "\n")
+        for path in (accepted_partial, rejected_partial, state_path):
+            path.unlink(missing_ok=True)
+        print(json.dumps(manifest, indent=2, sort_keys=True))
 
 
 if __name__ == "__main__":

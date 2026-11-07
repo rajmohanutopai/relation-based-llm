@@ -319,6 +319,7 @@ def evaluate(
         "evaluation_id": evaluation.get("evaluation_id"),
         "cases": totals["cases"],
         "missing_outputs": totals["missing_outputs"],
+        "unmatched_outputs": len(set(outputs) - {case["id"] for case in cases}),
         "case_pass_rate": ratio(totals["case_passes"], totals["cases"]),
         "relation_family_recall": ratio(totals["matched_relation_families"], totals["expected_relation_families"]),
         "anchor_recall": ratio(totals["matched_graph_anchors"], totals["expected_graph_anchors"]),

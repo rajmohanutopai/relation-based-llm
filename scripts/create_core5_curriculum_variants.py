@@ -29,6 +29,7 @@ from typing import Any
 import create_developmental_dataset_variants as variant_render
 import generate_developmental_bridge_curriculum as bridge_gen
 import generate_developmental_curriculum as base_gen
+from output_state import retire_output_dir  # noqa: E402
 
 
 Example = dict[str, Any]
@@ -103,7 +104,7 @@ def ensure_output_dir(path: Path, overwrite: bool) -> None:
     if path.exists() and any(path.iterdir()) and not overwrite:
         raise FileExistsError(f"{path} already exists and is not empty; pass --overwrite")
     if path.exists() and overwrite:
-        shutil.rmtree(path)
+        retire_output_dir(path)
     path.mkdir(parents=True, exist_ok=True)
 
 

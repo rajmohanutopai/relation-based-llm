@@ -25,6 +25,7 @@ import shutil
 from collections import Counter, defaultdict
 from pathlib import Path
 from typing import Any
+from output_state import retire_output_dir  # noqa: E402
 
 
 EXPERIMENT_ID = "procedural_foundation_v7_conceptnet"
@@ -637,7 +638,7 @@ def main() -> None:
     if args.output_dir.exists() and any(args.output_dir.iterdir()) and not args.overwrite:
         raise SystemExit(f"{args.output_dir} exists and is not empty; pass --overwrite")
     if args.output_dir.exists() and args.overwrite:
-        shutil.rmtree(args.output_dir)
+        retire_output_dir(args.output_dir)
     args.output_dir.mkdir(parents=True, exist_ok=True)
 
     entries = build_entries()

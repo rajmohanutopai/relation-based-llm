@@ -11,11 +11,16 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import sys
+import os
 import random
 import shutil
 from collections import Counter, defaultdict
 from pathlib import Path
 from typing import Any
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from output_state import atomic_write_text  # noqa: E402
 
 
 Example = dict[str, Any]
@@ -252,21 +257,33 @@ def main() -> int:
     examples = load_jsonl(args.curriculum_jsonl)
     splits = stratified_split(examples, args.train_ratio, args.dev_ratio, args.test_ratio, args.seed)
 
-    output_paths = {
-        "train": output_dir / "train.jsonl",
-        "dev": output_dir / "dev.jsonl",
-        "curriculum_test": output_dir / "curriculum_test.jsonl",
-    }
-    for split_name, path in output_paths.items():
-        write_jsonl(path, splits[split_name])
-
-    heldout_prompt_count = 0
-    if args.heldout:
-        heldout_copy, heldout_prompts, heldout_prompt_count = copy_or_write_heldout(args.heldout, output_dir)
-        output_paths["heldout"] = heldout_copy
-        output_paths["heldout_prompts"] = heldout_prompts
-
+    # Stage everything first, so a failure leaves the previous split untouched.
+    # The manifest goes last: no manifest means an incomplete experiment, and
+    # create_developmental_dataset_variants.py refuses to read one.
+    names = {"train": "train.jsonl", "dev": "dev.jsonl", "curriculum_test": "curriculum_test.jsonl"}
     manifest_path = output_dir / "manifest.json"
+    staged = output_dir / f".staging-{os.getpid()}"
+    try:
+        for split_name, name in names.items():
+            write_jsonl(staged / name, splits[split_name])
+        heldout_prompt_count = 0
+        if args.heldout:
+            _, _, heldout_prompt_count = copy_or_write_heldout(args.heldout, staged)
+            names |= {"heldout": "heldout.json", "heldout_prompts": "heldout_prompts.jsonl"}
+        manifest_path.unlink(missing_ok=True)
+        # Files the new split doesn't list, and datasets built from the old split, are now wrong.
+        for stale in ("heldout.json", "heldout_prompts.jsonl"):
+            (output_dir / stale).unlink(missing_ok=True)
+        if (output_dir / "datasets").exists():
+            shutil.rmtree(output_dir / "datasets")
+            print(f"Removed {output_dir / 'datasets'}: built from the old split; rerun create_developmental_dataset_variants.py",
+                  file=sys.stderr)
+        for name in names.values():
+            os.replace(staged / name, output_dir / name)
+    finally:
+        shutil.rmtree(staged, ignore_errors=True)
+    output_paths = {key: output_dir / name for key, name in names.items()}
+
     ratios = {
         "train": args.train_ratio,
         "dev": args.dev_ratio,
@@ -282,7 +299,7 @@ def main() -> int:
         output_paths,
         heldout_prompt_count,
     )
-    write_json(manifest_path, manifest)
+    atomic_write_text(manifest_path, json.dumps(manifest, indent=2, sort_keys=True) + "\n")
     output_paths["manifest"] = manifest_path
 
     print(json.dumps(manifest, indent=2, sort_keys=True))

@@ -24,6 +24,7 @@ from collections import Counter, defaultdict
 from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Any
+from output_state import retire_output_dir  # noqa: E402
 
 
 SPLITS = ("train", "dev", "curriculum_test")
@@ -362,7 +363,7 @@ def ensure_output_dir(path: Path, overwrite: bool) -> None:
     if path.exists() and any(path.iterdir()) and not overwrite:
         raise FileExistsError(f"{path} already exists and is not empty; pass --overwrite")
     if path.exists() and overwrite:
-        shutil.rmtree(path)
+        retire_output_dir(path)
     path.mkdir(parents=True, exist_ok=True)
 
 
