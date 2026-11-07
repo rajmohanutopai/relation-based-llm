@@ -698,6 +698,77 @@ definitions alone.
 - Do not replace the transformer until data-side scaffolding is tested.
 - Prefer small measurable experiments over broad ontology expansion.
 
+## Long-Term Data Source Roadmap
+
+The project should not depend on paid LLM generation for large datasets. Use
+external structured sources as raw relation material, then map them into our
+own developmental relation grammar.
+
+Recommended order:
+
+1. ConceptNet + WordNet first.
+   - ConceptNet gives broad commonsense assertions but is noisy.
+   - WordNet should clean and strengthen `is_a`, `part_of`, synonym, and alias
+     relations.
+   - Use both as source material, not as the final ontology.
+   - Current 6mo implementation:
+     `scripts/create_age_6mo_conceptnet_relation_dataset.py`,
+     `scripts/create_age_6mo_wordnet_relation_dataset.py`, and
+     `scripts/create_age_6mo_external_relation_dataset.py`.
+   - Current combined output:
+     `data/developmental_graph/experiments/age_6mo_external_relations_v1/`.
+     This is a mapped source layer, not the full training curriculum.
+
+2. Visual Genome after the lexical layer is stable.
+   - Use it for object-property-spatial relations such as object on surface,
+     person holding object, object near object, color, size, and scene context.
+   - Current 6mo implementation:
+     `scripts/create_age_6mo_visual_genome_relation_dataset.py`.
+   - Current combined external output after adding Visual Genome:
+     `data/developmental_graph/experiments/age_6mo_external_relations_v3/`.
+     It has 582 deduplicated mapped edges covering 134 of the 500 seed
+     concepts. Visual Genome rows are rendered as `can be` / `can have`
+     evidence because they are image-instance observations, not permanent
+     definitions.
+
+3. Wordbank / MacArthur-Bates CDI for age staging.
+   - Use it to guide which words/concepts enter at which developmental stage.
+   - It is not primarily a relation dataset.
+   - Current implementation:
+     `scripts/create_wordbank_age_staging_audit.py`.
+   - Current output:
+     `data/developmental_graph/experiments/wordbank_age_staging_v1/`.
+     It matched 148 of the 520 candidate 6mo seed concepts and produced an
+     `early_unmatched_wordbank_items.csv` list for vocabulary/alias review.
+   - Current candidate seed:
+     `data/developmental_graph/seeds/age_6mo_root_world_wordbank_v1.json`.
+     This keeps the original 500 concepts unchanged, adds 20 early CDI
+     concepts, and adds aliases for early Wordbank forms.
+
+4. ATOMIC / ATOMIC 2020 for social, affective, intent, and consequence
+   relations.
+   - Use after the physical/body/social root layer is stable.
+
+5. GenericsKB, TupleKB, Quasimodo, and WebChild as additional generic-fact
+   sources.
+   - Useful for object-property-action facts.
+   - Require strict filtering and held-out audit because generic facts can be
+     noisy or culturally/contextually broad.
+
+6. FrameNet, VerbNet, and PropBank for action-role structure.
+   - Use for who-does-what-to-whom, action frames, causes, recipients, objects,
+     and event composition.
+
+Policy:
+
+- Prefer programmatic extraction and filtering over LLM-generated rows.
+- Use LLMs only for small quality-audit samples, ambiguous mapping decisions,
+  and answer judging where exact match is too strict.
+- Keep source triples, mapped relations, generated statements, and held-out
+  questions as separate artifacts.
+- Never train blindly on raw external triples; every source needs a mapper,
+  validator, and noise report.
+
 ## Near-Term Tasks
 
 1. Checkpoint the current physical-world artifacts. Done in commit `c82eeab`.

@@ -619,6 +619,68 @@ Do not mix raw observations with derived relation labels in the same artifact.
 Do not optimize happiness directly as a reward before safety and shortcut
 failure modes are modeled.
 
+## Long-Term External Data Sources
+
+Large-scale relation data should be built mostly through programmatic
+extraction, not by paying an LLM to generate every row.
+
+Use external sources in this order:
+
+1. ConceptNet + WordNet.
+   ConceptNet gives broad commonsense assertions but is noisy. WordNet should
+   be used to strengthen lexical hierarchy, part-whole structure, synonyms, and
+   alias normalization. These sources are raw material, not the final
+   representation.
+
+   Current 6mo status: implemented as reproducible mappers for ConceptNet,
+   WordNet, and a merged external relation layer. The current combined mapped
+   output is `age_6mo_external_relations_v1`: 193 deduplicated edges covering
+   114 of the 500 seed concepts. This should feed later scenario expansion,
+   not be treated as sufficient training data by itself.
+
+2. Visual Genome.
+   Use for physical scene relations: object on surface, person holding object,
+   object near object, object attributes, and visually grounded spatial facts.
+
+   Current 6mo status: downloaded the Visual Genome alias/synset files plus
+   `attributes.json.zip` and `relationships.json.zip`, then mapped high-count
+   compatible relations into `age_6mo_visual_genome_relations_v3`. The combined
+   external layer is now `age_6mo_external_relations_v3`: 582 deduplicated
+   mapped edges covering 134 of the 500 seed concepts. Visual Genome facts are
+   treated as visual evidence (`can be`, `can have`, `can be at`), not hard
+   definitions.
+
+3. Wordbank / MacArthur-Bates CDI.
+   Use for developmental word staging. It helps decide when concepts enter the
+   curriculum, but does not replace relation extraction.
+
+   Current status: implemented `wordbank_age_staging_v1` using American English
+   WG/WS raw CDI files. The candidate seed
+   `age_6mo_root_world_wordbank_v1` keeps the original 500 concepts unchanged,
+   adds 20 early CDI concepts, and improves the Wordbank match to 148 of 520
+   seed concepts. This is an age audit, not a relation curriculum.
+
+4. ATOMIC / ATOMIC 2020.
+   Use for social, affective, intent, and consequence relations after the
+   physical and early social layers are stable.
+
+5. GenericsKB, TupleKB, Quasimodo, and WebChild.
+   Use as additional generic-fact sources for object-property-action knowledge.
+   Treat them as noisy and require filtering plus held-out audits.
+
+6. FrameNet, VerbNet, and PropBank.
+   Use for action-role and event-frame structure: actor, object, recipient,
+   cause, effect, instrument, and event composition.
+
+Rules:
+
+- Keep raw external triples separate from mapped project relations.
+- Prefer deterministic mappers and validators.
+- Use LLMs only for small audits, ambiguous mapping decisions, and evaluator
+  judgments.
+- Do not train directly on raw external data without a source-specific noise
+  report.
+
 ## Success Definition
 
 The roadmap is working if each domain passes through this chain:
