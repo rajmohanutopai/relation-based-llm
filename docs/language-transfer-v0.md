@@ -116,7 +116,7 @@ held-out facts 0.990 on average.
 **What this can't say:** with this seed spread, five seeds can't detect a gain near 0.01. A small real effect isn't
 ruled out. The training text is templated, the model is small, and the signal was weak to begin with.
 
-## A possible next test (not run)
+## Next test (run 2026-11-08; see `docs/language-transfer-opaque-v0.md`)
 
 Replace names with opaque labels in all arms. That removes the word shortcut, and matches the world-model test,
 where facts did help. If facts then help, the words were hiding them. If not, the problem lies in carrying this

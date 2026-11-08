@@ -3,6 +3,21 @@
 This is the running chronological log for experiments. New entries go at the
 top so the latest result is always visible first.
 
+## 2026-11-08: Language Transfer Opaque V0
+
+Experiment ID:
+
+```text
+language_transfer_opaque_v0
+```
+
+Repeats the hard arms of `language_transfer_v0` with each object name replaced by one opaque token, so only
+the facts can say anything about a new object. Plain text fell from 0.600 to 0.518, which confirms the name
+words carried most of the v0 score. Real facts learned apart beat the same facts on the wrong objects in 4 of
+5 seeds (0.539 against 0.508, mean gain 0.031): the main rule passed. Facts beat plain text in only 3 of 5
+seeds, so that rule failed, against my prediction. The model can join facts and outcomes learned apart, but
+the gain is small, and smaller than the world model's (0.569). Report: `docs/language-transfer-opaque-v0.md`.
+
 ## 2026-11-07: Language Transfer V0
 
 Experiment ID:

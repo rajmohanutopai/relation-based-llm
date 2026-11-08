@@ -36,7 +36,13 @@ FACT_SHARE = 0.25
 D, LAYERS, HEADS, BATCH, LR = 128, 4, 4, 64, 1e-3
 
 
+# Filled by --opaque: each name becomes one token (docs/language-transfer-opaque-v0.md).
+OPAQUE: dict[str, str] = {}
+
+
 def spoken(name: str) -> str:
+    if OPAQUE:
+        return OPAQUE[name]
     return " ".join(w.lower() for w in re.findall(r"[A-Za-z0-9]+", name))
 
 
@@ -194,10 +200,14 @@ def main():
     p.add_argument("--seeds", default="1,2,3,4,5")
     p.add_argument("--out", type=Path, default=OUT)
     p.add_argument("--overwrite", action="store_true")
+    p.add_argument("--opaque", action="store_true", help="one opaque token per object name")
+    p.add_argument("--arms", default=",".join(ARMS))
     cli = p.parse_args()
     torch.set_num_threads(1)
     data = load()
     samples, truth, train, held, real, fake = data
+    if cli.opaque:
+        OPAQUE.update({n: f"obj{i}" for i, n in enumerate(sorted(train + held))})
     vocab = build_vocab(truth, train + held, real, fake)
     ctx = context_length(data, vocab)
     if cli.gate:
@@ -212,7 +222,7 @@ def main():
     claim_results(path, cli.overwrite)
     results = []
     for seed in [int(s) for s in cli.seeds.split(",")]:
-        for arm in ARMS:
+        for arm in cli.arms.split(","):
             r = run(arm, seed, cli.steps, data, vocab, ctx, True)
             results.append(r)
             print({k: (round(v, 3) if isinstance(v, float) else v) for k, v in r.items()}, flush=True)
