@@ -122,6 +122,13 @@ might change. I haven't tested that.
 | Answers from a blind Claude agent (94%, 96% agreeing) | **0.779** | **~1,160** |
 | A complete, true table | **0.830** | **~760** |
 
+**In a world Claude didn't write** (MuJoCo physics, 150 scanned objects; `docs/independent-world-v0.md`),
+blind answers scored 0.569 on new objects against 0.504 for names, 0.498 for the same answers on the
+wrong objects, and 0.815 for measured geometry. So the content helps, but modestly.
+
+**In a small language model** (`docs/language-transfer-v0.md`), the same facts showed no clear gain: 0.616 on
+new objects against 0.605 for wrong facts and 0.600 for plain text. Words in the names may already carry much of it.
+
 A filled graph helps a lot, and a thin one doesn't help at all. These fields are also
 the simulator's own rule inputs, so part of the win is circular. The Claude answers
 aren't fully independent either: Claude helped build this world, and I worded the
@@ -134,8 +141,8 @@ questions knowing what the simulator means.
 - Five seeds per setting show direction and little about size.
 - Several things that look like confirmation are built into the rules. The reports
   mark them.
-- None of this has reached language yet. The project's main aim is a small language
-  model with relation structure, and this line is a side branch.
+- Only one templated language test has been run, and it showed no clear gain. The project's main aim
+  is a small language model with relation structure, and this line is a side branch.
 
 ## Open next steps
 

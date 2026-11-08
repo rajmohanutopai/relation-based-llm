@@ -3,6 +3,68 @@
 This is the running chronological log for experiments. New entries go at the
 top so the latest result is always visible first.
 
+## 2026-11-07: Language Transfer V0
+
+Experiment ID:
+
+```text
+language_transfer_v0
+```
+
+Purpose:
+
+```text
+Test whether a small language model uses object facts on objects it has no outcomes for, in the physics
+world. Five arms, same model and steps, with wrong-object facts as the control. 25 runs.
+```
+
+Result:
+
+```text
+No evidence the facts help. Main rule fails: facts_separate beats its shuffled control in 3/5 (0.616 vs 0.605).
+Facts in the prompt fail too (3/5, 0.590 vs 0.580), which I predicted would pass. L3 passes against plain text
+(4/5, 0.616 vs 0.600), but it has no control, and wrong facts also beat plain in 3/5. Facts were remembered (99%).
+Plain text alone scored 0.600 against 0.504 for opaque names, so words in names likely carry much of this.
+```
+
+Decision:
+
+```text
+The toy-world gain did not carry to language in this test. A small effect isn't ruled out. Next candidate: opaque
+names, to remove the word shortcut. Report: docs/language-transfer-v0.md
+```
+
+## 2026-11-07: Independent World V0 (MuJoCo, scanned objects)
+
+Experiment ID:
+
+```text
+independent_world_v0
+```
+
+Purpose:
+
+```text
+Test blind property answers in a world Claude didn't write: real physics with 150 randomly sampled
+scanned objects. A fresh agent chose the properties and another answered them, frozen before physics.
+Control: the same answers given to the wrong objects.
+```
+
+Result:
+
+```text
+All rules pass, 5/5 seeds. New objects: names 0.504, shuffled 0.498, answers 0.569, measured geometry
+0.815. Real but small, and it may mostly be size. Drop action removed: its bits never varied. I wrongly
+predicted no gain on training speed.
+```
+
+Decision:
+
+```text
+The content of a graph helps beyond the world it was built for, modestly. Worth carrying to language.
+Report: docs/independent-world-v0.md
+```
+
 ## 2026-11-07: State Machine Audit
 
 Experiment ID:
