@@ -280,3 +280,7 @@ answers. In the April runs that made no difference, because the facts were alrea
 aren't: the model knows the facts about a new object and fails to bring them to the question. Having it state the
 object's facts first, then answer, is the usual remedy, and Block B shows that facts in the prompt do get used.
 That is now the sharpest test of relation scaffolding in this repo. It hasn't been run.
+
+**Later the same day:** both follow-ups ran. Names longer than a token or two are what blocks the carry-over
+(`docs/language-transfer-names-v0.md`). And stating the facts first works: 0.716 against 0.544 with real names
+(`docs/language-scaffold-v0.md`).

@@ -3,6 +3,76 @@
 This is the running chronological log for experiments. New entries go at the
 top so the latest result is always visible first.
 
+## 2026-11-10: Language Scaffold V0 (state the facts, then answer)
+
+Experiment ID:
+
+```text
+language_scaffold_v0
+```
+
+Purpose:
+
+```text
+Test relation scaffolding where it has a job to do. With real names the model stores a new object's
+facts and doesn't use them when asked directly. Here it answers the 12 measured fact questions itself,
+one by one, then the outcome question. Arms: direct, scaffold, scaffold with wrong-object facts; the
+scaffold model is also scored with the true facts supplied. Every object held out once. 45 trainings.
+```
+
+Result:
+
+```text
+Both rules pass in 5 of 5 folds and both seeds. Real names: direct 0.544, scaffold 0.716 (+0.172, interval
++0.127 to +0.214), wrong-fact scaffold 0.559; 0.83 by rank. The model states 99.9% of a new object's facts
+correctly, so supplying the true list adds nothing. One-token names (1 seed): direct 0.550, scaffold 0.772.
+I wrongly forecast that scaffold would add nothing there, and that direct would score 0.68; learning the
+facts as one list per object carried over less than one question per row had (0.688).
+```
+
+Decision:
+
+```text
+First clear result for the project's first idea. It holds in the case scaffolding is meant for: relations
+stored but not brought to the question. Not yet shown: that the model can choose which relations to state,
+or that weaker facts (Claude's answers, the hand-written rows) get used this way. Report:
+docs/language-scaffold-v0.md
+```
+
+## 2026-11-10: Language Transfer Names V0 (why real names block the facts)
+
+Experiment ID:
+
+```text
+language_transfer_names_v0
+```
+
+Purpose:
+
+```text
+Find the step between one made-up token per object (facts carry over: 0.688 against 0.478) and real names
+(they don't: 0.518 against 0.505). A ladder of made-up name forms, each adding one property of real names.
+Measured facts, every object held out once, 60 runs.
+```
+
+Result:
+
+```text
+Two tokens of its own: holds, 0.630 against 0.497 (63% of the one-token gap). 1 to 17 tokens, all its own:
+gone, 0.481 against 0.476. Real form with shared tokens dealt at random: gone, 0.484 against 0.482. So the
+carry-over is lost when names get long; shared words aren't needed to explain it. 143 of 150 real names
+already hold a word of their own. Inside the failing rungs, names of 1-2 tokens keep a gain (weak evidence).
+I forecast a slide, about 0.60 at the third rung, and was wrong. Facts are recalled at 97% throughout.
+```
+
+Decision:
+
+```text
+Asked directly, a model this small uses stored facts only for things with a handle of one or two tokens.
+Untested guess: with a long name it files facts under one token and looks outcomes up under another.
+Report: docs/language-transfer-names-v0.md
+```
+
 ## 2026-11-10: Language Transfer CV V0 (every object held out once)
 
 Experiment ID:

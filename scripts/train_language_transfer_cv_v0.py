@@ -59,13 +59,17 @@ def measured_facts(world):
     return out
 
 
-def setup(opaque):
+# name style -> each object's name as text. True: one opaque token. False: the real name (no mapping).
+# Other experiments add styles here (scripts/train_language_transfer_names_v0.py).
+NAME_STYLES = {True: lambda names: {n: f"obj{i}" for i, n in enumerate(names)}, False: lambda names: {}}
+
+
+def setup(style):
     """Everything a job needs that doesn't depend on the fold. Sets the name style and the measured phrases."""
     world, samples, truth = W.load_world()
     names = sorted(o["name"] for o in world)
-    L.OPAQUE.clear()
-    if opaque:
-        L.OPAQUE.update({n: f"obj{i}" for i, n in enumerate(names)})
+    L.OPAQUE.clear()  # so a style can read the real names through L.spoken
+    L.OPAQUE.update(NAME_STYLES[style](names))
     L.PHRASE.update({f"{q}_{cut}": f"over {cut} {tail}" for q, tail, cuts in MEASURES for cut in cuts})
     wrong = names[:]
     random.Random(W.SHUFFLE_SEED).shuffle(wrong)
@@ -171,7 +175,21 @@ def fold_auc(gaps, y, folds, index):
     return float(np.mean(scores))
 
 
-def score(out):
+PAIRS = [("C1 answers beat wrong-object answers (main)", "A_answers/facts_separate", "A_answers/facts_separate_shuffled"),
+         ("C2 measured beat wrong-object measured", "A_measured/facts_separate", "A_measured/facts_separate_shuffled"),
+         ("C3 answers beat plain text", "A_answers/facts_separate", "A_answers/plain_text"),
+         ("C4 measured beat plain text", "A_measured/facts_separate", "A_answers/plain_text"),
+         ("B  prompt facts beat wrong-object prompt facts", "B_prompt/facts_in_prompt", "B_prompt/facts_in_prompt_shuffled"),
+         ("C  real names: answers beat wrong-object answers", "C_names/facts_separate", "C_names/facts_separate_shuffled"),
+         ("C  real names: answers beat plain text", "C_names/facts_separate", "C_names/plain_text"),
+         ("D1 real names: measured beat wrong-object measured", "D_names_measured/facts_separate", "D_names_measured/facts_separate_shuffled"),
+         ("D2 real names: measured beat plain text", "D_names_measured/facts_separate", "C_names/plain_text")]
+
+
+def score(out, blocks=None, pairs=None):
+    """Tables and verdicts for the given blocks and (label, first arm, second arm) pairs. Returns the summary."""
+    blocks = BLOCKS if blocks is None else blocks
+    pairs = PAIRS if pairs is None else pairs
     _, truth, names, _, _, _ = setup(True)
     index = {n: i for i, n in enumerate(names)}
     folds = fold_sets(names)
@@ -182,7 +200,7 @@ def score(out):
     draws = rng.multinomial(len(names), np.full(len(names), 1 / len(names)), size=5000).astype(float)
     ones = np.ones((1, len(names)))
     summary, arms = {}, {}
-    for block, (_, _, block_arms, seeds) in BLOCKS.items():
+    for block, (_, _, block_arms, seeds) in blocks.items():
         for arm in block_arms:
             loaded = [load_arm(out, block, arm, seed, truth, index) for seed in seeds]
             if any(x is None for x in loaded):
@@ -206,15 +224,6 @@ def score(out):
         recall = f"{s['recall_held']:.3f}" if s["recall_held"] is not None else "   -  "
         print(f"{key:38} {s['params']:>8} {s['train']:.3f} {recall:>6} {s['pooled_balanced']:>11.3f} {s['auc']:.3f}  "
               + " ".join(f"{v:.3f}" for v in s["by_fold"]))
-    pairs = [("C1 answers beat wrong-object answers (main)", "A_answers/facts_separate", "A_answers/facts_separate_shuffled"),
-             ("C2 measured beat wrong-object measured", "A_measured/facts_separate", "A_measured/facts_separate_shuffled"),
-             ("C3 answers beat plain text", "A_answers/facts_separate", "A_answers/plain_text"),
-             ("C4 measured beat plain text", "A_measured/facts_separate", "A_answers/plain_text"),
-             ("B  prompt facts beat wrong-object prompt facts", "B_prompt/facts_in_prompt", "B_prompt/facts_in_prompt_shuffled"),
-             ("C  real names: answers beat wrong-object answers", "C_names/facts_separate", "C_names/facts_separate_shuffled"),
-             ("C  real names: answers beat plain text", "C_names/facts_separate", "C_names/plain_text"),
-             ("D1 real names: measured beat wrong-object measured", "D_names_measured/facts_separate", "D_names_measured/facts_separate_shuffled"),
-             ("D2 real names: measured beat plain text", "D_names_measured/facts_separate", "C_names/plain_text")]
     print()
     verdicts = {}
     for label, first, second in pairs:
@@ -230,6 +239,7 @@ def score(out):
         print(f"{label}: gap {point:+.3f} [{low:+.3f}, {high:+.3f}] {'PASS' if low > 0 else 'fail'}; "
               f"folds won {wins} of {FOLDS}; AUC gap {verdicts[label]['auc_gap']:+.3f}")
     atomic_write_text(out / "summary.json", json.dumps({"arms": summary, "rules": verdicts}, indent=1))
+    return {"arms": summary, "rules": verdicts}
 
 
 def reference_job(job):

@@ -174,9 +174,27 @@ arrive only as text, and the model reads facts about a new object without ever s
 
 With one token per object, all four rules pass with intervals clear of zero, and better facts give a bigger gain.
 The model keeps about half of what the same facts give a world model as direct inputs. With real names nothing
-carries over, though the model recalls 98% of the facts. Why is open. The two earlier language reports
+carries over, though the model recalls 98% of the facts. The two earlier language reports
 (`docs/language-transfer-v0.md`, `docs/language-transfer-opaque-v0.md`) used the unlucky test set and carry
 correction notes.
+
+**Why real names fail** (`docs/language-transfer-names-v0.md`): the carry-over is lost when names get long. With
+two made-up tokens per object it holds (0.630 against 0.497). With as many tokens as the real name, all the
+object's own, it is gone (0.481 against 0.476). Shared words aren't needed to explain it.
+
+**Stating the facts first** (`docs/language-scaffold-v0.md`): the model answers the 12 fact questions about a new
+object itself, then the outcome question. This is the project's relation scaffold, in a case where it has work to
+do.
+
+| Real names, measured facts | Score on new objects |
+|---|---:|
+| Asked directly | 0.544 |
+| States the facts, then answers | **0.716** (0.83 by rank) |
+| The same, taught wrong-object facts | 0.559 |
+
+Both rules pass in every fold and both seeds. The model states 99.9% of a new object's facts correctly. With
+one token per object the same procedure gives 0.772 against 0.550 asked directly. The fact questions were
+supplied in a fixed order; whether a model can choose which relations to state is untested.
 
 ## Limits on all of this
 
@@ -206,14 +224,14 @@ correction notes.
    (`docs/independent-world-v0.md`).
 5. **A phrase-to-concept step** for the 9,253 rows, 82% of whose phrases appear
    only once (`docs/age-6mo-relation-audit-v0.md`).
-6. **Why facts don't carry over with real names.** Made-up two-token names would show
-   whether several-word names are the cause; many more objects with fewer looks at each
-   would show whether memorising is.
-7. **Relation scaffolding with a job to do:** have the model state a new object's facts
-   before it answers. It stores those facts and fails to use them, which is the case
-   scaffolding is meant for.
+6. Done (`docs/language-transfer-names-v0.md`): names longer than a token or two are
+   the cause. Open: whether length or position does the harm.
+7. Done (`docs/language-scaffold-v0.md`): stating the facts first works, 0.716 against
+   0.544 with real names. Open: the same test with weaker facts (Claude's answers, the
+   hand-written rows), and with the model choosing which relations to state.
 8. **The main aim on public ground:** a small model on ordinary text, with and without
-   a fact supplement of equal length, scored on tests the project didn't write.
+   a fact supplement of equal length, scored on tests the project didn't write. The
+   scaffold result says how the supplement should be used: stated before the answer.
 
 ## Reports
 
@@ -227,4 +245,6 @@ correction notes.
 - `docs/independent-world-v0.md`: the physics world, with the test-set check
 - `docs/language-transfer-v0.md`, `docs/language-transfer-opaque-v0.md`: first language tests, on one test set
 - `docs/language-transfer-cv-v0.md`: the language test with every object held out once
+- `docs/language-transfer-names-v0.md`: why real names block the facts
+- `docs/language-scaffold-v0.md`: stating the facts before answering
 - `docs/age-6mo-relation-audit-v0.md`: audit of the 9,253 rows
