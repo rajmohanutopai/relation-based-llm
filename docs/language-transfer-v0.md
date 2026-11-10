@@ -4,6 +4,14 @@ Date: 2026-11-07
 
 Status: run complete (2026-11-07); no evidence that the facts help; main rule failed
 
+**Note, 2026-11-10:** this test used one set of 30 test objects, which was an unlucky choice
+(`docs/language-transfer-cv-v0.md`). Rerun with every object held out once, the result for real names still
+stands: real facts beat wrong-object facts by 0.005 (−0.022 to +0.033), which isn't clear, and measured facts
+didn't help either. Two readings below need changing. Plain text scores 0.536 over all objects, where this test
+set gave 0.600, so the words in names carry less than reading 4 says. And the cause isn't that names already say
+what the facts say: with one opaque token per object the same facts help clearly (0.564 against 0.491), and
+measured facts more (0.688).
+
 Experiment ID: `language_transfer_v0`
 
 ## Why
