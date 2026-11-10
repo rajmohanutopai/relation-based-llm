@@ -4,6 +4,12 @@ Date: 2026-11-07
 
 Status: run complete (2026-11-07); all three rules passed; the gain is real and small
 
+**Correction, 2026-11-10:** the 30 test objects used here were an unlucky choice. With the same code and 60 other
+random choices of 30, answers scored 0.674 on new objects against 0.516 for answers on the wrong objects, and won
+in 60 of 60. The numbers below (0.569 against 0.498) are right for this one test set, and understate the gain by
+more than half. "Small" in the status line and the reading no longer holds. See the check at the end, and
+`docs/language-transfer-cv-v0.md`.
+
 Experiment ID: `independent_world_v0`
 
 ## Why
@@ -151,3 +157,28 @@ New objects by seed: answers 0.612, 0.577, 0.558, 0.529, 0.570; names 0.500, 0.5
   worse.
 - Five seeds and one 30-object held-out set. Another split could shift the size of the gain.
 - This is not language.
+
+## Check of the test set (2026-11-10, `scripts/check_independent_world_splits.py`)
+
+The last limit above turned out to matter. The same world model and scoring, with only the 30 held-out objects
+changed:
+
+| World model | these 30 objects (5 seeds) | 60 other random choices (seed 1), mean and 5th–95th percentile |
+|---|---:|---:|
+| names | 0.504 | 0.516 (0.504–0.531) |
+| answers | 0.569 | 0.674 (0.595–0.748) |
+| answers_shuffled | 0.498 | 0.516 (0.459–0.567) |
+| geometry | 0.815 | 0.829 (0.762–0.882) |
+
+- Answers beat shuffled answers in 60 of 60 other choices, by 0.159 on average, against 0.071 here.
+- 1 of the 60 scored as low for answers as this test set did.
+- A class-balanced logistic fit on the answers gives 0.719 across the other choices and 0.593 here, so the low
+  score belongs to these 30 objects and not to the world model.
+- One fact does most of the work. In the same logistic fit across the 60 other choices, "large" alone scores 0.70
+  and all eight facts together score 0.72; a fact that carries nothing scores about 0.57 there. On these 30
+  objects "large" alone scores 0.57, which is why this test set was hard. So the earlier reading stands on what
+  the gain is made of: mostly size.
+
+**Revised reading:** blind answers take a world model from guessing to about 0.67 on objects it has never met,
+where measured geometry reaches about 0.83. The gain is about twice what this report first said. It is still
+mostly a judgement of size, in a world where size decides most outcomes.

@@ -1,9 +1,9 @@
 # The Pretend Baby Experiments: Summary
 
-Date: 2026-11-07
+Date: 2026-11-07, updated 2026-11-10
 
-Covers acting agents v0 to v4.1 and the object-property test. The numbers and
-methods are in each experiment's own report, listed at the end.
+Covers acting agents v0 to v4.3, the object-property tests and the language tests.
+The numbers and methods are in each experiment's own report, listed at the end.
 
 ## The question
 
@@ -84,6 +84,23 @@ part: payment that runs out is. Paying only the first forming removed 57–86% o
 fading's harm, so re-forming was most of the cause. The S-curve baby did not keep its
 speed lead, though it did end higher than the older rule.
 
+**8. A room that is half noise (v4.3).** Until now gadgets were 4 of the 24 things in a
+room. With 4 gadgets and 4 ordinary things, the order turned over. On new seeds, the
+happiness baby beat surprise and random on speed, final score and new objects, in 5 of 5
+seeds and in both conditions.
+
+| | Happiness `--S` | Surprise | Random |
+|---|---:|---:|---:|
+| A: speed (area) | 0.743 | 0.690 | 0.686 |
+| A: final score | 0.815 | 0.753 | 0.774 |
+| A: time on gadgets | 29% | 77% | 52% |
+| B: speed (area) | 0.726 | 0.691 | 0.683 |
+| B: final score | 0.798 | 0.755 | 0.740 |
+| B: time on gadgets | 40% | 70% | 54% |
+
+Surprise spent most of its turns on gadgets and learned no faster than random. I chose
+this noise level to suit the theory, and said so before the run.
+
 ## Where the theory stands
 
 | Claim | Status | How sure |
@@ -93,11 +110,11 @@ speed lead, though it did end higher than the older rule.
 | A learner can chase connection-strengthening without being trapped by noise | **Supported here** | Confirmed on new seeds |
 | The second or third confirmation matters most | **Not needed here** | A flat payment that runs out as fast did as well; this says nothing about what people feel |
 | Links fade unless confirmed | **Doesn't help here** | Most of its harm came from paying again for re-forming; without that it still gave no gain |
-| Chasing happiness makes the best learner | **Not shown** | Surprise still leads |
+| Chasing happiness makes the best learner | **Yes when noise is common, no when it's rare** | Beat surprise and random in 5 of 5 new seeds with half the room noise (v4.3); trailed surprise with 17% noise (v4.2). Where the order turns over isn't mapped |
 | Grief scales with connections lost | **Not shown** | The test may need a better design |
 | Happiness only from attached connections | **Open** | No fair test yet |
 
-**The best happiness baby against surprise (`--S`, picked after seeing the data):**
+**The best happiness baby against surprise in the 17%-noise world (`--S`, picked after seeing the data, seeds 1–5):**
 
 | | Happiness `--S` | Surprise | Random |
 |---|---:|---:|---:|
@@ -108,9 +125,10 @@ speed lead, though it did end higher than the older rule.
 | B: final score | 0.811 | 0.854 | 0.819 |
 
 So happiness nearly keeps up on speed while staying away from noise, but it ends
-lower. Surprise may win here partly because this world punishes noise so little:
-time on gadgets costs only lost turns. In a world where noise did harm, the order
-might change. I haven't tested that.
+lower. On new seeds 6–10 surprise led by more (area 0.775 against 0.750 in A). Surprise
+wins here partly because this world punishes noise so little: time on gadgets costs
+only lost turns, and there are few gadgets. With half the room noise the order changes
+(step 8).
 
 ## The relation graph
 
@@ -122,39 +140,80 @@ might change. I haven't tested that.
 | Answers from a blind Claude agent (94%, 96% agreeing) | **0.779** | **~1,160** |
 | A complete, true table | **0.830** | **~760** |
 
-**In a world Claude didn't write** (MuJoCo physics, 150 scanned objects; `docs/independent-world-v0.md`),
-blind answers scored 0.569 on new objects against 0.504 for names, 0.498 for the same answers on the
-wrong objects, and 0.815 for measured geometry. So the content helps, but modestly.
+The table above is the toy world, scored on 11 new objects. A filled graph helps a lot
+there, and a thin one doesn't help at all. These fields are also the simulator's own
+rule inputs, so part of the win is circular. The Claude answers aren't fully independent
+either: Claude helped build this world, and I worded the questions knowing what the
+simulator means.
 
-**In a small language model** (`docs/language-transfer-v0.md`), the same facts showed no clear gain: 0.616 on
-new objects against 0.605 for wrong facts and 0.600 for plain text. Words in the names may already carry much of it.
-With opaque names (`docs/language-transfer-opaque-v0.md`), plain text fell to 0.518 and real facts beat wrong facts
-in 4 of 5 seeds (0.539 against 0.508). So a small model can join facts learned apart, but the gain is small.
+**In a world Claude didn't write** (MuJoCo physics, 150 scanned objects; `docs/independent-world-v0.md`), the
+first report gave 0.569 for blind answers on new objects against 0.498 for the same answers on the wrong objects.
+That rested on one set of 30 test objects, which a check on 2026-11-10 found to be an unlucky choice. Over 60 other
+choices:
 
-A filled graph helps a lot, and a thin one doesn't help at all. These fields are also
-the simulator's own rule inputs, so part of the win is circular. The Claude answers
-aren't fully independent either: Claude helped build this world, and I worded the
-questions knowing what the simulator means.
+| What the world model was given | Score on new objects |
+|---|---:|
+| Names only | 0.516 |
+| Blind answers on the wrong objects | 0.516 |
+| Blind answers | **0.674** (won 60 of 60) |
+| Measured size and mass | **0.829** |
+
+Most of the answers' gain comes from one fact, whether the object is large. In this world size decides most
+outcomes.
+
+**In a small language model** (`docs/language-transfer-cv-v0.md`, every object held out once), facts and outcomes
+arrive only as text, and the model reads facts about a new object without ever seeing what it does:
+
+| Fact rows in training | One opaque token per object | Real names of several words |
+|---|---:|---:|
+| None | 0.506 | 0.536 |
+| Claude's answers | **0.564** | 0.545 |
+| Claude's answers on the wrong objects | 0.491 | 0.540 |
+| Measured facts | **0.688** | 0.518 |
+| Measured facts on the wrong objects | 0.478 | 0.505 |
+
+With one token per object, all four rules pass with intervals clear of zero, and better facts give a bigger gain.
+The model keeps about half of what the same facts give a world model as direct inputs. With real names nothing
+carries over, though the model recalls 98% of the facts. Why is open. The two earlier language reports
+(`docs/language-transfer-v0.md`, `docs/language-transfer-opaque-v0.md`) used the unlucky test set and carry
+correction notes.
 
 ## Limits on all of this
 
 - I designed this toy world, so nothing here proves or disproves anything about
   people. It shows only whether the theory works once written as exact rules.
-- Five seeds per setting show direction and little about size.
+- Five seeds per setting show direction and little about size. A "4 of 5 seeds" rule
+  passes by luck about one time in five, and misses a moderate real effect about half
+  the time, so single passes and fails under it carry little weight.
+- New-object scores from one small test set can be off by 0.1 (30 objects in the physics
+  world, 11 in the toy world). From 2026-11-10 the physics-world tests hold every object
+  out once and give an interval.
 - Several things that look like confirmation are built into the rules. The reports
   mark them.
-- Only two templated language tests have been run, with a small gain only once names were made opaque. The project's main aim
-  is a small language model with relation structure, and this line is a side branch.
+- The language tests use templated text in a narrow world. The project's main aim is a
+  small language model with relation structure on ordinary text, and that has not been
+  tested against any outside benchmark.
 
 ## Open next steps
 
 1. Done (v4.2).
-2. **A world where noise does harm,** to see whether surprise's lead survives.
+2. Done (v4.3): with half the room noise, surprise's lead doesn't survive. Open: where
+   between 17% and 50% the order turns over, and whether novelty or learning progress
+   do better there.
 3. **A fairer attach test,** with a frontier that stays narrow.
-4. **The 385-question worksheet,** still blank for Rajmohan's own answers, and a test
-   on properties chosen independently of the world.
+4. The 385-question worksheet: Rajmohan declined it on 2026-11-08, expecting his answers
+   to match Claude's. The test on independently chosen properties is done
+   (`docs/independent-world-v0.md`).
 5. **A phrase-to-concept step** for the 9,253 rows, 82% of whose phrases appear
    only once (`docs/age-6mo-relation-audit-v0.md`).
+6. **Why facts don't carry over with real names.** Made-up two-token names would show
+   whether several-word names are the cause; many more objects with fewer looks at each
+   would show whether memorising is.
+7. **Relation scaffolding with a job to do:** have the model state a new object's facts
+   before it answers. It stores those facts and fails to use them, which is the case
+   scaffolding is meant for.
+8. **The main aim on public ground:** a small model on ordinary text, with and without
+   a fact supplement of equal length, scored on tests the project didn't write.
 
 ## Reports
 
@@ -163,5 +222,9 @@ questions knowing what the simulator means.
 - `docs/acting-agent-v4-design.md`: attach and spike
 - `docs/acting-agent-v4-1-design.md`: which part of the spike worked
 - `docs/acting-agent-v4-2-design.md`: new seeds, the peak and re-forming
+- `docs/acting-agent-v4-3-design.md`: a room that is half noise
 - `docs/object-properties-v0.md`: facts from external sources, and the worksheet
+- `docs/independent-world-v0.md`: the physics world, with the test-set check
+- `docs/language-transfer-v0.md`, `docs/language-transfer-opaque-v0.md`: first language tests, on one test set
+- `docs/language-transfer-cv-v0.md`: the language test with every object held out once
 - `docs/age-6mo-relation-audit-v0.md`: audit of the 9,253 rows

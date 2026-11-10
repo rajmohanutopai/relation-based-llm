@@ -146,7 +146,8 @@ def recall(model, rows, vocab):
     return good / len(rows)
 
 
-def run(arm, seed, steps, data, vocab, ctx, score_new):
+def run(arm, seed, steps, data, vocab, ctx, score_new, extra=None):
+    """extra(model, inline_for) may add fields to the result; it runs after training and changes nothing before."""
     samples, truth, train, held, real, fake = data
     rng = random.Random(seed)
     torch.manual_seed(seed)
@@ -184,6 +185,8 @@ def run(arm, seed, steps, data, vocab, ctx, score_new):
         out["recall_train"] = recall(model, fact_rows(train, answers), vocab)
     if score_new:
         out["new_acc"] = balanced(model, held, truth, vocab, inline_for)
+    if extra is not None:
+        out.update(extra(model, inline_for))
     return out
 
 

@@ -3,6 +3,83 @@
 This is the running chronological log for experiments. New entries go at the
 top so the latest result is always visible first.
 
+## 2026-11-10: Language Transfer CV V0 (every object held out once)
+
+Experiment ID:
+
+```text
+language_transfer_cv_v0
+```
+
+Purpose:
+
+```text
+A review found that independent_world_v0 and both language tests scored new objects on one set of 30,
+and that this set was an unlucky choice. Check that with the world model's own code, then rerun the
+language test with all 150 objects held out in turn (5 folds; fold 0 is the old set), add the measured-facts
+test approved on 2026-11-08, and score by balanced accuracy and by rank (AUC). 110 runs.
+```
+
+Result:
+
+```text
+The check (scripts/check_independent_world_splits.py): over 60 other choices of 30 objects, answers score
+0.674 against 0.516 for wrong-object answers and win 60 of 60; the old set gave 0.569 against 0.498, and
+1 of 60 scored that low. "large" alone carries most of it.
+
+Opaque names, 2 seeds, all four rules pass with 95% intervals above zero: plain 0.506; Claude's answers
+0.564 against 0.491 on the wrong objects (+0.072); measured facts 0.688 against 0.478 (+0.210; 0.80 by
+rank). The model keeps about half of what the facts give a world model as direct inputs. Facts learned
+apart do as well as facts in the prompt (0.564, 0.563).
+
+Real names, 2 seeds (addendum): nothing carries over. Answers +0.005 over wrong-object answers, measured
+facts +0.013, both unclear; plain 0.536. Held-out facts are recalled at 98%. I forecast 0.64 for measured
+facts with real names and was wrong.
+```
+
+Decision:
+
+```text
+Facts learned apart help a small language model with new objects when each object is one token, and
+better facts help more. With names of several words they don't, though the model stores them. The cause is
+open. Next candidates: made-up two-token names to find the cause, and stating an object's facts before
+answering, which is the project's relation scaffold with a job to do. Earlier reports carry correction
+notes. Report: docs/language-transfer-cv-v0.md
+```
+
+## 2026-11-10: Acting Agent V4.3 (a room that is half noise)
+
+Experiment ID:
+
+```text
+acting_agent_v4_3
+```
+
+Purpose:
+
+```text
+The fair trial the summary asked for: a world where noise is common. Rooms hold 4 ordinary things and 4
+gadgets, where they held 20 and 4. Random, surprise and happiness (--S, named before the run), new seeds
+11-15, conditions A and B. 30 runs. The script reproduces a stored v4.2 run exactly at 20 things per room.
+```
+
+Result:
+
+```text
+All three rules pass, 5 of 5 seeds, in A and B. Curve area: happiness 0.743 / 0.726 (A / B), surprise
+0.690 / 0.691, random 0.686 / 0.683. Final score: happiness 0.815 / 0.798, surprise 0.753 / 0.755, random
+0.774 / 0.740. Time on gadgets: surprise 77% / 70%, random 52% / 54%, happiness 29% / 40%. I wrongly
+predicted happiness would only match random in B.
+```
+
+Decision:
+
+```text
+First run where chasing happiness made the best learner. With v4.2 the claim is conditional: happiness
+beats surprise when noise is common (half the room) and trails it when noise is rare (17%). The turning
+point isn't mapped. Report: docs/acting-agent-v4-3-design.md
+```
+
 ## 2026-11-08: Language Transfer Opaque V0
 
 Experiment ID:

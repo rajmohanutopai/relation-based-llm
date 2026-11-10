@@ -4,6 +4,12 @@ Date: 2026-11-08
 
 Status: run complete (2026-11-08); main rule passed; the gain is small
 
+**Correction, 2026-11-10:** the 30 test objects used here were an unlucky choice
+(`docs/language-transfer-cv-v0.md`). With every object held out once, real facts scored 0.564 on new objects,
+against 0.491 for the same facts on the wrong objects and 0.506 for plain text. Both gaps are clear. The gain
+below (0.031) is right for this one test set and is less than half the typical one (0.072). The rule that failed
+here, facts against plain text, passes there.
+
 Experiment ID: `language_transfer_opaque_v0`
 
 ## Why
